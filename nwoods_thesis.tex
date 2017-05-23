@@ -1,0 +1,152 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Preamble
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% The uwthesis.sty file relies on the memoir class!
+%%%% You should be using the memoir class anyway; it makes life easier:
+%%%% http://www.ctan.org/tex-archive/macros/latex/contrib/memoir/
+
+
+%\RequirePackage{lineno}
+\documentclass[oneside, letterpaper, 12pt, oldfontcommands]{memoir}
+
+%%%% Import uwthesis.sty to get official formatting, then set your variables.
+\usepackage{uwthesis}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{subcaption}
+%\usepackage{subfig}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{adjustbox}
+\usepackage{xr}
+\usepackage{ifthen}
+\usepackage{multirow}
+%\usepackage{feynmp-auto}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+%\usepackage[sorting=none]{biblatex}
+\usepackage{pdflscape}
+
+% physics definitions
+\newcommand{\cmsSymbolFace}{\mathrm}
+\input{includes/defs}
+
+
+
+\unitlength = \textwidth
+
+% Title
+\settitle{Measurements of ZZ and Higgs Production at $\sqrt{s}=13\TeV$ in
+          Four-Lepton Events Using the CMS Detector at the CERN LHC}
+\setauthor{Nathaniel Woods}
+\setdepartment{Physics}
+\doctors % or \masters
+\setgraddate{2017}
+\setdefensedate{X August 2017} % or whatever format you want
+
+%%%% Members of the Final Oral Committee (FOC)
+%%%% Give name, rank, and department
+%%%%
+\setfoca{Wesley Smith}{Bjorn Wiik Professor}{Physics}
+\setfocb{Sridhara Dasu}{Professor}{Physics}  % <- Your advisor
+\setfocc{Matt Herndon}{Professor}{Physics}
+\setfocc{Someone}{Professor}{Physics}
+\setfocd{Someone}{Professor}{Something}
+
+\setsecnumdepth{subsubsection}
+
+%%%% Your abstract, used for the UMI abstract and in your front matter
+\setabstract{%
+  This thesis presents some cool stuff.
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+%%%%%%SETLINE NUMBERS
+%%\setpagewiselinenumbers
+%\modulolinenumbers[1]
+%\linenumbers
+%%%%%%%END SETLINE NUMBERS
+%% Tell the memoir class to set up lowercase roman for pagination, etc.
+\frontmatter
+
+%%%% Uncomment this to create a UMI abstract page.
+%%%% If you are submitting electronically, however, this page is unnecessary.
+% \theumiabstract
+
+% The title page
+\thetitlepage
+\clearpage
+
+% The copyright page, if you want to pay the fee and register copyright.
+% \thecopyrightpage
+\cleardoublepage
+
+% These above pages should not be counted, so we reset the counter to 1.
+\setcounter{page}{1}
+
+% An abstract may be required by your department.
+\section{Abstract}
+\uwabstract
+\cleardoublepage
+
+% Acknowledgements go here if you want to include them.
+\section{Acknowledgements}
+
+Nice people are nice.
+
+\clearpage
+
+% Table of contents
+\maxtocdepth{subsection}
+\tableofcontents* % the * means that there isn't an entry for the TOC itself
+% \clearpage
+
+\makeatletter
+     \renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}}
+\makeatother
+
+ \clearpage
+ \listoffigures  % if you have any figures
+ \listoftables   % if you have any tables
+
+% Tell the memoir class to set up normal pagination, etc. for the main doc
+\mainmatter
+
+% include chapters here
+
+\include{experiment/experiment}
+
+
+% \include{introduction}
+% \include{phenomenology}
+% \include{experiment}
+% \include{simulation}
+% \include{reconstruction}
+% \include{wzCrossSection}
+% \include{dblhSearch}
+% \include{conclusion}
+
+% \appendix
+% \include{appendix_yields}
+% \include{appendix_acceff}
+
+%\bibliographystyle{plain}
+
+%\bibliographystyle{unsrt}
+\bibliographystyle{ieeetr}
+%\bibliographystyle{IEEEtran}
+
+\bibliography{nwoods_thesis}
+
+\end{document}
