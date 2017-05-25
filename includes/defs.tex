@@ -2,7 +2,7 @@
 \usepackage{amsmath}
 
 
-\renewcommand{\cmsSymbolFace}{\mathrm}
+\newcommand{\cmsSymbolFace}{\mathrm}
 
 % particles
 \newcommand{\Pe}{\ensuremath{\cmsSymbolFace{e}}\xspace}
@@ -46,14 +46,15 @@
 \newcommand{\lplmlplm}{\ensuremath{\Plp\Plm\Plpp\Plpm}\xspace}
 
 % generators and similar
-\newcommand{\MGAMC} {\textsc{MadGraph5\_aMC@NLO}\xspace}
-\newcommand{\MATRIX}{\textsc{matrix}\xspace}
 \newcommand{\FEWZ} {{\textsc{fewz}}\xspace}
-\newcommand{\POWHEG} {{\textsc{powheg}}\xspace}
-\newcommand{\SHERPA} {{\textsc{sherpa}}\xspace}
 \newcommand{\GEANTfour} {{\textsc{Geant4}}\xspace}
+\newcommand{\MATRIX}{\textsc{matrix}\xspace}
 \newcommand{\MCFM} {\textsc{mcfm}\xspace}
+\newcommand{\MGAMC} {\textsc{MadGraph5\_aMC@NLO}\xspace}
 \newcommand{\PHANTOM} {\textsc{Phantom}\xspace}
+\newcommand{\POWHEG} {{\textsc{powheg}}\xspace}
+\newcommand{\PYTHIA} {\textsc{Pythia8}\xspace}
+\newcommand{\SHERPA} {{\textsc{sherpa}}\xspace}
 
 % other physics things
 \newcommand{\ETmiss}{\ensuremath{E_\cmsSymbolFace{T}^\mathrm{miss}}\xspace}
@@ -62,10 +63,13 @@
 \newcommand{\pt}{\ensuremath{p_\cmsSymbolFace{T}}}
 \newcommand{\et}{\ensuremath{E_\cmsSymbolFace{T}\xspace}}
 \newcommand{\DR}{\ensuremath{\Delta \cmsSymbolFace{R}}\xspace}
-\newcommand{\GeV}{\ensuremath{\,\cmsSymbolFace{Ge\hspace{-.08em}V}}\xspace}
-\newcommand{\GeVns}{\ensuremath{\cmsSymbolFace{Ge\hspace{-.08em}V}}\xspace} % no leading thinspace
-\newcommand{\TeV}{\ensuremath{\,\cmsSymbolFace{Te\hspace{-.08em}V}}\xspace}
-\newcommand{\TeVns}{\ensuremath{\cmsSymbolFace{Te\hspace{-.08em}V}}\xspace}
+
+% units
 \newcommand{\unit}[1]{\ensuremath{\cmsSymbolFace{\,#1}}\xspace}
 \newcommand{\pbinv} {\mbox{\ensuremath{\,\cmsSymbolFace{pb}^{-1}}\xspace}}
 \newcommand{\fbinv} {\mbox{\ensuremath{\,\cmsSymbolFace{fb}^{-1}}\xspace}}
+\newcommand{\GeV}{\ensuremath{\,\cmsSymbolFace{Ge\hspace{-.08em}V}}\xspace}
+\newcommand{\TeV}{\ensuremath{\,\cmsSymbolFace{Te\hspace{-.08em}V}}\xspace}
+% no leading thinspace
+\newcommand{\GeVns}{\ensuremath{\cmsSymbolFace{Ge\hspace{-.08em}V}}\xspace}
+\newcommand{\TeVns}{\ensuremath{\cmsSymbolFace{Te\hspace{-.08em}V}}\xspace}

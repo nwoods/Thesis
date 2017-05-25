@@ -10,62 +10,17 @@
 %\RequirePackage{lineno}
 \documentclass[oneside, letterpaper, 12pt, oldfontcommands]{memoir}
 
-%%%% Import uwthesis.sty to get official formatting, then set your variables.
-\usepackage{uwthesis}
-\usepackage{graphicx}
-\usepackage{mathtools}
-\usepackage{subcaption}
-%\usepackage{subfig}
-\usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{amsfonts}
-\usepackage{mathrsfs}
-\usepackage{amsmath}
-\usepackage{adjustbox}
-\usepackage{xr}
-\usepackage{ifthen}
-\usepackage{multirow}
-%\usepackage{feynmp-auto}
-\usepackage{hyperref}
-\usepackage{textcomp}
-\usepackage{tikz}
-\usetikzlibrary{arrows}
-%\usepackage[sorting=none]{biblatex}
-\usepackage{pdflscape}
-
-% physics definitions
-\newcommand{\cmsSymbolFace}{\mathrm}
-\input{includes/defs}
-
-
-
-\unitlength = \textwidth
-
-% Title
-\settitle{Measurements of ZZ and Higgs Production at $\sqrt{s}=13\TeV$ in
-          Four-Lepton Events Using the CMS Detector at the CERN LHC}
-\setauthor{Nathaniel Woods}
-\setdepartment{Physics}
-\doctors % or \masters
-\setgraddate{2017}
-\setdefensedate{X August 2017} % or whatever format you want
-
-%%%% Members of the Final Oral Committee (FOC)
-%%%% Give name, rank, and department
-%%%%
-\setfoca{Wesley Smith}{Bjorn Wiik Professor}{Physics}
-\setfocb{Sridhara Dasu}{Professor}{Physics}  % <- Your advisor
-\setfocc{Matt Herndon}{Professor}{Physics}
-\setfocc{Someone}{Professor}{Physics}
-\setfocd{Someone}{Professor}{Something}
 
 \setsecnumdepth{subsubsection}
 
-%%%% Your abstract, used for the UMI abstract and in your front matter
-\setabstract{%
-  This thesis presents some cool stuff.
-}
+% Package imports and other setup
+\input{includes/preamble}
+% Symbols and a few functions
+\input{includes/defs}
+
+% Define what goes on the title page and in the abstract (but don't actually create them yet)
+\input{frontmatter/titlepage}
+\input{frontmatter/abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Document
@@ -77,6 +32,7 @@
 %\modulolinenumbers[1]
 %\linenumbers
 %%%%%%%END SETLINE NUMBERS
+
 %% Tell the memoir class to set up lowercase roman for pagination, etc.
 \frontmatter
 
@@ -85,30 +41,27 @@
 % \theumiabstract
 
 % The title page
-\thetitlepage
+\thetitlepage{}
 \clearpage
 
 % The copyright page, if you want to pay the fee and register copyright.
 % \thecopyrightpage
-\cleardoublepage
+\cleardoublepage{}
 
 % These above pages should not be counted, so we reset the counter to 1.
 \setcounter{page}{1}
 
 % An abstract may be required by your department.
 \section{Abstract}
-\uwabstract
-\cleardoublepage
+\uwabstract{}
+\cleardoublepage{}
 
 % Acknowledgements go here if you want to include them.
-\section{Acknowledgements}
-
-Nice people are nice.
+\input{frontmatter/acknowledgements}
 
 \clearpage
 
 % Table of contents
-\maxtocdepth{subsection}
 \tableofcontents* % the * means that there isn't an entry for the TOC itself
 % \clearpage
 
@@ -121,11 +74,18 @@ Nice people are nice.
  \listoftables   % if you have any tables
 
 % Tell the memoir class to set up normal pagination, etc. for the main doc
-\mainmatter
+\mainmatter{}
 
 % include chapters here
 
+\include{standardModel/standardModel}
+\include{phenomenology/phenomenology}
 \include{experiment/experiment}
+\include{simulation/simulation}
+\include{objects/objects}
+\include{methods/methods}
+\include{results/results}
+\include{conclusions/conclusions}
 
 
 % \include{introduction}
@@ -147,6 +107,6 @@ Nice people are nice.
 \bibliographystyle{ieeetr}
 %\bibliographystyle{IEEEtran}
 
-\bibliography{nwoods_thesis}
+\bibliography{backmatter/bibliography.bib}
 
 \end{document}
