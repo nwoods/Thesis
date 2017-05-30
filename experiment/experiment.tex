@@ -9,19 +9,65 @@ Production of controlled high-energy particle collisions, and detection of the d
 %-------------------------------------------------------------------------------
 
 \section{The CERN Large Hadron Collider}
-The LHC, the most powerful particle accelerator and collider ever built, is a $26.7\unit{km}$ circumference ring of superconducting magnets running through tunnels roughly $100\unit{m}$ below the suburbs and countryside near Geneva, Switzerland. It first produced collisions suitable for collecting physics data in 2010 before generating large datasets with beam energies of $3.5\TeV$ in 2011 and $4\TeV$ in 2012. Following a shutdown for upgrades an repairs, it returned in 2015 and 2016 to deliver beam energies of $6.5\TeV$. Beams collide head-on so that the center-of-mass frame of the proton-proton system is the rest frame of the detectors, giving proton-proton center-of-mass energies of 7, 8, and $13\TeV$ respectively for collisions in 2011, 2012, and 2015--2016. Each successive energy was the highest ever acheived in controlled proton-proton collisions, giving unprecedented access to previously unobserved processes at every step.
+The LHC, the most powerful particle accelerator and collider ever built, is a $26.7\unit{km}$ circumference ring of superconducting magnets running through tunnels roughly $100\unit{m}$ below the suburbs and countryside near Geneva, Switzerland.
+It first produced collisions suitable for collecting physics data in 2010 before generating large datasets with beam energies of $3.5\TeV$ in 2011 and $4\TeV$ in 2012.
+Following a shutdown for upgrades an repairs, it returned in 2015 and 2016 to deliver beam energies of $6.5\TeV$.
+Beams collide head-on so that the center-of-mass frame of the proton-proton system is the rest frame of the detectors, giving proton-proton center-of-mass energies of 7, 8, and $13\TeV$ respectively for collisions in 2010--2011, 2012, and 2015--2016.
+Each successive energy was the highest ever acheived in controlled proton-proton collisions, giving unprecedented access to previously unobserved processes at every step.
 
-In addition to increasing collision energies, the LHC increased its rate of collisions with each new machine configuration. The average event rate $dN / dt$ for a process with production cross section $\sigma$ is determined by the instantaneous luminosity $\lumiL$ of the collider,
+In addition to increasing collision energies, the LHC increased its rate of collisions with each new machine configuration.
+The average event rate $\ddinline{N}{t}$ for a process with production cross section $\sigma$ is determined by the instantaneous luminosity $\lumiL$ of the collider,
 \begin{equation}
-  \frac{dN}{dt} = \lumiL\sigma
+  \dd{N}{t} = \lumiL\sigma
 \end{equation}
-so a high instantaneous luminosity is vital to the timely observation of rare processes like Higgs boson production. The LHC's unprecedented luminosities have allowed collection of the largest physics datasets in history.
+so a high instantaneous luminosity is vital to the timely observation of rare processes like Higgs boson production.
+The LHC's unprecedented luminosities have allowed collection of the largest physics datasets in history.
 
-\subsection{Layout and Accelerator Chain}
-A chain of smaller accelerators repurposed from previous experiments feeds moderate-energy protons into LHC, where twin-bore superconducting magnets guide the beams around the ring in opposite directions and accelerate them to their final energy. The beams cross at four points around the ring and
+The desire for high luminosities drove the decision to collide protons with other protons instead of with antiprotons as was done at Tevatron, LHC's predecessor at Fermilab in Batavia, IL\@.
+Antiprotons simply cannot be produced in sufficient quantities for a collider on this scale.
+Many of the physics processes Tevatron was designed to study are $\Pq\Paq$-initiated, so it is useful to have valence antiquarks available in the collisions.
+The LHC was designed with Higgs boson production in mind, and the two most important Higgs production modes are proton/antiproton agnostic.
+Even for $\Pq\Paq$-initiated processes, valence antiquarks are less critical at the LHC because, for equal parton momenta, protons have larger antiquark content at LHC energies than at Tevatron energies ($1.98\TeV$ center-of-mass energy) as discussed in Section~\ref{sec:pp}.
+
+In addition to protons, the LHC can accelerate beams of lead nuclei to $2.51\TeV$ per nucleon, also the highest ever achieved.
+All studies presented in this thesis were performed on proton-proton collision data, rendering the details of so-called ``heavy ion'' beams beyond the scope of this document.
+
+Beams are maintained and manipulated with magnets, most of them made of superconducting NbTi winding cooled to $1.9\unit{K}$ by superfluid helium.
+Dipole magnets with fields up to $8.33\unit{T}$ bend the beam around the ring, interspersed with quadrupoles for focusing.
+More quadrupoles and higher-moment magnets apply a number of corrections and squeeze the beams for collisions.
+Superconducting radio frequency (RF) cavities operating at $400\unit{MHz}$ accelerate the beam, maintain it at its final energy, and maintain bunch shape and spacing.
 
 
-\subsection{Design Goals and Constraints}
+\subsection{Accelerator Chain, Layout, and Detectors}
+The LHC was built in tunnels originally constructed for the Large Electron-Positron Collider (LEP), an $\Pe^+$-$\Pe^-$ collider that operated from 1989 to 2000.
+Using existing caverns, tunnels, and infrastructure was a substantial cost-saving measure, but imposed several important constraints on the LHC's design.
+In LEP, the electron and positron beams could be accelerated in opposite directions by the same magnets, because they are oppositely charged.
+Conversely, proton beams require opposite magnetic fields for the two beams.
+Because the tunnels were not wide enough to accommodate two completely separate beam lines, most of the magnets in the LHC use a twin-bore design in which the pipes and windings for the two beams share a common cryogenic system.
+The electromagnetic, mechanical, and cryogenic coupling of the two beamlines represents a significant engineering challenge.
+
+Because no single accelerator has the dynamic range necessary to take a stationary proton to \TeV-scale energies, a chain of smaller accelerators repurposed from previous experiments feeds moderate-energy protons into LHC\@.
+Protons are obtained by ionizing hydrogen atoms, then accelerated to $50\MeV$ by the Linac~2 linear accelerator and injected into the Proton Syncrotron Booster~(PSB), the first of several circular accelerators.
+The PSB feeds $1.4\GeV$ protons into the Proton Synchrotron~(PS), which in turn injects them into the Super Proton Synchrotron~(SPS) at $26\GeV$.
+The protons are then accelerated to $450\GeV$ in the SPS before being injected into LHC\@.
+
+The ring is divided into eight sectors, each of which features a $528\unit{m}$ straight section connected to the adjacent sections by $2.45\unit{km}$ arcs.
+The straight section length was set by the need for RF cavities to accelerate LEP beams to counteract synchrotron radiation, which is a primary factor limiting electron and positron beam energy.
+This is not ideal for proton beams; protons' much higher mass means they radiate less and need fewer RF cavities.
+The straight sections feature ``insertion'' points numbered with Point~1 at the main CERN site in Meyrin, Switzerland, and the rest numbered~2--8, increasing in the clockwise direction when viewed from above.
+Points~1, 2, 5, and~8 have beam crossing points and host detectors to study the resulting proton-proton collisions.
+Points~3 and~7 feature collimators to remove nonuniformities in the beams.
+The RF cavities are at Point~4 and the beams are dumped after use into absorbers at Point 6\@.
+
+The CMS detector is at Point~5 in Cessy, France, the furthest point on the ring from the Meyrin site and Point~1, which houses ATLAS, a similar but fully independent general-purpose particle detector.
+CERN and the science funding agencies support CMS and ATLAS equally so that any measurement or discovery made by one can be made concurrently or verified by the other.
+The other two experimental insertions feature specialized detectors studying collisions at lower-luminosity beam interaction points.
+The LHCb detector, at Point~8, studies hadronic physics with an emphasis on b-mesons, and ALICE studies heavy ion collisions at Point~1\@.
+Three smaller experiments share interaction points with the larger detectors, with TOTEM studying proton structure and the total proton-proton interaction cross section next to CMS, LHCf studying the $\pi^0$ energy spectrum and multiplicity near ATLAS, and MoEDAL searching for magnetic monopoles or other heavy, stable, ionizing particles at Point~8 with LHCb.
+
+
+
+\subsection{Performance Goals and Constraints}
 What they wanted\ldots
 
 
