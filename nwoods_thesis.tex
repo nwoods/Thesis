@@ -17,6 +17,8 @@
 \input{includes/preamble}
 % Symbols and a few functions
 \input{includes/defs}
+% add the biblography we'll use
+\addbibresource{backmatter/bibliography.bib}
 
 % Define what goes on the title page and in the abstract (but don't actually create them yet)
 \input{frontmatter/titlepage}
@@ -32,6 +34,9 @@
 %\modulolinenumbers[1]
 %\linenumbers
 %%%%%%%END SETLINE NUMBERS
+
+% format control for bibliography
+%\bstctlcite{IEEEFormat:BSTcontrol}
 
 %% Tell the memoir class to set up lowercase roman for pagination, etc.
 \frontmatter
@@ -76,6 +81,7 @@
 % Tell the memoir class to set up normal pagination, etc. for the main doc
 \mainmatter{}
 
+
 % include chapters here
 
 \include{standardModel/standardModel}
@@ -88,15 +94,6 @@
 \include{conclusions/conclusions}
 
 
-% \include{introduction}
-% \include{phenomenology}
-% \include{experiment}
-% \include{simulation}
-% \include{reconstruction}
-% \include{wzCrossSection}
-% \include{dblhSearch}
-% \include{conclusion}
-
 % \appendix
 % \include{appendix_yields}
 % \include{appendix_acceff}
@@ -104,9 +101,13 @@
 %\bibliographystyle{plain}
 
 %\bibliographystyle{unsrt}
-\bibliographystyle{ieeetr}
+%\bibliographystyle{ieeetr}
 %\bibliographystyle{IEEEtran}
 
-\bibliography{backmatter/bibliography.bib}
+%\bibliography{backmatter/bibliography.bib}
+
+\SingleSpace{}
+\setlength{\bibitemsep}{\onelineskip}
+\printbibliography{}
 
 \end{document}

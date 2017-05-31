@@ -4,7 +4,13 @@
 \usepackage{mathrsfs}
 \usepackage{amsmath}
 \usepackage{xspace}
+\usepackage[utf8]{inputenc}
 \usepackage[hidelinks]{hyperref}
+\usepackage[
+  sorting=none,
+  backend=biber,
+  style=ieee
+]{biblatex}
 
 \hypersetup{
   colorlinks,
@@ -13,6 +19,35 @@
 
 \setsecnumdepth{subsubsection}
 \maxtocdepth{subsubsection}
+
+% Collaboration instead of author if present
+\DeclareSourcemap{
+  \maps[datatype=bibtex,overwrite=true]{
+    \map{
+      \step[fieldsource=collaboration,% fieldvalue={$1 Collaboration},
+            final=true]
+      \step[fieldset=usera, origfieldval, final=true]
+    }
+  }
+}
+\renewbibmacro*{author}{
+  \iffieldundef{usera}{
+    \printnames{author}
+  }{
+      \printfield{usera} Collaboration
+  }
+}
+
+
+% command for changing IEEE bib format
+%\makeatletter
+%\def\bstctlcite{\@ifnextchar[{\@bstctlcite}{\@bstctlcite[@auxout]}}
+%\def\@bstctlcite[#1]#2{\@bsphack
+%  \@for\@citeb:=#2\do{%
+%    \edef\@citeb{\expandafter\@firstofone\@citeb}%
+%    \if@filesw\immediate\write\csname %#1\endcsname{\string\citation{\@citeb}}\fi}%
+%  \@esphack}
+%\makeatother
 
 % packages I don't need now, but which might be useful later
 %\usepackage{mathtools}
@@ -27,5 +62,4 @@
 %\usepackage{textcomp}
 %\usepackage{tikz}
 %\usetikzlibrary{arrows}
-%\usepackage[sorting=none]{biblatex}
 %\usepackage{pdflscape}

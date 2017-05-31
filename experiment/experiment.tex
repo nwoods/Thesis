@@ -18,6 +18,7 @@ Each successive energy was the highest ever acheived in controlled proton-proton
 In addition to increasing collision energies, the LHC increased its rate of collisions with each new machine configuration.
 The average event rate $\ddinline{N}{t}$ for a process with production cross section $\sigma$ is determined by the instantaneous luminosity $\lumiL$ of the collider,
 \begin{equation}
+  \label{eq:instLumi}
   \dd{N}{t} = \lumiL\sigma
 \end{equation}
 so a high instantaneous luminosity is vital to the timely observation of rare processes like Higgs boson production.
@@ -59,19 +60,65 @@ Points~1, 2, 5, and~8 have beam crossing points and host detectors to study the 
 Points~3 and~7 feature collimators to remove nonuniformities in the beams.
 The RF cavities are at Point~4 and the beams are dumped after use into absorbers at Point 6\@.
 
-The CMS detector is at Point~5 in Cessy, France, the furthest point on the ring from the Meyrin site and Point~1, which houses ATLAS, a similar but fully independent general-purpose particle detector.
+The CMS detector is at Point~5 in Cessy, France, the furthest point on the ring from the Meyrin site and Point~1, which houses ATLAS~\cite{Aad:2008zzm}, a similar but fully independent general-purpose particle detector.
 CERN and the science funding agencies support CMS and ATLAS equally so that any measurement or discovery made by one can be made concurrently or verified by the other.
 The other two experimental insertions feature specialized detectors studying collisions at lower-luminosity beam interaction points.
-The LHCb detector, at Point~8, studies hadronic physics with an emphasis on b-mesons, and ALICE studies heavy ion collisions at Point~1\@.
-Three smaller experiments share interaction points with the larger detectors, with TOTEM studying proton structure and the total proton-proton interaction cross section next to CMS, LHCf studying the $\pi^0$ energy spectrum and multiplicity near ATLAS, and MoEDAL searching for magnetic monopoles or other heavy, stable, ionizing particles at Point~8 with LHCb.
+The LHCb detector~\cite{Alves:2008zz}, at Point~8, studies hadronic physics with an emphasis on b-mesons, and ALICE~\cite{Aamodt:2008zz} studies heavy ion collisions at Point~2\@.
+Three smaller experiments share interaction points with the larger detectors, with TOTEM~\cite{Anelli:2008zza} studying proton structure and the total proton-proton interaction cross section next to CMS\@; LHCf~\cite{Adriani:2008zz} studying the $\pi^0$ energy spectrum and multiplicity near ATLAS\@; and MoEDAL~\cite{Acharya:2014nyr} searching for magnetic monopoles or other heavy, stable, ionizing particles at Point~8 with LHCb.
 
 
 
-\subsection{Performance Goals and Constraints}
-What they wanted\ldots
+\subsection{Operating Parameters}
+With the beam energy set by the radius of the ring and the strength of available magnets, the number of interesting physics events produced in LHC collisions depends only on the integrated luminosity
+\begin{equation}
+  \lumiL_\textit{int} = \int \lumiL \cmsSymbolFace{d}t,
+\end{equation}
+where $\lumiL$ is the instantaneous luminosity defined in Eq.~\ref{eq:instLumi} and the integral runs over the time the machine spends in collisions mode.
+LHC's availability for collisions depends on the electrical and mechanical stability of the accelerators and their support systems, including the cryogenics and the vacuum in the beam pipe.
+The instantaneous luminosity while running depends only on the beam parameters.
+For symmetric beams which each have $n_b$ colliding gaussian bunches of $N_b$ protons orbiting the ring with frequency $f_\textit{rev}$ and relativistic factor $\gamma=E_p/m_p$, the instantaneous luminosity is give by
+\begin{equation}
+  \lumiL = f_\textit{rev} \frac{n_b N_b^2 \gamma}{4\pi \beta^\ast \epsilon_N} R,
+\end{equation}
+where $\beta^\ast$ is the amplitude of the beams' betatron oscillations around the nominal ring path at the interaction point, the normalized emittance $\epsilon_N$ is a measure of the beams' spread in both position and momentum space, and $R$ is a geometrical factor accounting for the beam crossing angle,
+\begin{equation}
+  R = \sqrt{1 + \left(\frac{\theta_c \sigma_z}{2\sigma^\ast}\right)^2}.
+\end{equation}
+Here $\theta_c$ is the beams' crossing angle, and $\sigma_z$ and $\sigma^\ast$ are respetively the longitudinal and transverse RMS widths of the bunches in the lab frame.
 
 
-\subsection{Operation in 2015 and 2016}
+\subsubsection{Design}
+The machine parameters in the LHC design specification can be seen in the first column of Table~\ref{tab:lhcparams}.
+
+
+\begin{table}
+\caption{LHC beam parameters as designed and in practice.}
+\centering
+\begin{tabular}{lllllll}
+\hline
+                                                                     & \multicolumn{1}{c}{Design} & \multicolumn{3}{c}{Run 1}  & \multicolumn{2}{c}{Run 2} \\
+\hline
+Year                                                                 &          & 2010    & 2011    & 2012    & 2015    & 2016                               \\
+\hline\hline
+Energy per beam $\left(\TeVns\right)$                                & 7        & 3.5     & 3.5     & 4       & 6.5     & 6.5                                \\
+Bunch spacing $\left(\unitns{ns}\right)$                             & 25       & 150     & 50      & 50      & 25      & 25                                 \\
+$n_b$                                                                & 2808     & 348     & 1331    & 1368    & 2232    & 2208                               \\
+$N_b \left(10^{11}\right)$                                           & 1.15     & 1.2     & 1.5     & 1.7     & 1.15    & 1.25                               \\
+$\beta^\ast \left(\unitns{m}\right)$                                 & 0.55     & 3.5     & 1.0     & 0.6     & 0.8     & 0.4                                \\
+$\epsilon_N \left(\unitns{mm}\unit{mrad}\right)$                     & 3.75     & 2.2     & 2.3     & 2.5     & 3.5     & 3.0                                \\
+Peak pileup                                                          & FIXME    & 4       & 17      & 37      & 22      & 49                                 \\
+Peak $\lumiL \left(10^{34}\unitns{cm}^{-2}\unitns{s}^{-1}\right)$    & 1        & 0.02    & 0.35    & 0.77    & 0.52    & 1.53                               \\
+$\lumiL_\textit{int} \left(\fbinvns\right)$                          &          & 0.04    & 6.1     & 23.3    & 4.2     & 41.1                               \\
+\hline
+
+\end{tabular}
+\label{tab:lhcparams}
+\end{table}
+
+\subsubsection{Run I}
+
+
+\subsubsection{Run II}
 \ldots and what we got
 
 
