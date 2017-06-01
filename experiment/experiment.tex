@@ -76,7 +76,7 @@ With the beam energy set by the radius of the ring and the strength of available
 where $\lumiL$ is the instantaneous luminosity defined in Eq.~\ref{eq:instLumi} and the integral runs over the time the machine spends in collisions mode.
 LHC's availability for collisions depends on the electrical and mechanical stability of the accelerators and their support systems, including the cryogenics and the vacuum in the beam pipe.
 The instantaneous luminosity while running depends only on the beam parameters.
-For symmetric beams which each have $n_b$ colliding gaussian bunches of $N_b$ protons orbiting the ring with frequency $f_\textit{rev}$ and relativistic factor $\gamma=E_p/m_p$, the instantaneous luminosity is give by
+For symmetric beams which each have $n_b$ colliding gaussian bunches of intensity (i.e.\ number of protons in the bunch) $N_b$, orbiting the ring with frequency $f_\textit{rev}$ and relativistic factor $\gamma=E_p/m_p$, the instantaneous luminosity is give by
 \begin{equation}
   \lumiL = f_\textit{rev} \frac{n_b N_b^2 \gamma}{4\pi \beta^\ast \epsilon_N} R,
 \end{equation}
@@ -89,14 +89,21 @@ Here $\theta_c$ is the beams' crossing angle, and $\sigma_z$ and $\sigma^\ast$ a
 
 \subsubsection{Design}
 The machine parameters in the LHC design specification can be seen in the first column of Table~\ref{tab:lhcparams}.
+Many of the design parameters, in particular the energy and number of colliding bunches, have not been met due to a failure during initial testing in September 2008.
+A fault in a superconducting bus bar connection between a dipole and a quadrupole caused an electrical arc which ruptured the cryostat, leading to a rapid and destructive reslease of helium gas~\cite{Bajko:1168025}.
+When LHC was brought back online in 2010 after repairs and upgrades intended to prevent similar incidents in the future, its operating parameters were changed to reduce the risk of future incidents, with some luminosity-related parameters adjusted to mitigate the resulting loss of physics discovery potential as much as possible.
+Further upgrades have improved machine performance, with some parameters now meeting or exceeding the design specification.
 
 
 \begin{table}
-\caption{LHC beam parameters as designed and in practice.}
+\caption{
+  LHC beam parameters as designed and in practice.
+  As stated in the text, $n_b$ is the number of colliding bunches, $N_b$ is the number of protons in each bunch, $\beta^\ast$ is the betatron amplitude at the interaction point, $\epsilon_N$ is the normalized emittance, and $\lumiL_{\left(\textit{int}\right)}$ is the instantaneous (integrated) luminosity.
+  }
 \centering
 \begin{tabular}{lllllll}
 \hline
-                                                                     & \multicolumn{1}{c}{Design} & \multicolumn{3}{c}{Run 1}  & \multicolumn{2}{c}{Run 2} \\
+                                                                     & \multicolumn{1}{c}{Design} & \multicolumn{3}{c}{Run I}  & \multicolumn{2}{c}{Run II} \\
 \hline
 Year                                                                 &          & 2010    & 2011    & 2012    & 2015    & 2016                               \\
 \hline\hline
@@ -115,11 +122,27 @@ $\lumiL_\textit{int} \left(\fbinvns\right)$                          &          
 \label{tab:lhcparams}
 \end{table}
 
+
 \subsubsection{Run I}
+The LHC was brought back online in 2010 at half its design energy, with $3.5\TeV$ beam energy, which was increased to $4\TeV$ in 2012. The bunch intensity was also lower, with bunches spaced $50\unit{ns}$ apart instead of $25\unit{ns}$.
+The longer bunch spacing was chosen to allow full exploitation of excellent injection chain performance~\cite{1742-6596-455-1-012001}.
+Beams exiting the SPS had bunch intensity as much as 50\% higher than anticipated in the original LHC design and beam emittance as low as 67\% of nominal.
+This allowed the LHC to achieve 77\% of its design instantaneous luminosity in 2012 despite having roughly half as many bunches in each beam.
+
+Machine availability was overall good considering the complexity and relative newness of the LHC, with about 36\% of scheduled time spent in stable beams.
+In all, LHC delivered $6.1\fbinv$ to CMS and ATLAS in 2011 and $23.3\fbinv$ in 2012, enough to allow discovery of the Higgs boson.
 
 
 \subsubsection{Run II}
-\ldots and what we got
+The LHC shut down for 2013 and 2014 to allow a number of repairs and upgrades, including measurements, repairs and upgrades on the electrical connections and cryogenic safety systems like the ones that failed in 2008\@.
+Beam energies could then be increased to $6.5\TeV$, close to the nominal $7\TeV$.
+The bunch spacing was decreased to $25\unit{ns}$ while maintaining low emittance and high bunch intensity with the implementation of the beam compression merging and splitting (BCMS) scheme in which bunches are merged in the PS before they are split for injection into SPS, allowing higher bunch intensity~\cite{Papaphilippou:2014qwa}.
+This was offset by vacuum problems in the SPS beam dump, which limited the total number of colliding bunches to around 2200~\cite{Frederick:2235979}.
+Improvements in collimators and beam optics reduced $\beta^\ast$ to $40\unit{cm}$ in 2016, lower than the design $\beta^\ast$ of $55\unit{cm}$.
+Overall instantaneous luminosities were substantially higher than originally designed.
+
+Machine availability in Run II was excellent, with over 60\% of planned time spent in stable beams~\cite{Frederick:2235979}.
+Mechanical problems kept LHC out of commission for much of 2015, and only $4.2\fbinv$ were delivered to Points~1 and~5, but the integrated luminosity in 2016, $41.1\fbinv$, was far above the roughly $25\fbinv$ expected and more than all previous runs combined.
 
 
 
@@ -128,10 +151,18 @@ $\lumiL_\textit{int} \left(\fbinvns\right)$                          &          
 %-------------------------------------------------------------------------------
 
 \section{The Compact Muon Solenoid Detector}
-It's big~\cite{Chatrchyan:2008zzk}
+The CMS detector~\cite{Chatrchyan:2008zzk} is a general-purpose particle detector located in a cavern roughly $100\unit{m}$ below LHC Point~5.
+Though designed to do a wide range of physics analyses, CMS was designed specifically with Higgs boson discovery in mind.
+Primary design goals included precise measurement of charged particle momenta; good electromagnetic energy resolution for reconstruction of electrons and photons; hermetic calorimetry for good missing energy resolution; and good jet, lepton, and photon energy resolution up to very high energies.
+To this end, CMS features a silicon tracker, a scintillating crystal electromagnetic calorimeter (ECAL), and a hermetic hadronic calorimeter (HCAL) inside a $3.8\unit{T}$ solenoid magnet surrounded by ionized gas muon tracking devices. Decisions on which events to read out are made on-line by a two-level trigger system.
+Descriptions of these systems follow.
+
 
 \subsection{Terminology and Geometry}
-Something something definition of $\eta$ something
+The CMS detector systems are arranged in cylindrical layers with the interaction point at the center, serving as the origin for the coordinate system.
+The coordinate system is defined with the positive-$x$ direction pointing toward the center of the ring, positive-$y$ pointing vertically up, and positive-$z$ pointing parallel to the beam in the counterclockise direction when the LHC ring is viewed from above.
+Particle momenta are typically expressed in quasicylindrical coordinates $\left(\pt,\eta,\phi\right)$.
+Here $\pt$ is the magnitude of the particle's momentum transverse to the beam and $\phi$ is the azimuthal angle. The pseudorapidity~$\eta$ 
 
 
 \subsection{Magnet and Inner Tracking System}
@@ -174,3 +205,7 @@ Obviously the best part
 
 \subsubsection{High-Level Trigger}
 Many Computers
+
+
+\subsection{Luminosity Determination}
+BRIL and whatnot
