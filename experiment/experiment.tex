@@ -153,7 +153,13 @@ Mechanical problems kept LHC out of commission for much of 2015, and only $4.2\f
 \section{The Compact Muon Solenoid Detector}
 The CMS detector~\cite{Chatrchyan:2008zzk} is a general-purpose particle detector located in a cavern roughly $100\unit{m}$ below LHC Point~5.
 Though designed to do a wide range of physics analyses, CMS was designed specifically with Higgs boson discovery in mind.
-Primary design goals included precise measurement of charged particle momenta; good electromagnetic energy resolution for reconstruction of electrons and photons; hermetic calorimetry for good missing energy resolution; and good jet, lepton, and photon energy resolution up to very high energies.
+Primary design goals include
+\begin{itemize}
+  \item High-efficiency reconstruction of charged particles with precise measurement of their trajectories and momenta
+  \item Good electromagnetic energy resolution, including diphoton and dielectron mass resolution
+  \item Hermetic calorimetry for good missing transverse energy and dijet mass resolution
+  \item Good muon identification, momentum resolution (including dimuon mass resolution), and charge determination over a broad range of energies
+\end{itemize}
 To this end, CMS features a silicon tracker, a scintillating crystal electromagnetic calorimeter (ECAL), and a hermetic hadronic calorimeter (HCAL) inside a $3.8\unit{T}$ solenoid magnet surrounded by ionized gas muon tracking devices. Decisions on which events to read out are made on-line by a two-level trigger system.
 Descriptions of these systems follow.
 
@@ -162,18 +168,68 @@ Descriptions of these systems follow.
 The CMS detector systems are arranged in cylindrical layers with the interaction point at the center, serving as the origin for the coordinate system.
 The coordinate system is defined with the positive-$x$ direction pointing toward the center of the ring, positive-$y$ pointing vertically up, and positive-$z$ pointing parallel to the beam in the counterclockise direction when the LHC ring is viewed from above.
 Particle momenta are typically expressed in quasicylindrical coordinates $\left(\pt,\eta,\phi\right)$.
-Here $\pt$ is the magnitude of the particle's momentum transverse to the beam and $\phi$ is the azimuthal angle. The pseudorapidity~$\eta$ 
+Here $\pt$ is the magnitude of the particle's momentum transverse to the beam
+\begin{equation}
+  \pt \equiv \sqrt{p_x^2 + p_y^2},
+\end{equation}
+and $\phi$ is the azimuthal angle, i.e.\ the angle from the $x$-axis to the particle's trajectory in the $x$-$y$ plane.
+The pseudorapidity~$\eta$ is defined as
+\begin{equation}
+  \eta \equiv -\ln \left[\tan\left(\frac{\theta}{2}\right)\right]
+\end{equation}
+where $\theta$ is the polar angle measured from the $z$-axis.
+In the limit of massless particles, the pseudorapidity is the same as the rapidity
+\begin{equation}
+  y \equiv \frac{1}{2} \ln \left(\frac{E+p_z}{E-p_z}\right).
+\end{equation}
+Pseudorapidity is preferred to rapidity because it is purely geometrical, with no dependence on the particle energy.
+Both are preferred over $\theta$ because rapidity differences are invariant under longitudinal boosts, and because hadron flux at colliders is roughly constant as a function of rapidity.
+The transverse energy~$\et$ is the the magnitude of the particle's four-momentum transverse to the beam, equal to $\pt$ in the limit of massless particles.
+Spatial coordinates are expressed as $\left(r,\eta,\phi\right)$, where $r$ is the distance from the beam in the $x$-$y$ plane.
 
 
 \subsection{Magnet and Inner Tracking System}
+A particle of charge $q$ moving through a uniform magnetic field of strength $B$ that points in the $z$ direction will travel in a helix of radius $R$, given by
+\begin{equation}
+  R = \frac{\pt}{\lvert q\rvert B}
+\end{equation}
+with the chirality of the helix determined by the sign of $q$.
+Thus one can determine the transverse momentum of the particle by measuring its path through the magnetic field and finding the radius of curvature.
+In practice, all but the lowest-energy particles leave too short an arc in the detector for direct measurement of the radius, so the sagitta~$s$ of the arc is used instead, given by
+\begin{equation}
+  s = \frac{qBL^2}{8\pt}
+\end{equation}
+where $L$ is the length of the chord spanning the arc (typically equal to the radius of the tracking system).
+The transverse momentum resolution varies as
+\begin{equation}
+  \frac{\delta \pt}{\pt} \propto \frac{\pt}{BL^2},
+\end{equation}
+so a strong field and a large tracking volume are vital to keeping measurements precise even at high energies.
 
-The magnet: how does it work?
+To this end, CMS contains the world's largest superconducting magnet\footnote{Largest in the sense of having the largest stored energy when at constant full field. The largest by size is the ATLAS barrel toroid.}, a solenoid $13\unit{m}$ long and $6\unit{m}$ in diameter, which generates a nearly-uniform $3.8\unit{T}$ field in the centralmost part of the detector.
+To measure the paths of charged particles in the field, the volume closest to the interaction point contains layers of silicon sensors that detect hits from charged particles with high efficiency and excellent position resolution, between $4.4\unit{cm}$ and $1.1\unit{m}$ from the beam for $2.7\unit{m}$ on either side of the interaction point.
+This system, called the inner tracker, consists of an inner pixel detector surrounded by a larger silicon strip detector.
+Both consist of concentric cylinders of sensors covering the barrel of the detector capped by discs covering the high-$\eta$ region, up to $\lvert\eta\rvert < 2.5$.
+With a total of roughly $200\unit{m}^2$ of silicon, the inner tracker is the largest silicon tracker in the world, which means that tracks may be reconstructed with hits in as many as 14 layers.
+The downside of this is that the tracker represents a substantial amount of material for electrons and photons to interact with before they reach the calorimeters, with total material budget between 0.4 radiation lengths ($\eta=0$) and 1.8 radiation lengths ($\lvert\eta\rvert \approx 1.4$).
+The tracker-only $\pt$ uncertainty is around~1.2\% at $200\GeV$ and 15\% at~$1\TeV$.
+
 
 \subsubsection{Pixel Detector}
-Basically the same as your cameraphone
+The pixel detector, consisting of three layers in the barrel and two in the endcap, is responsible for accurate reconstruction of primary proton-proton interaction vertices and secondary vertices from $\Pqb$-meson decays, as well as providing ``seed'' tracks that may be used in strip tracker reconstruction.
+As the system closest to the interaction point, the pixel system experiences the highest charged-particle flux must have extremely fine granularity to differentiate between nearby particles.
+The 66~million pixels in the system have a cell size of $100 \times 150\unit{\mu m}^2$.
+Interpolation of the analog signals from the individual pixels allows a final spatial resolution of $15\unit{\mu m}$ in each direction.
+The outermost barrel layer is $10.2\unit{cm}$ from the beam, and the second endcap disk is $46.5\unit{cm}$ from the interaction point.
+The sensor modules are arranged such that at least three sensors cover the solid angle within the pixels' acceptance.
+
 
 \subsubsection{Strip Tracker}
-Silicon for days
+Outside the pixels is the silicon strip tracker, extending out to $1.1\unit{m}$ in the $r$ direction and $\pm 2.8\unit{m}$ in the $z$ direction.
+The tracker is divided into inner and outer subdetectors, each of which has both barrel cylinders and endcap discs.
+In total, there are ten layers in the barrel and nine in each of the endcaps.
+The inner tracker uses $320\unit{\mu m}$-thick sensors with a typical strip cell size of $10\unit{cm} \times 80\unit{\mu m}$, leading to hit resolutions of 23--$35\unit{\mu m}$.
+The outer tracker uses $500\unit{\mu m}$-thick sensors with typical strip sizes up to $25\unit{cm} \times 180\unit{\mu m}$, leading to hit resolutions of 35--$53\unit{\mu m}$.
 
 
 \subsection{Electromagnetic Calorimeter}
