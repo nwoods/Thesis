@@ -209,9 +209,9 @@ so a strong field and a large tracking volume are vital to keeping measurements 
 To this end, CMS contains the world's largest superconducting magnet\footnote{Largest in the sense of having the largest stored energy when at constant full field. The largest by size is the ATLAS barrel toroid.}, a solenoid $13\unit{m}$ long and $6\unit{m}$ in diameter, which generates a nearly-uniform $3.8\unit{T}$ field in the centralmost part of the detector.
 To measure the paths of charged particles in the field, the volume closest to the interaction point contains layers of silicon sensors that detect hits from charged particles with high efficiency and excellent position resolution, between $4.4\unit{cm}$ and $1.1\unit{m}$ from the beam for $2.7\unit{m}$ on either side of the interaction point.
 This system, called the inner tracker, consists of an inner pixel detector surrounded by a larger silicon strip detector.
-Both consist of concentric cylinders of sensors covering the barrel of the detector capped by discs covering the high-$\eta$ region, up to $\lvert\eta\rvert < 2.5$.
+Both consist of concentric cylinders of sensors covering the barrel of the detector capped by discs covering the high-$\eta$ region, up to $\abseta < 2.5$.
 With a total of roughly $200\unit{m}^2$ of silicon, the inner tracker is the largest silicon tracker in the world, which means that tracks may be reconstructed with hits in as many as 14 layers.
-The downside of this is that the tracker represents a substantial amount of material for electrons and photons to interact with before they reach the calorimeters, with total material budget between 0.4 radiation lengths ($\eta=0$) and 1.8 radiation lengths ($\lvert\eta\rvert \approx 1.4$).
+The downside of this is that the tracker represents a substantial amount of material for electrons and photons to interact with before they reach the calorimeters, with total material budget between 0.4 radiation lengths ($\eta=0$) and 1.8 radiation lengths ($\abseta \approx 1.4$).
 The tracker-only $\pt$ uncertainty is around~1.2\% at $200\GeV$ and 15\% at~$1\TeV$.
 
 
@@ -233,7 +233,9 @@ The outer tracker uses $500\unit{\mu m}$-thick sensors with typical strip sizes 
 
 
 \subsection{Electromagnetic Calorimeter}
-Lots of crystals
+Outside of the tracker is the electromagnetic calorimeter (ECAL), which is designed to absorb and measure the energy of electrons and photons.
+ECAL is made of 68,524 lead tungstate (\pbwo) crystals arranged in a cylindrical barrel covering $\abseta < 1.444$ and two endcap discs covering $1.566 < \abseta < 3.0$.
+\pbwo{} is 
 
 
 \subsection{Hadronic Calorimeter}
