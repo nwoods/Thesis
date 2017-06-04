@@ -234,12 +234,50 @@ The outer tracker uses $500\unit{\mu m}$-thick sensors with typical strip sizes 
 
 \subsection{Electromagnetic Calorimeter}
 Outside of the tracker is the electromagnetic calorimeter (ECAL), which is designed to absorb and measure the energy of electrons and photons.
-ECAL is made of 68,524 lead tungstate (\pbwo) crystals arranged in a cylindrical barrel covering $\abseta < 1.444$ and two endcap discs covering $1.566 < \abseta < 3.0$.
-\pbwo{} is 
+ECAL is made of 68,524 lead tungstate (\pbwo) crystals arranged in a cylindrical barrel (EB) covering $\abseta < 1.444$ and two endcap discs (EE) covering $1.566 < \abseta < 3.0$.
+The small gap between the barrel and endcap is necessary to accommodate cabling and support structures for the tracker.
+\pbwo{} crystals scintillate blue-green light and are optically transparent, so the resulting light can be read out by avalanche photodiodes (APDs) in the barrel and vacuum phototriodes (VPTs) in the endcap.
+ECAL's granularity is set by \pbwo's small {Moli\`ere} radius of~$2.2\unit{cm}$, which is also the size of the square front faces of the barrel crystals, which flare out to $2.6\unit{cm}$ at the back, giving them a truncated pyramid shape covering a roughy $0.0174 \times 0.174$ area of $\eta$-$\phi$ space.
+The endcap crystals go from $2.86\unit{cm}$ squares at the front to $3.0\unit{cm}$ at the back.
+
+One of the primary design innovations of CMS---the eponymous compactness---was to place the calorimetry inside the magnet so that tracks can be unambiguously associated with energy deposits in the calorimeters without interference from scattering in the magnet coils.
+This is possible in part thanks to the high density ($8.28\unit{g}/\unit{cm}^3$) and short radiation length ($0.89\unit{cm}$) of \pbwo, which allow ECAL crystals to be only $23\unit{cm}$ long in the barrel and $22\unit{cm}$ long in the endcap while still spanning 25.8 and 24.7 radiation lengths, respectively.
+This is enough to ensure that essentially no electrons or photons escape ECAL with any appreciable remaining energy.
+
+The total scintillation light yield is relatively low, averaging just 4.5~photons per~$\MeVns$ deposited,
+The Poisson fluctuations in the yield are the largest contribution to ECAL energy resolution for most electron and photon energies.
+This is represented by the first term in the full resolution equation,
+\begin{equation}
+  \left(\frac{\delta E}{E}\right)^2 = \left(\frac{2.8\%}{\sqrt{E/\GeVns}}\right)^2 + \left(\frac{0.12}{E/\GeVns}\right)^2 + \left(0.30\%\right)^2.
+\end{equation}
+The second term comes from electronic noise and noise from pileup, and the last term represents intrinsic differences between crystals.
+The upside to \pbwo's scintillation is that it is fast: roughly 80\% of the light is emitted in the $25\unit{ns}$ between bunch crossings.
 
 
 \subsection{Hadronic Calorimeter}
-More like HATECAL amirite?
+Between ECAL and the magnet is the hadronic calorimeter (HCAL), responsible for measuring the energy of hadronic jets.
+HCAL is a sampling calorimeter, meaning that the hadrons pass through dense, uninstrumented material and the products of the resulting interactions deposit energy in scintillators which are used to measure the total energy of the original incoming particles.
+The HCAL barrel (HB, $\abseta < 1.305$) and endcap (HE, $1.305 < \abseta < 3.0$) are made of layers of brass absorber interleaved with plastic scintillating tiles.
+The energy resolution in HB and HE is given by
+\begin{equation}
+  \label{eq:HBHE_resolution}
+  \left(\frac{\delta E}{E}\right)^2 = \left(\frac{90\%}{\sqrt{E/\GeVns}}\right)^2 + \left(4.5\%\right)^2.
+\end{equation}
+The first term is from the stochastic evolution of hadronic showers in the absorber, the second is from calibration uncertainties.
+
+The thickness of HB and HE is constrained by the size of the magnet, varying from 5.4 nuclear interaction lengths in the central barrel to more than 10 in the endcaps.
+Because HB is not enough to absorb all hadrons in the barrel, there is an extra outer HCAL component (HO) outside of the magnet, consisting of two more layers of scintillator on either side of a $20\unit{cm}$-thick iron ``tail catcher'' covering $\abseta < 1.3$.
+With HO and the 1.1 interaction lengths in ECAL considered, no part of the calorimeter system spans fewer than 11.8 interaction lengths except in the gaps between barrel and endcap, minimizing the flux of hadronic ``punchthrough'' making it to the muon system.
+
+Closer to the beam line on each side, the forward hadronic calorimeter (HF, $3.0 < \abseta < 5.2$) is made of iron instead of brass to maximize radiation hardness and acts as a Cherenkov detector with quatz fibers as the active detection element.
+Half the fibers extend the entire depth of HF, while the other half start after the hadrons have traversed $22\unit{cm}$ of iron, allowing electromagnetic and hadronic energy to be differentiated without ECAL\@.
+The energy resolution in HF is given by
+\begin{equation}
+  \left(\frac{\delta E}{E}\right)^2 = \left(\frac{172\%}{\sqrt{E/\GeVns}}\right)^2 + \left(9\%\right)^2,
+\end{equation}
+where the terms have the same physical interpretation as those in Eq.~\ref{eq:HBHE_resolution}.
+HF improves CMS's missing energy resolution by roughly a factor of three.
+
 
 
 \subsection{Muon Spectrometer}
