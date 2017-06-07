@@ -178,10 +178,11 @@ The pseudorapidity~$\eta$ is defined as
   \eta \equiv -\ln \left[\tan\left(\frac{\theta}{2}\right)\right]
 \end{equation}
 where $\theta$ is the polar angle measured from the $z$-axis.
-In the limit of massless particles, the pseudorapidity is the same as the rapidity
+Pseudorapidity is the same as the relativistic rapidity
 \begin{equation}
-  y \equiv \frac{1}{2} \ln \left(\frac{E+p_z}{E-p_z}\right).
+  y \equiv \frac{1}{2} \ln \left(\frac{E+p_z}{E-p_z}\right),
 \end{equation}
+in the limit of massless particles.
 Pseudorapidity is preferred to rapidity because it is purely geometrical, with no dependence on the particle energy.
 Both are preferred over $\theta$ because rapidity differences are invariant under longitudinal boosts, and because hadron flux at colliders is roughly constant as a function of rapidity.
 The transverse energy~$\et$ is the the magnitude of the particle's four-momentum transverse to the beam, equal to $\pt$ in the limit of massless particles.
@@ -213,6 +214,7 @@ Both consist of concentric cylinders of sensors covering the barrel of the detec
 With a total of roughly $200\unit{m}^2$ of silicon, the inner tracker is the largest silicon tracker in the world, which means that tracks may be reconstructed with hits in as many as 14 layers.
 The downside of this is that the tracker represents a substantial amount of material for electrons and photons to interact with before they reach the calorimeters, with total material budget between 0.4 radiation lengths ($\eta=0$) and 1.8 radiation lengths ($\abseta \approx 1.4$).
 The tracker-only $\pt$ uncertainty is around~1.2\% at $200\GeV$ and 15\% at~$1\TeV$.
+Tracker readout is too slow for it to be used in the L1 trigger (see Section~\ref{sec:l1trig}), so the other systems must be used for this purpose.
 
 
 \subsubsection{Pixel Detector}
@@ -279,24 +281,76 @@ where the terms have the same physical interpretation as those in Eq.~\ref{eq:HB
 HF improves CMS's missing energy resolution by roughly a factor of three.
 
 
-
 \subsection{Muon Spectrometer}
-There's also a return yoke
+Many of the most interesting physics processes at the LHC involve high energy muons, so muon identification, triggering, and momentum measurement are important design goals.
+Muons leave very little energy in the calorimeters, so ECAL and HCAL cannot be used for triggering and identification as they are for electrons, photons and hadrons, or to improve momentum measurements of high-$\pt$ particles whose tracks are too straight to allow good measurements of their curvature.
+Instead, these functions are provided for muons by three gas-based systems surrounding the rest of the detector.
+In all three, ionizing gas chambers provide hits which form a track.
+The magnetic field for this is provided by the return yoke, a set of steel plates interleaved with the muon chambers which confine the solenoid's magnetic field.
+The yoke plates weigh a total of $10,000\unit{t}$ and are fully saturated by the solenoid.
+
+Unlike the inner tracker, the muon systems can be read out fast enough to provide triggering.
+Because muons above $3\GeV$ generally traverse the muon system while most other measurable particles are stopped in the calorimeters, magnets, or return yoke, the muon system provides high efficiency, low-background muon identification.
+The muon system's momentum measurements are not competitive with the inner tracker's at low $\pt$, but a combined fit of the inner track and the muon system (``standalone'') track improves muon $\pt$ resolution above roughtly $200\GeV$.
+
 
 \subsubsection{Drift Tubes}
-Are in the barrel
+In the barrel ($\abseta < 1.2$), drift tube (DT) chambers are arranged in four ``stations'' separated by layers of the yoke.
+Stations are made of two or three superlayers (SLs) of four layers of rectangular drift cells.
+Adjacent layers are staggered latterally by half a cell width to avoid gaps.
+Each station has two SLs with wires running parallel to the beam to measure muon tracks in the $r$-$\phi$ plane, separated by an aluminum honeycomb lattice to provide mechanical rigidity and act as a spacer.
+The inner three stations contain an extra SL on the outer side of the spacer with wires perpendicular to the beam line, to measure muon position along the $z$-axis.
+
+Each drift cell contains a roughly $2.4\unit{m}$-long wire in gas (85\% Ar, 15\% CO$_2$).
+The electric field in the cell is proveded by aluminum tape glued to the top and bottom of the cell and held at $+1.8\unit{kV}$ relative to the grounded aluminum plates above and below.
+Aluminum tape cathodes on the side of the cell are held at $-1.2\unit{kV}$, while the wires act as $+3.6\unit{kV}$ anodes.
+The width of each cell perpendicular to muon motion, $42\unit{mm}$, was chosen for a maximum drift time of $380\unit{ns}$, sufficient to obviate the need for double-hit readout logic in this low-occupancy region of the detector, with the height of $13\unit{mm}$ set by mechanical and space constraints.
+Track timing resolution in each SL is a few nanoseconds when all cells are allowed to read out all deposited charge.
+The $r$-$\phi$ position resolution available for online use in the trigger is about $1.5\unit{mm}$ in each SL\@; offline, for a single wire it is roughly $250\unit{\mu m}$, leading to an overall resolution of $100\unit{\mu m}$ at each station.
+
 
 \subsubsection{Cathode Strip Chambers}
-Are in the endcap
+Muons with $1.2 < \abseta < 2.4$ are detected by the cathode strip chambers (CSCs).\footnote{Where the CSCs and DTs overlap ($0.9 < \abseta < 1.2$), tracks are formed from hits in both.}
+The CSC system's trapezoidal chambers are arranged on discs interleaved with the endcap yoke in four layers.
+Chambers close to the beamline each cover $20\degree$ sections in $\phi$, outer chambers cover $10\degree$ sections, with overlap to avoid gaps.
 
-\subsubsection{Resistive Place Chambers}
-Also exist
+A CSC chamber is made of seven panels sandwiched together to make six gaps filled with a gas mixture (40\% Ar, 50\% CO$_2$, 10\% CF$_4$).
+Six of the plates have cathode strips milled into one side, varying in pitch from $8.4\unit{mm}$ at the narrow end of the trapezoid to $16\unit{mm}$ at the wide end, with $0.5\unit{mm}$ gaps between strips.
+Three panels are wrapped with anode wires, alternating with the other panels so that every gas gap has a plane of wires.
+Wires are spaced $3.2\unit{mm}$ apart and run azimuthally around the detector, except for the innerpost chamber closest to the interaction point, which are inside the magnet and must have their wires tilted $29\degree$ so that charge collected by the wires moves parallel to them despite the Lorentz forces from the solenoid.
+
+A typical muon will deposit charge in 3--4 cathode strips and a similar number of anode wires per gas gap, allowing hit position to be interpolated using all these signals as well as timing information.
+The single-plane spatial resolution can be as good as $80\unit{\mu m}$ but depends strongly on where in the width of the strip the muon hits.
+The strips in alternating planes are therefore offset by half their width.
+Measurements from all six gas gaps in a chamber are combined into a segment with position resolution in the 30--$80\unit{\mu m}$ range, which depends on the chamber but not where in the chamber the muon hit.
+
+Anodes and cathodes are held $3.6\unit{kV}$ from each other, leading to a drift time of roughly $300\unit{ns}$.
+Single anode planes have an RMS timing resolution of around $11\unit{ns}$, insufficient for assigning a hit unambiguously to an individual bunch crossing, as required for triggering.
+However, information from all six anode planes in a chamber can be combined to yield a segment timing resolution around $5\unit{ns}$.
+Segments are therefore the unit of information sent to the trigger.
+Segment position resolution at trigger level is 1--$2\unit{mm}$.
+
+
+\subsubsection{Resistive Plate Chambers}
+To provide a redundant set of muon momentum measurements, as well as precise timing of muon hits, CMS has six layers of resistive plate chambers (RPCs) in the barrel and four in the endcap up to $\abseta < 1.6$.
+RPC chambers consist of two thin layers of intert gas (95.2\% C$_2$H$_2$F$_4$, 4.5\% C$_4$H$_{10}$, 0.3\% SF$_6$) each between a pair of Bakelite electrodes held at $9.3\unit{kV}$.
+The two ``gas gaps'' are placed on either side of a plane of copper strips.
+When a passing muon ionizes the gas, the high voltage causes a fast electron avalanche read out by the strips.
+The narrow gap allows the RPCs to have single-hit timing resolution around $1\unit{ns}$, but the spatial resolution is limited to about $1\unit{cm}$ by the size of the readout strips.
+The DTs and CSCs both have better momentum resolution than the RPCs, but RPCs are a simple, robust auxiliary system and the timing resolution can be used in conjunction with the other systems to improve overall muon measurements.
 
 
 \subsection{Data Acquisition and Trigger}
-Somethigng about DAQ
+With a bunch crossing rate of $40\unit{MHz}$ giving a collision rate that can exceed $1.6\unit{GHz}$ and raw event sizes of 1--$2\unit{MB}$, the raw data generation rate of CMS could potentially be several PB/s, substantially more than can be read out, stored or analyzed with current technology.
+However, most events consist only of low-energy, well-understood QCD interactions, so the data rate can be drastically reduced by reading out and storing only events likely to contain interesting physics content.
+CMS reduces the event rate with a two-level trigger system.
 
-\subsubsection{Level-1 Trigger}
+The level-1 (L1) trigger uses custom hardware operating on trigger primitives (TPs), low-granularity detector information, to reduce the event rate to $100\unit{kHz}$ or less.
+Inner tracker readout is too slow for use in the trigger, so only the calorimeters and muon systems generate TPs.
+Events accepted at level-1 are read out, digitized, and sent to the high level trigger (HLT), where they are partially reconstructed in software and filtered further, reducing the final rate of stored events to roughly $1\unit{kHz}$.
+
+
+\subsubsection{Level-1 Trigger}\label{sec:l1trig}
 Obviously the best part
 
 \subsubsection{High-Level Trigger}
