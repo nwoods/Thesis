@@ -351,11 +351,76 @@ Events accepted at level-1 are read out, digitized, and sent to the high level t
 
 
 \subsubsection{Level-1 Trigger}\label{sec:l1trig}
-Obviously the best part
+LHC beams collide at too high a rate for trigger decisions to be made in software, so the L1 trigger is instead implemented in custon hardware, with processing done using field-programmable gate arrays (FPGAs) as much as possible for flexibility, and application-specific integrated circuits (ASICs) where required.
+Hardware limitations of other CMS subsystems---in particular, the inner tracker's readout speed and buffer capacity---impose strict constraints on they system.
+The rate of events passing at level-1 cannot exceed $100\unit{kHz}$ and the system's overall latency cannot exceed roughly $4.2\unit{\mu s}$.
+These goals are achieved while maintaining high efficiency for interesting physics events by using only low-granularity detector information, to reduce the bandwidth needed within the trigger system.
+Information flows through subsystems, with the amount of data reduced at each step.
+Calorimeter and muon information are combined only in the final step.
+Optical links between systems provide high-bandwidth data transfer and allow flexibility in the overall trigger architecture.
+The calorimeter trigger was upgraded with respect to the Run~I configuration in 2015, and the whole trigger system was overhauled in 2016~\cite{Tapper:1556311}.
+Both configurations will be described here.
+
+Calorimeter information is compressed into trigger primitives (TPs) for use in the trigger by trigger primitive generators (TPGs).
+Each TP represents a ``tower'' consisting of a $5 \times 5$ cluster of ECAL crystals and the portion of HCAL behind them in the barrel and endcap, or a section of the HF\@.
+The TP contains an 8-bit transverse energy sum and a quality bit for each calorimeter, and six bits of error checking and bookkeeping information.
+In 2015, TPs were sent to the Regional Calorimeter Trigger (RCT), which processed 18 portions of the detector (segmeted in $\phi$ with $+\eta$ and $-\eta$ treated separately) in parallel in separate crates of electronics, using several ASICs and one FPGA in each crate for processing.
+Each RCT crate summed the TPs within $\abseta < 3.0$ into $4 \times 4$ tower regions, and found isolated non-isolated $2 \times 1$ tower $\Pe/\Pa$ and $\Pt$ candidates.
+These objects were sent to Stage~1 Layer~2, which selected the best $\Pe/\Pa$ and $\Pt$ candidates from the entire detector, clustered regions into $3 \times 3$ region jet candidates, and computed global quantities like missing transverse energy and the scalar sum of transverse energy for all particles in the event.
+Pileup subtraction was performed with a lookup table (LUT) based on the number of regions in the detector with no energy.
+
+In 2016, the whole calorimeter trigger was replaced with a new two-tiered system.
+Stage~2 Layer~1 (``CaloL1'') consists of 18 FPGA-based Calorimeter Trigger Processor~7 (CTP7) cards, which calibrate and reformat the TPs before forwarding them to Stage~2 Layer~2 (``CaloL2''), an FPGA-based time-multiplexed system which finds $\Pe/\Pa$, $\Pt$, and jet candidates and computes global quantities for whole events in parallel using tower-level information.
+
+In 2015, the DTs and CSCs fed track segments into track finders (DTTF and CSCTF) which used pattern recognition algorithms to reconstruct tracks and measure their $\pt$, sharing information between the track finders to avoid inefficiency in the overlap region.
+The RPCs made their own tracks.
+Since the 2016 upgrade, track finding has been done by geometrical region of the detector rather than detector subsystem alone, with separate track finders for the barrel (BMTF, $\abseta < 0.85$), endcap ($1.25 < \abseta < 2.4$) and the overlap region (OMTF, $0.85 < \abseta < 1.25$).
+The track finders feed into the Global Muon Trigger (GMT, upgraded to $\mu$GMT in 2016), which merges and sorts tracks, analyzes their quality and selects the best ones.
+
+The calorimeter and muon trigger systems, which have up to this point worked entirely in parallel, both send their selected candidates and global quantities to the Global Trigger (GT, upgrated to $\mu$GT).
+The Global Trigger contains the trigger menu, the configurable set of algorithms used to determine whether an event is accepted or not.
+These algorithms can use combinations of the objects from the calorimeter and muon trigger systems, including imposing topological requirements, e.g.\ requiring a large $\Delta\eta$ between muons in a pair.
+The final decision is a logical OR of all triggers in the menu, but each trigger may be prescaled, i.e.\ only included in the final decision a fraction of the time in order to reduce its rate.
+When an event is accepted, a level~1 accept (L1A) signal is sent to all CMS subsystems instructing them to read out information collected in the accepted event, which is stored in buffers until it can be read out or safely discarded.
+
 
 \subsubsection{High-Level Trigger}
-Many Computers
+After an accepted event is read out, it must undergo another level of screening before being stored.
+The High Level Trigger (HLT) uses full detector information reconstructed with versions of the normal CMS reconstruction algorithms specially optimized for speed, running in a large farm of commercial computers.
+Much of HLT's power comes from having tracker information, allowing more precise momentum measurements, isolation calculations and identification algorithms than are available at L1.
+For example, the pixels can be used to reconstruct vertices and tag $\Pqb$-quark jets, and requirements can be placed on the invariant mass of a lepton pair.
+However, track reconstructions is slow, so it is typically only done as one of the last steps in the filtering process, allowing the event to be rejected based on more easily reconstructed objects like tracks in the muon system.
+Other optimizations include only reconstructing tracks near objects passed in by the L1 Global Trigger.
+The final result is that the rate of events saved for later analysis is around $1\unit{kHz}$.
 
 
 \subsection{Luminosity Determination}
-BRIL and whatnot
+A precise measurement of the luminosity delivered by the LHC is critical to precisely measuring any cross section.
+The instantaneous luminosity for $n_b$ colliding bunch pairs with intensity $N_b$ and orbit frequency $f$ is given by
+\begin{equation}\label{eq:lumiByAeff}
+  \lumiL = \frac{n_b N_b^2 f}{A_\text{eff}}
+\end{equation}
+where $A_\text{eff}$ is the effective area of the beam-beam overlap.
+If beam $i$ has a gaussian density profile in the $u$ direction of width $\sigma_{i,u}$, and the beam densities are uncorrelated in each direction, then
+\begin{equation}
+  A_\text{eff} = 2\pi \sqrt{\sigma_{1,x}^2 + \sigma_{2,x}^2} \sqrt{\sigma_{1,y}^2 + \sigma_{2,y}^2}.
+\end{equation}
+The beam widths $\sigma_{i,u}$, the only unknowns in Eq.~\ref{eq:lumiByAeff}, are purely geometrical and can be found with the Van de Meer (VdM) scan method~\cite{vanderMeer:1968zz,Zanetti:1357856}.
+In a VdM scan, for which LHC has a special run mode, one beam is held fixed while the position of the other is scanned in the $x$-$y$ plane, and detector activity is measured as a function of beam displacement.
+Because the width of the interaction rate distribution is independent of its overall normalization, the detector activity metric may be any quantity linearly proportional to the interaction rate.
+
+Over the course of an LHC run, $n_b$, $N_b$, and $A_\text{eff}$ are all subject to change, and in fact the VdM scans are performed with a special LHC configuration, so in practice the procedure outlined above provides a calibration and overall scale for luminosity measurements during physics collisions.
+For a given detector metric labeled $Q$ with rate $R^Q$ that peaked at $R_0^Q$ with no beam displacement, the VdM scan yields a visible cross section, the constant of proportionality between the rate and the instantaneous luminosity,
+\begin{equation}
+  \sigma_\text{vis}^Q \equiv \frac{R^Q}{\lumiL} = A_\text{eff} R_0^Q.
+\end{equation}
+CMS has several such metrics; the primary one used for measuring integrated luminosity is the number of pixel hit clusters~\cite{CMS-PAS-LUM-15-001,CMS-PAS-LUM-17-001}.
+The instantaneous luminosity is given by
+\begin{equation}
+  \lumiL = \frac{\langle N_c \rangle f}{\sigma_\text{vis}^\text{PCC}} = \frac{\langle N_c \rangle}{A_\text{eff} \langle N_c \rangle_0}
+\end{equation}
+where $\langle N_c \rangle$ is the average number of pixel hit clusters at each bunch crossing and $\langle N_c \rangle_0$ is its peak value during the VdM scan.
+
+A number of complications must be accounted for or included in systematic uncertainty estimates.
+Beam-beam interation effects, correlations between the proton density distributions in the $x$ and $y$ directions, drifts in the beam orbit, and normalization uncertainties on the bunch intensity and absolute distance scale from the beam spot must all be handled with care.
+The result is a total integrated luminosity uncertainty of $2.3\%$ in 2015 and $2.5\%$ in 2016\@.
