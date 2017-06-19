@@ -52,8 +52,7 @@ The electromagnetic, mechanical, and cryogenic coupling of the two beamlines rep
   \includegraphics[width=0.8\textwidth]{experiment/lhcDipole.png}
   \caption{
     Schematic cross section of an LHC dipole and its attendent electrical and cryogenic infrastructure, reproduced from Ref.~\cite{Evans:2008zzb}.
-    }
-\label{fig:lhcDipole}
+    }\label{fig:lhcDipole}
 \end{figure}
 
 Because no single accelerator has the dynamic range necessary to take a stationary proton to \TeV-scale energies, a chain of smaller accelerators repurposed from previous experiments feeds moderate-energy protons into LHC\@.
@@ -67,8 +66,7 @@ A diagram of the entire accelerator chain is shown in Fig.~\ref{fig:acceleratorC
   \includegraphics[width=\textwidth]{experiment/acceleratorChain.png}
   \caption{
     A schematic of the LHC accelerator chain and peripheral experiments, reproduced from Ref.~\cite{Christiane:1260465}.
-  }
-\label{fig:acceleratorChain}
+  }\label{fig:acceleratorChain}
 \end{figure}
 
 The ring is divided into eight sectors, each of which features a $528\unit{m}$ straight section connected to the adjacent sections by $2.45\unit{km}$ arcs.
@@ -122,11 +120,11 @@ Further upgrades have improved machine performance, with some parameters now mee
   }
 \centering
 \begin{tabular}{lllllll}
-\hline
+\toprule
                                                                      & \multicolumn{1}{c}{Design} & \multicolumn{3}{c}{Run I}  & \multicolumn{2}{c}{Run II} \\
-\hline
+\midrule
 Year                                                                 &          & 2010    & 2011    & 2012    & 2015    & 2016                               \\
-\hline\hline
+\midrule\midrule
 Energy per beam $\left(\TeVns\right)$                                & 7        & 3.5     & 3.5     & 4       & 6.5     & 6.5                                \\
 Bunch spacing $\left(\unitns{ns}\right)$                             & 25       & 150     & 50      & 50      & 25      & 25                                 \\
 $n_b$                                                                & 2808     & 348     & 1331    & 1368    & 2232    & 2208                               \\
@@ -136,10 +134,9 @@ $\epsilon_N \left(\unitns{mm}\unit{mrad}\right)$                     & 3.75     
 Peak pileup                                                          & FIXME    & 4       & 17      & 37      & 22      & 49                                 \\
 Peak $\lumiL \left(10^{34}\unitns{cm}^{-2}\unitns{s}^{-1}\right)$    & 1        & 0.02    & 0.35    & 0.77    & 0.52    & 1.53                               \\
 $\lumiL_\textit{int} \left(\fbinvns\right)$                          &          & 0.04    & 6.1     & 23.3    & 4.2     & 41.1                               \\
-\hline
+\bottomrule
 
-\end{tabular}
-\label{tab:lhcparams}
+\end{tabular}\label{tab:lhcparams}
 \end{table}
 
 
@@ -158,8 +155,7 @@ The integrated luminosity for each year of LHC operation is shown as a function 
   \includegraphics[width=.7\textwidth]{experiment/intLumi.png}
   \caption{
     The integrated luminosity delivered to CMS in each year of LHC operation, shown as a function of the date within the year.
-  }
-\label{fig:intLumi}
+  }\label{fig:intLumi}
 \end{figure}
 
 
@@ -199,8 +195,7 @@ Descriptions of these systems follow.
   \includegraphics[width=\textwidth]{experiment/cmsWhole.png}
   \caption{
     Cutout schematic of CMS with all major subdetectors, the beamline, the magnet, and the return yoke visible. Reproduced from Ref.~\cite{Sakuma:1626816}.
-  }
-\label{fig:cmsWhole}
+  }\label{fig:cmsWhole}
 \end{figure}
 
 \subsection{Terminology and Geometry}
@@ -261,8 +256,7 @@ Tracker readout is too slow for it to be used in the L1 trigger (see Section~\re
   \includegraphics[width=\textwidth]{experiment/tracker.png}
   \caption{
     Diagram of the inner tracker layout, reproduced from Ref.~\cite{Chatrchyan:2008zzk}.
-  }
-\label{fig:tracker}
+  }\label{fig:tracker}
 \end{figure}
 
 
@@ -272,8 +266,7 @@ Tracker readout is too slow for it to be used in the L1 trigger (see Section~\re
   \caption{
     Total tracker material budget in units of electromagnetic radiation lengths, as a function of pseudorapidity.
     At (left) the total is divided by detector subsystem, at (right) by the function of the material. Reproduced from Ref.~\cite{Chatrchyan:2008zzk}.
-  }
-\label{fig:trackerMaterial}
+  }\label{fig:trackerMaterial}
 \end{figure}
 
 
@@ -307,8 +300,7 @@ The endcap crystals go from $2.86\unit{cm}$ squares at the front to $3.0\unit{cm
   \includegraphics[width=0.7\textwidth]{experiment/ecal.png}
   \caption{
     Diagram of ECAL geometry, reproduced from Ref.~\cite{Isildak:2013kfa}.
-  }
-\label{fig:ecal}
+  }\label{fig:ecal}
 \end{figure}
 
 One of the primary design innovations of CMS---the eponymous compactness---was to place the calorimetry inside the magnet so that tracks can be unambiguously associated with energy deposits in the calorimeters without interference from scattering in the magnet coils.
@@ -346,8 +338,7 @@ The total material budget in front of the layers of the muons systems is shown i
   \includegraphics[width=\textwidth]{experiment/hcal.png}
   \caption{
     Diagram of HCAL geometry, reproduced from Ref.~\cite{Chatrchyan:2008zzk}.
-  }
-\label{fig:hcal}
+  }\label{fig:hcal}
 \end{figure}
 
 \begin{figure}[h]
@@ -355,8 +346,7 @@ The total material budget in front of the layers of the muons systems is shown i
   \includegraphics[width=0.7\textwidth]{experiment/hcalMaterial.png}
   \caption{
     Total material budget in units of nuclear interaction lengths, as a function of pseudorapidity, reproduced from Ref.~\cite{Chatrchyan:2008zzk}.
-  }
-\label{fig:hcalMaterial}
+  }\label{fig:hcalMaterial}
 \end{figure}
 
 Closer to the beam line on each side, the forward hadronic calorimeter (HF, $3.0 < \abseta < 5.2$) is made of iron instead of brass to maximize radiation hardness and acts as a Cherenkov detector with quatz fibers as the active detection element.
@@ -387,8 +377,7 @@ The geometry of all three muon systems and the return yoke can be seen in Fig.~\
   \includegraphics[width=\textwidth]{experiment/muonSystem.png}
   \caption{
     Diagram of muon system and return yoke geometry, reproduced from Ref.~\cite{Abbiendi:2015txa}. The magnet, calorimeters, and inner tracker are also visible.
-  }
-\label{fig:muonSystem}
+  }\label{fig:muonSystem}
 \end{figure}
 
 
@@ -488,8 +477,7 @@ A diagram of the whole 2016 L1 trigger system and its information flow is shown 
   \includegraphics[width=\textwidth]{experiment/triggerFlow.png}
   \caption{
     Data flow diagram for the CMS L1 trigger after the 2016 overhaul, reproduced from Ref.~\cite{Tapper:1556311}.
-  }
-\label{fig:triggerFlow}
+  }\label{fig:triggerFlow}
 \end{figure}
 
 
