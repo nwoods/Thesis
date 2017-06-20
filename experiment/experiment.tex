@@ -47,7 +47,7 @@ Conversely, proton beams require opposite magnetic fields for the two beams.
 Because the tunnels were not wide enough to accommodate two completely separate beam lines, most of the magnets in the LHC use a twin-bore design, shown schematically in Fig.~\ref{fig:lhcDipole}, in which the pipes and windings for the two beams share a common cryogenic system.
 The electromagnetic, mechanical, and cryogenic coupling of the two beamlines represents a significant engineering challenge.
 
-\begin{figure}[h]
+\begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{experiment/lhcDipole.png}
   \caption{
@@ -61,7 +61,7 @@ The PSB feeds $1.4\GeV$ protons into the Proton Synchrotron~(PS), which in turn 
 The protons are then accelerated to $450\GeV$ in the SPS before being injected into LHC\@.
 A diagram of the entire accelerator chain is shown in Fig.~\ref{fig:acceleratorChain}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{experiment/acceleratorChain.png}
   \caption{
@@ -150,7 +150,7 @@ Machine availability was overall good considering the complexity and relative ne
 In all, LHC delivered $6.1\fbinv$ to CMS and ATLAS in 2011 and $23.3\fbinv$ in 2012, enough to allow discovery of the Higgs boson.
 The integrated luminosity for each year of LHC operation is shown as a function of calendar month and day in Fig.~\ref{fig:intLumi}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=.7\textwidth]{experiment/intLumi.png}
   \caption{
@@ -190,7 +190,7 @@ To this end, CMS features a silicon tracker, a scintillating crystal electromagn
 Decisions on which events to read out are made on-line by a two-level trigger system.
 Descriptions of these systems follow.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{experiment/cmsWhole.png}
   \caption{
@@ -251,7 +251,7 @@ The downside of this is that the tracker represents a substantial amount of mate
 The tracker-only $\pt$ uncertainty is around~1.2\% at $200\GeV$ and 15\% at~$1\TeV$.
 Tracker readout is too slow for it to be used in the L1 trigger (see Section~\ref{sec:l1trig}), so the other systems must be used for this purpose.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{experiment/tracker.png}
   \caption{
@@ -260,7 +260,7 @@ Tracker readout is too slow for it to be used in the L1 trigger (see Section~\re
 \end{figure}
 
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{experiment/trackerMaterial.png}
   \caption{
@@ -295,7 +295,7 @@ The geometry of the ECAL barrel and endcap can be seen in Fig.~\ref{fig:ecal}; t
 ECAL's granularity is set by \pbwo's small {Moli\`ere} radius of~$2.2\unit{cm}$, which is also the size of the square front faces of the barrel crystals, which flare out to $2.6\unit{cm}$ at the back, giving them a truncated pyramid shape covering a roughy $0.0174 \times 0.174$ area of $\eta$-$\phi$ space.
 The endcap crystals go from $2.86\unit{cm}$ squares at the front to $3.0\unit{cm}$ at the back.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.7\textwidth]{experiment/ecal.png}
   \caption{
@@ -333,7 +333,7 @@ The thickness of HB and HE is constrained by the size of the magnet, varying fro
 With HO and the 1.1 interaction lengths in ECAL considered, no part of the calorimeter system spans fewer than 11.8 interaction lengths except in the gaps between barrel and endcap, minimizing the flux of hadronic ``punchthrough'' interacting with the muon system.
 The total material budget in front of the layers of the muons systems is shown in Fig.~\ref{fig:hcalMaterial}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{experiment/hcal.png}
   \caption{
@@ -341,7 +341,7 @@ The total material budget in front of the layers of the muons systems is shown i
   }\label{fig:hcal}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=0.7\textwidth]{experiment/hcalMaterial.png}
   \caption{
@@ -372,7 +372,7 @@ Because muons above $3\GeV$ generally traverse the muon system while most other 
 The muon system's momentum measurements are not competitive with the inner tracker's at low $\pt$, but a combined fit of the inner track and the muon system (``standalone'') track improves muon $\pt$ resolution above roughtly $200\GeV$.
 The geometry of all three muon systems and the return yoke can be seen in Fig.~\ref{fig:muonSystem}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{experiment/muonSystem.png}
   \caption{
@@ -472,7 +472,7 @@ The final decision is a logical OR of all triggers in the menu, but each trigger
 When an event is accepted, a level~1 accept (L1A) signal is sent to all CMS subsystems instructing them to read out information collected in the accepted event, which is stored in buffers until it can be read out or safely discarded.
 A diagram of the whole 2016 L1 trigger system and its information flow is shown in Fig.~\ref{fig:triggerFlow}.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{experiment/triggerFlow.png}
   \caption{
