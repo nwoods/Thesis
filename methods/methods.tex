@@ -3,32 +3,51 @@
 \chapter{Analysis Strategy}
 
 \section{Background Estimation}
-Reducible backgrounds for four-lepton events typically have two prompt leptons and two other objects---typically jet fragments---which are misidentified as prompt leptons.
-The largest source of background events, often referred to as ``\PZ+X,'' arises when a {\PZ} boson is produced in association with a leptonically-decaying $\PW$ boson and a jet, or two jets.
-There is also a contribution from $\Pqt\Paqt$ events in which both top quarks decay to a lepton, a neutrino, and a {\Pqb}~quark jet.
-For simplicity, the two sets of processes are not treated separately in what follows, and are collectively labeled ``\PZ+X'' in the plots.
+Reducible backgrounds for four-lepton events typically have two prompt leptons and two other objects---typically jet fragments, sometimes photons---which are misidentified as prompt leptons.
+The largest source of background contamination is from evens in which a {\PZ} boson is produced in association with a photon and a jet, a leptonically-decaying $\PW$ boson and a jet, or two jets.
+There is also a contribution from {\TTbar} events in which both top quarks decay to a lepton, a neutrino, and a {\Pqb}~quark jet.
+For simplicity, the two sets of processes are not treated separately in what follows, and are collectively labeled ``$\PZ+\PX$'' events.
 
-The contributions of the reducible backgrounds to the selected four-lepton signal samples are evaluated using the tight-to-loose ``fake rates'' method.
-The likelihood of a ``loose'' (fake) candidate to be misidentified as a  ``tight'' (prompt) lepton is estimated and applied to control regions with loose candidates to estimate their contribution to the signal region.
-The lepton misidentification rate $f_l\left(\pt, \eta\right)$ is measured from a sample of $\PZ + \ell_\text{loose}$ events, where the {\PZ} candidate is selected as in the signal region but with $\left| m_{\ell\ell} - m_\PZ \right| < 10\GeV$, and the $\ell_\text{loose}$ candidate is a lepton candidate that passes relaxed ID requirements as defined in Section~\ref{sec:looseID}, with no isolation or tight ID requirements applied.
+The contributions of the reducible backgrounds to the selected four-lepton signal samples are evaluated using the tight-to-loose ``fake rates'' method, described more fully in Ref.~\cite{Chatrchyan:2013mxa}.
+In this procedure, the likelihood of a nonprompt (``fake'') object to be misidentified as a prompt lepton is estimated and applied to control regions enriched with $\PZ+\PX$ events to estimate their contribution to the signal region.
+The lepton misidentification rate $f_\ell\left(\pt^\ell, \eta^\ell\right)$ is measured from a sample of $\PZ + \ell_\text{fake}$ events, where the {\PZ} candidate is selected as in the signal region but with $\left| m_{\ell\ell} - m_\PZ \right| < 10\GeV$, and the $\ell_\text{fake}$ object is a lepton candidate that passes relaxed ID requirements as defined in Section~\ref{sec:looseID}, with no isolation or tight ID requirements applied.
+Events with three prompt leptons can contaminate this control region, because the {non-\PZ} lepton is assumed fake.
+To avoid the resulting bias in the misidentification rate, the contribution of $\WZ \to 3\ell\nu$ to the $\PZ+\ell_\text{fake}$ sample is estimated from a simulated sample and subtracted.
 
-The misidentification rate is defined as the fraction of $\ell_\text{loose}$ candidates which pass full lepton identification and isolation critera, in bins of $\pt$ and $\eta$.
-One should note that this is not a probability in the usual sense, and there is not a simple physical interpretation of these misidentification rates.\
+The misidentification rate is defined as the fraction of $\ell_\text{fake}$ candidates which pass full lepton identification and isolation critera, in bins of $\pt$ and $\eta$.
+One should note that this is not a probability in the usual sense, and there is not a simple physical interpretation of these misidentification rates.
 Figure~\ref{fig:fakerates} shows the misidentification rates for electrons and muons separately as a function of {\pt} and $\eta$.
 
-%=============
 \begin{figure}[htbp]
- \begin{center}
-   \subfigure[]{\includegraphics[width=0.35\textwidth]{methods/eFakeRate_pt.png}}
-   \subfigure[]{\includegraphics[width=0.35\textwidth]{methods/eFakeRate_eta.png}} \\
-   \subfigure[]{\includegraphics[width=0.35\textwidth]{methods/mFakeRate_pt.png}}
-   \subfigure[]{\includegraphics[width=0.35\textwidth]{methods/mFakeRate_eta.png}}
-   \caption{
-     Fake rate for electron (a,b) and muons (c,d) as a function of $\pt$ and $\eta$.
-   }\label{fig:fakerates}
- \end{center}
+  \begin{center}
+    \includegraphics[width=0.35\textwidth]{methods/eFakeRate_pt.png}
+    \includegraphics[width=0.35\textwidth]{methods/eFakeRate_eta.png} \\
+    \includegraphics[width=0.35\textwidth]{methods/mFakeRate_pt.png}
+    \includegraphics[width=0.35\textwidth]{methods/mFakeRate_eta.png}
+    \caption[Misidentification rates for electrons and muons]{
+      Fake rate for electrons~(top) and muons~(bottom) as a function of $\pt$~(left) and $\eta$~(right).
+      }\label{fig:fakerates}
+  \end{center}
 \end{figure}
 
+To estimate the total reducible background yield, the misidentification rates are applied to two $\PZ+\PX$ enriched control samples, each containing a {\PZ}~boson candidate passing all signal region requirements plus two more lepton candidates which pass the relaxed identification criteria and would make a second passing {\PZ} boson candidate except that one or both fail the full identification or isolation criteria.
+The sample with one failing lepton, called the ``3P1F'' sample for ``3 prompt 1 fake,'' covers the contribution from {\WZ} events, while the sample with both leptons in the second {\PZ} boson failing (``2P2F'') covers $\PZ+\text{jets}$ and {\TTbar} events.
+Both have the contribution from {\ZZ} events in which one or two prompt leptons fail identification or isolation criteria removed based on simulated samples.
+The fake object transfer factor
+\begin{equation}
+  F_\ell\left(\pt^\ell,\eta^\ell\right) = \frac{f_\ell\left(\pt^\ell, \eta^\ell\right)}{1 - f_\ell\left(\pt^\ell, \eta^\ell\right)}
+\end{equation}
+is the ratio of nonprompt objects passing the relaxed and full selection criteria, and thus serves as an extrapolation factor between control sample yields and signal sample yields.
+
+The total reducible background yield is thus
+\begin{equation}\label{eq:bkgYield}
+  N_\text{bkg} = \sum_{\ell \in \text{3P1F}} F_\ell\left(\pt^\ell,\eta^\ell\right) - \sum_{\ell_1,\ell_2 \in 2P2F} F_{\ell_1}\left(\pt^{\ell_1},\eta^{\ell_1}\right)F_{\ell_2}\left(\pt^{\ell_2},\eta^{\ell_2}\right),
+\end{equation}
+where subtraction of signal contamination is implicit.
+The minus sign in Eq.~\ref{eq:bkgYield} prevents double-counting of $\PZ+2\text{jets}$ events in which one jet fragment is misidentified.
+
+There are also irreducible background contributions from {\TTZ} and {\WWZ} events, which can have four prompt leptons.
+Expected yields for these processes are taken from simulation.
 
 
 
