@@ -52,7 +52,57 @@ Expected yields for these processes are taken from simulation.
 
 
 \section{Systematic Uncertainties}
-Who knows?
+
+Systematic uncertainties for trigger efficiency are taken to be the difference between trigger efficiencies in data and in simulated events, found to be around 2\% of the final event yield.
+Because leptons in $\PZ \to 4\ell$ events generally have lower $\pt$, the uncertainty increases to 4\% for $\PZ \to 4\Pe$ events.
+In both data and simulated events, trigger efficiencies are found with a tag-and-probe technique~\cite{CMS:2011aa}, performed on four-lepton events.
+
+The lepton identification and isolation efficiencies in simulation are corrected with scaling factors derived with the tag-and-probe method, performed on a sample of $\PZ \to \ell^+\ell^-$ events.
+To find the uncertainties associated with these corrections, the total yield is recomputed with the scaling factors varied up and down by the tag-and-probe uncertainties, treating all bins as correlated.
+The uncertainties in the $\ZZ \to 4\ell$ yield associated with the tag-and-probe results are found to be 6\% in the $4\Pe$ final state, 3\% in the $2\Pe2\Pm$ final state, and 2\% in the $4\Pm$ final state.
+Leptons in $\PZ \to 4\ell$ events tend to have lower {\pt}, and the tag-and-probe samples for low-$\pt$ leptons are smaller and more contaminated with nonprompt objects, so the uncertainties are larger; they are found to be 10\%, 6\%, and 7\% for the $4\Pe$, $2\Pe\Pm$, and $4\Pm$ final states, respectively.
+
+The uncertainty on the LHC integrated luminosity of the data sample is 2.5\%.
+
+The uncertainty on lepton fake rates is taken to be 40\%, which includes both statistical uncertainty and systematic uncertainties associated with the loosened lepton selections used and the differences in the underlying physics processes between events in the $3\ell$ and $4\ell$ control samples.
+Statistical uncertainties arising from the limited size of the $\PZ+\PX$ control samples is also included as a systematic uncertainty on the background yield.
+The total uncertainty on the background yield varies by channel but is below 1\% of the expected total yield.
+
+Uncertainties due to the effect of QCD scale on the $\ZZ \to 4\ell$ acceptance are evaluated with {\POWHEG} and {\MCFM}, by varying the QCD scales up and down by a factor of two with respect to the default $\mu_R = \mu_F = m_{\ZZ}$.
+Parametric  uncertainties (PDF$+ \alpha_s$) are evaluated according to the \textsc{pdf4lhc} prescription in the acceptance calculation~\cite{Butterworth:2015oua}, and with \textsc{nnpdf3.0} in the cross section calculations.
+An additional theoretical uncertainty arises from scaling the $\Pq\Paq \to \ZZ$ and $\Pg\Pg \to \ZZ$ simulated samples to their NNLO and NLO predicted cross sections, respectively.
+The corresponding change in the acceptance, 1.1\%, is added to the previous theoretical errors in quadrature.
+
+Systematic uncertainties on expected signal yield are summarized in Table~\ref{tab:systematics}.
+To obtain uncertainties in computed quantities such as cross sections, the inputs are varied separately for each source and the calculation is fully redone.
+For differential cross section and other shape uncertainties, the variations across bins are taken to be fully correlated for each uncertainty source.
+Lepton and jet momentum scale and resolution uncertainties are taken to be trivial for the overall yield, but they are considered among the shape uncertainties.
+
+\begin{table}[htbp]
+  \centering
+  \caption[Systematic uncertainties on the total yield]{
+    The contributions of each source of signal systematic uncertainty in the total yields.
+    The integrated luminosity uncertainty and the PDF and scale     uncertainties are considered separately.
+    All other uncertainties are added in quadrature into a single systematic uncertainty.
+    Uncertainties that vary by decay channel are listed as a range.
+  }\label{tab:systematics}
+  \begin{tabular}{lcc}
+    \toprule
+    Uncertainty               & $\PZ  \to  4\ell$ & $\ZZ  \to  4\ell$  \\
+    \midrule
+    Lepton efficiency         & 6--10\%           & 2--6\%             \\
+    Trigger efficiency        & 2--4\%            & 2\%                \\
+    MC statistics             & 1--2\%            & 0.5\%              \\
+    Background                & 0.6--1.3\%        & 0.5--1\%           \\
+    Pileup                    & 1--2\%            & 1\%                \\
+    \midrule
+    PDF                       & 1\%               & 1\%                \\
+    QCD Scales                & 1\%               & 1\%                \\
+    \midrule
+    Integrated luminosity     & 2.5\%             & 2.5\%              \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 
 
