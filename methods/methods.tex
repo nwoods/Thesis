@@ -109,13 +109,46 @@ Lepton and jet momentum scale and resolution uncertainties are taken to be trivi
 \section{Fiducial and Total Cross Section Calculation}
 
 Inclusive cross section measurements can be treated as simple binned counting experiments, where the bins are the three decay channels ($4\Pe, 2\Pe2\Pm$, and $4\Pm$).
-If $\nu_i$ events are expected in bin $i$, the probability of observing $n_i$ events is given by the Poisson distribution,
-\begin{equation}
-  f\left(n_i; \nu_i\right) = e^{-\nu_i}\frac{\nu_i^{n_i}}{n_i !}.
+If $\nu$ events are expected in a given bin, the probability of observing $n$ events is given by the Poisson distribution,
+\begin{equation}\label{eq:poisson}
+  f\left(n; \nu\right) = e^{-\nu}\frac{\nu^{n}}{n!}.
+\end{equation}
+In a particle physics analysis like this one, $\nu$ takes the form
+\begin{equation}\label{eq:expectedYield}
+  \nu = \nu_s\left(\nuisS{}\right) + \nu_b\left(\nuisB{}\right) = \mu\left(\nuisS{}\right) \lumiL_\textit{int} \sigma_\textit{SM} \epsilon + \nu_b\left(\nuisB{}\right)
+\end{equation}
+where $\nu_s$ and $\nu_b$ are respectively the expected signal and background yields, $\sigma_\textit{SM}$ is the standard model expectation for the cross section of the signal process and $\epsilon$ is our efficiency for detecting and identifying its events.
+The signal and background nuisance parameter vectors $\nuisS{}$ and $\nuisB{}$ represent hidden quantities that we do not measure directly but which affect our yields, i.e.\ systematic effects.
+The signal strength $\mu$ compares our expectation to what we actually measure:
+\begin{equation}\label{eq:signalStrength}
+  \mu = \frac{\sigma_\textit{meas}}{\sigma_\textit{SM}}.
 \end{equation}
 
+Of the variables in Eqs.~\ref{eq:poisson} and~\ref{eq:expectedYield},  $\sigma_\textit{SM}$ is known from theoretical calculations, and $\epsilon$ is determined from simulation.
+The CMS detector is designed to measure $n$, $\nu_b$, and $\lumiL_\textit{int}$, and inferring $\sigma_\textit{meas}$ is a matter of working backwards to the most likely value of the signal strength $\mu$ given the observed data.
+Then the measured cross section is simply
+\begin{equation}\label{eq:xsecCalculation}
+  \sigma_\textit{meas} = \mu\sigma_\textit{SM}.
+\end{equation}
+One interesting feature of this method is that $\sigma_\textit{SM}$ is used in the calculation of $\mu$ (Eq.~\ref{eq:expectedYield}) and in the final cross section (Eq.~\ref{eq:xsecCalculation}) in such a way that it cancels out, and in fact anything proportional to the true cross section may be used.
+In practice, this means that the order at which $\sigma_\textit{SM}$ is calculated does not matter to the extent that higher order corrections to the kinematics of the events do not affect $\epsilon$.
+
+
 \subsection{Signal Strength Extraction}
-Fitting
+
+The signal strength is found by the method of maximum likelihood~\cite{Olive:2016xmw}.
+The likelihood function is the product of the probability distributions across all bins,
+\begin{equation}
+  L\left(\nuisS{},\nuisB{}\right) = \prod_\textit{bins} f\left(n; \nu\left(\nuisS{},\nuisB{}\right) \right).
+\end{equation}
+The most likely value of $\nu$ is the one that maximizes $L$.
+In practice, $\log L$ is typically maximized instead because it is easier to work with,
+\begin{equation}
+  \frac{\partial^2 \log L}{\partial \nuisS \partial \nuisB{}} = 0.
+\end{equation}
+This maximization is performed simultaneously for all bins, yielding a single signal strength across all channels.
+Systematic uncertainties enter as log-normal constraints imposed on the fit, encoded in $\nuisS{}$ and $\nuisB{}$.
+The fit is performed numerically.
 
 
 \subsection{\texorpdfstring{$\mathrm{Z} \to 4\ell$}{Z to 4l} Branching Fraction}
