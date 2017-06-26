@@ -151,8 +151,23 @@ Systematic uncertainties enter as log-normal constraints imposed on the fit, enc
 The fit is performed numerically.
 
 
-\subsection{\texorpdfstring{$\mathrm{Z} \to 4\ell$}{Z to 4l} Branching Fraction}
-It is tiny
+\subsection{Total ZZ Cross Section and \texorpdfstring{$\mathrm{Z} \to 4\ell$}{Z to 4l} Branching Fraction}
+
+Once the fiducial cross section has been found, it can be used to find the total cross section, subject only to the constraint that both {\PZ} bosons be in the {60--120\GeV} mass range.
+The fiducial cross section is related to the total cross section by an acceptance factor $\mathcal{A}$ which accounts for $\ZZ \to 4\ell$ events outside the fiducial definition, and two factors of the {\PZ} branching fraction $\mathcal{B}\left(\PZ \to 2\ell\right)$ to account for all other final states:
+\begin{equation}
+  \sigma_\mathit{fid} = \mathcal{A} \sigma_\mathit{tot} \left( \mathcal{B}\left(\PZ \to 2\ell\right) \right)^2.
+\end{equation}
+The acceptance factor is independent of any experimental effects and can be calculated from Monte Carlo events at generator level.
+The {\PZ} branching fraction is well known~\cite{Olive:2016xmw}.
+
+The total {\PZ} cross section is better measured in the $2\ell$ channel, because the larger branching fraction yields samples several orders of magnitude larger than the $\PZ \to 4\ell$ sample used here.
+It is therefore more interesting to use $\sigma_\textit{fid}\left(\PZ \to 4\ell\right)$ for a measurement of the four-lepton branching fraction $\mathcal{B}\left(\PZ \to 4\ell\right)$.
+After applying the acceptance correction to obtain $\sigma_\textit{tot} \left(\PZ \to 4\ell\right) = \sigma_\textit{fid}\left(\PZ \to 4\ell\right) / \mathcal{A}$, the four-lepton branching fraction is given by
+\begin{equation}
+  \mathcal{B}\left(\PZ \to 4\ell\right) = \frac{\sigma_\textit{tot} \left(\PZ \to 4\ell\right)} {\mathcal{C}^{\text{60--120}}_{\text{80--100}} \, \sigma \left(\PZ \to 2\ell\right)}\mathcal{B}\left(\PZ \to 2\ell\right),
+\end{equation}
+where $\sigma \left(\PZ \to 2\ell\right)$ is the dileptonic {\PZ} cross section in the {60--120\GeV} mass range and $\mathcal{C}^{\text{60--120}}_{\text{80--100}}$ corrects for the fact that $\sigma\left(\PZ \to 4\ell\right)$ is found in a mass range of {80--100\GeV}.
 
 
 
