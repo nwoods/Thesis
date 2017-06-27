@@ -115,10 +115,10 @@ If $\nu$ events are expected in a given bin, the probability of observing $n$ ev
 \end{equation}
 In a particle physics analysis like this one, $\nu$ takes the form
 \begin{equation}\label{eq:expectedYield}
-  \nu = \nu_s\left(\nuisS{}\right) + \nu_b\left(\nuisB{}\right) = \mu\left(\nuisS{}\right) \lumiL_\textit{int} \sigma_\textit{SM} \epsilon + \nu_b\left(\nuisB{}\right)
+  \nu = \nu_s\left(\nuisS\right) + \nu_b\left(\nuisB\right) = \mu\left(\nuisS\right) \lumiL_\textit{int} \sigma_\textit{SM} \epsilon + \nu_b\left(\nuisB\right)
 \end{equation}
 where $\nu_s$ and $\nu_b$ are respectively the expected signal and background yields, $\sigma_\textit{SM}$ is the standard model expectation for the cross section of the signal process and $\epsilon$ is our efficiency for detecting and identifying its events.
-The signal and background nuisance parameter vectors $\nuisS{}$ and $\nuisB{}$ represent hidden quantities that we do not measure directly but which affect our yields, i.e.\ systematic effects.
+The signal and background nuisance parameter vectors $\nuisS$ and $\nuisB$ represent hidden quantities that we do not measure directly but which affect our yields, i.e.\ systematic effects.
 The signal strength $\mu$ compares our expectation to what we actually measure:
 \begin{equation}\label{eq:signalStrength}
   \mu = \frac{\sigma_\textit{meas}}{\sigma_\textit{SM}}.
@@ -139,15 +139,15 @@ In practice, this means that the order at which $\sigma_\textit{SM}$ is calculat
 The signal strength is found by the method of maximum likelihood~\cite{Olive:2016xmw,bohm2010introduction}.
 The likelihood function is the product of the probability distributions across all bins,
 \begin{equation}
-  L\left(\nuisS{},\nuisB{}\right) = \prod_\textit{bins} f\left(n; \nu\left(\nuisS{},\nuisB{}\right) \right).
+  L\left(\nuisS,\nuisB\right) = \prod_\textit{bins} f\left(n; \nu\left(\nuisS,\nuisB\right) \right).
 \end{equation}
 The most likely value of $\nu$ is the one that maximizes $L$.
 In practice, $\log L$ is typically maximized instead because it is easier to work with,
 \begin{equation}
-  \frac{\partial^2 \log L}{\partial \nuisS \partial \nuisB{}} = 0.
+  \frac{\partial^2 \log L}{\partial \nuisS \partial \nuisB} = 0.
 \end{equation}
 This maximization is performed simultaneously for all bins, yielding a single signal strength across all channels.
-Systematic uncertainties enter as log-normal constraints imposed on the fit, encoded in $\nuisS{}$ and $\nuisB{}$.
+Systematic uncertainties enter as log-normal constraints imposed on the fit, encoded in $\nuisS$ and $\nuisB$.
 The fit is performed numerically.
 
 
@@ -173,13 +173,52 @@ where $\sigma \left(\PZ \to 2\ell\right)$ is the dileptonic {\PZ} cross section 
 
 \section{Differential Cross Sections}
 
+Measurement of a differential fiducial cross section is also a problem of finding the most likely true distribution given observed yields in multiple bins, estimated background yields, and detector effects understood through simulation.
+Unlike the inclusive cross section, however, finite detector resolution leads to ``smearing'' effects that cause events to migrate across bins, in addition to the same inefficiencies.
+The mean detector-level distribution $\vec{\delta}$ is related to the true distribution $\vec{\theta}$ by a response matrix $\mathbf{R}$:
+\begin{equation}
+  \vec{\delta} = \mathbf{R}\vec{\theta}.
+\end{equation}
+The observed distribution in data $\vec{d}$ is sampled from the Poisson distribution with mean $\vec{\delta}$ independently in each bin.
+CMS simulation software is sufficiently sophisticated to give a good estimate of $R$.
+Note that the case of bins with no migration, as in the inclusive cross section measurement, is the special case where $\mathbf{R}$ is diagonal.
+
+If $\mathbf{R}$ is square and invertible, the maximum likelihood estimate (MLE) of the true distribution, $\hat{\vec{\theta}}$, is given by
+\begin{equation}\label{eq:unfoldingMLE}
+  \hat{\vec{\theta}} = \mathbf{R}^{-1}\vec{d}.
+\end{equation}
+Even when $\mathbf{R}$ is invertible, however, it is frequently ill-conditioned, giving $\hat\vec\theta$ unphysical features like large bin-by-bin fluctuations or even negative bins as a consequence of the stochastic nature of $\vec{d}$.
+It is therefore necessary to use a more sophisticated procedure to ensure the differential cross section distributions obey physics-inspired constraints.
+
 \subsection{Unfolding}
-IT'S FREQUENTIST\@!
 
+The technique used here is an iterative frequentist method developed in high energy physics by D'Agostini~\cite{DAgostini:1994fjx} and independently in other fields~\cite{Dempster:10.2307/2984875,Lucy:1974AJ,Richardson:72,Shepp:4307558}.
+At iteration $k$, bin $j$ of the predicted true distribution is set based on its expected contribution to all other bins, weighted by the observed data yield in each:
+\begin{equation}
+  \begin{split}
+    \theta_j^{(k+1)} & = \sum_i \mathbf{R}_{ij} \theta_j^{(k)} \frac{d_i}{\delta_i} \\
+    & = \sum_i \mathbf{R}_{ij} \theta_j^{(k)} \frac{d_i}{\sum_m \mathbf{R}_{im} \theta_m^{(k)}}.
+  \end{split}
+\end{equation}
+After several iterations, $\vec{\theta}^{(k)}$ depends only weakly on the ansatz $\vec{\theta}^{(0)}$.
 
-\subsection{Propagation of Systematic Uncertainties}
-A small pain
+The sequence will converge to the MLE for any non-pathological choice of $\vec{\theta}^{(0)}$~\cite{vardi1985}, but again the MLE often displays unphysical behavior.
+If $\vec{\theta}^{(0)}$ is strictly positive, $\vec{\theta}^{(k)}$ will be strictly positive for all $k$, and in this case $\hat{\vec{\theta}}$ (as defined in Eq.~\ref{eq:unfoldingMLE}) will be the asymptotic unfolded distribution as long as it is also strictly positive.
+Choosing a smooth function for $\vec{\theta}^{(0)}$ will generally lead to smooth $\vec{\theta}^{(k)}$ for small $k$; typical choises include a flat initial distribution and the truth-level distribution used to construct $\mathbf{R}$ (used in this analysis).
+What constitutes ``small'' $k$ depends on the condition of $\mathbf{R}$, but for most physics distributions of interest, including all those used in this analysis, nonphysical fluctuations do not arise until after $\vec{\theta}^{(k)}$ is close to convergence.
+Full regularization is therefore imposed by ceasing iteration early.
+For all distributions shown here, stopping after four iterations was found to give acceptable bias-variance tradeoff.
 
+\subsection{Uncertainties}
+
+The largest uncertainties in the unfolded distributions arise from the unfolding procedure itself, which can inflate statistical uncertainties present in the detector-level distributions.
+The correlation matrix which gives the full uncertainty---considered the statistical uncertainty of the unfolded distribution---does not have a closed form due to the nonlinearity of the method.
+The covariance matrix is therefore estimated by propagating the statistical error of the inputs at each iteration of the method, as laid out in Ref.~\cite{DAgostini:1994fjx} and improved in Ref.~\cite{Adye:2011gm}.
+This procedure does not account for the bias introduced by regularization, but this is expected to be negligible relative to other systematic uncertainties for the well-modeled processes studied here.
+
+Most systematic uncertainties are propagated through unfolding by recomputing the response matrix with the training sample shifted or reweighted to reflect a $1\sigma$ shift in the quantity in question.
+The uncertainty related to that quantity is taken to be the resulting shape difference in the final unfolded distribution.
+Systematic uncertainties are negligible compared to statistical uncertainties in most bins.
 
 
 \section{VBS Signal Extraction}
