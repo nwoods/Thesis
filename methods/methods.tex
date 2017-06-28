@@ -192,7 +192,7 @@ It is therefore necessary to use a more sophisticated procedure to ensure the di
 
 \subsection{Unfolding}
 
-The technique used here is an iterative frequentist method developed in high energy physics by D'Agostini~\cite{DAgostini:1994fjx} and independently in other fields~\cite{Dempster:10.2307/2984875,Lucy:1974AJ,Richardson:72,Shepp:4307558}.
+The technique used here is an iterative frequentist method developed in high energy physics by D'Agostini~\cite{DAgostini:1994fjx} and independently in other fields~\cite{Dempster:10.2307/2984875,Lucy:1974AJ,Richardson:72,Shepp:4307558}, as implemented in \textsc{RooUnfold}~\cite{Adye:2011gm}.
 At iteration $k$, bin $j$ of the predicted true distribution is set based on its expected contribution to all other bins, weighted by the observed data yield in each:
 \begin{equation}
   \begin{split}
@@ -222,7 +222,41 @@ Systematic uncertainties are negligible compared to statistical uncertainties in
 
 
 \section{VBS Signal Extraction}
-BDTs and other hip things
+
+The VBS signal search considers events passing the selections described in Section~\ref{sec:vbsSelection}.
+The electroweak yield is insufficient to have sensitivity at 35.9\fbinv, even with further cut optimization, so a gradient-boosted decision tree (GBDT), implemented with the \textsc{Scikit-learn} package~\cite{scikit-learn}, is used to extract the signal.
+Hyperparameters of the GBDT are optimized with a grid search.
+Each Monte Carlo sample is split into a ``training'' subsample, used to train the GBDT, and a ``test'' subsample used to evaluate its performance and make templates for use in the statistical analysis.
+The GBDT performance is nearly the same for the test and training samples, a sign that the algorithm is not overtrained.
+
+A number of observables have been proposed to discriminate VBS events from background~\cite{Zeppenfeld:54.6680}, of which $m_{\Pj\Pj}$ and $\Delta\eta_{\Pj\Pj}$ are the most powerful.
+Other commonly-used variables include $m_{4\ell}$, $\eta^{\Pj_1} \times \eta^{\Pj_2}$, $\Delta\phi_{\PZ_1\PZ_2}$, and the so-called Zeppenfeld variables, defined as
+\begin{equation}
+  \eta^\ast_P = \eta_P - \frac{\eta_{\Pj_1} - \eta_{\Pj_2}}{2},
+\end{equation}
+where $P$ may stand for $\PZ_1$, $\PZ_2$, or $\Pj_3$, the highest-{\pt} untagged jet in the event.
+In addition to these ``traditional'' quantities, several other groups of observables have been examined, including production angles, decay angles, measures of total hadronic activity in the event, properties of individual leptons and jets and of the $\PZ\PZ\Pj\Pj$ system, and a discriminator designed to distinguish jets originating from quarks and gluons.
+The hadronic activity and quark-gluon tagging variables had some discriminating power, but they differ significantly depending on the Monte Carlo generator used and were therefore considered too poorly-modeled to use.
+New GBDTs were trained, each with the traditional observables and one remaining group of proposed observables, and the groups that improved the GBDT discrimination power significantly were retained.
+This procedure yielded 17 observables, including the hard process relative transverse momentum, defined as the ratio of the {\pt} of the $\PZ\PZ\Pj\Pj$ system to the scalar sum of the {\pt} of each object,
+\begin{equation}
+  \pt^\textit{rel. hard} = \frac{\pt^{\PZ\PZ\Pj\Pj}}{\sum_{\PZ_1,\PZ_2,\Pj_1,\Pj_2} \pt},
+\end{equation}
+and the dijet relative transverse momentum,
+\begin{equation}
+  \pt^{\textit{rel.}\ \Pj\Pj} = \frac{\pt^{\Pj\Pj}}{\sum_{\Pj_1,\Pj_2} \pt}.
+\end{equation}
+
+The list of observables was further optimized by retraining the GBDT once with each variable dropped and eliminating the one with the least discriminating power.
+This pruning was repeated until seven observables remained, namely $m_{\Pj\Pj}$, $\Delta\eta_{\Pj\Pj}$, $m_{4\ell}$, $\eta^\ast_{\PZ_1}$, $\eta^\ast_{\PZ_2}$, $\pt^\textit{rel. hard}$, and $pt^{\textit{rel.}\ \Pj\Pj}$.
+The resulting GBDT performs only marginally worse ($0.2\sigma$ less expected significance on the VBS signal) than a version with all observables included, and is faster and easier to train, simpler, and less susceptible to biases and systematic uncertainties from mismodeling.
+
+The signal and background yields are extracted from the GBDT output spectrum are extracted with a binned maximum likelihood fit to templates from the test Monte Carlo samples.
+To obtain templates with better fit convergence properties, the GBDT output is mapped to the range $\left[0,1\right]$ with the logistic transformation
+\begin{equation}
+  x \rightarrow \frac{1}{1-e^{-x}}.
+\end{equation}
+This provides better separation between signal and background and allows uniform binning in the templates.
 
 
 
