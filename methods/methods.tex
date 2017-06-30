@@ -261,3 +261,20 @@ This provides better separation between signal and background and allows uniform
 
 
 \section{Anomalous Gauge Coupling Searches}
+
+The new physics represented by aTGCs would generally manifest as an increase in events with high invariant mass, so it is natural to use the shape of the $m_{4\ell}$ distribution for the search.
+Monte Carlo samples are generated at grids of points in the $f_4^\PZ$-$f_4^\Pa$ and $f_5^\PZ$-$f_5^\Pa$ planes.
+In each bin of the $m_{4\ell}$ distribution, the yields at the various working points are fit to a function of the form
+\begin{equation}
+  y\left(f^\PZ,f^\Pa\right) = x_0 + x_1 f^\PZ + x_2 f^\Pa + x_3 f^\PZ f^\Pa + x_4 \left(f^\PZ\right)^2 + x_5 \left(f^\Pa\right)^2
+\end{equation}
+where $y\left(f^\PZ,f^\Pa\right)$ is the yield in the bin, $f^\PV$ can be $f^\PZ_4$ and $f^\Pa_4$ or $f^\PZ_5$ and $f^\Pa_5$, and $x_i$ are the parameters to be fit.
+A profile likelihood method~\cite{Olive:2016xmw} is used to derive the limits.
+Systematic uncertainties are taken into account by varying the number of signal and background events within their uncertainties.
+Exclusion limits are found by comparing the p-values of the signal hypothesis and the background only hypothesis
+\begin{equation}
+  CL_s = \frac{p_{s+b}}{1-p_b}
+\end{equation}
+to set thresholds.
+Further details on the method can be found in Ref.~\cite{Cowan:2010js}.
+The software for setting limits, implemented with \textsc{RooStats}, has been validated and used extensively by the CMS and ATLAS collaborations~\cite{CMS:2016nxa}.
