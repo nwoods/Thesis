@@ -3,14 +3,14 @@
 \chapter{Analysis Strategy}
 
 \section{Background Estimation}
-Reducible backgrounds for four-lepton events typically have two prompt leptons and two other objects---typically jet fragments, sometimes photons---which are misidentified as prompt leptons.
+Reducible backgrounds for four-lepton events typically have two or three prompt leptons and two or one other objects---typically jet fragments, sometimes photons---which are misidentified as prompt leptons.
 The largest source of background contamination is from evens in which a {\PZ} boson is produced in association with a photon and a jet, a leptonically-decaying $\PW$ boson and a jet, or two jets.
 There is also a contribution from {\TTbar} events in which both top quarks decay to a lepton, a neutrino, and a {\Pqb}~quark jet.
 For simplicity, the two sets of processes are not treated separately in what follows, and are collectively labeled ``$\PZ+\PX$'' events.
 
 The contributions of the reducible backgrounds to the selected four-lepton signal samples are evaluated using the tight-to-loose ``fake rates'' method, described more fully in Ref.~\cite{Chatrchyan:2013mxa}.
 In this procedure, the likelihood of a nonprompt (``fake'') object to be misidentified as a prompt lepton is estimated and applied to control regions enriched with $\PZ+\PX$ events to estimate their contribution to the signal region.
-The lepton misidentification rate $f_\ell\left(\pt^\ell, \eta^\ell\right)$ is measured from a sample of $\PZ + \ell_\text{fake}$ events, where the {\PZ} candidate is selected as in the signal region but with $\left| m_{\ell\ell} - m_\PZ \right| < 10\GeV$, and the $\ell_\text{fake}$ object is a lepton candidate that passes relaxed ID requirements as defined in Section~\ref{sec:looseID}, with no isolation or tight ID requirements applied.
+The lepton misidentification rate $f_\ell\left(\pt^\ell, \eta^\ell\right)$ is measured from a sample of $\PZ + \ell_\text{fake}$ events, where the {\PZ} boson candidate is selected as in the signal region but with $\left| m_{\ell\ell} - m_\PZ \right| < 10\GeV$, and the $\ell_\text{fake}$ object is a lepton candidate that passes relaxed ID requirements as defined in Section~\ref{sec:looseID}, with no isolation or tight ID requirements applied.
 Events with three prompt leptons can contaminate this control region, because the {non-\PZ} lepton is assumed fake.
 To avoid the resulting bias in the misidentification rate, the contribution of $\WZ \to 3\ell\nu$ to the $\PZ+\ell_\text{fake}$ sample is estimated from a simulated sample and subtracted.
 
@@ -37,11 +37,11 @@ The fake object transfer factor
 \begin{equation}
   F_\ell\left(\pt^\ell,\eta^\ell\right) = \frac{f_\ell\left(\pt^\ell, \eta^\ell\right)}{1 - f_\ell\left(\pt^\ell, \eta^\ell\right)}
 \end{equation}
-is the ratio of nonprompt objects passing the relaxed and full selection criteria, and thus serves as an extrapolation factor between control sample yields and signal sample yields.
+is the ratio of nonprompt objects passing the relaxed and full selection criteria, and thus serves as a per-lepton extrapolation factor between control sample yields and signal sample yields.
 
 The total reducible background yield is thus
 \begin{equation}\label{eq:bkgYield}
-  N_\text{bkg} = \sum_{\ell \in \text{3P1F}} F_\ell\left(\pt^\ell,\eta^\ell\right) - \sum_{\ell_1,\ell_2 \in 2P2F} F_{\ell_1}\left(\pt^{\ell_1},\eta^{\ell_1}\right)F_{\ell_2}\left(\pt^{\ell_2},\eta^{\ell_2}\right),
+  N_\text{bkg} = \sum_{\ell \in \text{3P1F}} \! \! F_\ell\left(\pt^\ell,\eta^\ell\right) - \! \! \! \! \! \! \sum_{\ell_1,\ell_2 \in 2P2F} \! \! \! \! \! F_{\ell_1}\left(\pt^{\ell_1},\eta^{\ell_1}\right)F_{\ell_2}\left(\pt^{\ell_2},\eta^{\ell_2}\right),
 \end{equation}
 where subtraction of signal contamination is implicit.
 The minus sign in Eq.~\ref{eq:bkgYield} prevents double-counting of $\PZ+2\text{jets}$ events in which one jet fragment is misidentified.
@@ -125,7 +125,7 @@ The signal strength $\mu$ compares our expectation to what we actually measure:
 \end{equation}
 
 Of the variables in Eqs.~\ref{eq:poisson} and~\ref{eq:expectedYield},  $\sigma_\textit{SM}$ is known from theoretical calculations, and $\epsilon$ is determined from simulation.
-The CMS detector is designed to measure $n$, $\nu_b$, and $\lumiL_\textit{int}$, and inferring $\sigma_\textit{meas}$ is a matter of working backwards to the most likely value of the signal strength $\mu$ given the observed data.
+The CMS detector is designed to measure $n$ and $\lumiL_\textit{int}$, $\nu_b$ is estimated from data or simulation, and inferring $\sigma_\textit{meas}$ is a matter of working backwards to the most likely value of the signal strength $\mu$ given the observed data.
 Then the measured cross section is simply
 \begin{equation}\label{eq:xsecCalculation}
   \sigma_\textit{meas} = \mu\sigma_\textit{SM}.
@@ -187,7 +187,7 @@ If $\mathbf{R}$ is square and invertible, the maximum likelihood estimate (MLE) 
 \begin{equation}\label{eq:unfoldingMLE}
   \hat{\vec{\theta}} = \mathbf{R}^{-1}\vec{d}.
 \end{equation}
-Even when $\mathbf{R}$ is invertible, however, it is frequently ill-conditioned, giving $\hat\vec\theta$ unphysical features like large bin-by-bin fluctuations or even negative bins as a consequence of the stochastic nature of $\vec{d}$.
+Even when $\mathbf{R}$ is invertible, however, it is frequently ill-conditioned, giving $\hat{\vec{\theta}}$ unphysical features like large bin-by-bin fluctuations or even negative bins as a consequence of the stochastic nature of $\vec{d}$.
 It is therefore necessary to use a more sophisticated procedure to ensure the differential cross section distributions obey physics-inspired constraints.
 
 \subsection{Unfolding}
@@ -236,8 +236,8 @@ Other commonly-used variables include $m_{4\ell}$, $\eta^{\Pj_1} \times \eta^{\P
 \end{equation}
 where $P$ may stand for $\PZ_1$, $\PZ_2$, or $\Pj_3$, the highest-{\pt} untagged jet in the event.
 In addition to these ``traditional'' quantities, several other groups of observables have been examined, including production angles, decay angles, measures of total hadronic activity in the event, properties of individual leptons and jets and of the $\PZ\PZ\Pj\Pj$ system, and a discriminator designed to distinguish jets originating from quarks and gluons.
-The hadronic activity and quark-gluon tagging variables had some discriminating power, but they differ significantly depending on the Monte Carlo generator used and were therefore considered too poorly-modeled to use.
-New GBDTs were trained, each with the traditional observables and one remaining group of proposed observables, and the groups that improved the GBDT discrimination power significantly were retained.
+The hadronic activity and quark-gluon tagging variables have some discriminating power, but they differ significantly depending on the Monte Carlo generator used and were therefore considered too poorly-modeled to use.
+New GBDTs were trained, each with the traditional observables and one group of proposed observables, and the groups that improved the GBDT discrimination power significantly were retained.
 This procedure yielded 17 observables, including the hard process relative transverse momentum, defined as the ratio of the {\pt} of the $\PZ\PZ\Pj\Pj$ system to the scalar sum of the {\pt} of each object,
 \begin{equation}
   \pt^\textit{rel. hard} = \frac{\pt^{\PZ\PZ\Pj\Pj}}{\sum_{\PZ_1,\PZ_2,\Pj_1,\Pj_2} \pt},
