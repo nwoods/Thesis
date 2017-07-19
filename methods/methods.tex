@@ -4,18 +4,18 @@
 
 \section{Background Estimation}
 Reducible backgrounds for four-lepton events typically have two or three prompt leptons and two or one other objects---typically jet fragments, sometimes photons---which are misidentified as prompt leptons.
-The largest source of background contamination is from evens in which a {\PZ} boson is produced in association with a photon and a jet, a leptonically-decaying $\PW$ boson and a jet, or two jets.
+The largest source of background contamination is from events in which a {\PZ} boson is produced in association with a photon and a jet, a leptonically-decaying $\PW$ boson and a jet, or two jets.
 There is also a contribution from {\TTbar} events in which both top quarks decay to a lepton, a neutrino, and a {\Pqb}~quark jet.
-For simplicity, the two sets of processes are not treated separately in what follows, and are collectively labeled ``$\PZ+\PX$'' events.
+For simplicity, the two sets of processes are not treated separately in what follows, and are collectively labeled ``$\PZ+\PX$'' events\footnote{This is a bit of a misnomer, as ``$\PZ+\PX$'' does not accurately describe {\TTbar} events, but is retained here for consistency with the CMS papers on these analyses.}.
 
-The contributions of the reducible backgrounds to the selected four-lepton signal samples are evaluated using the tight-to-loose ``fake rates'' method, described more fully in Ref.~\cite{Chatrchyan:2013mxa}.
+The contributions of the reducible backgrounds to the selected four-lepton signal samples are evaluated using the tight-to-loose ``fake rates'' method, described in Ref.~\cite{Chatrchyan:2013mxa}.
 In this procedure, the likelihood of a nonprompt (``fake'') object to be misidentified as a prompt lepton is estimated and applied to control regions enriched with $\PZ+\PX$ events to estimate their contribution to the signal region.
 The lepton misidentification rate $f_\ell\left(\pt^\ell, \eta^\ell\right)$ is measured from a sample of $\PZ + \ell_\text{fake}$ events, where the {\PZ} boson candidate is selected as in the signal region but with $\left| m_{\ell\ell} - m_\PZ \right| < 10\GeV$, and the $\ell_\text{fake}$ object is a lepton candidate that passes relaxed ID requirements as defined in Section~\ref{sec:looseID}, with no isolation or tight ID requirements applied.
-Events with three prompt leptons can contaminate this control region, because the {non-\PZ} lepton is assumed fake.
-To avoid the resulting bias in the misidentification rate, the contribution of $\WZ \to 3\ell\nu$ to the $\PZ+\ell_\text{fake}$ sample is estimated from a simulated sample and subtracted.
 
 The misidentification rate is defined as the fraction of $\ell_\text{fake}$ candidates which pass full lepton identification and isolation critera, in bins of $\pt$ and $\eta$.
-One should note that this is not a probability in the usual sense, and there is not a simple physical interpretation of these misidentification rates.
+One should note that the misidentification rate cannot be interpreted as a probability in the usual sense, and if fact there is no simple physical interpretation of it.
+Events with three prompt leptons can contaminate this control region and bias the misidentification rate, because the {non-\PZ} lepton is falsely assumed fake.
+To mitigate this bias, the $\WZ \to 3\ell\nu$ yields in the numerator and denominator in each bin are estimated from a simulated sample and subtracted before the ratio of yields is taken.
 Figure~\ref{fig:fakerates} shows the misidentification rates for electrons and muons separately as a function of {\pt} and $\eta$.
 
 \begin{figure}[htbp]
@@ -30,9 +30,9 @@ Figure~\ref{fig:fakerates} shows the misidentification rates for electrons and m
   \end{center}
 \end{figure}
 
-To estimate the total reducible background yield, the misidentification rates are applied to two $\PZ+\PX$ enriched control samples, each containing a {\PZ}~boson candidate passing all signal region requirements plus two more lepton candidates which pass the relaxed identification criteria and would make a second passing {\PZ} boson candidate except that one or both fail the full identification or isolation criteria.
+To estimate the total reducible background yield, the misidentification rates are applied to two $\PZ+\PX$ enriched control samples, each containing a {\PZ}~boson candidate passing all signal region requirements plus two more lepton candidates which pass the relaxed identification criteria and would make a second {\PZ} boson candidate according to Section~\ref{sec:zSelection} except that one or both fail the full identification or isolation criteria.
 The sample with one failing lepton, called the ``3P1F'' sample for ``3 prompt 1 fake,'' covers the contribution from {\WZ} events, while the sample with both leptons in the second {\PZ} boson failing (``2P2F'') covers $\PZ+\text{jets}$ and {\TTbar} events.
-Both have the contribution from {\ZZ} events in which one or two prompt leptons fail identification or isolation criteria removed based on simulated samples.
+%Both have the contribution from {\ZZ} events in which one or two prompt leptons fail identification or isolation criteria removed based on simulated samples.
 The fake object transfer factor
 \begin{equation}
   F_\ell\left(\pt^\ell,\eta^\ell\right) = \frac{f_\ell\left(\pt^\ell, \eta^\ell\right)}{1 - f_\ell\left(\pt^\ell, \eta^\ell\right)}
@@ -41,10 +41,11 @@ is the ratio of nonprompt objects passing the relaxed and full selection criteri
 
 The total reducible background yield is thus
 \begin{equation}\label{eq:bkgYield}
-  N_\text{bkg} = \sum_{\ell \in \text{3P1F}} \! \! F_\ell\left(\pt^\ell,\eta^\ell\right) - \! \! \! \! \! \! \sum_{\ell_1,\ell_2 \in 2P2F} \! \! \! \! \! F_{\ell_1}\left(\pt^{\ell_1},\eta^{\ell_1}\right)F_{\ell_2}\left(\pt^{\ell_2},\eta^{\ell_2}\right),
+  N_\text{bkg} = \sum_{\ell \in \text{3P1F}} \! \! F_\ell\left(\pt^\ell,\eta^\ell\right) - \! \! \! \! \! \! \sum_{\ell_1,\ell_2 \in 2P2F} \! \! \! \! \! F_{\ell_1}\left(\pt^{\ell_1},\eta^{\ell_1}\right)F_{\ell_2}\left(\pt^{\ell_2},\eta^{\ell_2}\right).
 \end{equation}
-where subtraction of signal contamination is implicit.
-The minus sign in Eq.~\ref{eq:bkgYield} prevents double-counting of $\PZ+2\text{jets}$ events in which one jet fragment is misidentified.
+The minus sign prevents double-counting of $\PZ+2\text{jets}$ events in which one jet fragment is misidentified.
+The failing lepton candidates in the 3P1F and 2P2F control samples are assumed to truly be jet fragments or other nonprompt objects, but selection inefficiencies may cause prompt leptons to fail and contaminate the control regions with signal events.
+The yield of such signal events in the backgound control regions is estimated by applying the same fake factors to failing events in the {\ZZ} signal Monte Carlo samples, and subtracted from the result of Eq.~\ref{eq:bkgYield}.
 
 There are also irreducible background contributions from {\TTZ} and {\WWZ} events, which can have four prompt leptons.
 Expected yields for these processes are taken from simulation.
@@ -53,28 +54,29 @@ Expected yields for these processes are taken from simulation.
 
 \section{Systematic Uncertainties}
 
-Systematic uncertainties for trigger efficiency are taken to be the difference between trigger efficiencies in data and in simulated events, found to be around 2\% of the final event yield.
+Systematic uncertainties for trigger efficiency are taken to be the difference between trigger efficiencies in data and in simulated signal events, found to be around 2\% of the final event yield.
 Because leptons in $\PZ \to 4\ell$ events generally have lower $\pt$, the uncertainty increases to 4\% for $\PZ \to 4\Pe$ events.
 In both data and simulated events, trigger efficiencies are found with a tag-and-probe technique~\cite{CMS:2011aa}, performed on four-lepton events.
 
-The lepton identification and isolation efficiencies in simulation are corrected with scaling factors derived with the tag-and-probe method, performed on a sample of $\PZ \to \ell^+\ell^-$ events.
-To find the uncertainties associated with these corrections, the total yield is recomputed with the scaling factors varied up and down by the tag-and-probe uncertainties, treating all bins as correlated.
-The uncertainties in the $\ZZ \to 4\ell$ yield associated with the tag-and-probe results are found to be 6\% in the $4\Pe$ final state, 3\% in the $2\Pe2\Pm$ final state, and 2\% in the $4\Pm$ final state.
-Leptons in $\PZ \to 4\ell$ events tend to have lower {\pt}, and the tag-and-probe samples for low-$\pt$ leptons are smaller and more contaminated with nonprompt objects, so the uncertainties are larger; they are found to be 10\%, 6\%, and 7\% for the $4\Pe$, $2\Pe\Pm$, and $4\Pm$ final states, respectively.
+The lepton identification and isolation efficiencies in simulation are corrected with scaling factors derived with the tag-and-probe method, performed on $\PZ \to \ell^+\ell^-$ events in data and a {single-\PZ} Monte Carlo sample.
+To find the uncertainties associated with these corrections, the total yield is recomputed with the scaling factors varied up and down by one standard deviation of the uncertainties from the tag-and-probe method, treating all bins as correlated.
+The resulting changes in the $\ZZ \to 4\ell$ yield, taken to be the one sigma variations resulting from lepton efficiency uncertainties, are found to be 6\% in the $4\Pe$ final state, 3\% in the $2\Pe2\Pm$ final state, and 2\% in the $4\Pm$ final state.
+Leptons in $\PZ \to 4\ell$ events tend to have lower {\pt}, and the tag-and-probe samples for leptons with {\pt} below about {15\GeV} are smaller and more contaminated with nonprompt objects, so the uncertainties are larger; they are found to be 10\%, 6\%, and 7\% for the $4\Pe$, $2\Pe\Pm$, and $4\Pm$ final states, respectively.
 
-The uncertainty on the LHC integrated luminosity of the data sample is 2.5\%.
+The uncertainty on the LHC integrated luminosity of the data sample is 2.5\%~\cite{CMS-PAS-LUM-17-001}.
 
-The uncertainty on lepton fake rates is taken to be 40\%, which includes both statistical uncertainty and systematic uncertainties associated with the loosened lepton selections used and the differences in the underlying physics processes between events in the $3\ell$ and $4\ell$ control samples.
-Statistical uncertainties arising from the limited size of the $\PZ+\PX$ control samples is also included as a systematic uncertainty on the background yield.
+The uncertainty on lepton fake rates is 40\%, which includes both statistical uncertainty and systematic uncertainties associated with the loosened lepton selections defined in Section~\ref{sec:looseID} and the differences in the underlying physics processes between events in the $\PZ + \ell_\text{fake}$, 3P1F, and 2P2F control samples~\cite{CMS:2014xja}.
+Statistical uncertainties arising from the limited size of the $\PZ+\PX$ control samples are also included as a systematic uncertainty on the background yield.
 The total uncertainty on the background yield varies by channel but is below 1\% of the expected total yield.
 
 Uncertainties due to the effect of QCD scale on the $\ZZ \to 4\ell$ acceptance are evaluated with {\POWHEG} and {\MCFM}, by varying the QCD scales up and down by a factor of two with respect to the default $\mu_R = \mu_F = m_{\ZZ}$.
 Parametric  uncertainties (PDF$+ \alpha_s$) are evaluated according to the \textsc{pdf4lhc} prescription in the acceptance calculation~\cite{Butterworth:2015oua}, and with \textsc{nnpdf3.0} in the cross section calculations.
-An additional theoretical uncertainty arises from scaling the $\Pq\Paq \to \ZZ$ and $\Pg\Pg \to \ZZ$ simulated samples to their NNLO and NLO predicted cross sections, respectively.
+An additional theoretical uncertainty arises from scaling the $\Pq\Paq \to \ZZ$ and $\Pg\Pg \to \ZZ$ simulated samples to their NNLO and NLO predicted cross sections, respectively, as described in Chapter~\ref{ch:simulation}.
 The corresponding change in the acceptance, 1.1\%, is added to the previous theoretical errors in quadrature.
 
 Systematic uncertainties on expected signal yield are summarized in Table~\ref{tab:systematics}.
-To obtain uncertainties in computed quantities such as cross sections, the inputs are varied separately for each source and the calculation is fully redone.
+To obtain uncertainties in the inclusive cross sections, each uncertainty source is treated as a nuisance parameter in the fits described in Section~\ref{sec:signalStrength}.
+the inputs are varied separately for each source and the calculation is fully redone.
 For differential cross section and other shape uncertainties, the variations across bins are taken to be fully correlated for each uncertainty source.
 Lepton and jet momentum scale and resolution uncertainties are taken to be trivial for the overall yield, but they are considered among the shape uncertainties.
 
@@ -125,7 +127,7 @@ The signal strength $\mu$ compares our expectation to what we actually measure:
 \end{equation}
 
 Of the variables in Eqs.~\ref{eq:poisson} and~\ref{eq:expectedYield},  $\sigma_\textit{SM}$ is known from theoretical calculations, and $\epsilon$ is determined from simulation.
-The CMS detector is designed to measure $n$ and $\lumiL_\textit{int}$, $\nu_b$ is estimated from data or simulation, and inferring $\sigma_\textit{meas}$ is a matter of working backwards to the most likely value of the signal strength $\mu$ given the observed data.
+The CMS detector is designed to measure $n$ and $\lumiL_\textit{int}$, $\nu_b$ is estimated from data or simulation, and inferring $\sigma_\textit{meas}$ is a matter of finding the most likely value of the signal strength $\mu$ given the observed data.
 Then the measured cross section is simply
 \begin{equation}\label{eq:xsecCalculation}
   \sigma_\textit{meas} = \mu\sigma_\textit{SM}.
@@ -133,8 +135,44 @@ Then the measured cross section is simply
 One interesting feature of this method is that $\sigma_\textit{SM}$ is used in the calculation of $\mu$ (Eq.~\ref{eq:expectedYield}) and in the final cross section (Eq.~\ref{eq:xsecCalculation}) in such a way that it cancels out, and in fact anything proportional to the true cross section may be used.
 In practice, this means that the order at which $\sigma_\textit{SM}$ is calculated does not matter to the extent that higher order corrections to the kinematics of the events do not affect $\epsilon$.
 
+Typically, $\sigma_\textit{meas}$ in Eq.~\ref{eq:xsecCalculation} is the fiducial cross section, the cross section  for the process in a phase space similar to (typically, slightly larger than) the phase space in which the experimental analysis can in principle detect events.
+In the four-lepton case, the fiducial phase space is a space of $2\ell2\ell' \left(\ell, \ell' \in \Pe, \Pm\right)$ events defined by criteria on lepton kinematics, dilepton invariant masses, and four-lepton mass.
+Table~\ref{tab:fiducialDefs} shows the fiducial definitions for both the $\PZ \to 4\ell$ and $\ZZ \to 4\ell$ cross section measurements.
+Lepton kinematic requirements and an invariant mass requirement on all opposite-sign, same-flavor lepton pairs in the event are common to both measurements; requirements on the invariant masses of $\PZ/\Pa^\ast$ boson candidates and the four-lepton system are different.
 
-\subsection{Signal Strength Extraction}
+The total {\ZZ} cross section is defined subject to no coinstraints except the requirement that $m_{\PZ_1}$ and $m_{\PZ_2}$ be between 60 and 120\GeV, which serves as the definition of a $\PZ$ boson.
+The fiducial cross section is related to the total cross section by the branching fraction $\mathcal{B}$ to the final state in question---here, two factors of the $\PZ/\Pa^\ast$ branching ratio to electron and muon pairs---and an acceptance factor $\mathcal{A}$ which is the fraction of events falling in the fiducial phase space,
+\begin{equation}\label{eq:fidToTot}
+  \sigma_\mathit{fid} = \mathcal{A} \sigma_\mathit{tot} \left( \mathcal{B}\left(\PZ \to 2\ell\right) \right)^2.
+\end{equation}
+The acceptance factor $\mathcal{A}$ is determined entirely from theory, and is well known~\cite{Olive:2016xmw}, so it is straightforward to calculate the total cross section once the fiducial cross section is known.
+Calculating both fiducial and total cross sections is interesting because it effectively factorizes experimental and theoretical uncertainties.
+The experimental uncertainties are contained entirely in the uncertainties on $\epsilon$, $\lumiL_\textit{int}$, and $\nu_b$ in Eq.~\ref{eq:expectedYield}, which have little or no dependence on theory, while the theoretical uncertainties are contained entirely in the uncertainty on $\mathcal{A}$, which is determined with no experimental input.
+Thus the uncertainty on $\sigma_\textit{fid}$ is entirely experimental, and the theoretical uncertainties enter only in the uncertainty on $\sigma_\textit{tot}$.
+
+\begin{table}[htbp]
+  \centering
+  \caption[Fiducial phase space definitions]{
+    Fiducial phase space definitions for the $\PZ \to 4\ell$ and $\ZZ \to 4\ell$ cross section measurements.
+    The common requirements apply to both.
+    The $m_{\ell^+\ell^{\prime -}}$ criterion is applied to all opposite-sign same-flavor lepton pairs in the event.
+  }\label{tab:fiducialDefs}
+  \begin{tabular}{ll}
+    \toprule
+    Measurement       & Fiducial requirements                             \\
+    \midrule
+    Common            &  $\pt^{\ell_1} > 20\GeV$, $\pt^{\ell_2} > 10\GeV$, $\pt^{\ell_{3,4}} > 5\GeV$,                                       \\
+                      & $\abs{\eta^{\ell}} < 2.5$, $m_{\ell^+\ell^-} > 4\GeV$                                          \\
+    \midrule
+    $\PZ \to 4\ell$   & $m_{\PZ_1} > 40\GeV$, $80 < m_{4\ell} < 100\GeV$  \\
+    \midrule
+    $\ZZ \to 4\ell$   & $60 < m_{\PZ_1},m_{\PZ_2} < 120\GeV$              \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+\subsection{Signal Strength Extraction}\label{sec:signalStrength}
 
 The signal strength is found by the method of maximum likelihood~\cite{Olive:2016xmw,bohm2010introduction}.
 The likelihood function is the product of the probability distributions across all bins,
@@ -151,17 +189,9 @@ Systematic uncertainties enter as log-normal constraints imposed on the fit, enc
 The fit is performed numerically.
 
 
-\subsection{Total ZZ Cross Section and \texorpdfstring{$\mathrm{Z} \to 4\ell$}{Z to 4l} Branching Fraction}
+\subsection{\texorpdfstring{$\mathrm{Z} \to 4\ell$}{Z to 4l} Branching Fraction}
 
-Once the fiducial cross section has been found, it can be used to find the total cross section, subject only to the constraint that both {\PZ} bosons be in the {60--120\GeV} mass range.
-The fiducial cross section is related to the total cross section by an acceptance factor $\mathcal{A}$ which accounts for $\ZZ \to 4\ell$ events outside the fiducial definition, and two factors of the {\PZ} branching fraction $\mathcal{B}\left(\PZ \to 2\ell\right)$ to account for all other final states:
-\begin{equation}
-  \sigma_\mathit{fid} = \mathcal{A} \sigma_\mathit{tot} \left( \mathcal{B}\left(\PZ \to 2\ell\right) \right)^2.
-\end{equation}
-The acceptance factor is independent of any experimental effects and can be calculated from Monte Carlo events at generator level.
-The {\PZ} branching fraction is well known~\cite{Olive:2016xmw}.
-
-The total {\PZ} cross section is better measured in the $2\ell$ channel, because the larger branching fraction yields samples several orders of magnitude larger than the $\PZ \to 4\ell$ sample used here.
+The total {\PZ} cross section can be calculated from the $\PZ \to 4\ell$ fiducial cross section with Eq.~\ref{eq:fidToTot}, but it is better measured in the $2\ell$ channel, where the larger branching fraction yields samples several orders of magnitude larger than the $\PZ \to 4\ell$ sample used here.
 It is therefore more interesting to use $\sigma_\textit{fid}\left(\PZ \to 4\ell\right)$ for a measurement of the four-lepton branching fraction $\mathcal{B}\left(\PZ \to 4\ell\right)$.
 After applying the acceptance correction to obtain $\sigma_\textit{tot} \left(\PZ \to 4\ell\right) = \sigma_\textit{fid}\left(\PZ \to 4\ell\right) / \mathcal{A}$, the four-lepton branching fraction is given by
 \begin{equation}
@@ -180,8 +210,8 @@ The mean detector-level distribution $\vec{\delta}$ is related to the true distr
   \vec{\delta} = \mathbf{R}\vec{\theta}.
 \end{equation}
 The observed distribution in data $\vec{d}$ is sampled from the Poisson distribution with mean $\vec{\delta}$ independently in each bin.
-CMS simulation software is sufficiently sophisticated to give a good estimate of $R$.
-Note that the case of bins with no migration, as in the inclusive cross section measurement, is the special case where $\mathbf{R}$ is diagonal.
+CMS simulation software is sufficiently sophisticated to give a good estimate of $R$, reproducing the real detector's resolution and smearing effects at the level of a few per cent or better for all distributions of interest.
+Note that the case of bins with no migration, as in the inclusive cross section measurement where the bins represent unambiguously determined final states, is the special case where $\mathbf{R}$ is diagonal.
 
 If $\mathbf{R}$ is square and invertible, the maximum likelihood estimate (MLE) of the true distribution, $\hat{\vec{\theta}}$, is given by
 \begin{equation}\label{eq:unfoldingMLE}
