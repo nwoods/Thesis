@@ -2,8 +2,10 @@
 
 The raw detector information stored on disk after an event passes trigger selections is not yet suitable for physics analysis.
 Hits in the tracker and muon systems, and energy deposits in the calorimeters, require significant processing to build physics objects that are interpretable in terms of the physics of the hard scatter.
-Final state particles that interact with CMS are reconstructed from combinations of subdetector signals, final state particles are clustered into jets, charged particles are clustered by track origin to find proton-proton collision vertices, and visible particle momenta are summed to find the transverse momentum imbalance from undetectable particles (e.g.\ neutrinos).
-
+Patterns in the tracker and muon system hits are found and used to construct charged particle and muon tracks, and energy deposits in the calorimeters are grouped into clusters.
+Final state particles that interact with CMS are reconstructed from the tracks and calorimeter clusters, final state particles are clustered into jets, charged particles are clustered by track origin to find proton-proton collision vertices, and visible particle momenta are summed to find the transverse momentum imbalance from undetectable particles (e.g.\ neutrinos).
+The resulting physics objects undergo selection to determine which represent real particles of interest for the analysis.
+Selected particles are used to reconstruct the hard interaction from the collision---in the analyses presented here, leptons are paired to form $\PZ/\Pa^\ast$ boson candidates which may be paired to form Higgs or {\PZ} boson candidates, and jets are used to distinguish electroweak and QCD {\ZZ} production.
 
 
 \section{Track Reconstruction and Vertex Identification}
