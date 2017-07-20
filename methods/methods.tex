@@ -278,7 +278,7 @@ and the dijet relative transverse momentum,
 \end{equation}
 
 The list of observables was further optimized by retraining the GBDT once with each variable dropped and eliminating the one with the least discriminating power.
-This pruning was repeated until seven observables remained, namely $m_{\Pj\Pj}$, $\Delta\eta_{\Pj\Pj}$, $m_{4\ell}$, $\eta^\ast_{\PZ_1}$, $\eta^\ast_{\PZ_2}$, $\pt^\textit{rel. hard}$, and $pt^{\textit{rel.}\ \Pj\Pj}$.
+This pruning was repeated until seven observables remained, namely $m_{\Pj\Pj}$, $\Delta\eta_{\Pj\Pj}$, $m_{4\ell}$, $\eta^\ast_{\PZ_1}$, $\eta^\ast_{\PZ_2}$, $\pt^\textit{rel. hard}$, and $\pt^{\textit{rel.}\ \Pj\Pj}$.
 The resulting GBDT performs only marginally worse ($0.2\sigma$ less expected significance on the VBS signal) than a version with all observables included, and is faster and easier to train, simpler, and less susceptible to biases and systematic uncertainties from mismodeling.
 
 The signal and background yields are extracted from the GBDT output spectrum with a binned maximum likelihood fit to templates from the test Monte Carlo samples.
