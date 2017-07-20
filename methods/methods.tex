@@ -211,7 +211,6 @@ The mean detector-level distribution $\vec{\delta}$ is related to the true distr
 \end{equation}
 The observed distribution in data $\vec{d}$ is sampled from the Poisson distribution with mean $\vec{\delta}$ independently in each bin.
 CMS simulation software is sufficiently sophisticated to give a good estimate of $R$, reproducing the real detector's resolution and smearing effects at the level of a few per cent or better for all distributions of interest.
-Note that the case of bins with no migration, as in the inclusive cross section measurement where the bins represent unambiguously determined final states, is the special case where $\mathbf{R}$ is diagonal.
 
 If $\mathbf{R}$ is square and invertible, the maximum likelihood estimate (MLE) of the true distribution, $\hat{\vec{\theta}}$, is given by
 \begin{equation}\label{eq:unfoldingMLE}
@@ -219,6 +218,7 @@ If $\mathbf{R}$ is square and invertible, the maximum likelihood estimate (MLE) 
 \end{equation}
 Even when $\mathbf{R}$ is invertible, however, it is frequently ill-conditioned, giving $\hat{\vec{\theta}}$ unphysical features like large bin-by-bin fluctuations or even negative bins as a consequence of the stochastic nature of $\vec{d}$.
 It is therefore necessary to use a more sophisticated procedure to ensure the differential cross section distributions obey physics-inspired constraints.
+The variables used for differential cross sections in this analysis are in general well-measured, so bin-to-bin fluctuations are small and the response matrices are nearly diagonal, but some bins have low occupancy which can still cause pathologies.
 
 \subsection{Unfolding}
 
@@ -237,7 +237,7 @@ If $\vec{\theta}^{(0)}$ is strictly positive, $\vec{\theta}^{(k)}$ will be stric
 Choosing a smooth function for $\vec{\theta}^{(0)}$ will generally lead to smooth $\vec{\theta}^{(k)}$ for small $k$; typical choises include a flat initial distribution and the truth-level distribution used to construct $\mathbf{R}$ (used in this analysis).
 What constitutes ``small'' $k$ depends on the condition of $\mathbf{R}$, but for most physics distributions of interest, including all those used in this analysis, nonphysical fluctuations do not arise until after $\vec{\theta}^{(k)}$ is close to convergence.
 Full regularization is therefore imposed by ceasing iteration early.
-For all distributions shown here, stopping after four iterations was found to give acceptable bias-variance tradeoff.
+For all distributions shown here, stopping after four iterations was found to obtain a result close to the asymptotic distribution without artificially increasing the bin-to-bin variance.
 
 \subsection{Uncertainties}
 
@@ -256,7 +256,7 @@ Systematic uncertainties are negligible compared to statistical uncertainties in
 The VBS signal search considers events passing the selections described in Section~\ref{sec:vbsSelection}.
 The electroweak yield is insufficient to have sensitivity at 35.9\fbinv, even with further cut optimization, so a gradient-boosted decision tree (GBDT), implemented with the \textsc{Scikit-learn} package~\cite{scikit-learn}, is used to extract the signal.
 Hyperparameters of the GBDT are optimized with a grid search.
-Each Monte Carlo sample is split into a ``training'' subsample, used to train the GBDT, and a ``test'' subsample used to evaluate its performance and make templates for use in the statistical analysis.
+Each Monte Carlo sample used in the VBS search (c.f.\ Chapter~\ref{ch:simulation}) is split into a ``training'' subsample, used to train the GBDT, and a ``test'' subsample used to evaluate its performance and make templates for use in the statistical analysis.
 The GBDT performance is nearly the same for the test and training samples, a sign that the algorithm is not overtrained.
 
 A number of observables have been proposed to discriminate VBS events from background~\cite{Zeppenfeld:54.6680}, of which $m_{\Pj\Pj}$ and $\Delta\eta_{\Pj\Pj}$ are the most powerful.
@@ -265,9 +265,9 @@ Other commonly-used variables include $m_{4\ell}$, $\eta^{\Pj_1} \times \eta^{\P
   \eta^\ast_P = \eta_P - \frac{\eta_{\Pj_1} - \eta_{\Pj_2}}{2},
 \end{equation}
 where $P$ may stand for $\PZ_1$, $\PZ_2$, or $\Pj_3$, the highest-{\pt} untagged jet in the event.
-In addition to these ``traditional'' quantities, several other groups of observables have been examined, including production angles, decay angles, measures of total hadronic activity in the event, properties of individual leptons and jets and of the $\PZ\PZ\Pj\Pj$ system, and a discriminator designed to distinguish jets originating from quarks and gluons.
+In addition to these ``traditional'' quantities, several other groups of observables have been examined, including production angles, decay angles, measures of total hadronic activity in the event, properties of individual leptons and jets and of the $\PZ\PZ\Pj\Pj$ system, and a discriminator designed to distinguish jets originating from quarks and gluons~\cite{CMS:2013kfa}.
 The hadronic activity and quark-gluon tagging variables have some discriminating power, but they differ significantly depending on the Monte Carlo generator used and were therefore considered too poorly-modeled to use.
-New GBDTs were trained, each with the traditional observables and one group of proposed observables, and the groups that improved the GBDT discrimination power significantly were retained.
+New GBDTs were trained, each with the traditional observables and one other group of observables, and the groups that improved the GBDT discrimination power significantly were retained.
 This procedure yielded 17 observables, including the hard process relative transverse momentum, defined as the ratio of the {\pt} of the $\PZ\PZ\Pj\Pj$ system to the scalar sum of the {\pt} of each object,
 \begin{equation}
   \pt^\textit{rel. hard} = \frac{\pt^{\PZ\PZ\Pj\Pj}}{\sum_{\PZ_1,\PZ_2,\Pj_1,\Pj_2} \pt},
@@ -281,7 +281,7 @@ The list of observables was further optimized by retraining the GBDT once with e
 This pruning was repeated until seven observables remained, namely $m_{\Pj\Pj}$, $\Delta\eta_{\Pj\Pj}$, $m_{4\ell}$, $\eta^\ast_{\PZ_1}$, $\eta^\ast_{\PZ_2}$, $\pt^\textit{rel. hard}$, and $pt^{\textit{rel.}\ \Pj\Pj}$.
 The resulting GBDT performs only marginally worse ($0.2\sigma$ less expected significance on the VBS signal) than a version with all observables included, and is faster and easier to train, simpler, and less susceptible to biases and systematic uncertainties from mismodeling.
 
-The signal and background yields are extracted from the GBDT output spectrum are extracted with a binned maximum likelihood fit to templates from the test Monte Carlo samples.
+The signal and background yields are extracted from the GBDT output spectrum with a binned maximum likelihood fit to templates from the test Monte Carlo samples.
 To obtain templates with better fit convergence properties, the GBDT output is mapped to the range $\left[0,1\right]$ with the logistic transformation
 \begin{equation}
   x \rightarrow \frac{1}{1-e^{-x}}.
@@ -292,14 +292,21 @@ This provides better separation between signal and background and allows uniform
 
 \section{Anomalous Gauge Coupling Searches}
 
-The new physics represented by aTGCs would generally manifest as an increase in events with high invariant mass, so it is natural to use the shape of the $m_{4\ell}$ distribution for the search.
-Monte Carlo samples are generated at grids of points in the $f_4^\PZ$-$f_4^\Pa$ and $f_5^\PZ$-$f_5^\Pa$ planes.
+The new physics represented by aGCs would generally manifest as an increase in events with high invariant mass, so it is natural to use the shape of the $m_{4\ell}$ distribution for the search.
+For the aTGC search, the doubly on-shell {\ZZ} selection is used, while the aQGC search is performed with the $\PZ\PZ\Pj\Pj$ selection described in Section~\ref{sec:vbsSelection}.
+
+Monte Carlo samples with nonzero aTGCs are generated at grids of points in the $f_4^\PZ$-$f_4^\Pa$ and $f_5^\PZ$-$f_5^\Pa$ planes.
 In each bin of the $m_{4\ell}$ distribution, the yields at the various working points are fit to a function of the form
 \begin{equation}
   y\left(f^\PZ,f^\Pa\right) = x_0 + x_1 f^\PZ + x_2 f^\Pa + x_3 f^\PZ f^\Pa + x_4 \left(f^\PZ\right)^2 + x_5 \left(f^\Pa\right)^2
 \end{equation}
 where $y\left(f^\PZ,f^\Pa\right)$ is the yield in the bin, $f^\PV$ can be $f^\PZ_4$ and $f^\Pa_4$ or $f^\PZ_5$ and $f^\Pa_5$, and $x_i$ are the parameters to be fit.
-A profile likelihood method~\cite{Olive:2016xmw} is used to derive the limits.
+
+A similar procedure is performed for the aQGC search.
+Rather than simulating a full sample for each working point, which is computationally expensive, events from \textsc{MadGraph5\_aMC} produced at LO are used to obtain samples for nonzero values of $f_\text{T0} / \Lambda^4$, $f_\text{T1} / \Lambda^4$, $f_\text{T2} / \Lambda^4$, $f_\text{T8} / \Lambda^4$, and $f_\text{T9} / \Lambda^4$ by matrix element reweighting~\cite{Alwall:2014hca}.
+The yields in each $m_{4\ell}$ bin are fit to parabolas as a function of the five aQGC parameters separately.
+
+A binned profile likelihood method~\cite{Olive:2016xmw} is used to derive the limits.
 Systematic uncertainties are taken into account by varying the number of signal and background events within their uncertainties.
 Exclusion limits are found by comparing the p-values of the signal hypothesis and the background only hypothesis
 \begin{equation}
