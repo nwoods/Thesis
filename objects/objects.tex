@@ -1,3 +1,5 @@
+%!TEX root = ../nwoods_thesis.tex
+
 \chapter{Object Reconstruction and Selection}
 
 The raw detector information stored on disk after an event passes trigger selections is not yet suitable for physics analysis.
@@ -9,7 +11,36 @@ Selected particles are used to reconstruct the hard interaction from the collisi
 
 
 \section{Track Reconstruction and Vertex Identification}
-So many fits
+
+Tracks are reconstructed in the inner tracker by iterative application of a combinatorial Kalman filter algorithm~\cite{Fruhwirth:1987fm,Billoir:1990we,Adam:2005cg,Chatrchyan:2014fea}.
+At each iteration, tracks found in the pixel detector are used as ``seeds'', track segments which serve as the initial trajectories on which strip tracker hits from the same particle are expected.
+The pixel seed supplies the initial parameters for the combinatorial Kalman filter.
+At each tracker layer, the algorithm predicts where the particle will hit the next layer based on the track's current parameters, taking into account the effects of particle interaction with tracker material.
+The extrapolated trajectory is used to find compatible hits in the next layer with a $\chi^2$ test, and if possible the most compatible hit is added to the track and its parameters are updated accordingly.
+If no hits are compatible, a ``ghost'' hit which does not contribute to the track parameters may be added to account for the possibility of a missing hit in the corresponding layer.
+This procedure is repeated recursively at each tracker layer, from the innermost layer past the seed to the outermost layer of the silicon strip tracker.
+If two tracks found in an iteration share too many hits, they are assumed to be from the same particle and the one with fewer hits is rejected, using the total $\chi^2$ of all hits as a tiebreaker.
+The first iterations of the track finding algorithm searches for high-$\pt$ tracks from primary proton-proton interactions, which are easier to find because they are close to straight and originate from the beam line.
+When a track is found, its constituent hits are removed from consideration in future iterations, reducing the computational complexity of finding the more difficult tracks from lower-$\pt$ particles and products of $\Pqb$~hadron decays which happen away from the beam line.
+
+Because the Kalman filter obtains the final track parameters only at the outermost tracker layer, each track is refit and smoothed with further Kalman filters, improving track quality and reducing fake rate.
+Spurious tracks are rejected from the final collection with requirements on the number of layers hit, the $\chi^2$ of the fit, and compatibility with a primary vertex.
+The efficiency for reconstructing tracks of all prompt charged particles with $\pt > 900\MeV$ is around 94\% in the barrel and 85\% in the endcap; for isolated muons, it is virtually 100\% in the whole tracker acceptance~\cite{Chatrchyan:2014fea}.
+
+Proton-proton interaction vertices are found by clustering tracks by minimizing the figure of merit
+\begin{equation}\label{eq:vtxChi2}
+  \chi^2 = \sum_i \sum_j p_{ij} \frac{\left(z^t_j - z^V_i\right)^2}{\sigma_{j}^2},
+\end{equation}
+where $z^V_i$ is the $z$ position of vertex $i$, $z^t_j$ is the $z$-axis position of track $j$ at its closest point to the beamline and $\sigma_j^2$ is its uncertainty.
+The track-vertex association matrix $p_{ij}$ maps tracks to their associated vertices, i.e.\ $p_{ij} = 1$ if vertex $i$ and track $j$ are associated, $p_{ij} = 0$ if they are not.
+Rather than minimize Eq.~\ref{eq:vtxChi2} directly with an unknown number of vertices, the CMS clustering algorithm~\cite{Speer:2006mh,Chatrchyan:2014fea} uses a technique known as deterministic annealing~\cite{Rose:726788}, which treats the system as a statistical ensemble of associations between the tracks and an unknown number of vertices.
+The association matrix $p_{ij}$ is then the probability that vertex $i$ and track $j$ are associated.
+If every possible set of assignments, for every possible number and arrangement of vertices, is considered equally probably, this is analogous to a thermodynamic system at high temperature, with $\chi^2$ playing the role of energy.
+The system is simulated at high ``temperature'' and the analog of free energy is minimized to determine $p_{ij}$.
+The temperature is then lowered in steps, with track-vertex associations deterministic in the limit of zero temperature.
+
+Among the vertices in an event, the one whose associated particles have the highest sum of $\pt^2$ is taken to be the primary interaction vertex (PV).
+To be used in this analysis, a PV must be less than 24\unit{cm} from the nominal beam spot in the $z$ direction and less than 2\unit{cm} from the beamline.
 
 
 
