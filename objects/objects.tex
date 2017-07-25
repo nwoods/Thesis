@@ -10,7 +10,7 @@ The resulting physics objects undergo selection to determine which represent rea
 Selected particles are used to reconstruct the hard interaction from the collision---in the analyses presented here, leptons are paired to form $\PZ/\Pa^\ast$ boson candidates which may be paired to form Higgs or {\PZ} boson candidates, and jets are used to distinguish electroweak and QCD {\ZZ} production.
 
 
-\section{Track Reconstruction and Vertex Identification}
+\section{Track Reconstruction and Vertex Identification}\label{sec:trkVtxReco}
 
 Tracks are reconstructed in the inner tracker by iterative application of a combinatorial Kalman filter algorithm~\cite{Fruhwirth:1987fm,Billoir:1990we,Adam:2005cg,Chatrchyan:2014fea}.
 At each iteration, tracks found in the pixel detector are used as ``seeds'', track segments which serve as the initial trajectories on which strip tracker hits from the same particle are expected.
@@ -24,8 +24,13 @@ The first iterations of the track finding algorithm searches for high-$\pt$ trac
 When a track is found, its constituent hits are removed from consideration in future iterations, reducing the computational complexity of finding the more difficult tracks from lower-$\pt$ particles and products of $\Pqb$~hadron decays which happen away from the beam line.
 
 Because the Kalman filter obtains the final track parameters only at the outermost tracker layer, each track is refit and smoothed with further Kalman filters, improving track quality and reducing fake rate.
-Spurious tracks are rejected from the final collection with requirements on the number of layers hit, the $\chi^2$ of the fit, and compatibility with a primary vertex.
+Spurious tracks are rejected from the final collection with requirements on the number of layers hit, the $\chi^2$ of the fit, and compatibility with a primary vertex.LHC
 The efficiency for reconstructing tracks of all prompt charged particles with $\pt > 900\MeV$ is around 94\% in the barrel and 85\% in the endcap; for isolated muons, it is virtually 100\% in the whole tracker acceptance~\cite{Chatrchyan:2014fea}.
+
+Electrons lose substantially more energy to interactions with the tracker material than other charged particles, often breaking the assumption of Gaussian energy loss inherent to the Kalman filter.
+To mitigate the impact of the resulting poor track fits, tracks with many missing hits or a poor $\chi^2$ are refit using a Gaussian sum filter (GSF)~\cite{Adam:2005bya}.
+Any Kalman filter or GSF tracks with trajectories that intersect ECAL energy clusters (see below) are considered electron track candidates and refit with a second, more complicated GSF\@.
+This GSF track collection is used as inputs to the PF electron reconstruction described below.
 
 Proton-proton interaction vertices are found by clustering tracks by minimizing the figure of merit
 \begin{equation}\label{eq:vtxChi2}
@@ -45,22 +50,62 @@ To be used in this analysis, a PV must be less than 24\unit{cm} from the nominal
 
 
 \section{Particle Flow Reconstruction}
-The overview
+
+The simplest conceivable algorithm would reconstruct each type of particle mostly with information from single subsystems: muons with the outer muon system, electrons and photons with ECAL, jets with the calorimeters aided by inner tracker information to handle $\Pqb$ jet vertexing, etc.
+This approach is sufficient for many analyses and sophisticated versions of the general principle have performed admirably at a number of experiments, but it is suboptimal.
+It fails to exploit the full detector information for many objects---for example, not using the inner tracker's precise measurements of low-energy charged hadrons in jets made by clustering calorimeter deposits---and misses significant correlations between detector systems.
+The CMS collaboration takes a different approach, using a particle flow (PF) algorithm combining subdetector signals for optimal particle reconstruction and identification~\cite{CMS:2009nxa,CMS:2010byl,Sirunyan:2017ulk}.
+
+Several features of CMS facilitate PF reconstruction, as described in Section~\ref{sec:cms}.
+The most important is that the calorimeters are inside the magnet and close to the tracker, so charged particles are much less likely to interact with material between them.
+The inner tracker's precise position measurement and ECAL's fine segmentation thus allow tracks to be associated to calorimeter clusters even for individual charged hadrons of modest energy.
 
 \subsection{PF Candidates}
 
+The inputs to the PF algorithm are inner tracker tracks, muon system tracks, and clusters of energy deposits in the calorimeters, all of which are calibrated beforehand.
+Calorimeter clusters are built independently for each subsystem, with ECAL and HCAL barrel and endcaps considered separately.
+Topological clusters are built by combining adjacent cells with energy deposits over a threshold, using cells that are local energy maxima as seeds.
+Within the topological clusters, the final calorimeter clusters are built by fitting the energy deposits with the sum of several two-dimensional Gaussians, one Gaussian for each seed in the topological cluster.
+
+The first step of the PF algorithm is to link tracks and clusters across subdetectors.
+Tracks are linked to calorimeter clusters by extrapolating from the track to the calorimeter cells the particle would be expected to hit.
+To account for bremsstrahlung photons from electron interactions with tracker material, GSF tracks are linked with ECAL clusters compatible with a tangent to the track where it hit the tracker.
+Overlapping ECAL and HCAL clusters are linked outside the inner tracker acceptance.
+Inner tracks are linked to muon system tracks if they are compatible with each other within the resolution of the muon system.
+The groups of linked objects, called ``PF blocks'', usually originate from one or a few particles and are the basic unit of PF reconstruction.
+
 \subsubsection{Muons}
-yep
 
-\subsubsection{Electrons and Charged Hadrons}
-uh huh
+Muon candidates in CMS~\cite{Chatrchyan:2012xi} come in three flavors: ``standalone'', ``tracker'', and ``global'' muons.
+Standalone muons use only the track from the muon spectrometer (the ``standalone track''), built with a fit to track segments made of clusters of hits in the DTs, CSCs, and RPCs.
+Tracker muons use only the inner track, identified as a muon because the track is compatible with one or more track segments in the muon system.
+Global muons use a combined ``global track'' made by fitting the hits in an inner track and a compatible standalone track to a common muon trajectory through the whole detector.
+By construction, global muons have corresponding standalone and tracker muons.
+The inner track typically dominates the global track fit, so the corresponding tracker muon is merged with the global muon.
+When a muon candidate is reconstructed, its constituent tracks are removed from the PF block and are therefore not used in further reconstruction.
 
-\subsubsection{Photons and Neutral Hadrons}
-yeah
+\subsubsection{Electrons and Prompt Photons}
+
+Electron reconstruction uses GSF tracks linked with ECAL clusters~\cite{Baffioni:2006cd,Adam:2005bya}.
+The cluster associated to a track and the bremsstrahlung candidate clusters on tangents to the track are collectively called the ``supercluster''.
+Prompt photons are reconstructed from superclusters without associated tracks except displaced track pairs consistent with $\Pa \to \Pe^+\Pe^-$ conversions in the tracker material~\cite{Khachatryan:2015iwa}.
+In both cases, the HCAL energy near the supercluster cannot be more than 10\% of the supercluster energy.
+Non-isolated photons, i.e.\ those with substantial nearby tracks or calorimeter deposits or a ratio of ECAL and HCAL energy incompatible with a photon, as assumed to be from $\pi^0$ decays and are described with neutral hadrons in the next section.
+Tracks and clusters used to reconstruct electrons and photons are removed from the PF block and are not used in hadron reconstruction.
+
+\subsubsection{Charged and Neutral Hadrons}
+
+With muon, electron, and prompt photon constituents removed, remaining detector signals are taken to be from charged and neutral hadrons (including non-prompt photons)~\cite{CMS:2009nxa,Sirunyan:2017ulk}.
+Clusters in ECAL without associated tracks are taken to be photons from $\pi^0$ decays, because neutral hadrons deposit very little energy in ECAL\@.
+Trackless clusters in HCAL are taken to be neutral hadrons.
+Both are removed from the PF blocks, so all that remain are linked clusters and tracks.
+Paired tracks and clusters with compatible energies are taken to be charged hadrons.
+If the track {\pt} is much less than the calorimeter-measured {\pt}, the pair is labeled as overlapping charged and neutral hadrons.
 
 
 \subsection{Jets}
-sure
+
+
 
 
 \subsection{Missing Transverse Energy}
