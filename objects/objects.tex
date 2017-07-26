@@ -105,11 +105,53 @@ If the track {\pt} is much less than the calorimeter-measured {\pt}, the pair is
 
 \subsection{Jets}
 
+Effective clustering of hadrons, non-prompt photons, and non-prompt leptons into jets is critically important for many physics analyses, including the $\ZZ + \text{jets}$ differential cross section measurements and the {\ZZ} VBS search.
+Clustering must be efficient, to ensure the tagging jets in VBS events are found, but the clustering algorithm should not tag spurious jets, as the number of jets in an event is sensitive to higher-order QCD corrections and therefore an interesting quantity to compare to theoretical predictions.
+Similarly, the algorithm should not erroneously cluster particles from the same initial parton into multiple jets or merge jets from multiple original partons, because the kinematics of the original quarks and gluons are also of theoretical interest and the detector-level jet kinematics should accurately reflect them.
+A clustering algorithm is said to be ``infrared safe'' if the presence of low-energy hadrons from soft gluon radiation does not change the number of jets or have a qualitatively significant effect on jet shapes and kinematics.
+This fits with the intuition that a single {1\GeV} pion should have essentially no effect in an event with multiple jets with energies on the order of hundreds of {\GeVns}~\cite{Salam:2007xv}.
+An algorithm is said to be ``collinear safe'' if the jets are not changed substantially by splitting one hadron into two nearly collinear hadrons with the same total four-momentum.
+This also fits with physical intuition in that jets deposit energy over an area significantly larger than the spatial resolution of the detector, so increasing the detector granularity enough to resolve two very close particles (without changing their total four-momentum) should have little or no effect on the jet.
 
+Infrared and collinear (IRC) safety are critically important for comparing data to theoretical predictions~\cite{Salam:2009jx}.
+Collinear splittings and soft gluon radiation during jet fragmentation should not affect the dynamics of the {\TeVns}-scale hard scattering processes we wish to probe, but they are nonperturbative and difficult to model, and experimental analysis can only probe the underlying hard interaction if it is insensitive to this kind of mismodeling.
+Experimental detectors' finite resolution and inability to measure arbitrarily soft particles enforces some level of IRC safety on any algorithm, but the results of an analysis methods that uses an IRC unsafe clustering will depend on the complex, detector-dependent details of this partial IRC regularization.
+In any case, the most meaningful comparisons between data and theory should use the same definition of a jet in the experimental analysis and the perturbative calculation, and perturbative calculations require IRC safe observables to preserve unitarity.
+
+These considerations, and the desire for conical jets with a well-defined area in the $\eta$-$\phi$ plane, lead most CMS analyses (including this one) to use jets clustered with the anti-{\kt} algorithm~\cite{Cacciari:2008gp,Cacciari:2011ma}.
+The anti-{\kt} algorithm defines the distance between two particles $i$ and $j$ as
+\begin{equation}
+  d_{ij} = \min\left(p_{\text{T}i}^{-2}, p_{\text{T}j}^{-2}\right) \frac{\Delta_{ij}}{R},
+\end{equation}
+where $\Delta_{ij}$ is the distance in the rapidity-polar angle plane,
+\begin{equation}
+  \Delta_{ij}^2 \equiv \left(y_i - y_j\right)^2 + \left(\phi_i - \phi_j\right)^2,
+\end{equation}
+and $R$ is a parameter setting the size of the resulting jets.
+The algorithm proceeds iteratively.
+At each iteration, if the smallest $d_{ij}$ between any pair of particles in the event is smaller than the smallest $\pt^{-2}$ of any single particle, the particles in the pair are merged into a single particle with their total four-momentum.
+If the minimum single-particle $\pt^{-2}$ is smaller than the minimum $d_{ij}$, the single particle is labeled a jet and removed from further consideration.
+Iteration proceeds until all particles are part of a jet.
+In this analysis, the size parameter used is $R = 0.4$.
+
+Charged hadrons from pileup interactions are not included in jet clustering~\cite{CMS:2014ata}.
+The contribution of neutral hadrons from pileup is estimated with a jet area technique~\cite{Khachatryan:2016kdb,Cacciari:2008gn,Cacciari:2007fd} in which the energy density of neutral hadrons from pileup is calculated event-by-event and multiplied by the area of the jet to estimate the neutral pileup contribution, which is subtracted from the jet energy.
+Jets in Monte Carlo samples have their energy shifted and stochastically smeared such that the overall energy scale and resolution match that of jets in data~\cite{Chatrchyan:2011ds,Khachatryan:2016kdb}.
 
 
 \subsection{Missing Transverse Energy}
-ok
+
+Neutrinos---or, hypothetically, WIMP dark matter or other new particles that do not decay or interact directly with the detector---escape and cannot be directly measured.
+Because the beams have no momentum in the $x$-$y$ plane, the transverse momentum of the visible particles must balance the transverse momentum of the invisible ones.
+The missing transverse momentum is thus
+\begin{equation}\label{eq:MET}
+  \ptvecmiss = -\! \! \sum_\text{visible} \ptvec,
+\end{equation}
+where the sum runs over the transverse momenta of all PF candidates in the event.
+The missing transverse energy, {\MET}, is its magnitude.
+The {\MET} is calibrated by propagating the jet energy scale corrections to the {\MET} calculation~\cite{Chatrchyan:2011tn,Khachatryan:2014gga,CMS-PAS-JME-16-004}.
+PF candidates originating from pileup interactions are included in the sum in Eq.~\ref{eq:MET} because these soft collisions are very unlikely to produce neutrinos, so including them biases the measurement less than trying to determine which neutral particles should be considered pileup and which should not.
+The charged tracks from pileup events are used to correct for the residual bias arising from the slightly lower efficiency for soft neutral particles from pileup.
 
 
 
