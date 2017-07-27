@@ -44,8 +44,8 @@ If every possible set of assignments, for every possible number and arrangement 
 The system is simulated at high ``temperature'' and the analog of free energy is minimized to determine $p_{ij}$.
 The temperature is then lowered in steps, with track-vertex associations deterministic in the limit of zero temperature.
 
-Among the vertices in an event, the one whose associated particles have the highest sum of $\pt^2$ is taken to be the primary interaction vertex (PV).
-To be used in this analysis, a PV must be less than 24\unit{cm} from the nominal beam spot in the $z$ direction and less than 2\unit{cm} from the beamline.
+Among the interaction vertices in an event, the one whose associated charged particles have the highest sum of $\pt^2$ is labeled the primary vertex (PV).
+A PV must be less than 24\unit{cm} from the nominal beam spot in the $z$ direction and less than 2\unit{cm} from the beamline.
 
 
 
@@ -156,10 +156,16 @@ The charged tracks from pileup events are used to correct for the residual bias 
 
 
 \section{Object Identification and Selection}
-What to use in the actual analysis
+
+The reconstruction algorithms described above are general purpose in the sense that they can be used in nearly any analysis, but do not address the specific needs of any, so further selections are essentially always required to optimize object efficiency and purity for studying a specific physics process.
+The leptons used in this analysis are required to pass identification requirements on top of those imposed during PF reconstruction, and are required to be isolated from other particles in the event, to reject fake objects from jet fragmentation.
+Four-lepton processes have low reducible backgrounds, so the selections presented here are generally loose, optimized for high efficiency compared to most CMS analyses.
+
+
 
 \subsection{Electrons}
-nice
+
+Electron
 
 
 \subsection{Muons}
