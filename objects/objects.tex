@@ -162,22 +162,83 @@ The leptons used in this analysis are required to pass identification requiremen
 Four-lepton processes have low reducible backgrounds, so the selections presented here are generally loose, optimized for high efficiency compared to most CMS analyses.
 
 
-
 \subsection{Electrons}
 
-Electron
+Electrons are required to have $\pt > 7\GeV$ and to be in the tracker acceptance, $\abseta < 2.5$.
+They must be compatible with the PV, with minimum track-PV distance $d_z < 1\unit{cm}$ in the $z$ direction and $d_{xy} < 5\unit{mm}$ in the plane transverse to the beam.
+Each electron's 3-dimensional impact parameter (IP) $d_\text{3D}$ must satisfy a requirement on its significance,
+\begin{equation}
+  \text{SIP}_\text{3D} \equiv \frac{d_\text{3D}}{\sigma_{d_\text{3D}}},
+\end{equation}
+where $\sigma_{d_\text{3D}}$ is the uncertainty on the IP\@.
+The $\text{SIP}_\text{3D}$ requirement is $\text{SIP}_\text{3D} < 10$ for the {\ZZ} and $\PZ \to 4\ell$ cross section measurements and the aTGC search, and $\text{SIP}_\text{3D} < 4$ for the Higgs boson measurement and the VBS and aQGC searches.
+To remove fake electrons arising from muon tracks being associated to photons or other incidental ECAL energy clusters, electrons within $\Delta R < 0.05$ of a muon are vetoed.
+
+To further reduce photon and jet fragment backgrounds while maintaining high prompt electron efficiency, a further selection is applied using a multivariate discriminator made with a boosted decision tree (BDT)~\cite{CMS:2010bta,Khachatryan:2015hwa}.
+The BDT uses 21 input variables, which fall into three broad categories:
+\begin{itemize}
+  \item Track-related observables like the number of hits and normalized $\chi^2$ of the Kalman and GSF tracks and the energy lost to bremsstrahlung according to the GSF fit. These are intended to discriminate between electrons and charged hadrons.
+  \item Calorimetric information including a number of supercluster shape observables and the amount of HCAL energy near the supercluster, to discriminate electrons from electromagnetically rich jets.
+  \item Track-cluster observables comparing the positions and momenta of the particles seen in the tracker and by ECAL\@.
+\end{itemize}
+The BDT training and working point selection are done separately for electron candidates with {\pt} above and below {10\GeV} and in three bins of {\abseta} (0--0.8, 0.8--1.479, and 1.479--2.5).
+The working points are chosen to correspond to 98\% efficiency for single signal electrons in each bin.
+
+To ensure that electron candidates are not part of a jet, they are required to be isolated from other particles in the event.
+The relative isolation is defined as
+\begin{equation}\label{eq:iso}
+  R_\text{Iso} = \left( \sum_\text{charged} \! \!\pt + \max\left[0, \sum_\text{neutral} \! \!\pt + \sum_{\text{photons}} \! \!\pt - \pt^\text{PU} \left(\ell\right) \right]\right) \bigg/ \pt^{\ell}
+\end{equation}
+where the sums run over the {\pt} of PF hadrons and photons in a cone of $\Delta R < 0.3$ around the electron trajectory.
+To mitigate the contribution of pileup to the isolation calculations, charged hadrons are included only if they originate from the event's PV\@.
+The estimated neutral contribution to isolation from pileup, $\pt^\text{PU}\left(\ell\right)$, is defined for electrons as
+\begin{equation}
+  \pt^\text{PU}\left(\Pe\right) \equiv \rho \times A_\text{eff},
+\end{equation}
+where the average transverse-momentum flow density $\rho$ is calculated in each event using the jet area method described above.
+The effective area $A_\text{eff}$ is the geometric area of the isolation cone times an $\eta$-dependent correction factor that accounts for the residual dependence of the isolation on pileup.
+Electrons are considered isolated if their relative isolations satisfy $R_\text{iso} <0.35$.
+
+Efficiencies for GSF track reconstruction, electron reconstruction and identification, and electron isolation criteria, are found with a ``tag-and-probe'' method~\cite{CMS:2011aa}.
+In this technique, events are selected which contain at least one high-{\pt} ``tag'' electron passing strict ID and isolation requirements, and a ``probe'' track with the opposite sign that combines with the electron to have an invariant mass close to the {\PZ} boson mass.
+The resulting sample is enriched with $\PZ \to \Pe^+\Pe^-$ events, so the track is likely to correspond to a real prompt electron.
+Unlike all background processes, $\PZ \to \Pe^+\Pe^-$ production forms a distinct resonance peak in the $m_{\ell\ell}$ distribution, so shape fits can be used to find the overall purity of the sample, and thus the number of prompt electrons among the probes.
+The selection efficiency is then the number of passing probes divided by the total number of prompt probes.
+This procedure is performed in bins of {\pt} and $\eta$ for data and Monte Carlo events, and residual differences in efficiency in Monte Carlo samples are corrected to match data by weighting events by the ratio of data and Monte Carlo efficiency for each electron candidate.
 
 
 \subsection{Muons}
-even nicer
+
+Muon selection is similar to electron selection, but simpler because muon backgrounds are much smaller.
+Candidate muons are required to be tracker or global muons with $\pt > 5\GeV$  within the muon system acceptance ($\abseta < 2.4$).
+They are subject to the same PV compatibility criteria as electrons, $d_z < 1\unit{cm}$, $d_{xy} < 5\unit{mm}$, and $\text{SIP}_\text{3D} < 10$ or 4 depending on the analysis.
+Muon candidates are further subject to the so-called ``PF ID'' criteria, which require them to be isolated from calorimeter deposits or to have high-quality tracks with good fits~\cite{Sirunyan:2017ulk}.
+
+Isolation is defined as in Eq.~\ref{eq:iso}, the same as for electrons except for the definition of the neutral pileup contribution, which for muons is based on using the known charged pileup density to estimate the neutral pileup based on the average charge composition of pileup jets,
+\begin{equation}
+  \pt^\text{PU}\left(\Pm\right) \equiv 0.5 \sum_\text{charged} \pt^\text{PU},
+\end{equation}
+where the sum runs over the charged particles from all pileup vertices.
+As for electrons, the radius of the isolation cone is 0.3 in the $\eta$-$\phi$ plane and the selection criterion is $R_\text{iso} < 0.35$.
+Muon efficiencies are measured and corrected with the same tag-and-probe technique as used for electrons.
 
 
 \subsection{Jets}
-not as nice
+
+Jets are considered for analysis if they have $\pt > 30\GeV$ and $\abseta < 4.7$.
+Loose criteria are applied to reject spurious jets by requiring they contain multiple particles, and the particles be a mix of charged and neutral consistent with hadronic jets.
+Jets are removed from consideration in the event if a lepton or FSR photon is in its cone ($\Delta R < 0.4$).
 
 
 \subsection{Final State Photon Radiation}
-Bit of a mess
+
+Final-state radiation (FSR) photons emitted by muons are not included in the PF momentum reconstruction, and some photons emitted by electrons may be missed, degrading {\PZ} boson reconstruction.
+Photons are considered FSR candidates if they have $\pt > 2\GeV$, $\abseta < 2.4$, relative isolation $R_\text{iso} < 1.8$ as defined in Eq.~\ref{eq:iso} (with no neutral pileup correction), and $\Delta R \left(\ell, \gamma \right) < 0.5$ with respect to the nearest lepton.
+To avoid double counting, photons in electron superclusters are not considered.
+Because FSR has a higher energy spectrum than photons from pileup and is expected to be quasi-collinear with the emitting leptons, a photon is accepted as FSR and included in the \ZZ final state if $\frac{\Delta R \left( \ell, \gamma \right)}{{\et}_\gamma^2} < 0.012$.
+FSR photons are omitted from the isolation determination for emitting leptons.
+In the rest of this thesis, the momentum of any FSR photons found is included in $\PZ/\Pa^\ast$ and {\ZZ} four-momenta unless otherwise stated.
+
 
 
 \subsection{Misidentified Objects}\label{sec:looseID}
