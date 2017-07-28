@@ -5,9 +5,9 @@
 The raw detector information stored on disk after an event passes trigger selections is not yet suitable for physics analysis.
 Hits in the tracker and muon systems, and energy deposits in the calorimeters, require significant processing to build physics objects that are interpretable in terms of the physics of the hard scatter.
 Patterns in the tracker and muon system hits are found and used to construct charged particle and muon tracks, and energy deposits in the calorimeters are grouped into clusters.
-Final state particles that interact with CMS are reconstructed from the tracks and calorimeter clusters, final state particles are clustered into jets, charged particles are clustered by track origin to find proton-proton collision vertices, and visible particle momenta are summed to find the transverse momentum imbalance from undetectable particles (e.g.\ neutrinos).
+Final state particles that interact with CMS are reconstructed from the tracks and calorimeter clusters, final state particles are clustered into jets, charged particles are clustered by track origin to find proton-proton collision vertices, and visible particle momenta are summed to find the transverse momentum imbalance from undetectable particles (in the SM, neutrinos).
 The resulting physics objects undergo selection to determine which represent real particles of interest for the analysis.
-Selected particles are used to reconstruct the hard interaction from the collision---in the analyses presented here, leptons are paired to form $\PZ/\Pa^\ast$ boson candidates which may be paired to form Higgs or {\PZ} boson candidates, and jets are used to distinguish electroweak and QCD {\ZZ} production.
+Selected particles are used to reconstruct the hard interaction from the collision---in the analyses presented here, leptons are paired to form {\Zgs} boson candidates which may be paired to form Higgs or {\PZ} boson candidates or nonresonant {\ZZ} candidates, and jets are used to construct hadronic observables and to distinguish electroweak and QCD {\ZZ} production.
 
 
 \section{Track Reconstruction and Vertex Identification}\label{sec:trkVtxReco}
@@ -36,7 +36,7 @@ Proton-proton interaction vertices are found by clustering tracks by minimizing 
 \begin{equation}\label{eq:vtxChi2}
   \chi^2 = \sum_i \sum_j p_{ij} \frac{\left(z^t_j - z^V_i\right)^2}{\sigma_{j}^2},
 \end{equation}
-where $z^V_i$ is the $z$ position of vertex $i$, $z^t_j$ is the $z$-axis position of track $j$ at its closest point to the beamline and $\sigma_j^2$ is its uncertainty.
+where $z^V_i$ is the $z$ position of vertex $i$, $z^t_j$ is the $z$ position of track $j$ at its closest point to the beamline, and $\sigma_j^2$ is its uncertainty.
 The track-vertex association matrix $p_{ij}$ maps tracks to their associated vertices, i.e.\ $p_{ij} = 1$ if vertex $i$ and track $j$ are associated, $p_{ij} = 0$ if they are not.
 Rather than minimize Eq.~\ref{eq:vtxChi2} directly with an unknown number of vertices, the CMS clustering algorithm~\cite{Speer:2006mh,Chatrchyan:2014fea} uses a technique known as deterministic annealing~\cite{Rose:726788}, which treats the system as a statistical ensemble of associations between the tracks and an unknown number of vertices.
 The association matrix $p_{ij}$ is then the probability that vertex $i$ and track $j$ are associated.
@@ -46,6 +46,9 @@ The temperature is then lowered in steps, with track-vertex associations determi
 
 Among the interaction vertices in an event, the one whose associated charged particles have the highest sum of $\pt^2$ is labeled the primary vertex (PV).
 A PV must be less than 24\unit{cm} from the nominal beam spot in the $z$ direction and less than 2\unit{cm} from the beamline.
+Many commonly-used analysis observables are strongly dependent on the number of secondary proton-proton interaction vertices in the event, colloquially called the pileup.
+The pileup distribution used in Monte Carlo samples are not the same as the distribution in data, biasing sensitive quantities.
+Monte Carlo events are therefore reweighted based on the number of simulated pileup vertices such that the overall $N_\textit{vtx}$ (number of proton-proton interaction vertices) distributions match.
 
 
 
@@ -88,10 +91,11 @@ When a muon candidate is reconstructed, its constituent tracks are removed from 
 
 Electron reconstruction uses GSF tracks linked with ECAL clusters~\cite{Baffioni:2006cd,Adam:2005bya}.
 The cluster associated to a track and the bremsstrahlung candidate clusters on tangents to the track are collectively called the ``supercluster''.
-Prompt photons are reconstructed from superclusters without associated tracks except displaced track pairs consistent with $\Pa \to \Pe^+\Pe^-$ conversions in the tracker material~\cite{Khachatryan:2015iwa}.
+Prompt photons are reconstructed from superclusters without associated tracks except displaced track pairs consistent with photon-initiated electron-positron pair production in the tracker material~\cite{Khachatryan:2015iwa}.
 In both cases, the HCAL energy near the supercluster cannot be more than 10\% of the supercluster energy.
 Non-isolated photons, i.e.\ those with substantial nearby tracks or calorimeter deposits or a ratio of ECAL and HCAL energy incompatible with a photon, as assumed to be from $\pi^0$ decays and are described with neutral hadrons in the next section.
 Tracks and clusters used to reconstruct electrons and photons are removed from the PF block and are not used in hadron reconstruction.
+
 
 \subsubsection{Charged and Neutral Hadrons}
 
@@ -151,7 +155,6 @@ where the sum runs over the transverse momenta of all PF candidates in the event
 The missing transverse energy, {\MET}, is its magnitude.
 The {\MET} is calibrated by propagating the jet energy scale corrections to the {\MET} calculation~\cite{Chatrchyan:2011tn,Khachatryan:2014gga,CMS-PAS-JME-16-004}.
 PF candidates originating from pileup interactions are included in the sum in Eq.~\ref{eq:MET} because these soft collisions are very unlikely to produce neutrinos, so including them biases the measurement less than trying to determine which neutral particles should be considered pileup and which should not.
-The charged tracks from pileup events are used to correct for the residual bias arising from the slightly lower efficiency for soft neutral particles from pileup.
 
 
 
@@ -171,7 +174,7 @@ Each electron's 3-dimensional impact parameter (IP) $d_\text{3D}$ must satisfy a
   \text{SIP}_\text{3D} \equiv \frac{d_\text{3D}}{\sigma_{d_\text{3D}}},
 \end{equation}
 where $\sigma_{d_\text{3D}}$ is the uncertainty on the IP\@.
-The $\text{SIP}_\text{3D}$ requirement is $\text{SIP}_\text{3D} < 10$ for the {\ZZ} and $\PZ \to 4\ell$ cross section measurements and the aTGC search, and $\text{SIP}_\text{3D} < 4$ for the Higgs boson measurement and the VBS and aQGC searches.
+The $\text{SIP}_\text{3D}$ requirement is $\text{SIP}_\text{3D} < 10$ for the {\ZZ} and {\Zfourl} cross section measurements and the aTGC search, and $\text{SIP}_\text{3D} < 4$ for the Higgs boson measurement and the VBS and aQGC searches.
 To remove fake electrons arising from muon tracks being associated to photons or other incidental ECAL energy clusters, electrons within $\Delta R < 0.05$ of a muon are vetoed.
 
 To further reduce photon and jet fragment backgrounds while maintaining high prompt electron efficiency, a further selection is applied using a multivariate discriminator made with a boosted decision tree (BDT)~\cite{CMS:2010bta,Khachatryan:2015hwa}.
@@ -223,42 +226,96 @@ As for electrons, the radius of the isolation cone is 0.3 in the $\eta$-$\phi$ p
 Muon efficiencies are measured and corrected with the same tag-and-probe technique as used for electrons.
 
 
-\subsection{Jets}
-
-Jets are considered for analysis if they have $\pt > 30\GeV$ and $\abseta < 4.7$.
-Loose criteria are applied to reject spurious jets by requiring they contain multiple particles, and the particles be a mix of charged and neutral consistent with hadronic jets.
-Jets are removed from consideration in the event if a lepton or FSR photon is in its cone ($\Delta R < 0.4$).
-
-
 \subsection{Final State Photon Radiation}
 
 Final-state radiation (FSR) photons emitted by muons are not included in the PF momentum reconstruction, and some photons emitted by electrons may be missed, degrading {\PZ} boson reconstruction.
 Photons are considered FSR candidates if they have $\pt > 2\GeV$, $\abseta < 2.4$, relative isolation $R_\text{iso} < 1.8$ as defined in Eq.~\ref{eq:iso} (with no neutral pileup correction), and $\Delta R \left(\ell, \gamma \right) < 0.5$ with respect to the nearest lepton.
 To avoid double counting, photons in electron superclusters are not considered.
-Because FSR has a higher energy spectrum than photons from pileup and is expected to be quasi-collinear with the emitting leptons, a photon is accepted as FSR and included in the \ZZ final state if $\frac{\Delta R \left( \ell, \gamma \right)}{{\et}_\gamma^2} < 0.012$.
+Because FSR has a higher energy spectrum than photons from pileup and is expected to be quasi-collinear with the emitting leptons, a photon is accepted as FSR and included in the {\ZZ} final state if $\Delta R \left( \ell, \gamma \right) / {\et}_\gamma^2 < 0.012$.
 FSR photons are omitted from the isolation determination for emitting leptons.
-In the rest of this thesis, the momentum of any FSR photons found is included in $\PZ/\Pa^\ast$ and {\ZZ} four-momenta unless otherwise stated.
+In the rest of this thesis, the momentum of any FSR photons found is included in {\Zgs} and {\ZZ} four-momenta unless otherwise stated.
 
+
+\subsection{Jets}
+
+Jets are considered for analysis if they have $\pt > 30\GeV$ and $\abseta < 4.7$.
+Loose criteria are applied to reject spurious jets by requiring they contain multiple particles, and the particles be a mix of charged and neutral consistent with hadronic jets.
+Jets are removed from consideration in the event if a lepton or FSR photon is in its cone ($\Delta R < 0.4$ with respect to the jet's total momentum vector).
 
 
 \subsection{Misidentified Objects}\label{sec:looseID}
-Fake rates
+
+The reducible background estimation method described in Section~\ref{sec:bkg} requires the use of ``loose'' lepton candidates which are similar to candidates passing the full selection but much more likely to be jet fragments or other non-prompt objects.
+Loose lepton candidates pass the {\pt} and $\eta$ cuts and vertex compatibility criteria, but the other identification criteria are reduced.
+The electron BDT discriminator is not applied to loose electrons.
+Loose muons must still be tracker or global muons, but the PF ID is not applied.
+Isolation requirements are not applied to loose candidates.
+Depending on their use, loose candidates may have no further requirements applied, or may be required to fail the tight ID and/or isolation requirements, as detailed in Section~\ref{sec:bkg}.
+Aside from the ID and isolation criteria, loose leptons are treated the same as their tight cousins, with FSR recovery performed with the same algorithm.
+Jets near loose leptons are only removed if the loose lepton is taken to be one of the four in the {\ZZ} candidate in the final event interpretation.
 
 
 
 \section{ZZ Candidate and Event Selection}
-Explain the different classes of events (full spectrum, Higgs, on shell\ldots)
 
-\subsection{Z Candidate Selection}\label{sec:zSelection}
-Mass cuts and lepton pairing
+Online event selections used single, double, and triple lepton triggers.
+The double lepton triggers were the primary paths, with single and triple lepton triggers correcting for residual inefficiencies to bring the overall trigger efficiency above 99\%.
+Exact HLT parameters changed over the course of datataking as instantaneous luminosities changed and trigger rates rose, so many thresholds are shown here as ranges.
+\begin{itemize}
+  \item Single muon {\pt} thresholds were between 20 and {24\GeV} for isolated muons.
+  Nonisolated single muons were required to have $\pt > 50\GeV$ or $\pt > 45\GeV$ and $\abseta < 2.1$.
+  Single electron {\pt} thresholds were 25 or {27\GeV} depending on ID criteria applied.
+  \item Leading lepton {\pt} threasholds in double lepton paths were 17 or {23\GeV}.
+  Trailing lepton thresholds were {12\GeV} and {8\GeV} for electrons and muons, respectively.
+  Isolation requirements and requirements on the $z$-axis distance between lepton track origins were added part way through datataking.
+  \item The {\pt} requirements in triple lepton paths varied between 5 and {16\GeV}, with no isolation or vertex requirements.
+\end{itemize}
+An event is considered for the analysis is any of these triggers fires.
+
+Several distinct analyses fall under the four-lepton umbrella, each with different requirements and therefore different selection criteria.
+The sets of selections will be listed here with brief descriptions of their uses, and detailed in full below.
+\begin{itemize}
+  \item The \emph{full spectrum selection} picks a phase space that encompasses all four-lepton events, and all other selection sets yield strict subsets of the full spectrum phase space.
+  \item The \emph{singly resonant} ({\Zfourl}) \emph{selection} picks events with four-lepton mass around the {\PZ} boson resonance.
+  \item The \emph{Higgs selection} is that used for the Higgs boson discovery and properties measurements.
+  It is similar to the full spectrum selection but with slightly tighter requirements on the second {\Zgs} candidate, because {\Zfourl} events are of less interest and some backgrounds may be reduced by excluding events with an on-shell {\PZ} boson and a low mass lepton pair that could be a decay of an {$\Upsilon$} or similar meson.
+  \item The \emph{on-shell} or \emph{doubly resonant} selection requires both {\PZ} candidates to be compatible with a resonant {\PZ} boson.
+  It is used for the {\ZZ} and $\ZZ + \text{jets}$ cross section measurements and the aTGC search.
+  \item The \emph{dijet} ({\ZZjj}) \emph{selection} uses the on-shell selection for the four-lepton system, and additionally requires at least two jets.
+  It is used for the VBS and aQGC searches.
+\end{itemize}
+
+
+\subsection{\texorpdfstring{$\text{Z}/\gamma^\ast$}{Z/gamma*} Candidate Selection}\label{sec:zSelection}
+
+A {\Zgs} candidate is built from a pair of opposite-sign, same-flavor leptons with invariant mass between 4 and {120\GeV}.
+The {\Zgs} candidate with mass closest to the nominal {\PZ} boson mass is labeled $\PZ_1$, the other is labeled $\PZ_2$.
+Mass requirements on the {\Zgs} candidates are among the primary differences between the various analysis selections.
+The full spectrum, {\Zfourl}, and Higgs selections require $m_{\PZ_1} > 40\GeV$.
+The Higgs selection additionally requires $m_{\PZ_2} > 12\GeV$.
+The on-shell and dijet selections require both $\PZ_1$ and $\PZ_2$ to have $m_{\PZ_i} > 60\GeV$.
+The mass range thus allowed, $60 < m_{\PZ_{1,2}} < 120\GeV$, serves as the definition of an on-shell {\PZ} boson for purposes of this analysis.
 
 
 \subsection{ZZ Candidate Selection}
-Disambiguation for $>4$ leptons
+
+Four-lepton candidates are built from pairs of {\Zgs} candidates.
+Among the four leptons in the candidate, all opposite-sign pairs must have invariant mass $m_{\ell^+\ell^{\prime -}} > 4\GeV$ regardless of flavor, to remove events in which decay products of a light, leptonically decaying particle like a {\PJpsi} are erroneously paired with the two leptons from a real {\PZ} boson to form two false {\Zgs} candidates by chance when paired incorrectly.
+The requirement on all pairs does not include FSR photons, because the mesons that would cause such a problem are generally found in jets which include photons from $\pi^0$ decays, whcih are likely to be misidentified as FSR\@.
+All lepton pairs must have $\Delta R > 0.02$ to avoid ``ghost'' leptons with shared tracks.
+The leading and lepton among the four must have $\pt > 20\GeV$, and the subleading lepton must have $\pt > 10\GeV$ if it is an electron or $\pt > 12\GeV$ if it is an electron.
+The {\Zfourl} selection requires the candidate to have $80 < m_{4\ell} < 100\GeV$, consistent with resonant single-{\PZ} production.
+
+All allowed pairings of leptons into {\Zgs} candidates are examined separately, so an event with two electrons and two positrons, for example, will yield two possible {\ZZ} candidates, with the only difference being how the electrons are paired into $\PZ_1$ and $\PZ_2$.
+In the case that multiple interpretations of the same event pass the full selection, the one with $\PZ_1$ closest to the nominal {\PZ} mass is chosen.
+In the rare case of further ambiguity, which may arise in events with five or more leptons, $\PZ_2$ is chosen to maximize the scalar {\pt} sum of the four leptons.
+This best candidate selection is done after the full selection is applied, and the other analysis selections are applied to the disambiguated events in the full spectrum phase space.
+Like the mass cut on all opposite-sign lepton pairs, this prevents events with one on-shell {\PZ} and one lower-mass $\Pa^\ast$ from passing the on-shell {\PZ} mass cuts with an erroneous lepton pairing.
 
 
-\subsection{Background Estimation}
+\subsection{Dijet and VBS Signal Selection}\label{sec:vbsSelection}
 
-
-\subsection{VBS Signal Selection}\label{sec:vbsSelection}
-Dijets and so on
+The dijet selection, used for the VBS and aQGC searches, requires the event to contain two or more jets.
+The two highest-{\pt} jets are called the ``tagging jets.''
+The tagging dijet system must have $m_{\Pj\Pj} > 100\GeV$.
+This criterion is not intended to preferentially select the EWK signal, which is concentrated at much higher dijet masses, but rather to provide a minimal selection for the sample on which to perform the multivariate VBS analysis described in Section~\ref{sec:vbsSearch} and the shape-based aQGC analysis described in Section~\ref{sec:aGCSearch}.

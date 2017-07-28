@@ -2,11 +2,11 @@
 
 \chapter{Analysis Strategy}
 
-\section{Background Estimation}
+\section{Background Estimation}\label{sec:bkg}
 Reducible backgrounds for four-lepton events typically have two or three prompt leptons and two or one other objects---typically jet fragments, sometimes photons---which are misidentified as prompt leptons.
 The largest source of background contamination is from events in which a {\PZ} boson is produced in association with a photon and a jet, a leptonically-decaying $\PW$ boson and a jet, or two jets.
 There is also a contribution from {\TTbar} events in which both top quarks decay to a lepton, a neutrino, and a {\Pqb}~quark jet.
-For simplicity, the two sets of processes are not treated separately in what follows, and are collectively labeled ``$\PZ+\PX$'' events\footnote{This is a bit of a misnomer, as ``$\PZ+\PX$'' does not accurately describe {\TTbar} events, but is retained here for consistency with the CMS papers on these analyses.}.
+For simplicity, the two sets of processes are not treated separately in what follows, and are collectively labeled ``$\PZ+\PX$'' events\footnote{This is a bit of a misnomer, as ``$\PZ+\PX$'' does not accurately describe {\TTbar} events, but the terminology is retained here for consistency with the CMS papers on these analyses.}.
 
 The contributions of the reducible backgrounds to the selected four-lepton signal samples are evaluated using the tight-to-loose ``fake rates'' method, described in Ref.~\cite{Chatrchyan:2013mxa}.
 In this procedure, the likelihood of a nonprompt (``fake'') object to be misidentified as a prompt lepton is estimated and applied to control regions enriched with $\PZ+\PX$ events to estimate their contribution to the signal region.
@@ -138,10 +138,10 @@ In practice, this means that the order at which $\sigma_\textit{SM}$ is calculat
 Typically, $\sigma_\textit{meas}$ in Eq.~\ref{eq:xsecCalculation} is the fiducial cross section, the cross section  for the process in a phase space similar to (typically, slightly larger than) the phase space in which the experimental analysis can in principle detect events.
 In the four-lepton case, the fiducial phase space is a space of $2\ell2\ell' \left(\ell, \ell' \in \Pe, \Pm\right)$ events defined by criteria on lepton kinematics, dilepton invariant masses, and four-lepton mass.
 Table~\ref{tab:fiducialDefs} shows the fiducial definitions for both the $\PZ \to 4\ell$ and $\ZZ \to 4\ell$ cross section measurements.
-Lepton kinematic requirements and an invariant mass requirement on all opposite-sign, same-flavor lepton pairs in the event are common to both measurements; requirements on the invariant masses of $\PZ/\Pa^\ast$ boson candidates and the four-lepton system are different.
+Lepton kinematic requirements and an invariant mass requirement on all opposite-sign, same-flavor lepton pairs in the event are common to both measurements; requirements on the invariant masses of {\Zgs} boson candidates and the four-lepton system are different.
 
 The total {\ZZ} cross section is defined subject to no coinstraints except the requirement that $m_{\PZ_1}$ and $m_{\PZ_2}$ be between 60 and 120\GeV, which serves as the definition of a $\PZ$ boson.
-The fiducial cross section is related to the total cross section by the branching fraction $\mathcal{B}$ to the final state in question---here, two factors of the $\PZ/\Pa^\ast$ branching ratio to electron and muon pairs---and an acceptance factor $\mathcal{A}$ which is the fraction of events falling in the fiducial phase space,
+The fiducial cross section is related to the total cross section by the branching fraction $\mathcal{B}$ to the final state in question---here, two factors of the {\Zgs} branching ratio to electron and muon pairs---and an acceptance factor $\mathcal{A}$ which is the fraction of events falling in the fiducial phase space,
 \begin{equation}\label{eq:fidToTot}
   \sigma_\mathit{fid} = \mathcal{A} \sigma_\mathit{tot} \left( \mathcal{B}\left(\PZ \to 2\ell\right) \right)^2.
 \end{equation}
@@ -251,7 +251,7 @@ The uncertainty related to that quantity is taken to be the resulting shape diff
 Systematic uncertainties are negligible compared to statistical uncertainties in most bins.
 
 
-\section{VBS Signal Extraction}
+\section{VBS Signal Extraction}\label{sec:vbsSearch}
 
 The VBS signal search considers events passing the selections described in Section~\ref{sec:vbsSelection}.
 The electroweak yield is insufficient to have sensitivity at 35.9\fbinv, even with further cut optimization, so a gradient-boosted decision tree (GBDT), implemented with the \textsc{Scikit-learn} package~\cite{scikit-learn}, is used to extract the signal.
@@ -290,7 +290,7 @@ This provides better separation between signal and background and allows uniform
 
 
 
-\section{Anomalous Gauge Coupling Searches}
+\section{Anomalous Gauge Coupling Searches}\label{sec:aGCSearch}
 
 The new physics represented by aGCs would generally manifest as an increase in events with high invariant mass, so it is natural to use the shape of the $m_{4\ell}$ distribution for the search.
 For the aTGC search, the doubly on-shell {\ZZ} selection is used, while the aQGC search is performed with the $\PZ\PZ\Pj\Pj$ selection described in Section~\ref{sec:vbsSelection}.
