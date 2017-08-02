@@ -356,13 +356,118 @@ Results from both experiments agree with the predictions.
 
 The signal strength in the {\Zfourl} selection is
 \begin{equation}
-  \mu = 0.980 _{-0.044}^{+0.046} \stat _{-0.059}^{+0.065} \syst \pm 0.025 \lum.
+  \mu = 0.980 _{-0.044}^{+0.046} \stat _{-0.059}^{+0.065} \syst \pm 0.025 \lum,
 \end{equation}
+yielding a fiducial cross section
+\begin{equation}
+  \sigma_\text{fid}\left(\pp \to \PZ \to 4\ell\right) = 31.2 _{-1.4}^{+1.5} \stat _{-1.9}^{+2.1} \syst \pm 0.8 \lum \unit{fb}.
+\end{equation}
+This is scaled by an acceptance correction factor $\mathcal{A} = 0.125 \pm 0.002$, estimated with {\POWHEG}, to the total {\Zfourl} cross section times branching ratio,
+\begin{equation}
+  \sigma(\pp \to \PZ) \times \mathcal{B}(\PZ \to 4\ell) = 249 \pm 8 \stat ^{+9}_{-8} \syst \pm 4 \thy \pm 6 \lum \unit{fb}.
+\end{equation}
+
+Equation~\ref{eq:brCalc} is used to calculate the branching fraction.
+The {\PZ} cross section times dilepton branching ratio is calculated with {\FEWZ}~v2.0~\cite{Gavin:2010az} at NNLO in QCD to be $1870 ^{+50}_{-40}\unit{pb}$.
+A correction factor $\mathcal{C}^{\text{60--120}}_{\text{80--100}} = 0.926 \pm 0.001$, calculated with {\POWHEG}, is used to account for the difference in {\PZ} boson mass window between the measured {\Zfourl} cross section and the {\FEWZ} calculation.
+Its uncertainty includes scale and PDF variations.
+The nominal {\PZ} to dilepton branching fraction is $\mathcal{B}\left( \PZ \to 2\ell \right) = 0.03366$~\cite{Olive:2016xmw}.
+The four-lepton branching fraction is measured to be
+\begin{equation}
+  \mathcal{B}\left(\Zfourl\right) = 4.8 \pm 0.2 \stat \pm 0.2 \syst \pm 0.1 \thy \pm 0.1 \lum \times 10^{-6}.
+\end{equation}
+This value is consistent with the theoretical value of $4.6 \times 10^{-6}$, calculated with {\MGAMC}, and with previous measurements from CMS and ATLAS~\cite{CMS:2012bw,Khachatryan:2016txa,Aad:2014wra}.
 
 
 
 \section{Differential Cross Sections}
-With awesome plots
+
+Detector-level distributions are unfolded to calculate differential cross sections as described in Section~\ref{sec:diffXSec}.
+Dif
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{results/unfold_mass.pdf}
+    \caption[Normalized differential {\ZZ} cross section as a function of four-lepton invariant mass]{
+        The {\ZZ} differential cross section as a function of $m_{4\ell}$, normalized to the total fiducial cross section.
+        Points represent the unfolded data, with vertical bars showing the statistical uncertainty and a grey band showing the sum in quadrature of the statistical and systematic uncertainties.
+        Blue, red, and green histograms represent the {\POWHEG}+{\MCFM}, {\MGAMC}+{\MCFM}, and {\MATRIX} predictions, with bands around each which represent their combined statistical, scale, and PDF uncertainties.
+        The lower sections of the plot represents the ratio of the measured cross section to each of the predictions.
+      }\label{fig:unfold_mass}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{results/unfold_pt.pdf}
+    \caption[Normalized differential {\ZZ} cross section as a function of four-lepton system {\pt}]{
+        The {\ZZ} differential cross section as a function of the four-lepton {\pt}, normalized to the total fiducial cross section.
+        Points represent the unfolded data, with vertical bars showing the statistical uncertainty and a grey band showing the sum in quadrature of the statistical and systematic uncertainties.
+        Blue, red, and green histograms represent the {\POWHEG}+{\MCFM}, {\MGAMC}+{\MCFM}, and {\MATRIX} predictions, with bands around each which represent their combined statistical, scale, and PDF uncertainties.
+        The lower sections of the plot represents the ratio of the measured cross section to each of the predictions.
+      }\label{fig:unfold_pt}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{results/unfold_zPt.pdf}
+    \caption[Normalized differential {\ZZ} cross section as a function of {\PZ} boson candidate {\pt}]{
+        The {\ZZ} differential cross section as a function of the {\pt} of both {\PZ} boson candidates, regardless of which one is $\PZ_1$ and which is $\PZ_2$, normalized to the total fiducial cross section.
+        Points represent the unfolded data, with vertical bars showing the statistical uncertainty and a grey band showing the sum in quadrature of the statistical and systematic uncertainties.
+        Blue, red, and green histograms represent the {\POWHEG}+{\MCFM}, {\MGAMC}+{\MCFM}, and {\MATRIX} predictions, with bands around each which represent their combined statistical, scale, and PDF uncertainties.
+        The lower sections of the plot represents the ratio of the measured cross section to each of the predictions.
+      }\label{fig:unfold_zPt}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{results/unfold_l1Pt.pdf}
+    \caption[Normalized differential {\ZZ} cross section as a function of leading lepton {\pt}]{
+        The {\ZZ} differential cross section as a function of leading lepton {\pt}, normalized to the total fiducial cross section.
+        Points represent the unfolded data, with vertical bars showing the statistical uncertainty and a grey band showing the sum in quadrature of the statistical and systematic uncertainties.
+        Blue, red, and green histograms represent the {\POWHEG}+{\MCFM}, {\MGAMC}+{\MCFM}, and {\MATRIX} predictions, with bands around each which represent their combined statistical, scale, and PDF uncertainties.
+        The lower sections of the plot represents the ratio of the measured cross section to each of the predictions.
+      }\label{fig:unfold_l1Pt}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{results/unfold_deltaRZZ.pdf}
+    \caption[Normalized differential {\ZZ} cross section as a function of $\Delta R$ between the {\PZ} bosons]{
+        The {\ZZ} differential cross section as a function of $\Delta R$ between the two {\PZ} bosons, normalized to the total fiducial cross section.
+        Points represent the unfolded data, with vertical bars showing the statistical uncertainty and a grey band showing the sum in quadrature of the statistical and systematic uncertainties.
+        Blue, red, and green histograms represent the {\POWHEG}+{\MCFM}, {\MGAMC}+{\MCFM}, and {\MATRIX} predictions, with bands around each which represent their combined statistical, scale, and PDF uncertainties.
+        The lower sections of the plot represents the ratio of the measured cross section to each of the predictions.
+      }\label{fig:unfold_deltaRZZ}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{results/unfold_deltaPhiZZ.pdf}
+    \caption[Normalized differential {\ZZ} cross section as a function of $\Delta \phi$ between the {\PZ} bosons]{
+        The {\ZZ} differential cross section as a function of $\Delta \phi$ between the two {\PZ} bosons, normalized to the total fiducial cross section.
+        Points represent the unfolded data, with vertical bars showing the statistical uncertainty and a grey band showing the sum in quadrature of the statistical and systematic uncertainties.
+        Blue, red, and green histograms represent the {\POWHEG}+{\MCFM}, {\MGAMC}+{\MCFM}, and {\MATRIX} predictions, with bands around each which represent their combined statistical, scale, and PDF uncertainties.
+        The lower sections of the plot represents the ratio of the measured cross section to each of the predictions.
+      }\label{fig:unfold_deltaPhiZZ}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{results/unfold_massFull.pdf}
+    \caption[Normalized differential four-lepton cross section as a function of four-lepton invariant mass with loosened {\PZ} mass cuts]{
+        The four-lepton differential cross section as a function of $m_{4\ell}$ under the full spectrum selections, normalized to the total fiducial cross section.
+        Points represent the unfolded data, with vertical bars showing the statistical uncertainty and a grey band showing the sum in quadrature of the statistical and systematic uncertainties.
+        Blue and red histograms represent the {\POWHEG}+{\MCFM} and {\MGAMC}+{\MCFM} predictions, with bands around each which represent their combined statistical, scale, and PDF uncertainties.
+        The lower sections of the plot represents the ratio of the measured cross section to each of the predictions.
+      }\label{fig:unfold_massFull}
+  \end{center}
+\end{figure}
 
 
 

@@ -194,14 +194,14 @@ The fit is performed numerically.
 The total {\PZ} cross section can be calculated from the $\PZ \to 4\ell$ fiducial cross section with Eq.~\ref{eq:fidToTot}, but it is better measured in the $2\ell$ channel, where the larger branching fraction yields samples several orders of magnitude larger than the $\PZ \to 4\ell$ sample used here.
 It is therefore more interesting to use $\sigma_\textit{fid}\left(\PZ \to 4\ell\right)$ for a measurement of the four-lepton branching fraction $\mathcal{B}\left(\PZ \to 4\ell\right)$.
 After applying the acceptance correction to obtain $\sigma_\textit{tot} \left(\PZ \to 4\ell\right) = \sigma_\textit{fid}\left(\PZ \to 4\ell\right) / \mathcal{A}$, the four-lepton branching fraction is given by
-\begin{equation}
+\begin{equation}\label{eq:brCalc}
   \mathcal{B}\left(\PZ \to 4\ell\right) = \frac{\sigma_\textit{tot} \left(\PZ \to 4\ell\right)} {\mathcal{C}^{\text{60--120}}_{\text{80--100}} \, \sigma \left(\PZ \to 2\ell\right)}\mathcal{B}\left(\PZ \to 2\ell\right),
 \end{equation}
 where $\sigma \left(\PZ \to 2\ell\right)$ is the dileptonic {\PZ} cross section in the {60--120\GeV} mass range and $\mathcal{C}^{\text{60--120}}_{\text{80--100}}$ corrects for the fact that $\sigma\left(\PZ \to 4\ell\right)$ is found in a mass range of {80--100\GeV}.
 
 
 
-\section{Differential Cross Sections}
+\section{Differential Cross Sections}\label{sec:diffXSec}
 
 Measurement of a differential fiducial cross section is also a problem of finding the most likely true distribution given observed yields in multiple bins, estimated background yields, and detector effects understood through simulation.
 Unlike the inclusive cross section, however, finite detector resolution leads to ``smearing'' effects that cause events to migrate across bins, in addition to the same inefficiencies.
@@ -220,7 +220,7 @@ Even when $\mathbf{R}$ is invertible, however, it is frequently ill-conditioned,
 It is therefore necessary to use a more sophisticated procedure to ensure the differential cross section distributions obey physics-inspired constraints.
 The variables used for differential cross sections in this analysis are in general well-measured, so bin-to-bin fluctuations are small and the response matrices are nearly diagonal, but some bins have low occupancy which can still cause pathologies.
 
-\subsection{Unfolding}
+\subsection{Unfolding}\label{sec:unfolding}
 
 The technique used here is an iterative frequentist method developed in high energy physics by D'Agostini~\cite{DAgostini:1994fjx} and independently in other fields~\cite{Dempster:10.2307/2984875,Lucy:1974AJ,Richardson:72,Shepp:4307558}, as implemented in \textsc{RooUnfold}~\cite{Adye:2011gm}.
 At iteration $k$, bin $j$ of the predicted true distribution is set based on its expected contribution to all other bins, weighted by the observed data yield in each:
