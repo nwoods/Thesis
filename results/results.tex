@@ -383,7 +383,14 @@ This value is consistent with the theoretical value of $4.6 \times 10^{-6}$, cal
 \section{Differential Cross Sections}
 
 Detector-level distributions are unfolded to calculate differential cross sections as described in Section~\ref{sec:diffXSec}.
-Dif
+Figures~\ref{fig:unfold_mass}--\ref{fig:unfold_massFull} show measured differential cross sections and corresponding theory predictions, as functions of different observables.
+All distributions are normalized to the inclusive fiducial cross section, such that the integral of each is unity, including overflow bins (not shown).
+The observables in Figs.~\ref{fig:unfold_mass}--\ref{fig:unfold_deltaPhiZZ}, considering only the four-lepton system.
+For the calculation of these distributions, as well as the differential cross section as a function of $N_\text{jets}$ (Fig.~\ref{fig:unfold_njets}), all events passing the on-shell selection are used.
+Figures~\ref{fig:unfold_mjj} and~\ref{fig:unfold_deltaEtajj} show $m_{\Pj\Pj}$ and $\lvert \Delta \eta_{\Pj\Pj} \rvert$ for events in the dijet selection, i.e.\ with $m_{\Pj\Pj} > 100\GeV$, while Figs~\ref{fig:unfold_jPt} and~\ref{fig:unfold_jEta} show {\pt} and $\eta$, respectively, for the leading jet in events with $N_\text{jets} \geq 1$ on the left and the subleading jet in events with $N_\text{jets} \geq 2$ on the right.
+In Fig.~\ref{fig:unfold_massFull}, the phase space is expanded to the full spectrum selection at both detector and true level, to show the four-lepton differential cross section through all production modes as a function of $m_{4\ell}$.
+Measured cross sections overall agree with the theoretical predictions within their uncertainties, which are dominated by statistical uncertainties.
+
 
 \begin{figure}[htbp]
   \begin{center}
@@ -459,7 +466,69 @@ Dif
 
 \begin{figure}[htbp]
   \begin{center}
-    \includegraphics[width=0.78\textwidth]{results/unfold_massFull.pdf}
+    \includegraphics[width=0.88\textwidth]{results/unfold_njets.pdf}
+    \caption[Normalized differential {\ZZ} cross section as a function of jet multiplicity]{
+        The {\ZZ} differential cross section as a function of the jet multiplicity $N_\text{jets}$, normalized to the total fiducial cross section.
+        Points represent the unfolded data, with vertical bars showing the statistical uncertainty and a hatched band showing the sum in quadrature of the statistical and systematic uncertainties.
+        Red and blue histograms represent the {\POWHEG}+{\MCFM} and {\MGAMC}+{\MCFM} predictions, with bands around each which represent their combined statistical, scale, and PDF uncertainties.
+        The lower sections of the plot represents the ratio of the measured cross section to each of the predictions.
+      }\label{fig:unfold_njets}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.88\textwidth]{results/unfold_mjj.pdf}
+    \caption[Normalized differential {\ZZ} cross section as a function of dijet invariant mass]{
+        The {\ZZ} differential cross section as a function of the dijet invariant mass $m_{\Pj\Pj}$, normalized to the total fiducial cross section.
+        Points represent the unfolded data, with vertical bars showing the statistical uncertainty and a hatched band showing the sum in quadrature of the statistical and systematic uncertainties.
+        Red and blue histograms represent the {\POWHEG}+{\MCFM} and {\MGAMC}+{\MCFM} predictions, with bands around each which represent their combined statistical, scale, and PDF uncertainties.
+        The lower sections of the plot represents the ratio of the measured cross section to each of the predictions.
+      }\label{fig:unfold_mjj}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.88\textwidth]{results/unfold_deltaEtajj.pdf}
+    \caption[Normalized differential {\ZZ} cross section as a function of dijet pseudorapidity separation]{
+        The {\ZZ} differential cross section as a function of the absolute dijet pseudorapidity separation $\lvert \Delta \eta_{\Pj\Pj} \rvert$, normalized to the total fiducial cross section.
+        Points represent the unfolded data, with vertical bars showing the statistical uncertainty and a hatched band showing the sum in quadrature of the statistical and systematic uncertainties.
+        Red and blue histograms represent the {\POWHEG}+{\MCFM} and {\MGAMC}+{\MCFM} predictions, with bands around each which represent their combined statistical, scale, and PDF uncertainties.
+        The lower sections of the plot represents the ratio of the measured cross section to each of the predictions.
+      }\label{fig:unfold_deltaEtajj}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.495\textwidth]{results/unfold_j1Pt.pdf}
+    \includegraphics[width=0.495\textwidth]{results/unfold_j2Pt.pdf}
+    \caption[Normalized differential {\ZZ} cross sections as functions of leading and subleading jet transverse momentum]{
+        The {\ZZ} differential cross section as a function of the leading (left) and subleading (right) jet {\pt}, in {\ZZ} events with at least one jet and at least two jets respectively, normalized to the total fiducial cross section.
+        Points represent the unfolded data, with vertical bars showing the statistical uncertainty and a hatched band showing the sum in quadrature of the statistical and systematic uncertainties.
+        Red and blue histograms represent the {\POWHEG}+{\MCFM} and {\MGAMC}+{\MCFM} predictions, with bands around each which represent their combined statistical, scale, and PDF uncertainties.
+        The lower sections of each plot represent the ratio of the measured cross section to each of the predictions.
+      }\label{fig:unfold_jPt}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.495\textwidth]{results/unfold_j1Eta.pdf}
+    \includegraphics[width=0.495\textwidth]{results/unfold_j2Eta.pdf}
+    \caption[Normalized differential {\ZZ} cross sections as functions of leading and subleading jet pseudorapidity]{
+        The {\ZZ} differential cross section as a function of the leading (left) and subleading (right) jet {$\eta$}, in {\ZZ} events with at least one jet and at least two jets respectively, normalized to the total fiducial cross section.
+        Points represent the unfolded data, with vertical bars showing the statistical uncertainty and a hatched band showing the sum in quadrature of the statistical and systematic uncertainties.
+        Red and blue histograms represent the {\POWHEG}+{\MCFM} and {\MGAMC}+{\MCFM} predictions, with bands around each which represent their combined statistical, scale, and PDF uncertainties.
+        The lower sections of each plot represent the ratio of the measured cross section to each of the predictions.
+      }\label{fig:unfold_jEta}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.88\textwidth]{results/unfold_massFull.pdf}
     \caption[Normalized differential four-lepton cross section as a function of four-lepton invariant mass with loosened {\PZ} mass cuts]{
         The four-lepton differential cross section as a function of $m_{4\ell}$ under the full spectrum selections, normalized to the total fiducial cross section.
         Points represent the unfolded data, with vertical bars showing the statistical uncertainty and a grey band showing the sum in quadrature of the statistical and systematic uncertainties.
