@@ -541,9 +541,117 @@ Measured cross sections overall agree with the theoretical predictions within th
 
 
 \section{Vector Boson Scattering}
-Electroweak signal's electrostrength
+
+Figure~\ref{fig:vbsBDT} shows the output of the GBDT discussed in Section~\ref{sec:vbsSearch} for events in the dijet selection.
+The search procedure finds a modest excess of VBS signal, at the level of 2.7 standard deviations over the null hypothesis of the SM without VBS {\ZZ} production, compared to the expected significance of 1.6 standard deviations.
+This corresponds to a VBS fiducial cross section of
+\begin{equation}
+  \sigma_\text{fid}(\pp \to \PZ\PZ\Pj\Pj\text{(EWK)} \to 4\ell\Pj\Pj) = 0.40^{+0.21}_{-0.16} \stat ^{+0.13}_{-0.09} \syst \unit{fb},
+\end{equation}
+which is consistent with the SM prediction of $0.29^{+0.02}_{-0.03} \unit{fb}$.
+
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{results/BDT_someVBS.pdf}
+    \caption[VBS signal extraction GBDT output]{
+        Output distribution of the VBS signal extraction GBDT, for events in the dijet selection.
+        Points represent data, with statistical uncertainty bars.
+        The stack of filled histograms represents the SM signal prediction and background estimate.
+      }\label{fig:vbsBDT}
+  \end{center}
+\end{figure}
 
 
 
 \section{Anomalous Coupling Limits}
-Winning at not finding things
+
+The {\ZZ} invariant mass is shown in Fig.~\ref{fig:aTGC} for all events in the on-shell selection, with example distributions shown for potential scenarios with nonzero aTGCs.
+The limit setting procedure described in Section~\ref{sec:aGCSearch} are applied to each aTGC parameter, with all other couplings fixed to their SM values, to yield one-dimensional 95\% CL limits,
+\begin{equation}\label{eq:aTGC1D}
+  \begin{aligned}
+  & -0.0012 < f_4^\PZ < 0.0010   ,  & -0.0010 < f_5^\PZ < 0.0013 , \\
+  & -0.0012 < f_4^\Pa < 0.0013   ,  & -0.0012 < f_5^\Pa < 0.0013 .
+  \end{aligned}
+\end{equation}
+These results improve the previous CMS limits by factors of 3--4~\cite{CMS:2014xja} are the most stringent limits to date on the parameters in question.
+Two-dimensional limits are set in the $f_4^\Pa$-$f_4^\PZ$ and $f_5^\Pa$-$f_5^\PZ$ planes, holding all other parameters to the SM values in each calculation.
+One- and two-dimensional 95\% CL limits are shown in Fig.~\ref{fig:aTGC2D}.
+
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{results/zzMass_aTGC.pdf}
+    \caption[{\ZZ} invariant mass distribution with example aTGC working points]{
+        Distribution of {\ZZ} invariant mass for all events in the on-shell selection.
+        Points represent data, with statistical uncertainty bars.
+        The stack of filled histograms represents the SM signal prediction and background estimate.
+        The unfilled histograms represent two example {\SHERPA} predictions for nonzero aTGC hypotheses (dashed) and the {\SHERPA} SM prediction (solid), included to illustrate the shape differences between the {\SHERPA} and {\POWHEG}+{\MCFM} SM predictions.
+        The {\SHERPA} distributions are normalized such that the SM prediction's total yield matches that of the other generators.
+        The last bin includes the overflow contributions from events at masses above {1.2\TeV}.
+      }\label{fig:aTGC}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.48\textwidth]{results/limits2D_f4.pdf}
+    \includegraphics[width=0.48\textwidth]{results/limits2D_f5.pdf}
+    \caption[Asymptotic one- and two-dimensional aTGC limits at 95\% confidence level]{
+        Two-dimensional observed 95\% CL limits (solid contour) and expected 68 and 95\% CL limits (dashed contours) in the $f_4^\Pa$-$f_4^\PZ$ (left) and $f_5^\Pa$-$f_5^\PZ$ (right) planes.
+        The regions outside the contours are excluded at the corresponding confidence level.
+        The dot is the point of maximum likelihood in the two-dimensional fits.
+        Solid, straight lines at the center show the observed one-dimensional 95\% CL limits for $f_{4,5}^\Pa$ (horizontal) and $f_{4,5}^\PZ$ (vertical).
+        No form factor is used.
+      }\label{fig:aTGC2D}
+  \end{center}
+\end{figure}
+
+
+No unitarizing form factor is applied when calculating the limits of Eq.~(\ref{eq:aTGC1D}).
+One way to enforce unitarity would be to restrict the maximum {\ZZ} invariant mass used to set limits, which would then depend on the cutoff chosen.
+The limit computations are repeated with multiple cutoff values, and the resulting expected and observed limits are shown in Fig.~\ref{fig:aTGCCutoff} as a function of the maximum $m_{\ZZ}$ used.
+
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.48\textwidth]{results/limits1DVsCutoff_g4.pdf}
+    \includegraphics[width=0.48\textwidth]{results/limits1DVsCutoff_z4.pdf} \\
+    \includegraphics[width=0.48\textwidth]{results/limits1DVsCutoff_g5.pdf}
+    \includegraphics[width=0.48\textwidth]{results/limits1DVsCutoff_z5.pdf}
+    \caption[One-dimensional aTGC limits as a function of the maximum {\ZZ} invariant mass used in the calculation]{
+        Expected and observed one-dimensional limits on the four aTGC parameters, as functions of the $m_{\ZZ}$ cutoff used to enforce unitarity.
+        No form factor is used.
+      }\label{fig:aTGCCutoff}
+  \end{center}
+\end{figure}
+
+The aQGC search proceeds the same way, but using events in the dijet selection.
+The observable used for limit setting is still $m_{\ZZ}$, which is shown for these events along with example distributions for scenarios with nonzero aQGCs, in Fig.~\ref{fig:aQGC}.
+In the aQGC search, a unitarity bound is imposed, chosen with \textsc{vbfnlo}~\cite{Arnold:2008rz} to be the value of $m_{\ZZ}$ at which the scattering amplitude would violate unitarity if the aQGC parameter in question were set to its 95\% CL limit value.
+While limits are set for each parameter, all other parameters and their unitarity bounds are set to zero.
+The observed 95\% CL limits are
+\begin{equation}\label{eq:aQGC1D}
+  \begin{aligned}
+    &-0.46  &<& \quad  f_\text{T0} / \Lambda^4  &<&  \quad  0.44  & \TeV^{-4} \\
+    &-0.61  &<& \quad  f_\text{T1} / \Lambda^4  &<&  \quad  0.61  & \TeV^{-4} \\
+    &-1.2   &<& \quad  f_\text{T2} / \Lambda^4  &<&  \quad  1.2   & \TeV^{-4} \\
+    &-0.84  &<& \quad  f_\text{T8} / \Lambda^4  &<&  \quad  0.84  & \TeV^{-4} \\
+    &-1.8   &<& \quad  f_\text{T9} / \Lambda^4  &<&  \quad  1.8   & \TeV^{-4}
+  \end{aligned}
+\end{equation}
+and represent the most stringent constraints to date on all five parameters.
+
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{results/zzMass_aQGC.pdf}
+    \caption[{\ZZ} invariant mass distribution for dijet events, with example aQGC working points]{
+        Distribution of {\ZZ} invariant mass for events in the dijet selection.
+        Points represent data, with statistical uncertainty bars.
+        The stack of filled histograms represents the SM signal prediction and background estimate.
+        The unfilled histograms represent two example {\MGAMC} distributions for nonzero aQGC hypotheses.
+        The last bin includes the overflow contributions from events at masses above {1.4\TeV}.
+      }\label{fig:aQGC}
+  \end{center}
+\end{figure}
