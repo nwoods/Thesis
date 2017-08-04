@@ -523,15 +523,15 @@ Because the width of the interaction rate distribution is independent of its ove
 Over the course of an LHC run, $n_b$, $N_b$, and $A_\text{eff}$ are all subject to change, and in fact the VdM scans are performed regularly, so in practice the procedure outlined above provides a calibration and overall scale for luminosity measurements during physics collisions.
 For a given detector metric labeled $Q$ with rate $R^Q$ that peaked at $R_0^Q$ with no beam displacement, the VdM scan yields a visible cross section, the constant of proportionality between the rate and the instantaneous luminosity,
 \begin{equation}
-  \sigma_\text{vis}^Q \equiv \frac{R^Q}{\lumiL} = A_\text{eff} R_0^Q.
+  \sigma_\text{vis}^Q \equiv \frac{R^Q}{\lumiL} = \frac{A_\text{eff} R_0^Q}{f_\textit{rev}}.
 \end{equation}
 CMS has several such metrics; the primary one used for measuring integrated luminosity is the number of pixel hit clusters~\cite{CMS-PAS-LUM-15-001,CMS-PAS-LUM-17-001}.
 The instantaneous luminosity is given by
 \begin{equation}
-  \lumiL = \frac{\langle N_c \rangle f_\textit{rev}}{\sigma_\text{vis}^\text{PCC}} = \frac{\langle N_c \rangle}{A_\text{eff} \langle N_c \rangle_0}
+  \lumiL = \frac{\langle N_c \rangle f_\textit{rev}}{\sigma_\text{vis}^\text{PCC}} = \frac{\langle N_c \rangle f_\textit{rev}}{A_\text{eff} \langle N_c \rangle_0}
 \end{equation}
-where $\langle N_c \rangle$ is the average number of pixel hit clusters at each bunch crossing and $\langle N_c \rangle_0$ is its peak value during the VdM scan.
+where $\langle N_c \rangle = R^\text{PCC} / f_\textit{rev}$ is the average number of pixel hit clusters at each bunch crossing and $\langle N_c \rangle_0$ is its peak value during the VdM scan.
 
 A number of complications must be accounted for or included in systematic uncertainty estimates.
 Beam-beam interation effects, correlations between the proton density distributions in the $x$ and $y$ directions, drifts in the beam orbit, and normalization uncertainties on the bunch intensity and absolute distance scale from the beam spot must all be handled with care.
-The result is a total integrated luminosity uncertainty of $2.3\%$ in 2015 and $2.5\%$ in 2016\@.
+The result is a total integrated luminosity uncertainty of 2.3\% in 2015~\cite{CMS-PAS-LUM-15-001} and $2.5\%$ in 2016~\cite{CMS-PAS-LUM-17-001}.
