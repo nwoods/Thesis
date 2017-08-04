@@ -38,7 +38,7 @@ Proton-proton interaction vertices are found by clustering tracks by minimizing 
 \end{equation}
 where $z^V_i$ is the $z$ position of vertex $i$, $z^t_j$ is the $z$ position of track $j$ at its closest point to the beamline, and $\sigma_j^2$ is its uncertainty.
 The track-vertex association matrix $p_{ij}$ maps tracks to their associated vertices, i.e.\ $p_{ij} = 1$ if vertex $i$ and track $j$ are associated, $p_{ij} = 0$ if they are not.
-Rather than minimize Eq.~\ref{eq:vtxChi2} directly with an unknown number of vertices, the CMS clustering algorithm~\cite{Speer:2006mh,Chatrchyan:2014fea} uses a technique known as deterministic annealing~\cite{Rose:726788}, which treats the system as a statistical ensemble of associations between the tracks and an unknown number of vertices.
+Rather than minimize Eq.~(\ref{eq:vtxChi2}) directly with an unknown number of vertices, the CMS clustering algorithm~\cite{Speer:2006mh,Chatrchyan:2014fea} uses a technique known as deterministic annealing~\cite{Rose:726788}, which treats the system as a statistical ensemble of associations between the tracks and an unknown number of vertices.
 The association matrix $p_{ij}$ is then the probability that vertex $i$ and track $j$ are associated.
 If every possible set of assignments, for every possible number and arrangement of vertices, is considered equally probably, this is analogous to a thermodynamic system at high temperature, with $\chi^2$ playing the role of energy.
 The system is simulated at high ``temperature'' and the analog of free energy is minimized to determine $p_{ij}$.
@@ -154,7 +154,7 @@ The missing transverse momentum is thus
 where the sum runs over the transverse momenta of all PF candidates in the event.
 The missing transverse energy, {\MET}, is its magnitude.
 The {\MET} is calibrated by propagating the jet energy scale corrections to the {\MET} calculation~\cite{Chatrchyan:2011tn,Khachatryan:2014gga,CMS-PAS-JME-16-004}.
-PF candidates originating from pileup interactions are included in the sum in Eq.~\ref{eq:MET} because these soft collisions are very unlikely to produce neutrinos, so including them biases the measurement less than trying to determine which neutral particles should be considered pileup and which should not.
+PF candidates originating from pileup interactions are included in the sum in Eq.~(\ref{eq:MET}) because these soft collisions are very unlikely to produce neutrinos, so including them biases the measurement less than trying to determine which neutral particles should be considered pileup and which should not.
 
 
 
@@ -217,7 +217,7 @@ Candidate muons are required to be tracker or global muons with $\pt > 5\GeV$  w
 They are subject to the same PV compatibility criteria as electrons, $d_z < 1\unit{cm}$, $d_{xy} < 5\unit{mm}$, and $\text{SIP}_\text{3D} < 10$ or 4 depending on the analysis.
 Muon candidates are further subject to the so-called ``PF ID'' criteria, which require them to be isolated from calorimeter deposits or to have high-quality tracks with good fits~\cite{Sirunyan:2017ulk}.
 
-Isolation is defined as in Eq.~\ref{eq:iso}, the same as for electrons except for the definition of the neutral pileup contribution, which for muons is based on using the known charged pileup density to estimate the neutral pileup based on the average charge composition of pileup jets,
+Isolation is defined as in Eq.~(\ref{eq:iso}), the same as for electrons except for the definition of the neutral pileup contribution, which for muons is based on using the known charged pileup density to estimate the neutral pileup based on the average charge composition of pileup jets,
 \begin{equation}
   \pt^\text{PU}\left(\Pm\right) \equiv 0.5 \sum_\text{charged} \pt^\text{PU},
 \end{equation}
@@ -229,7 +229,7 @@ Muon efficiencies are measured and corrected with the same tag-and-probe techniq
 \subsection{Final State Photon Radiation}
 
 Final-state radiation (FSR) photons emitted by muons are not included in the PF momentum reconstruction, and some photons emitted by electrons may be missed, degrading {\PZ} boson reconstruction.
-Photons are considered FSR candidates if they have $\pt > 2\GeV$, $\abseta < 2.4$, relative isolation $R_\text{iso} < 1.8$ as defined in Eq.~\ref{eq:iso} (with no neutral pileup correction), and $\Delta R \left(\ell, \gamma \right) < 0.5$ with respect to the nearest lepton.
+Photons are considered FSR candidates if they have $\pt > 2\GeV$, $\abseta < 2.4$, relative isolation $R_\text{iso} < 1.8$ as defined in Eq.~(\ref{eq:iso}) (with no neutral pileup correction), and $\Delta R \left(\ell, \gamma \right) < 0.5$ with respect to the nearest lepton.
 To avoid double counting, photons in electron superclusters are not considered.
 Because FSR has a higher energy spectrum than photons from pileup and is expected to be quasi-collinear with the emitting leptons, a photon is accepted as FSR and included in the {\ZZ} final state if $\Delta R \left( \ell, \gamma \right) / {\et}_\gamma^2 < 0.012$.
 FSR photons are omitted from the isolation determination for emitting leptons.

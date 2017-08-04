@@ -45,7 +45,7 @@ The total reducible background yield is thus
 \end{equation}
 The minus sign prevents double-counting of $\PZ+2\text{jets}$ events in which one jet fragment is misidentified.
 The failing lepton candidates in the 3P1F and 2P2F control samples are assumed to truly be jet fragments or other nonprompt objects, but selection inefficiencies may cause prompt leptons to fail and contaminate the control regions with signal events.
-The yield of such signal events in the backgound control regions is estimated by applying the same fake factors to failing events in the {\ZZ} signal Monte Carlo samples, and subtracted from the result of Eq.~\ref{eq:bkgYield}.
+The yield of such signal events in the backgound control regions is estimated by applying the same fake factors to failing events in the {\ZZ} signal Monte Carlo samples, and subtracted from the result of Eq.~(\ref{eq:bkgYield}).
 
 There are also irreducible background contributions from {\TTZ} and {\WWZ} events, which can have four prompt leptons.
 Expected yields for these processes are taken from simulation.
@@ -126,16 +126,16 @@ The signal strength $\mu$ compares our expectation to what we actually measure:
   \mu = \frac{\sigma_\textit{meas}}{\sigma_\textit{SM}}.
 \end{equation}
 
-Of the variables in Eqs.~\ref{eq:poisson} and~\ref{eq:expectedYield},  $\sigma_\textit{SM}$ is known from theoretical calculations, and $\epsilon$ is determined from simulation.
+Of the variables in Eqs.~(\ref{eq:poisson}) and~(\ref{eq:expectedYield}),  $\sigma_\textit{SM}$ is known from theoretical calculations, and $\epsilon$ is determined from simulation.
 The CMS detector is designed to measure $n$ and $\lumiL_\textit{int}$, $\nu_b$ is estimated from data or simulation, and inferring $\sigma_\textit{meas}$ is a matter of finding the most likely value of the signal strength $\mu$ given the observed data.
 Then the measured cross section is simply
 \begin{equation}\label{eq:xsecCalculation}
   \sigma_\textit{meas} = \mu\sigma_\textit{SM}.
 \end{equation}
-One interesting feature of this method is that $\sigma_\textit{SM}$ is used in the calculation of $\mu$ (Eq.~\ref{eq:expectedYield}) and in the final cross section (Eq.~\ref{eq:xsecCalculation}) in such a way that it cancels out, and in fact anything proportional to the true cross section may be used.
+One interesting feature of this method is that $\sigma_\textit{SM}$ is used in the calculation of $\mu$ (Eq.~(\ref{eq:expectedYield})) and in the final cross section (Eq.~(\ref{eq:xsecCalculation})) in such a way that it cancels out, and in fact anything proportional to the true cross section may be used.
 In practice, this means that the order at which $\sigma_\textit{SM}$ is calculated does not matter to the extent that higher order corrections to the kinematics of the events do not affect $\epsilon$.
 
-Typically, $\sigma_\textit{meas}$ in Eq.~\ref{eq:xsecCalculation} is the fiducial cross section, the cross section  for the process in a phase space similar to (typically, slightly larger than) the phase space in which the experimental analysis can in principle detect events.
+Typically, $\sigma_\textit{meas}$ in Eq.~(\ref{eq:xsecCalculation}) is the fiducial cross section, the cross section  for the process in a phase space similar to (typically, slightly larger than) the phase space in which the experimental analysis can in principle detect events.
 In the four-lepton case, the fiducial phase space is a space of $2\ell2\ell' \left(\ell, \ell' \in \Pe, \Pm\right)$ events defined by criteria on lepton kinematics, dilepton invariant masses, and four-lepton mass.
 Table~\ref{tab:fiducialDefs} shows the fiducial definitions for both the $\PZ \to 4\ell$ and $\ZZ \to 4\ell$ cross section measurements.
 Lepton kinematic requirements and an invariant mass requirement on all opposite-sign, same-flavor lepton pairs in the event are common to both measurements; requirements on the invariant masses of {\Zgs} boson candidates and the four-lepton system are different.
@@ -147,7 +147,7 @@ The fiducial cross section is related to the total cross section by the branchin
 \end{equation}
 The acceptance factor $\mathcal{A}$ is determined entirely from theory, and is well known~\cite{Olive:2016xmw}, so it is straightforward to calculate the total cross section once the fiducial cross section is known.
 Calculating both fiducial and total cross sections is interesting because it effectively factorizes experimental and theoretical uncertainties.
-The experimental uncertainties are contained entirely in the uncertainties on $\epsilon$, $\lumiL_\textit{int}$, and $\nu_b$ in Eq.~\ref{eq:expectedYield}, which have little or no dependence on theory, while the theoretical uncertainties are contained entirely in the uncertainty on $\mathcal{A}$, which is determined with no experimental input.
+The experimental uncertainties are contained entirely in the uncertainties on $\epsilon$, $\lumiL_\textit{int}$, and $\nu_b$ in Eq.~(\ref{eq:expectedYield}), which have little or no dependence on theory, while the theoretical uncertainties are contained entirely in the uncertainty on $\mathcal{A}$, which is determined with no experimental input.
 Thus the uncertainty on $\sigma_\textit{fid}$ is entirely experimental, and the theoretical uncertainties enter only in the uncertainty on $\sigma_\textit{tot}$.
 
 \begin{table}[htbp]
@@ -191,7 +191,7 @@ The fit is performed numerically.
 
 \subsection{\texorpdfstring{$\mathrm{Z} \to 4\ell$}{Z to 4l} Branching Fraction}
 
-The total {\PZ} cross section can be calculated from the $\PZ \to 4\ell$ fiducial cross section with Eq.~\ref{eq:fidToTot}, but it is better measured in the $2\ell$ channel, where the larger branching fraction yields samples several orders of magnitude larger than the $\PZ \to 4\ell$ sample used here.
+The total {\PZ} cross section can be calculated from the $\PZ \to 4\ell$ fiducial cross section with Eq.~(\ref{eq:fidToTot}), but it is better measured in the $2\ell$ channel, where the larger branching fraction yields samples several orders of magnitude larger than the $\PZ \to 4\ell$ sample used here.
 It is therefore more interesting to use $\sigma_\textit{fid}\left(\PZ \to 4\ell\right)$ for a measurement of the four-lepton branching fraction $\mathcal{B}\left(\PZ \to 4\ell\right)$.
 After applying the acceptance correction to obtain $\sigma_\textit{tot} \left(\PZ \to 4\ell\right) = \sigma_\textit{fid}\left(\PZ \to 4\ell\right) / \mathcal{A}$, the four-lepton branching fraction is given by
 \begin{equation}\label{eq:brCalc}
@@ -233,7 +233,7 @@ At iteration $k$, bin $j$ of the predicted true distribution is set based on its
 After several iterations, $\vec{\theta}^{(k)}$ depends only weakly on the ansatz $\vec{\theta}^{(0)}$.
 
 The sequence will converge to the MLE for any non-pathological choice of $\vec{\theta}^{(0)}$~\cite{vardi1985}, but again the MLE often displays unphysical behavior.
-If $\vec{\theta}^{(0)}$ is strictly positive, $\vec{\theta}^{(k)}$ will be strictly positive for all $k$, and in this case $\hat{\vec{\theta}}$ (as defined in Eq.~\ref{eq:unfoldingMLE}) will be the asymptotic unfolded distribution as long as it is also strictly positive.
+If $\vec{\theta}^{(0)}$ is strictly positive, $\vec{\theta}^{(k)}$ will be strictly positive for all $k$, and in this case $\hat{\vec{\theta}}$ (as defined in Eq.~(\ref{eq:unfoldingMLE})) will be the asymptotic unfolded distribution as long as it is also strictly positive.
 Choosing a smooth function for $\vec{\theta}^{(0)}$ will generally lead to smooth $\vec{\theta}^{(k)}$ for small $k$; typical choises include a flat initial distribution and the truth-level distribution used to construct $\mathbf{R}$ (used in this analysis).
 What constitutes ``small'' $k$ depends on the condition of $\mathbf{R}$, but for most physics distributions of interest, including all those used in this analysis, nonphysical fluctuations do not arise until after $\vec{\theta}^{(k)}$ is close to convergence.
 Full regularization is therefore imposed by ceasing iteration early.
