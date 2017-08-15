@@ -23,6 +23,8 @@ Unless otherwise stated, everything that follows uses units such that $c = \hbar
 \section{Matter and Force}
 
 In the SM, matter is made of fermions (particles with half-integer spin; in fact all SM fundamental fermions have spin $\frac{1}{2}$) which interact by exchanging gauge bosons (integer spin; spin 1 for the SM force carriers).
+Table~X lists the fundamental particles and some of their properties.
+With the exception of the neutral bosons, all particles have a corresponding antiparticle which is the same except that all its quantum numbers have opposite sign.
 The fermions come in two broad categories, leptons and quarks.
 All the quarks and half the lepton types carry electric charge and are therefore subject to interactions through the electromagnetic force, described by quantum electrodynamics (QED).
 In a QED interaction, two charged particles exchange a photon, which carries the momentum transferred from one charged particle to the other.
@@ -56,6 +58,56 @@ Our conventions for Feynman diagrams will be that time increases from left to ri
   \end{center}
 \end{figure}
 
+\begin{table}[htbp]
+  \begin{center}
+    \caption[Everything in the universe]{
+      The particles of the standard model, and some of their properties.
+      All fermions have a corresponding antiparticle with opposite sign for all quantum numbers.
+      Quarks and leptons are grouped by generation.
+      Note that the listed $T^3$ applies only to left-handed fermions; right-handed fermions have $T^3=0$ and do not couple to the {\PWpm} (right-handed neutrinos, if they exist, do not couple to the {\PZ} either).
+    }\label{tab:sm}
+    \begin{tabular}{ccccc}
+      \toprule % chktex 1
+      Particle   & Mass ({\GeV})          & Charge ($e$) & $T^3$   & Gauge couplings \\
+      \midrule
+      \midrule
+      \multicolumn{5}{c}{Scalar boson (spin 0)} \\
+      \midrule
+      {\PH}      & 125                    & 0            &         & {\PWpm}, {\PZ}  \\
+      \midrule
+      \midrule
+      \multicolumn{5}{c}{Fermion (spin $1/2$)} \\
+      \midrule
+      {\Pqu}     & 0.023                  & $+2/3$       & $+1/2$  & {\Pg, \Pa, \PZ, \PWpm} \\
+      {\Pqd}     & 0.048                  & $-1/3$       & $-1/2$  & {\Pg, \Pa, \PZ, \PWpm} \\
+      \midrule
+      {\Pe}      & $5.11 \times  10^{-4}$ & $-1$         & $+1/2$  & {\Pa, \PZ, \PWpm} \\
+      {\Pne}     & $< 2.2 \times 10^{-9}$ & 0            & $-1/2$  & {\PZ, \PWpm}           \\
+      \midrule
+      {\Pqc}     & 1.28                   & $+2/3$       & $+1/2$  & {\Pg, \Pa, \PZ, \PWpm} \\
+      {\Pqs}     & 0.95                   & $-1/3$       & $-1/2$  & {\Pg, \Pa, \PZ, \PWpm} \\
+      \midrule
+      {\Pm}      & $0.105$                & $-1$         & $+1/2$  & {\Pa, \PZ, \PWpm} \\
+      {\Pnm}     & $< 1.7 \times 10^{-4}$ & 0            & $-1/2$  & {\PZ, \PWpm}           \\
+      \midrule
+      {\Pqt}     & 172                    & $+2/3$       & $+1/2$  & {\Pg, \Pa, \PZ, \PWpm} \\
+      {\Pqb}     & 4.2                    & $-1/3$       & $-1/2$  & {\Pg, \Pa, \PZ, \PWpm} \\
+      \midrule
+      {\Pt}      & $1.77$                 & $-1$         & $+1/2$  & {\Pa, \PZ, \PWpm} \\
+      {\Pnt}     & $< 0.018 $             & 0            & $-1/2$  & {\PZ, \PWpm}           \\
+      \midrule
+      \midrule
+      \multicolumn{5}{c}{Vector boson (spin $1$)} \\
+      \midrule
+      {\Pg}      & 0                      & 0            & 0       & {\Pg}                  \\
+      {\Pa}      & 0                      & 0            & 0       & {\PWpm}                \\
+      {\PZ}      & 91.2                   & 0            & 0       & {\PWpm}                \\
+      {\PWpm}    & 80.4                   & $\pm 1$      & $\pm 1$ & {\Pa, \PZ, \PWpm}      \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{table}
+
 There are six types of quarks which fall into three ``generations:'' up and down ({\Pqu} and {\Pqd}, first generation); charm and strange ({\Pqc} and {\Pqs}, second generation); and top and bottom ({\Pqt} and {\Pqb})\footnote{Top and bottom quarks are sometimes called truth and beauty by more romantic particle physicists.}.
 Quark masses increase with each successive generation.
 Up-type quarks ({\Pqu}, {\Pqc}, {\Pqt}) have electric charge $+2/3$ (in units of the positron charge) while down-type quarks have $-1/3$.
@@ -78,35 +130,118 @@ The origin of confinement is that as quark separation gets larger, the potential
 This enforces the requirement of colorless states: a single colored particle will cause more colored particles to be produced from vacuum until only colorless bound states remain.
 This process is known as hadronization, and causes single quarks or gluons leaving a hard scattering interaction to make ``jets'' of many hadrons, each carrying a fraction of the original parton momentum, that enter the detector together.
 Conversely, close-range QCD is relatively feeble, leading to ``asymptotic freedom,'' the property of partons within hadrons that they may be considered independent in high-energy collisions, because their interactions are weak enough that bound state effects may be neglected (see Section~\ref{sec:pp}).
+Example Feynman diagrams for LO $\Pq\Paq \to \Pq\Paq\Pg$ scattering are shown in Fig.~\ref{fig:threeJet}.
+
+\begin{figure}[htbp]
+  \vspace{1em}
+  \begin{center}
+    \begin{fmffile}{threeJetS}
+      \begin{fmfgraph*}(0.4,0.3) % chktex 36
+        \fmfleft{d1,i1,i2,d2}
+        \fmfright{d3,o2,o3,o1}
+        \fmflabel{$\Pq$}{i1}
+        \fmflabel{$\Paq$}{i2}
+        \fmflabel{$\Pg$}{o1}
+        \fmflabel{$\Paq$}{o2}
+        \fmflabel{$\Pq$}{o3}
+        \fmf{fermion}{i1,v1,i2}
+        \fmf{gluon}{v1,v2}
+        \fmf{phantom}{o2,v2,o3}
+        \fmffreeze %chktex 1
+        \fmf{fermion}{o2,v2,v3,o3}
+        \fmffreeze %chktex 1
+        \fmf{gluon,tension=0}{v3,o1}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \hspace{4em}
+    \begin{fmffile}{threeJetT}
+      \begin{fmfgraph*}(0.3,0.225) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{d0,i1,d1,i2}
+        \fmfright{d2,o1,o2,o3}
+        \fmflabel{$\Pq$}{i1}
+        \fmflabel{$\Paq$}{i2}
+        \fmflabel{$\Pg$}{o2}
+        \fmflabel{$\Paq$}{o3}
+        \fmflabel{$\Pq$}{o1}
+        \fmf{fermion}{i1,v1,o1}
+        \fmf{gluon}{v1,v2}
+        \fmf{phantom}{o3,v2,i2}
+        \fmffreeze %chktex 1
+        \fmf{fermion}{o3,v3,v2,i2}
+        \fmffreeze %chktex 1
+        \fmf{gluon,tension=0}{v3,o2}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \vspace{1em}
+    \caption[A three-jet Feynman diagram]{
+        Example Feynman diagrams for tree-level $\Pq\Paq \to \Pq\Paq\Pg$ scattering.
+        Several more diagrams also contribute to the process at LO\@; the final state gluon could be radiated by any of the four fermion lines, or the virtual gluon.
+        Both outgoing quarks and the outgoing gluon carry color charge and each will therefore hadronize and enter the detector as a jet of many particles.
+        In the cases shown, where the gluon is radiated by a final state quark, it is in general ambiguous whether it should be considered a final state particle when subsequently undergoes showering and hadronization, or whether it should be considered part of the quark's shower.
+        This presents a significant challenge to theorists, as discussed in Section~\ref{sec:partonShower}.
+      }\label{fig:threeJet}
+  \end{center}
+\end{figure}
 
 Leptons may be electrically charged or neutral, and come in three generations, each containing one lepton of each type, a charged lepton and a corresponding neutrino.
 In order of charged lepton mass, the generations are the electron and its neutrino ({\Pe} and {\Pne}), muon and its neutrino ({\Pm} and {\Pnm}), and tau and its neutrino ({\Pt} and {\Pnt}).
 Taus decay quickly, with a mean lifetime of $2.9 \times 10^{-13}\unit{s}$ in their rest frame; muons also decay, but their lifetime ($2.2\unit{\mu s}$) is long compared to other time scales involved in particle collider experiments, so they are considered stable particles for the purposes of this work.
 Neutrinos are known to have mass~\cite{Fukuda:1998mi,Ahmad:2001an,Ahmad:2002jz}, and the masses are known to be small but they have not been measured.
 All leptons and quarks interact via the weak nuclear force, which is best known for causing the nuclear beta decay reaction $\Pn \to \Pp + \Pe^- + \Pane$.
-Neutrinos are notable for interacting only through weak interactions, making them difficult to detect in practice.
+Neutrinos are notable for coupling to the rest of the SM only through weak interactions, making them difficult to detect in practice.
 Detectors at particle colliders make no attempt to detect neutrinos, and their involvement in the process is inferred only through the apparent momentum imbalance resulting from their absence.
 
-There are two types of weak interactions, charged-current and neutral-current interactions.
-Neutral-current interactions proceed through exchange of an electrically neutral {\PZ} boson, which is analogous to electromagnetic interactions except for two important differences.
-Unlike the {\Pa}, the {\PZ} boson has mass, giving it longitudinal polarization modes and limiting the range of the force because it decays with a halflife on the order of $10^{-25}\unit{s}$.
+The weak force operates through two mechanisms, charged-current and neutral-current interactions.
+Neutral-current interactions proceed through exchange of a {\PZ} boson, an electrically neutral spin-1 mediator, and are analogous to electromagnetic interactions except for two important differences.
+Unlike the {\Pa}, the {\PZ} has mass---in fact, one of the largest known masses at 91\GeV---giving it longitudinal polarization modes and limiting the range of the force because it decays with a halflife on the order of $10^{-25}\unit{s}$.
 Also unlike QED, weak interactions do not respect parity (P) symmetry.
 The {\PZ} boson couples more strongly to left-handed fermions (those with helicity opposite their direction of motion) and right-handed antiparticles than to their opposite-spin counterparts.
 The degree of asymmetry varies by fermion type; notably, the {\PZ} does not couple at all to right-handed neutrinos.
 Neutral-current interactions are still symmetric under combined charge conjugation (C) and parity (CP) transformations.
 The neutral weak force leads to a Feynman diagram which looks exactly like that of Fig.~\ref{fig:drellYanDiagram}, which in fact implies that Feg.~\ref{fig:drellYanDiagram} is an oversimplification, or at least an approximation valid only for center-of-mass energies significantly below the {\PZ} boson mass, because the electromagnetic and neutral-current weak interactions interfere.
 
-Charged-current interaction proceed through exchange of an electrically charged {\PW} boson.
+Charged-current interaction proceed through exchange of an electrically charged boson, the {\PWpm}, which has a mass around {80\GeV}.
 Leptons couple to {\PWm} bosons in $\ell^-, \Panl$ pairs ({\PWp} bosons likewise with their antiparticles), causing {\Pm} and {\Pt} decays.
 Lepton flavor in conserved in the sense that charged leptons couple to the {\PW} only in conjunction with the (anti-)neutrino from the same generation, so the total lepton number $N_\ell = n_{\ell^-} - n_{\ell^+} + n_{\Pnl} - n_{\Panl}$, where $n_\PX$ is the number of {\PX} particles in existence, is conserved separately for $\ell \in \left(\Pe, \Pm, \Pt \right)$. % chktex 36
 Flavor conservation does not hold for quarks undergoing charged weak interactions.
 An up-type quark always couples to the {\PW} in conjunction with a down-type quark, as it must to obey conservation of electric and color charge.
 The pairings are in general described by a unitary $3 \times 3$ matrix known as the Cabibbo-Kobayashi-Maskawa (CKM) matrix which defines the inter-generational mixing.
 This mixing allows heavy quarks to decay to lighter ones, and is thus responsible for the decay of hadrons that do not contain the $\Pq\Paq$ pair necessary for strong or electromagnetic decays.
-Charged-current interactions also do not respect parity symmetry, and in fact are maximally parity violating: the {\PW} couples only to left-handed fermions and right-handed antifermions.
-Because neutrinos interact only through the weak force, and neutral-current interactions also couple only to left-handed neutrinos, it is not clear if right-handed neutrinos even exist.
-If they do, they have no way to interact with other matter and they are not part of the SM\@. 
+The tree-level Feynman diagram for a leptonic top quark decay $\Pqt \to  \Pqb + \ell + \Panl$ is shown in Fig.~\ref{fig:topDecay}.
 
+Charged-current interactions also do not respect parity symmetry, and in fact are maximally parity violating: the {\PW} couples only to left-handed fermions and right-handed antifermions.
+Because neutrinos interact only through the weak force\footnote{Aside from gravity, presumably, but this interaction is not experimentally accessible and is not covered by the standard model.}, and neutral-current interactions also couple only to left-handed neutrinos, this implies that it is not clear if right-handed neutrinos even exist.
+If they do, they have no way to interact with other matter and they are not part of the SM\@.
+Unlike neutral-current interactions, charged-current interactions violate CP symmetry.
+CP violation was first observed in neutral kaon mixing before the theory of the weak force was fully worked out~\cite{PhysRevLett.13.138}.
+After flavor-changing charged currents were formalized it was realized that CP violation could arise from a complex phase in the CKM matrix, which arises in models with at least three generations of quarks\footnote{At the time, only the first two generations were known, so the observed CP asymmetry was taken as an early indication of the existence of top and bottom quarks.}~\cite{doi:10.1143/PTP.49.652}.
+CP violation was subsequently confirmed by observation in a number of meson decays~\cite{AlaviHarati:1999xp,Fanti:1999nm,Aubert:2001sp,Abe:2001xe,Aaij:2012kz,Aaij:2013iua}
+
+\begin{figure}[htbp]
+  \vspace{1em}
+  \begin{center}
+    \begin{fmffile}{topDecay}
+      \begin{fmfgraph*}(0.6,0.3) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{d1,i1,d2,d3}
+        \fmfright{o1,d4,o2,o3}
+        \fmflabel{$\Pqt$}{i1}
+        \fmflabel{$\Pqb$}{o1}
+        \fmflabel{$\Panl$}{o2}
+        \fmflabel{$\ell$}{o3}
+        \fmf{fermion}{i1,v1,o1}
+        \fmf{boson,label={\PWp}}{v1,v2}
+        \fmf{phantom}{d3,v2}
+        \fmf{fermion}{o2,v2,o3}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \vspace{1em}
+    \caption[Feynman diagram of a top quark decay]{
+        Leading order Feynman diagram of a leptonic top quark decay $\Pqt \to \Pqb + \ell + \Panl$, which occurs via the charged-current weak interaction.
+      }\label{fig:topDecay}
+  \end{center}
+\end{figure}
 
 
 
