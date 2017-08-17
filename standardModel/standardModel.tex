@@ -1,5 +1,7 @@
 %!TEX root = ../nwoods_thesis.tex
 
+% chktex-file 15
+
 \chapter{The Standard Model}
 
 \section{Introduction}
@@ -222,7 +224,7 @@ The tree-level Feynman diagram for a leptonic top quark decay $\Pqt \to  \Pqb + 
         \fmflabel{$\Panl$}{o2}
         \fmflabel{$\ell$}{o3}
         \fmf{fermion}{i1,v1,o1}
-        \fmf{boson,label={\PWp}}{v1,v2}
+        \fmf{zigzag,label={\PWp}}{v1,v2}
         \fmf{phantom}{d3,v2}
         \fmf{fermion}{o2,v2,o3}
       \end{fmfgraph*}
@@ -333,7 +335,186 @@ It also controls off-diagonal terms in the Lagrangian that cause interactions be
 
 
 \section{Diboson Physics}
-Really only ZZ, but you get the point
+
+In addition to the previously discussed boson mass terms introduced into the SM Lagrangian by electroweak symmetry breaking, boson interaction terms appear for trilinear gauge boson couplings
+\begin{equation}
+  \begin{aligned}
+    \mathcal{L}_{WWV} = & -ig\left[\left(W_{\mu\nu}^+ W^{-\mu} - W^{+\mu}W_{\mu\nu}\right)\left(A^\nu \sin{\theta_W} - Z^\nu \cos{\theta_W}\right) \right. \\
+                        & \left. + W_\nu^- W_\mu^+ \left(A^{\mu\nu} \sin{\theta_W} - Z^{\mu\nu} \cos{\theta_W}\right)\right],
+  \end{aligned}
+\end{equation}
+which results in the vertices shown in fig~\ref{fig:wwv};
+quartic gauge couplings
+\begin{equation}
+  \begin{aligned}
+    \mathcal{L}_{WWVV} = & -\frac{g^2}{4}\left\{\left[2W_\mu^+ W^{-\mu} + \left(A_\mu \sin{\theta_W} - Z_\mu \cos{\theta_W}\right)^2 \right]^2 \right. \\ % chktex 21
+                         & - \left[W_\mu^+ W_\nu^- + W_\nu^+ W_\mu^- \right. \\
+                         & \phantom{-\left[\right.} \left.\left. + \left(A_\mu \sin{\theta_W} - Z_\mu \cos{\theta_W}\right) \left(A_\nu \sin{\theta_W} - Z_\nu \cos{\theta_W}\right) \vphantom{W_\mu^+}\right]^2 \right\}, % chktex 9 chktex 21
+  \end{aligned}
+\end{equation}
+(Fig.~\ref{fig:wwvv}); Higgs couplings to the massive vector bosons
+\begin{equation}
+  \mathcal{L}_{HV} = \left(gm_\PW H + \frac{g^2}{4}H^2\right) \left(W_\mu^+ W^{-\mu} + \frac{Z_\mu Z^\mu}{2\cos^2 \theta_W}\right),
+\end{equation}
+(Fig.~Z); and Higgs self interactions
+\begin{equation}
+  \mathcal{L}_{HH} = -\frac{gm_\PH^2}{4m_\PW}H^3 - \frac{g^2m_\PH^2}{32m_\PW^2} H^4,
+\end{equation}
+(Fig.~X).
+Note that there are no terms which mix only $Z_\mu$ and $A_\mu$ without any of the other fields.
+These fully-neutral gauge couplings (Fig.~Y) are expressly forbidden in the SM\@.
+
+\begin{figure}[htbp]
+  \vspace{1em}
+  \begin{center}
+    \begin{fmffile}{wwa}
+      \begin{fmfgraph*}(0.25,0.25) % chktex 36
+        \fmfstraight %chktex 1
+        \fmftop{d1,a1,d2}
+        \fmfbottom{w1,d3,w2}
+        \fmflabel{\Pa}{a1}
+        \fmflabel{\PWpm}{w1}
+        \fmflabel{\PWpm}{w2}
+        \fmf{boson}{a1,v1}
+        \fmf{zigzag}{w1,v1,w2}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \hspace{4em}
+    \begin{fmffile}{wwz}
+      \begin{fmfgraph*}(0.25,0.25) % chktex 36
+        \fmfstraight %chktex 1
+        \fmftop{d1,z1,d2}
+        \fmfbottom{w1,d3,w2}
+        \fmflabel{\PZ}{z1}
+        \fmflabel{\PWpm}{w1}
+        \fmflabel{\PWpm}{w2}
+        \fmf{zigzag}{z1,v1}
+        \fmf{zigzag}{w1,v1,w2}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \vspace{1em}
+    \caption[Triple gauge boson couping vertex]{
+        Vertex for the trilinear gauge boson couplings allowed at tree level in the SM\@.
+      }\label{fig:wwv}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \vspace{1em}
+  \begin{center}
+    \begin{fmffile}{wwaa}
+      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{w1,a1}
+        \fmfright{w2,a2}
+        \fmflabel{\Pa}{a1}
+        \fmflabel{\Pa}{a2}
+        \fmflabel{\PWpm}{w1}
+        \fmflabel{\PWpm}{w2}
+        \fmf{boson}{a1,v1,a2}
+        \fmf{zigzag}{w1,v1,w2}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \hspace{4em}
+    \begin{fmffile}{wwaz}
+      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{w1,a1}
+        \fmfright{w2,z1}
+        \fmflabel{\Pa}{a1}
+        \fmflabel{\PZ}{z1}
+        \fmflabel{\PWpm}{w1}
+        \fmflabel{\PWpm}{w2}
+        \fmf{boson}{a1,v1}
+        \fmf{zigzag}{z1,v1}
+        \fmf{zigzag}{w1,v1,w2}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \hspace{4em}
+    \begin{fmffile}{wwzz}
+      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{w1,z1}
+        \fmfright{w2,z2}
+        \fmflabel{\PZ}{z1}
+        \fmflabel{\PZ}{z2}
+        \fmflabel{\PWpm}{w1}
+        \fmflabel{\PWpm}{w2}
+        \fmf{zigzag}{z1,v1,z2}
+        \fmf{zigzag}{w1,v1,w2}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \vspace{1em}
+    \caption[Quartic gauge boson couping vertex]{
+        Vertices for the quartic gauge boson couplings allowed at tree level in the SM\@.
+      }\label{fig:wwvv}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \vspace{1em}
+  \begin{center}
+    \begin{fmffile}{hww}
+      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+        \fmfstraight %chktex 1
+        \fmftop{d1,h1,d2}
+        \fmfbottom{z1,d3,z2}
+        \fmflabel{\PH}{h1}
+        \fmflabel{\PZ}{z1}
+        \fmflabel{\PZ}{z2}
+        \fmf{dashes}{h1,v1}
+        \fmf{zigzag}{z1,v1,z2}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \hspace{4em}
+    \begin{fmffile}{hww}
+      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+        \fmfstraight %chktex 1
+        \fmftop{d1,h1,d2}
+        \fmfbottom{w1,d3,w2}
+        \fmflabel{{\PH}}{h1}
+        \fmflabel{\PWpm}{w1}
+        \fmflabel{\PWpm}{w2}
+        \fmf{dashes}{h1,v1}
+        \fmf{zigzag}{w1,v1,w2}
+      \end{fmfgraph*}
+    \end{fmffile}
+
+    \vspace{4em}
+    \begin{fmffile}{hhzz}
+      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{z1,h1}
+        \fmfright{z2,h2}
+        \fmflabel{{\PH}}{h1}
+        \fmflabel{\PH}{h2}
+        \fmflabel{\PZ}{z1}
+        \fmflabel{\PZ}{z2}
+        \fmf{dashes}{h1,v1,h2}
+        \fmf{zigzag}{z1,v1,z2}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \hspace{4em}
+    \begin{fmffile}{hhww}
+      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{w1,h1}
+        \fmfright{w2,h2}
+        \fmflabel{{\PH}}{h1}
+        \fmflabel{\PH}{h2}
+        \fmflabel{\PWpm}{w1}
+        \fmflabel{\PWpm}{w2}
+        \fmf{dashes}{h1,v1,h2}
+        \fmf{zigzag}{w1,v1,w2}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \vspace{1em}
+    \caption[Higgs couplings to the gauge bosons]{
+        Vertex for the Higgs boson couplings to gauge bosons allowed at tree level in the SM\@.
+      }\label{fig:hv}
+  \end{center}
+\end{figure}
+
 
 \subsection{Vector Boson Scattering}
 Scatter scatter
@@ -353,4 +534,4 @@ Pro tip: we won't see them
 
 
 
-\section{Topics Covered In This Thesis}
+\section{Topics Covered In This Thesis} % chktex 17
