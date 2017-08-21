@@ -232,7 +232,7 @@ At iteration $k$, bin $j$ of the predicted true distribution is set based on its
 \end{equation}
 After several iterations, $\vec{\theta}^{(k)}$ depends only weakly on the ansatz $\vec{\theta}^{(0)}$.
 
-The sequence will converge to the MLE for any non-pathological choice of $\vec{\theta}^{(0)}$~\cite{vardi1985}, but again the MLE often displays unphysical behavior.
+The sequence will converge to the MLE for any non-pathological choice of $\vec{\theta}^{(0)}$~\cite{vardi1985} but again the MLE often displays unphysical behavior.
 If $\vec{\theta}^{(0)}$ is strictly positive, $\vec{\theta}^{(k)}$ will be strictly positive for all $k$, and in this case $\hat{\vec{\theta}}$ (as defined in Eq.~(\ref{eq:unfoldingMLE})) will be the asymptotic unfolded distribution as long as it is also strictly positive.
 Choosing a smooth function for $\vec{\theta}^{(0)}$ will generally lead to smooth $\vec{\theta}^{(k)}$ for small $k$; typical choises include a flat initial distribution and the truth-level distribution used to construct $\mathbf{R}$ (used in this analysis).
 What constitutes ``small'' $k$ depends on the condition of $\mathbf{R}$, but for most physics distributions of interest, including all those used in this analysis, nonphysical fluctuations do not arise until after $\vec{\theta}^{(k)}$ is close to convergence.

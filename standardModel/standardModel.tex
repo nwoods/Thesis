@@ -120,7 +120,7 @@ The mediator for the strong force is the gluon, which like the photon is a massl
 The analog of electric charge is color charge, a notion originally introduced to explain how identical quarks could exist in the symmetric bound state of a hadron despite the Fermi exclusion principle~\cite{Griffiths:111880}.
 Unlike electric charge, there are three types of color charge, typically called red, green, and blue, though these names are totally arbitrary\footnote{Negative color charges are typically called simply antired, antigreen and antiblue, but sometimes cyan, magenta and yellow, to continue the analogy with visible colors.}.
 The analogy with color comes primary from the heuristic that natural states must ``colorless,'' i.e.\ a hadron may have equal parts color and corresponding anticolor as in a meson, but it may also be ``white,'' containing red, blue, and green in equal measures as in a baryon.
-This propery, known as confinement, is why, for example, $\Pq\Pq\Paq$ bound states are not seen in nature.
+This property, known as confinement, is why, for example, $\Pq\Pq\Paq$ bound states are not seen in nature.
 It is also why a free quark has never been observed, and is not expected to be found, and why the strong interaction is short-range even though gluons are massless.
 
 Confinement arises from the structure of QCD interactions and gluons themselves.
@@ -432,7 +432,6 @@ quartic gauge couplings
     \end{fmffile}
     \vspace{4em}
 
-    \hspace{4em}
     \begin{fmffile}{wwww}
       \begin{fmfgraph*}(0.2,0.2) % chktex 36
         \fmfstraight %chktex 1
@@ -679,7 +678,105 @@ This, and several other possible extensions to the SM, would appear in practice 
 
 
 \subsection{Anomalous Gauge Couplings}
-Pro tip: we won't see them
+
+Such deviations from standard model interactions are called anomalous gauge couplings (aGC), and may involve anomalous trilinear (aTGC) or quartic (aQGC) vertices.
+Of particular interest here are the anomalous neutral couplings, which correspond to the vertices shown in Fig.~\ref{fig:aGCVertices}.
+These interactions are forbidden in the SM\@.
+Their existence would increase the cross section for diboson production, and affect the cross section for $\ZZ \to \ZZ$ scattering, changing the requirements on the Higgs field needed to preserve unitarity.
+
+\begin{figure}[htbp]
+  \vspace{1em}
+  \begin{center}
+    \begin{fmffile}{aTGCNeutral}
+      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+        \fmfstraight %chktex 1
+        \fmftop{d1,e1,d2}
+        \fmfbottom{e2,d3,e3}
+        \fmflabel{{\Pa}, {\PZ}}{e1}
+        \fmflabel{{\Pa}, {\PZ}}{e2}
+        \fmflabel{{\Pa}, {\PZ}}{e3}
+        \fmf{zigzag}{e1,v1,e2}
+        \fmf{zigzag}{v1,e3}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \hspace{4em}
+    \begin{fmffile}{aQGCNeutral}
+      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{e1,e2}
+        \fmfright{e3,e4}
+        \fmflabel{{\Pa}, {\PZ}}{e1}
+        \fmflabel{{\Pa}, {\PZ}}{e2}
+        \fmflabel{{\Pa}, {\PZ}}{e3}
+        \fmflabel{{\Pa}, {\PZ}}{e4}
+        \fmf{zigzag}{e1,v1,e2}
+        \fmf{zigzag}{e3,v1,e4}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \vspace{1em}
+    \caption[Neutral anomalous gauge coupling vertices]{
+        Fully-neutral gauge coupling vertices, for aTGCs (left) and aQGCs (right).
+        These are forbidden in the SM\@.
+      }\label{fig:aGCVertices}
+  \end{center}
+\end{figure}
+
+Several theoretical frameworks exist for describing aGCs.
+For aTGCs, we use the effective Lagrangian approach described in Ref.~\cite{Hagiwara:1986vm,Gounaris:2000tb,Baur:2000ae}.
+In this parameterization, a $\PZ\PZ\PV$ coupling (where {\PV} may be {\PZ} or {\Pa}) has a vertex function corresponding to the vertex shown in Fig.~\ref{fig:aTGCLabels} of the form
+\begin{equation}\label{eq:aTGCParam}
+  \Gamma_\PV^{\alpha,\beta,\delta}\left(q_1,q_2,P\right) = i \frac{\hat{s} - m_\PV^2}{m_\PZ^2} \left(f_4^\PV \left(P^\alpha g^{\delta\beta} + P^\beta g^{\delta\alpha}\right) + f_5^\PV \varepsilon^{\delta\alpha\beta\lambda} \left(q_1 - q_2\right)_\lambda \right),
+\end{equation}
+where $\hat{s}$ is the center of mass energy squared, $g^{\mu\nu}$ is the Minkowski metric and $\varepsilon^{\alpha\beta\gamma\delta}$ is the fully antisymmetric tensor with $\varepsilon^{0123}=1$.
+Neutral aTGCs are then described by two parameters $f_4^{\Pa,\PZ}$ associated to CP-odd terms and two parameters $f_5^{\Pa,\PZ}$ associated to CP-even terms.\footnote{There are, of course, analogous terms for all anomalous {\VVV} couplings, where {\PV} may be any of the electroweak bosons, but only the {\ZZZ} and $\ZZ\Pa$ terms are relevant to this work.}
+The effective Lagrangians in use here are taken to be low-energy approximations invalid had high energy, and are not unitary at high $\sqrt{\hat{s}}$.
+In some previous literature, unitarity is enforced with a generalized dipole for factor~\cite{Baur:1992cd,Baur:2000ae}, such that the vertex factor takes an energy dependence,
+\begin{equation}
+  f_i^\PV\left(\hat{s}\right) = \frac{f_{i,0}^\PV}{(1 + \hat{s} / \Lambda^2)^n},
+\end{equation}
+where $\Lambda$ is the energy scale of the new physics process.
+No such form factor is applied in this work, to avoid adding unnecessary model dependence, so $\Lambda$ is taken to be much larger than the energies accessible in the experiment and no form factor is applied.
+
+\begin{figure}[htbp]
+  \vspace{1em}
+  \begin{center}
+    \begin{fmffile}{aTGCLabels}
+      \begin{fmfgraph*}(0.25,0.25) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{d1,i1,d2}
+        \fmfright{o1,d3,o2}
+        \fmflabel{$V_\delta(P)$}{i1}
+        \fmflabel{$Z_\alpha(q_1)$}{o1}
+        \fmflabel{$Z_\beta(q_2)$}{o2}
+        \fmf{zigzag}{o1,v1,o2}
+        \fmf{boson}{i1,v1}
+        \fmfblob{0.15w}{v1}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \vspace{1em}
+    \caption[Neutral anomalous triple gauge coupling vertex]{
+        An anomalous neutral triple gauge coupling vertex, with momentum labels corresponding to Eq.~(\ref{eq:aTGCParam}).
+      }\label{fig:aTGCLabels}
+  \end{center}
+\end{figure}
+
+For aQGCs, we adopt an effective field theory approach~\cite{Degrande:2012wf} which parameterizes the effects of new physics as a set of field operators~\cite{Eboli:2006wa}.
+The operators are chosen to be dimension-8, because this is the lowest dimension that yields a theory with aQGCs but no aTGCs.
+Out of the large class of operators which control aQGCs in general, {\ZZ} VBS is sensitive to five,
+\begin{equation}
+  \begin{aligned}
+    \mathcal{L}_\text{T0} = & \frac{f_\text{T0}}{\Lambda^4} \text{Tr}\left[\hat{W}_{\mu\nu} \hat{W}^{\mu\nu}\right] \times \text{Tr}\left[\hat{W}_{\alpha\beta} \hat{W}^{\alpha\beta}\right] \\
+    \mathcal{L}_\text{T1} = & \frac{f_\text{T1}}{\Lambda^4} \text{Tr}\left[\hat{W}_{\alpha\nu} \hat{W}^{\mu\beta}\right] \times \text{Tr}\left[\hat{W}_{\mu\beta} \hat{W}^{\alpha\nu}\right] \\
+    \mathcal{L}_\text{T2} = & \frac{f_\text{T2}}{\Lambda^4} \text{Tr}\left[\hat{W}_{\alpha\mu} \hat{W}^{\mu\beta}\right] \times \text{Tr}\left[\hat{W}_{\beta\nu} \hat{W}^{\nu\alpha}\right] \\
+    \mathcal{L}_\text{T8} = & \frac{f_\text{T8}}{\Lambda^4} B_{\mu\nu}B^{\mu\nu} B_{\alpha\beta}B^{\alpha\beta} \\
+    \mathcal{L}_\text{T8} = & \frac{f_\text{T9}}{\Lambda^4} B_{\alpha\mu}B^{\mu\beta} B_{\beta\nu}B^{\nu\alpha},
+  \end{aligned}
+\end{equation}
+where
+\begin{equation}
+  \hat{W}_{\mu\nu} = \sum_j W_{\mu\nu}^j \frac{\sigma^j}{2},
+\end{equation}
+and $\Lambda \gg \hat{s}$ is again the scale of the new physics causing the change in the effective couplings.
 
 
 
