@@ -16,7 +16,7 @@ It is generally believed that future advances will add to it, explain its free p
 The following sections give a general overview of the SM and related topics that serve as background material for the four-lepton processes described in more detail in the following chapters.
 This will include discussions of the particle content of the SM and the gauge structure that leads to particle interactions, the spontaneous symmetry breaking mechanism that leads to the specific structure of the electroweak sector of the SM, diboson processes, and the SM's limitations and how they might be addressed.
 Some details will also be given about the proton-proton interactions used to probe particle interactions at high energies.
-More complete information may be found in a number of texts, including Refs.~\cite{Griffiths:111880,Halzen:1984mc,Peskin:1995ev,Donoghue:238727}.
+More complete information may be found in a number of texts, including Refs.~\cite{Griffiths:111880,Halzen:1984mc,barger1997collider,Peskin:1995ev,Donoghue:238727}.
 Unless otherwise stated, everything that follows uses units such that $c = \hbar = 1$, where $c$ is the speed of light and $\hbar$ is the reduced Planck's constant $\hbar = h / 2\pi$.
 
 
@@ -781,7 +781,41 @@ and $\Lambda \gg \hat{s}$ is again the scale of the new physics causing the chan
 
 
 \section{Proton-Proton Collisions}\label{sec:pp}
-Bang
+
+Our experimental probe of all these interactions is proton-proton collisions.
+As discussed above, protons are bound states of three quarks ($\Pqu\Pqu\Pqd$), known as the valence quarks, held together by virtual gluon exchange.
+The proton constituents, quarks and gluons, are collectively called partons.
+The gluons carry roughly half the total proton momentum~\cite{Halzen:1984mc}.
+Because the number of gluons is not conserved, and they self-interact, the gluon structure of the proton is constantly evolving, and gluons produce virtual $\Pq\Paq$ ``sea quark'' pairs which annihilate again on time scales of order $t_\textit{virt} \sim 1 / \Delta E$~\cite{barger1997collider}.
+A sufficiently energetic color-charged particle colliding with a proton may therefore interact with any kind of quark or with a gluon, and interesting physics in a {\pp} collision may be initiated by $\Pq\Pq, \Pq\Paq, \Pq\Pg$, or $\Pg\Pg$ scattering.
+A particle that scatters with a proton of energy $P$ has a probability of interacting with a parton of a given type with momentum $xP$ given by the parton distribution function (PDF) $f(x,Q^2)$, where $Q$ is the momentum transfer of the interaction.
+Heuristically, the PDF is a function of $Q$ because it sets the wavelength of the mediating gauge boson and thus the scale on which the interaction can resolve constituent partons.
+PDFs are nonperturbative and cannot be calculated from theory, and are built from fits to experimental data from fixed-target and symmetric $\Pe^\pm\Pp$ deep inelastic scattering (DIS) data, and from hadron collider data~\cite{Ball:2017nwa}.
+The most recent PDFs from the NNPDF collaboration are shown in Fig~\ref{fig:nnpdf}.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.48\textwidth]{standardModel/nnpdf31nnlo-10.pdf}
+    \includegraphics[width=0.48\textwidth]{standardModel/nnpdf31nnlo-1e4.pdf}
+    \caption[Parton distribution functions]{
+        Parton distribution functions from NNPDF3.1, reproduced from Ref.~\cite{Ball:2017nwa}, which used $\mu$ for the momentum transfer denoted $Q$ here.
+      }\label{fig:nnpdf}
+  \end{center}
+\end{figure}
+
+As mentioned previously, the rate at which a scattering process occurs is called its cross section $\sigma$, typically given barns, a unit of area $\unit{b} = 10^{-24}\unit{cm}^2$.
+The number of collisions is characterized by the luminosity {\lumiL} such that the rate of events with final state $X$ will be given by
+\begin{equation}
+  \dd{N_X}{t} = \sigma\left(\pp \to X\right)\lumiL
+\end{equation}
+as described in more detail in Section~\ref{sec:lhc}.
+If the initial protons each have momentum $P$ and collide head on, such that their center-of-mass energy is $\sqrt{s} = 2P$, the interacting partons will have total energy $\sqrt{\hat{s}} = \sqrt{2 x_1 x_2}P$ where $x_1$ and $x_2$ are the fraction of its proton's momentum each incoming parton carried.
+The cross section is given by
+\begin{equation}
+  \sigma\left(\pp \to X\right) = \sum_{p_1.p_2 \in \Pq, \Paq, \Pg} C_{p_1,p_2} \int \cmsSymbolFace{d}x_1 \cmsSymbolFace{d}x_2 f_{p_1}(x_1,Q^2) f_{p_2}(x_2,Q^2) \sigma_\text{ME}(p_1+p_2 \to X),
+\end{equation}
+where $\sigma_\text{ME}$ is the matrix element-level cross section for the bare partons to scatter to final state $X$ and $C_{p_1,p_2}$ is a combinatoric factor based on the number of possible color combinations that varies based on the initial state particles $p_1$ and $p_2$.
+This factorization into perturbative hard process physics and the nonperturbative PDF greatly simplifies calculaitons.
 
 
 
