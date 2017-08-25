@@ -2,16 +2,113 @@
 
 \chapter{ZZ Phenomenology and Previous Results}
 
-The {\PZ} boson was first observed in 1973 when the Gargamelle bubble chamber experiment at CERN recorded an elastic muon antineutrino-electron ($\Panm + \Pe^- \to \Panm + \Pe^-$) scattering event~\cite{Hasert:1973cr}.
+Four-lepton final states originate primarily from three physics processes: nonresonant diboson production, resonant Higgs boson production, and resonant single-{\PZ} production.
+Multi-{\PZ} triboson production ({\WZZ} and {\ZZZ}) occurs at negligible rates~\cite{Lazopoulos:2007ix,Binoth:2008kt}.
+Single-{\PZ} triboson production ({\WWZ})~\cite{Hankele:2007sb,Binoth:2008kt} and {\TTZ} production result in final states with four prompt leptons, but are considered background (see Section~\ref{sec:bkgPheno}).
+The three signal processes can be distinguished by kinematics, but all involve the {\PZ} boson.
+
+The {\PZ} was first observed in 1973 when the Gargamelle bubble chamber experiment at CERN recorded an elastic muon antineutrino-electron ($\Panm + \Pe^- \to \Panm + \Pe^-$) scattering event~\cite{Hasert:1973cr}.
 Direct observation in leptonic decays came roughly a decade later, from the UA1 experiment, also at CERN~\cite{Arnison:1983mk}.
-Clean $\Pe^+\Pe^-$ collisions at LEP, where the center-of-mass energy could be adjusted to produce {\PZ} bosons copiously
+Clean $\Pe^+\Pe^-$ collisions at LEP and SLAC, where the center-of-mass energy could be adjusted to produce {\PZ} bosons copiously, allowed its properties---and a number of other parameters of the electroweak theory---to be measured with per-mille precision or better~\cite{ALEPH:2005ab}.
+Of particular importance to this study, the {\PZ} mass is
+\begin{equation}
+  m_\PZ = 91.1876 \pm 0.0021\GeV,
+\end{equation}
+its full width is
+\begin{equation}
+  \Gamma_\PZ = 2.4952 \pm 0.0023\GeV,
+\end{equation}
+its width in leptonic decays is
+\begin{equation}
+  \Gamma_\PZ (\ell^+\ell^-) = 83.984 \pm 0.086\MeV,
+\end{equation}
+and it decays to a pair of charged leptons 3.3658\% of the time for each lepton flavor~\cite{Olive:2016xmw}.
 
 
 
 \section[Nonresonant
          \texorpdfstring{$\mathrm{ZZ/Z}\gamma^\ast$}{ZZ/Zgamma*}
          Production and Decay]{Nonresonant $\mathbf{ZZ/Z}\gamma^\ast$ Production and Decay}
-Dibosons come, dibosons go
+
+Leading-order {\ZZ} production is $\Pq\Paq$-initiated and proceeds through $t$-channel quark exchange, as shown in Fig.~\ref{fig:zzLONLO}.
+At next-to-leading order (representative diagrams also in Fig.~\ref{fig:zzLONLO}), may have a gluon in the initial state and may have a quark or gluon in the final state which hadronizes and appears as a jet.
+
+\begin{figure}[htbp]
+  \vspace{1em}
+  \begin{center}
+    \begin{fmffile}{zzLO}
+      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{i1,i2}
+        \fmfright{o1,o2}
+        \fmflabel{\Pq}{i1}
+        \fmflabel{\Paq}{i2}
+        \fmflabel{\PZ}{o1}
+        \fmflabel{\PZ}{o2}
+        \fmf{fermion}{i1,v1,v2,i2}
+        \fmf{zigzag}{v1,o1}
+        \fmf{zigzag}{v2,o2}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \hspace{4em}
+    \begin{fmffile}{zzNLOLoop}
+      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{i1,d1,i2}
+        \fmfright{o1,d2,o2}
+        \fmflabel{\Pq}{i1}
+        \fmflabel{\Paq}{i2}
+        \fmflabel{\PZ}{o1}
+        \fmflabel{\PZ}{o2}
+        \fmf{fermion}{i1,v1,v2,v3,v4,i2}
+        \fmf{gluon}{v1,v4}
+        \fmf{zigzag}{v2,o1}
+        \fmf{zigzag}{v3,o2}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \vspace{4em}
+
+    \begin{fmffile}{zzNLOg}
+      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{i1,d1,i2}
+        \fmfright{o1,o2,o3}
+        \fmflabel{\Pq}{i1}
+        \fmflabel{\Paq}{i2}
+        \fmflabel{\PZ}{o1}
+        \fmflabel{\Pg}{o2}
+        \fmflabel{\PZ}{o3}
+        \fmf{fermion}{i1,v1,v2,v3,i2}
+        \fmf{zigzag}{v1,o1}
+        \fmf{zigzag}{v3,o3}
+        \fmf{gluon}{v2,o2}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \hspace{4em}
+    \begin{fmffile}{zzNLOq}
+      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{i1,d1,i2}
+        \fmfright{o1,o2,o3}
+        \fmflabel{\Pq}{i1}
+        \fmflabel{\Pg}{i2}
+        \fmflabel{\PZ}{o1}
+        \fmflabel{\PZ}{o2}
+        \fmflabel{\Pq}{o3}
+        \fmf{fermion}{i1,v1,v2,v3,o3}
+        \fmf{zigzag}{v1,o1}
+        \fmf{zigzag}{v2,o2}
+        \fmf{gluon}{i2,v3}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \vspace{1em}
+    \caption[Leading order and next-to-leading order {\ZZ} production]{
+      Leading order (top left) and three representative next-to-leading order Feynman diagrams for {\ZZ} production in {\pp} collisions.
+      Clockwise from the top right, the NLO diagrams are representative of one-loop diagrams, real quark emission, and real gluon emission.
+      }\label{fig:zzLONLO}
+  \end{center}
+\end{figure}
+
 
 \subsection[Nonresonant
             \texorpdfstring{$\mathrm{Z}\gamma^\ast$}{Zgamma*}
@@ -50,5 +147,5 @@ Pro tip: they aren't there
 
 
 
-\section{Background Processes}
+\section{Background Processes}\label{sec:bkgPheno}
 Basically, Z+jets and ttbar
