@@ -30,8 +30,11 @@ and it decays to a pair of charged leptons 3.3658\% of the time for each lepton 
          \texorpdfstring{$\mathrm{ZZ/Z}\gamma^\ast$}{ZZ/Zgamma*}
          Production and Decay]{Nonresonant $\mathbf{ZZ/Z}\gamma^\ast$ Production and Decay}
 
-Leading-order {\ZZ} production is $\Pq\Paq$-initiated and proceeds through $t$-channel quark exchange, as shown in Fig.~\ref{fig:zzLONLO}.
-At next-to-leading order (representative diagrams also in Fig.~\ref{fig:zzLONLO}), may have a gluon in the initial state and may have a quark or gluon in the final state which hadronizes and appears as a jet.
+Leading-order {\ZZ} production is $\Pq\Paq$-initiated and proceeds through $t$-channel quark exchange, as shown in Fig.~\ref{fig:zzLO}.
+At next-to-leading order (NLO\@; several representative diagrams are shown in Fig.~\ref{fig:zzNLO}), may have a gluon in the initial state and may have a quark or gluon in the final state which hadronizes and appears experimentally as a jet.
+Next-to-next-to-leading order (NNLO) adds gluon-gluon fusion box diagrams (Fig.~\ref{fig:zzBox}), as well as $\Pq\Paq$-initiated production with two loops, one loop and a final state jet, and two jets.
+The NNLO corrections are generally large, outside the scale uncertainties of the NLO calculation, because the gluon-fusion diagrams contribute only positively to the cross section because of their distinct initial state, and have a large amplitude---roughly 60\% of the total NNLO correction---due to the high effective gluon luminosity in multi-{\TeVns} proton collisions~\cite{Cascioli:2014yka}.
+Because of the box diagrams' large contribution, ``$\text{NLO} + \Pg\Pg$'' simulations are often used, in which NLO $\Pq\Paq/\Pq\Pg/\Paq\Pg \to \ZZ$ and LO $\Pg\Pg \to \ZZ$ samples are summed even though they formally contribute at different orders in {\alphaS}.
 
 \begin{figure}[htbp]
   \vspace{1em}
@@ -48,6 +51,50 @@ At next-to-leading order (representative diagrams also in Fig.~\ref{fig:zzLONLO}
         \fmf{fermion}{i1,v1,v2,i2}
         \fmf{zigzag}{v1,o1}
         \fmf{zigzag}{v2,o2}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \hspace{4em}
+      \begin{fmffile}{zzOL}
+        \begin{fmfgraph*}(0.2,0.2) % chktex 36
+          \fmfstraight %chktex 1
+          \fmfleft{i1,i2}
+          \fmfright{o1,o2}
+          \fmflabel{\Pq}{i1}
+          \fmflabel{\Paq}{i2}
+          \fmflabel{\PZ}{o1}
+          \fmflabel{\PZ}{o2}
+          \fmf{fermion}{i1,v1,v2,i2}
+          \fmf{phantom}{v1,o1}
+          \fmf{phantom}{v2,o2}
+          \fmffreeze % chktex 1
+          \fmf{zigzag}{v1,o2}
+          \fmf{zigzag}{v2,o1}
+        \end{fmfgraph*}
+      \end{fmffile}
+    \vspace{1em}
+    \caption[Leading order {\ZZ} production]{
+      Leading order Feynman diagrams for {\ZZ} production in {\pp} collisions.
+      }\label{fig:zzLO}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \vspace{1em}
+  \begin{center}
+    \begin{fmffile}{zzNLOg}
+      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{i1,d1,i2}
+        \fmfright{o1,o2,o3}
+        \fmflabel{\Pq}{i1}
+        \fmflabel{\Paq}{i2}
+        \fmflabel{\PZ}{o1}
+        \fmflabel{\Pg}{o2}
+        \fmflabel{\PZ}{o3}
+        \fmf{fermion}{i1,v1,v2,v3,i2}
+        \fmf{zigzag}{v1,o1}
+        \fmf{zigzag}{v3,o3}
+        \fmf{gluon}{v2,o2}
       \end{fmfgraph*}
     \end{fmffile}
     \hspace{4em}
@@ -68,23 +115,6 @@ At next-to-leading order (representative diagrams also in Fig.~\ref{fig:zzLONLO}
     \end{fmffile}
     \vspace{4em}
 
-    \begin{fmffile}{zzNLOg}
-      \begin{fmfgraph*}(0.2,0.2) % chktex 36
-        \fmfstraight %chktex 1
-        \fmfleft{i1,d1,i2}
-        \fmfright{o1,o2,o3}
-        \fmflabel{\Pq}{i1}
-        \fmflabel{\Paq}{i2}
-        \fmflabel{\PZ}{o1}
-        \fmflabel{\Pg}{o2}
-        \fmflabel{\PZ}{o3}
-        \fmf{fermion}{i1,v1,v2,v3,i2}
-        \fmf{zigzag}{v1,o1}
-        \fmf{zigzag}{v3,o3}
-        \fmf{gluon}{v2,o2}
-      \end{fmfgraph*}
-    \end{fmffile}
-    \hspace{4em}
     \begin{fmffile}{zzNLOq}
       \begin{fmfgraph*}(0.2,0.2) % chktex 36
         \fmfstraight %chktex 1
@@ -101,22 +131,176 @@ At next-to-leading order (representative diagrams also in Fig.~\ref{fig:zzLONLO}
         \fmf{gluon}{i2,v3}
       \end{fmfgraph*}
     \end{fmffile}
+    \hspace{4em}
+    \begin{fmffile}{zzNLOaq}
+      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{i1,d1,i2}
+        \fmfright{o1,o2,o3}
+        \fmflabel{\Paq}{i1}
+        \fmflabel{\Pg}{i2}
+        \fmflabel{\PZ}{o1}
+        \fmflabel{\PZ}{o2}
+        \fmflabel{\Paq}{o3}
+        \fmf{fermion}{o3,v3,v2,v1,i1}
+        \fmf{zigzag}{v1,o1}
+        \fmf{zigzag}{v2,o2}
+        \fmf{gluon}{i2,v3}
+      \end{fmfgraph*}
+    \end{fmffile}
     \vspace{1em}
-    \caption[Leading order and next-to-leading order {\ZZ} production]{
-      Leading order (top left) and three representative next-to-leading order Feynman diagrams for {\ZZ} production in {\pp} collisions.
-      Clockwise from the top right, the NLO diagrams are representative of one-loop diagrams, real quark emission, and real gluon emission.
-      }\label{fig:zzLONLO}
+    \caption[Next-to-leading order {\ZZ} production]{
+      Three representative NLO Feynman diagrams for {\ZZ} production in {\pp} collisions.
+      Clockwise from the top right, the NLO diagrams are examples of one-loop diagrams, real antiquark and quark emission, and real gluon emission.
+      }\label{fig:zzNLO}
   \end{center}
 \end{figure}
 
+\begin{figure}[htbp]
+  \vspace{1em}
+  \begin{center}
+    \begin{fmffile}{zzBox}
+      \begin{fmfgraph*}(0.25,0.25) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{i1,i2}
+        \fmfright{o1,o2}
+        \fmflabel{\Pg}{i1}
+        \fmflabel{\Pg}{i2}
+        \fmflabel{\PZ}{o1}
+        \fmflabel{\PZ}{o2}
+        \fmf{gluon}{i1,v1}
+        \fmf{gluon}{i2,v2}
+        \fmf{zigzag}{v3,o2}
+        \fmf{zigzag}{v4,o1}
+        \fmf{fermion}{v3,v4,v1,v2}
+        \fmf{fermion,label={\Pq}}{v2,v3}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \vspace{1em}
+    \caption[Gluon-gluon fusion box diagram for {\ZZ} production]{
+      A LO box diagram for {\ZZ} production through a quark loop in a gluon-gluon fusion event.
+      This is formally an NNLO diagram for {\ZZ} production overall, but is often included in NLO calculations because it accounts for a large fraction of the NNLO correction, due to the high effective gluon luminosity in proton collisions at high $Q^2$.
+      }\label{fig:zzBox}
+  \end{center}
+\end{figure}
 
-\subsection[Nonresonant
-            \texorpdfstring{$\mathrm{Z}\gamma^\ast$}{Zgamma*}
-            Production]{Nonresonant $\mathbf{Z}\gamma^\ast$ Production}
-Virtual particles. Spoooooooooky!
+Production of pairs of on-shell {\PZ} bosons\footnote{Events with two on-shell {\PZ} bosons are often called ``doubly resonant,'' but are a subset of ``nonresonant'' production in the sense that the {\ZZ} system is not produced by a resonance. Either term may be used to distinguish ``continuum'' production from ``singly resonant'' production from {\Zfourl}, $\PH \to \ZZ^\ast$, or a potential new particle which decays to {\ZZ}.} turns on sharply at the kinematic threshold $\sqrt{\hat{s}} = 2m_{\PZ} = 182.4\GeV$, and in proton-proton collisions at $\sqrt{s} = 13\TeV$, peaks around $m_{\ZZ} \approx 200\GeV$ before falling steeply at higher invariant masses.
+Continuum production occurs below the kinematic threshold when one or both {\PZ} bosons are replaced by a $\PZ^\ast / \Pa^\ast$ admixture, typically in the form of a $\Pq\Paq \to \PZ$ event in which one of the incoming quarks emits a virtual photon as initial state radiation (ISR).
+Events of interest in this analysis (see Sections~\ref{sec:zzSelection} and~\ref{sec:xSecCalc}) generally have one on-shell {\PZ}, and a $\PZ^\ast/\Pa^\ast$ at a lower mass.
+Nonresonant $\PZ\Pa^\ast$ production is generally flat as a function of invariant mass between roughly {100\GeV} and the doubly resonant threshold.
+
 
 \subsection{Vector Boson Scattering}
-Them jets tho
+
+Vector boson scattering proceeds at hadron colliders through the diagrams shown in Fig~\ref{fig:vbs}, resulting in a {\ZZjj} final state.
+This fully electroweak (EWK) production must be distinguished from the background of QCD-initiated $\ZZ + \text{jets}$ events.
+The hallmark of the EWK process is a pair of high energy, high rapidity jets from the quarks, which retain a high boost along the $z$-axis even after {\PWpm} or {\PZ} emission and are thus deflected through a small angle in the lab frame.
+At the same time, the {\ZZ} system is produced with high invariant mass and low boost compared to QCD-initiated {\ZZjj} events, in which the {\ZZ} system recoils against the jets~\cite{Zeppenfeld:54.6680}.
+Because the hard scattering interaction involves no color exchange or reconnection, VBS events are much less likely to have less energetic jets between the two high-energy quark jets.
+Useful variables to discriminate between EWK and QCD production therefore include the angle between the jets and their energy, their invariant mass, the {\ZZ} invariant mass and rapidity, and the number of central jets.
+
+\begin{figure}[htbp]
+  \vspace{1em}
+  \begin{center}
+    \begin{fmffile}{vbsTGC}
+      \begin{fmfgraph*}(0.3,0.25) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{i1,d1,d2,i2}
+        \fmfright{o1,o2,o3,o4}
+        \fmflabel{\Pq}{i1}
+        \fmflabel{\Pq}{i2}
+        \fmflabel{$\Pq'$}{o1}
+        \fmflabel{$\Pq'$}{o4}
+        \fmflabel{\PZ}{o2}
+        \fmflabel{\PZ}{o3}
+        \fmf{fermion}{i1,v1,o1}
+        \fmf{zigzag}{v1,v2}
+        \fmf{zigzag,label={\PWpm},label.side=left}{v2,v3}
+        \fmf{zigzag}{v3,v4}
+        \fmf{fermion}{i2,v4,o4}
+        \fmf{phantom}{d1,v1}
+        \fmf{phantom}{d2,v4}
+        \fmffreeze % chktex 1
+        \fmf{zigzag}{v2,o2}
+        \fmf{zigzag}{v3,o3}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \hspace{4em}
+    \begin{fmffile}{vbsQGC}
+      \begin{fmfgraph*}(0.3,0.25) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{i1,d1,d2,i2}
+        \fmfright{o1,o2,o3,o4}
+        \fmflabel{\Pq}{i1}
+        \fmflabel{\Pq}{i2}
+        \fmflabel{$\Pq'$}{o1}
+        \fmflabel{$\Pq'$}{o4}
+        \fmflabel{\PZ}{o2}
+        \fmflabel{\PZ}{o3}
+        \fmf{fermion}{i1,v1,o1}
+        \fmf{phantom}{d1,v1}
+        \fmf{phantom}{d2,v3}
+        \fmf{phantom}{v1,v4,v5,v3}
+        \fmf{fermion}{i2,v3,o4}
+        \fmffreeze % chktex 1
+        \fmf{zigzag,label={\PWpm}}{v1,v2}
+        \fmf{zigzag,label={\PWmp}}{v2,v3}
+        \fmf{zigzag}{o2,v2,o3}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \vspace{4em}
+
+    \begin{fmffile}{vbsHt}
+      \begin{fmfgraph*}(0.3,0.25) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{i1,d1,d2,i2}
+        \fmfright{o1,o2,o3,o4}
+        \fmflabel{\Pq}{i1}
+        \fmflabel{\Pq}{i2}
+        \fmflabel{\Pq}{o1}
+        \fmflabel{\Pq}{o4}
+        \fmflabel{\PZ}{o2}
+        \fmflabel{\PZ}{o3}
+        \fmf{fermion}{i1,v1,o1}
+        \fmf{fermion}{i2,v4,o4}
+        \fmf{phantom}{v1,v5,v6,v4}
+        \fmf{phantom}{d1,v1}
+        \fmf{phantom}{d2,v4}
+        \fmffreeze % chktex 1
+        \fmf{zigzag}{v1,v2,o2}
+        \fmf{dashes,label={\PH},label.side=left}{v2,v3}
+        \fmf{zigzag}{v4,v3,o3}
+      \end{fmfgraph*}
+    \end{fmffile}
+    % \hspace{4em}
+    % \begin{fmffile}{vbsHs}
+    %   \begin{fmfgraph*}(0.3,0.25) % chktex 36
+    %     %\fmfstraight %chktex 1
+    %     \fmfleft{i1,d1,d2,i2}
+    %     \fmfright{o1,o2,o3,o4}
+    %     \fmflabel{\Pq}{i1}
+    %     \fmflabel{\Pq}{i2}
+    %     \fmflabel{\Pq}{o1}
+    %     \fmflabel{\Pq}{o4}
+    %     \fmflabel{\PZ}{o2}
+    %     \fmflabel{\PZ}{o3}
+    %     \fmf{fermion}{i1,v1,o1}
+    %     \fmf{zigzag,label=$\PWpm,,\PZ$,label.side=left}{v1,v2}
+    %     \fmf{zigzag,label=$\PWmp,,\PZ$,label.side=left}{v2,v4}
+    %     \fmf{dashes,label={\PH}}{v2,v3}
+    %     \fmf{zigzag}{o2,v3,o3}
+    %     \fmf{fermion}{i2,v4,o4}
+    %   \end{fmfgraph*}
+    % \end{fmffile}
+    \vspace{1em}
+    \caption[Vector boson scattering diagrams]{
+      The primary {\ZZ} VBS diagrams at hadron colliders.
+      Diagrams also exist with antiquarks and with permutation and crossing of the final state particles.
+      The interaction is only unitary to arbitrarily high energy when all diagrams are considered.
+      }\label{fig:vbs}
+  \end{center}
+\end{figure}
+
 
 \subsection{Prior Measurements}
 The literature before I got here
