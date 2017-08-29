@@ -9,7 +9,7 @@ The three signal processes can be distinguished by kinematics, but all involve t
 
 The {\PZ} was first observed in 1973 when the Gargamelle bubble chamber experiment at CERN recorded an elastic muon antineutrino-electron ($\Panm + \Pe^- \to \Panm + \Pe^-$) scattering event~\cite{Hasert:1973cr}.
 Direct observation in leptonic decays came roughly a decade later, from the UA1 experiment, also at CERN~\cite{Arnison:1983mk}.
-Clean $\Pe^+\Pe^-$ collisions at LEP and SLAC, where the center-of-mass energy could be adjusted to produce {\PZ} bosons copiously, allowed its properties---and a number of other parameters of the electroweak theory---to be measured with per-mille precision or better~\cite{ALEPH:2005ab}.
+Clean {\epem} collisions at LEP and SLAC, where the center-of-mass energy could be adjusted to produce {\PZ} bosons copiously, allowed its properties---and a number of other parameters of the electroweak theory---to be measured with per-mille precision or better~\cite{ALEPH:2005ab}.
 Of particular importance to this study, the {\PZ} mass is
 \begin{equation}
   m_\PZ = 91.1876 \pm 0.0021\GeV,
@@ -30,50 +30,62 @@ and it decays to a pair of charged leptons 3.3658\% of the time for each lepton 
          \texorpdfstring{$\mathrm{ZZ/Z}\gamma^\ast$}{ZZ/Zgamma*}
          Production and Decay]{Nonresonant $\mathbf{ZZ/Z}\gamma^\ast$ Production and Decay}
 
-Leading-order {\ZZ} production is $\Pq\Paq$-initiated and proceeds through $t$-channel quark exchange, as shown in Fig.~\ref{fig:zzLO}.
+Leading-order {\ZZ} production is {\qqb}-initiated and proceeds through $t$-channel quark exchange, as shown in Fig.~\ref{fig:zzLO}.
 At next-to-leading order (NLO\@; several representative diagrams are shown in Fig.~\ref{fig:zzNLO}), may have a gluon in the initial state and may have a quark or gluon in the final state which hadronizes and appears experimentally as a jet.
-Next-to-next-to-leading order (NNLO) adds gluon-gluon fusion box diagrams (Fig.~\ref{fig:zzBox}), as well as $\Pq\Paq$-initiated production with two loops, one loop and a final state jet, and two jets.
+Next-to-next-to-leading order (NNLO) adds gluon-gluon fusion box diagrams (Fig.~\ref{fig:zzBox}), as well as {\qqb}-initiated production with two loops, one loop and a final state jet, and two jets.
 The NNLO corrections are generally large, outside the scale uncertainties of the NLO calculation, because the gluon-fusion diagrams contribute only positively to the cross section because of their distinct initial state, and have a large amplitude---roughly 60\% of the total NNLO correction---due to the high effective gluon luminosity in multi-{\TeVns} proton collisions~\cite{Cascioli:2014yka}.
-Because of the box diagrams' large contribution, ``$\text{NLO} + \Pg\Pg$'' simulations are often used, in which NLO $\Pq\Paq/\Pq\Pg/\Paq\Pg \to \ZZ$ and LO $\Pg\Pg \to \ZZ$ samples are summed even though they formally contribute at different orders in {\alphaS}.
+Because of the box diagrams' large contribution, ``$\text{NLO} + \Pgg$'' simulations are often used, in which NLO $\qqb/\Pq\Pg/\Paq\Pg \to \ZZ$ and LO $\Pgg \to \ZZ$ samples are summed even though they formally contribute at different orders in {\alphaS}.
 
 \begin{figure}[htbp]
   \vspace{1em}
   \begin{center}
     \begin{fmffile}{zzLO}
-      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+      \begin{fmfgraph*}(0.26,0.26) % chktex 36
         \fmfstraight %chktex 1
-        \fmfleft{i1,i2}
-        \fmfright{o1,o2}
+        \fmfleft{i1,d1,d2,i2}
+        \fmfright{o1,o2,o3,o4}
         \fmflabel{\Pq}{i1}
         \fmflabel{\Paq}{i2}
-        \fmflabel{\PZ}{o1}
-        \fmflabel{\PZ}{o2}
+        \fmflabel{\Plpp}{o1}
+        \fmflabel{\Plpm}{o2}
+        \fmflabel{\Plp}{o3}
+        \fmflabel{\Plm}{o4}
         \fmf{fermion}{i1,v1,v2,i2}
-        \fmf{zigzag}{v1,o1}
-        \fmf{zigzag}{v2,o2}
+        \fmf{zigzag,label={\PZ}}{v1,v3}
+        \fmf{zigzag,label={\PZ},label.side=left}{v2,v4}
+        \fmf{fermion}{o1,v3,o2}
+        \fmf{fermion}{o3,v4,o4}
       \end{fmfgraph*}
     \end{fmffile}
     \hspace{4em}
       \begin{fmffile}{zzOL}
-        \begin{fmfgraph*}(0.2,0.2) % chktex 36
+        \begin{fmfgraph*}(0.26,0.26) % chktex 36
           \fmfstraight %chktex 1
-          \fmfleft{i1,i2}
-          \fmfright{o1,o2}
+          \fmfleft{i1,d1,d2,i2}
+          \fmfright{o1,o2,o3,o4}
           \fmflabel{\Pq}{i1}
           \fmflabel{\Paq}{i2}
-          \fmflabel{\PZ}{o1}
-          \fmflabel{\PZ}{o2}
+          \fmflabel{\Plpp}{o1}
+          \fmflabel{\Plpm}{o2}
+          \fmflabel{\Plp}{o3}
+          \fmflabel{\Plm}{o4}
           \fmf{fermion}{i1,v1,v2,i2}
-          \fmf{phantom}{v1,o1}
-          \fmf{phantom}{v2,o2}
+          \fmf{phantom}{v1,v3}
+          \fmf{phantom}{v2,v4}
+          \fmf{fermion}{o1,v3,o2}
+          \fmf{fermion}{o3,v4,o4}
           \fmffreeze % chktex 1
-          \fmf{zigzag}{v1,o2}
-          \fmf{zigzag}{v2,o1}
+          \fmf{zigzag}{v1,v4}
+          \fmf{zigzag}{v2,v3}
+          \fmf{phantom}{v1,v6}
+          \fmf{phantom}{v2,v5}
+          \fmf{phantom,label={\PZ},tension=2,l.s=left}{v6,v4}
+          \fmf{phantom,label={\PZ},tension=2,l.s=right}{v5,v3}
         \end{fmfgraph*}
       \end{fmffile}
     \vspace{1em}
-    \caption[Leading order {\ZZ} production]{
-      Leading order Feynman diagrams for {\ZZ} production in {\pp} collisions.
+    \caption[Leading order {\ZZfourl} production]{
+      Leading order Feynman diagrams for {\ZZfourl} production in {\pp} collisions.
       }\label{fig:zzLO}
   \end{center}
 \end{figure}
@@ -82,75 +94,108 @@ Because of the box diagrams' large contribution, ``$\text{NLO} + \Pg\Pg$'' simul
   \vspace{1em}
   \begin{center}
     \begin{fmffile}{zzNLOg}
-      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+      \begin{fmfgraph*}(0.26,0.26) % chktex 36
         \fmfstraight %chktex 1
-        \fmfleft{i1,d1,i2}
-        \fmfright{o1,o2,o3}
+        \fmfleft{i1,d1,d2,d3,i2}
+        \fmfright{o1,o2,o3,o4,o5}
         \fmflabel{\Pq}{i1}
         \fmflabel{\Paq}{i2}
-        \fmflabel{\PZ}{o1}
-        \fmflabel{\Pg}{o2}
-        \fmflabel{\PZ}{o3}
+        \fmflabel{\Plpp}{o1}
+        \fmflabel{\Plpm}{o2}
+        \fmflabel{\Pg}{o3}
+        \fmflabel{\Plp}{o4}
+        \fmflabel{\Plm}{o5}
         \fmf{fermion}{i1,v1,v2,v3,i2}
-        \fmf{zigzag}{v1,o1}
-        \fmf{zigzag}{v3,o3}
-        \fmf{gluon}{v2,o2}
+        \fmf{phantom,tension=0.4}{v1,o1}
+        \fmf{phantom,tension=0.4}{v2,o3}
+        \fmf{phantom,tension=0.4}{v3,o5}
+        \fmffreeze % chktex 1
+        \fmf{zigzag,label={\PZ}}{v1,v4}
+        \fmf{zigzag,label={\PZ},l.s=left}{v3,v5}
+        \fmf{gluon}{v2,o3}
+        \fmf{fermion}{o1,v4,o2}
+        \fmf{fermion}{o4,v5,o5}
       \end{fmfgraph*}
     \end{fmffile}
     \hspace{4em}
     \begin{fmffile}{zzNLOLoop}
-      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+      \begin{fmfgraph*}(0.26,0.26) % chktex 36
         \fmfstraight %chktex 1
-        \fmfleft{i1,d1,i2}
-        \fmfright{o1,d2,o2}
+        \fmfleft{i1,d1,d2,i2}
+        \fmfright{o1,o2,o3,o4}
         \fmflabel{\Pq}{i1}
         \fmflabel{\Paq}{i2}
-        \fmflabel{\PZ}{o1}
-        \fmflabel{\PZ}{o2}
+        \fmflabel{\Plpp}{o1}
+        \fmflabel{\Plpm}{o2}
+        \fmflabel{\Plp}{o3}
+        \fmflabel{\Plm}{o4}
         \fmf{fermion}{i1,v1,v2,v3,v4,i2}
         \fmf{gluon}{v1,v4}
-        \fmf{zigzag}{v2,o1}
-        \fmf{zigzag}{v3,o2}
+        \fmf{phantom}{v2,o1}
+        \fmf{phantom}{v3,o4}
+        \fmffreeze % chktex 1
+        \fmf{zigzag,label={\PZ},l.s=right}{v2,v5}
+        \fmf{zigzag,label={\PZ},l.s=left}{v3,v6}
+        \fmf{fermion}{o1,v5,o2}
+        \fmf{fermion}{o3,v6,o4}
       \end{fmfgraph*}
     \end{fmffile}
     \vspace{4em}
 
     \begin{fmffile}{zzNLOq}
-      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+      \begin{fmfgraph*}(0.26,0.26) % chktex 36
         \fmfstraight %chktex 1
-        \fmfleft{i1,d1,i2}
-        \fmfright{o1,o2,o3}
+        \fmfleft{i1,d1,d2,d3,d4,i2}
+        \fmfright{o1,o2,o3,o4,d5,o5}
+        \fmfright{d6,d7,d8}
         \fmflabel{\Pq}{i1}
         \fmflabel{\Pg}{i2}
-        \fmflabel{\PZ}{o1}
-        \fmflabel{\PZ}{o2}
-        \fmflabel{\Pq}{o3}
-        \fmf{fermion}{i1,v1,v2,v3,o3}
-        \fmf{zigzag}{v1,o1}
-        \fmf{zigzag}{v2,o2}
+        \fmflabel{\Plpp}{o1}
+        \fmflabel{\Plpm}{o2}
+        \fmflabel{\Plp}{o3}
+        \fmflabel{\Plm}{o4}
+        \fmflabel{\Pq}{o5}
+        \fmf{fermion}{i1,v1,v2,v3}
+        \fmf{fermion,tension=0.4}{v3,o5}
+        \fmf{phantom,tension=0.4}{v1,o1}
+        \fmf{phantom,tension=0.4}{v2,d7}
         \fmf{gluon}{i2,v3}
+        \fmffreeze % chktex 1
+        \fmf{zigzag,label={\PZ}}{v1,v4}
+        \fmf{zigzag,label={\PZ}}{v2,v5}
+        \fmf{fermion}{o1,v4,o2}
+        \fmf{fermion}{o3,v5,o4}
       \end{fmfgraph*}
     \end{fmffile}
     \hspace{4em}
     \begin{fmffile}{zzNLOaq}
-      \begin{fmfgraph*}(0.2,0.2) % chktex 36
+      \begin{fmfgraph*}(0.26,0.26) % chktex 36
         \fmfstraight %chktex 1
-        \fmfleft{i1,d1,i2}
-        \fmfright{o1,o2,o3}
+        \fmfleft{i1,d1,d2,d3,d4,i2}
+        \fmfright{o1,o2,o3,o4,d5,o5}
+        \fmfright{d6,d7,d8}
         \fmflabel{\Paq}{i1}
         \fmflabel{\Pg}{i2}
-        \fmflabel{\PZ}{o1}
-        \fmflabel{\PZ}{o2}
-        \fmflabel{\Paq}{o3}
-        \fmf{fermion}{o3,v3,v2,v1,i1}
-        \fmf{zigzag}{v1,o1}
-        \fmf{zigzag}{v2,o2}
+        \fmflabel{\Plpp}{o1}
+        \fmflabel{\Plpm}{o2}
+        \fmflabel{\Plp}{o3}
+        \fmflabel{\Plm}{o4}
+        \fmflabel{\Paq}{o5}
+        \fmf{fermion}{v3,v2,v1,i1}
+        \fmf{fermion,tension=0.4}{o5,v3}
+        \fmf{phantom,tension=0.4}{o1,v1}
+        \fmf{phantom,tension=0.4}{d7,v2}
         \fmf{gluon}{i2,v3}
+        \fmffreeze % chktex 1
+        \fmf{zigzag,label={\PZ}}{v1,v4}
+        \fmf{zigzag,label={\PZ}}{v2,v5}
+        \fmf{fermion}{o1,v4,o2}
+        \fmf{fermion}{o3,v5,o4}
       \end{fmfgraph*}
     \end{fmffile}
     \vspace{1em}
-    \caption[Next-to-leading order {\ZZ} production]{
-      Three representative NLO Feynman diagrams for {\ZZ} production in {\pp} collisions.
+    \caption[Next-to-leading order {\ZZfourl} production]{
+      Three representative NLO Feynman diagrams for {\ZZfourl} production in {\pp} collisions.
       Clockwise from the top right, the NLO diagrams are examples of one-loop diagrams, real antiquark and quark emission, and real gluon emission.
       }\label{fig:zzNLO}
   \end{center}
@@ -160,32 +205,39 @@ Because of the box diagrams' large contribution, ``$\text{NLO} + \Pg\Pg$'' simul
   \vspace{1em}
   \begin{center}
     \begin{fmffile}{zzBox}
-      \begin{fmfgraph*}(0.25,0.25) % chktex 36
+      \begin{fmfgraph*}(0.325,0.25) % chktex 36
         \fmfstraight %chktex 1
         \fmfleft{i1,i2}
-        \fmfright{o1,o2}
+        \fmfright{o1,o2,o3,o4}
         \fmflabel{\Pg}{i1}
         \fmflabel{\Pg}{i2}
-        \fmflabel{\PZ}{o1}
-        \fmflabel{\PZ}{o2}
+        \fmflabel{\Plpp}{o1}
+        \fmflabel{\Plpm}{o2}
+        \fmflabel{\Plp}{o3}
+        \fmflabel{\Plm}{o4}
         \fmf{gluon}{i1,v1}
         \fmf{gluon}{i2,v2}
-        \fmf{zigzag}{v3,o2}
-        \fmf{zigzag}{v4,o1}
+        \fmf{phantom}{v3,o4}
+        \fmf{phantom}{v4,o1}
         \fmf{fermion}{v3,v4,v1,v2}
         \fmf{fermion,label={\Pq}}{v2,v3}
+        \fmffreeze % chktex 1
+        \fmf{zigzag,label={\PZ}}{v3,v6}
+        \fmf{zigzag,label={\PZ}}{v4,v5}
+        \fmf{fermion}{o1,v5,o2}
+        \fmf{fermion}{o3,v6,o4}
       \end{fmfgraph*}
     \end{fmffile}
     \vspace{1em}
-    \caption[Gluon-gluon fusion box diagram for {\ZZ} production]{
-      A LO box diagram for {\ZZ} production through a quark loop in a gluon-gluon fusion event.
+    \caption[Gluon-gluon fusion box diagram for {\ZZfourl} production]{
+      A LO box diagram for {\ZZfourl} production through a quark loop in a gluon-gluon fusion event.
       This is formally an NNLO diagram for {\ZZ} production overall, but is often included in NLO calculations because it accounts for a large fraction of the NNLO correction, due to the high effective gluon luminosity in proton collisions at high $Q^2$.
       }\label{fig:zzBox}
   \end{center}
 \end{figure}
 
 Production of pairs of on-shell {\PZ} bosons\footnote{Events with two on-shell {\PZ} bosons are often called ``doubly resonant,'' but are a subset of ``nonresonant'' production in the sense that the {\ZZ} system is not produced by a resonance. Either term may be used to distinguish ``continuum'' production from ``singly resonant'' production from {\Zfourl}, $\PH \to \ZZ^\ast$, or a potential new particle which decays to {\ZZ}.} turns on sharply at the kinematic threshold $\sqrt{\hat{s}} = 2m_{\PZ} = 182.4\GeV$, and in proton-proton collisions at $\sqrt{s} = 13\TeV$, peaks around $m_{\ZZ} \approx 200\GeV$ before falling steeply at higher invariant masses.
-Continuum production occurs below the kinematic threshold when one or both {\PZ} bosons are replaced by a $\PZ^\ast / \Pa^\ast$ admixture, typically in the form of a $\Pq\Paq \to \PZ$ event in which one of the incoming quarks emits a virtual photon as initial state radiation (ISR).
+Continuum production occurs below the kinematic threshold when one or both {\PZ} bosons are replaced by a $\PZ^\ast / \Pa^\ast$ admixture, typically in the form of a $\qqb \to \PZ$ event in which one of the incoming quarks emits a virtual photon as initial state radiation (ISR).
 Events of interest in this analysis (see Sections~\ref{sec:zzSelection} and~\ref{sec:xSecCalc}) generally have one on-shell {\PZ}, and a $\PZ^\ast/\Pa^\ast$ at a lower mass.
 Nonresonant $\PZ\Pa^\ast$ production is generally flat as a function of invariant mass between roughly {100\GeV} and the doubly resonant threshold.
 
@@ -206,23 +258,27 @@ Useful variables to discriminate between EWK and QCD production therefore includ
       \begin{fmfgraph*}(0.3,0.25) % chktex 36
         \fmfstraight %chktex 1
         \fmfleft{i1,d1,d2,i2}
-        \fmfright{o1,o2,o3,o4}
-        \fmflabel{\Pq}{i1}
-        \fmflabel{\Pq}{i2}
-        \fmflabel{$\Pq'$}{o1}
-        \fmflabel{$\Pq'$}{o4}
-        \fmflabel{\PZ}{o2}
-        \fmflabel{\PZ}{o3}
+        \fmfright{o1,o2,o3,o4,o5,o6}
+        \fmflabel{$\Pq_1$}{i1}
+        \fmflabel{$\Pq_2$}{i2}
+        \fmflabel{$\Pq_1^\prime$}{o1}
+        \fmflabel{$\Pq_2^\prime$}{o6}
+        \fmflabel{\Plpp}{o2}
+        \fmflabel{\Plpm}{o3}
+        \fmflabel{\Plp}{o4}
+        \fmflabel{\Plp}{o5}
         \fmf{fermion}{i1,v1,o1}
         \fmf{zigzag}{v1,v2}
         \fmf{zigzag,label={\PWpm},label.side=left}{v2,v3}
         \fmf{zigzag}{v3,v4}
-        \fmf{fermion}{i2,v4,o4}
+        \fmf{fermion}{i2,v4,o6}
         \fmf{phantom}{d1,v1}
         \fmf{phantom}{d2,v4}
         \fmffreeze % chktex 1
-        \fmf{zigzag}{v2,o2}
-        \fmf{zigzag}{v3,o3}
+        \fmf{zigzag,label={\PZ}}{v2,v5}
+        \fmf{zigzag,label={\PZ}}{v3,v6}
+        \fmf{fermion}{o2,v5,o3}
+        \fmf{fermion}{o4,v6,o5}
       \end{fmfgraph*}
     \end{fmffile}
     \hspace{4em}
@@ -230,22 +286,27 @@ Useful variables to discriminate between EWK and QCD production therefore includ
       \begin{fmfgraph*}(0.3,0.25) % chktex 36
         \fmfstraight %chktex 1
         \fmfleft{i1,d1,d2,i2}
-        \fmfright{o1,o2,o3,o4}
-        \fmflabel{\Pq}{i1}
-        \fmflabel{\Pq}{i2}
-        \fmflabel{$\Pq'$}{o1}
-        \fmflabel{$\Pq'$}{o4}
-        \fmflabel{\PZ}{o2}
-        \fmflabel{\PZ}{o3}
+        \fmfright{o1,o2,o3,o4,o5,o6}
+        \fmflabel{$\Pq_1$}{i1}
+        \fmflabel{$\Pq_2$}{i2}
+        \fmflabel{$\Pq_1^\prime$}{o1}
+        \fmflabel{$\Pq_2^\prime$}{o6}
+        \fmflabel{\Plpp}{o2}
+        \fmflabel{\Plpm}{o3}
+        \fmflabel{\Plp}{o4}
+        \fmflabel{\Plp}{o5}
         \fmf{fermion}{i1,v1,o1}
         \fmf{phantom}{d1,v1}
         \fmf{phantom}{d2,v3}
         \fmf{phantom}{v1,v4,v5,v3}
-        \fmf{fermion}{i2,v3,o4}
+        \fmf{fermion}{i2,v3,o6}
         \fmffreeze % chktex 1
-        \fmf{zigzag,label={\PWpm}}{v1,v2}
-        \fmf{zigzag,label={\PWmp}}{v2,v3}
-        \fmf{zigzag}{o2,v2,o3}
+        \fmf{zigzag,label={\PWmp},tension=1.3,l.s=left}{v1,v2}
+        \fmf{zigzag,label={\PWpm},tension=1.3,l.s=left}{v2,v3}
+        \fmf{zigzag,label={\PZ}}{v2,v6}
+        \fmf{zigzag,label={\PZ},l.s=left}{v2,v7}
+        \fmf{fermion}{o2,v6,o3}
+        \fmf{fermion}{o4,v7,o5}
       \end{fmfgraph*}
     \end{fmffile}
     \vspace{4em}
@@ -254,44 +315,29 @@ Useful variables to discriminate between EWK and QCD production therefore includ
       \begin{fmfgraph*}(0.3,0.25) % chktex 36
         \fmfstraight %chktex 1
         \fmfleft{i1,d1,d2,i2}
-        \fmfright{o1,o2,o3,o4}
-        \fmflabel{\Pq}{i1}
-        \fmflabel{\Pq}{i2}
-        \fmflabel{\Pq}{o1}
-        \fmflabel{\Pq}{o4}
-        \fmflabel{\PZ}{o2}
-        \fmflabel{\PZ}{o3}
+        \fmfright{o1,o2,o3,o4,o5,o6}
+        \fmflabel{$\Pq_1$}{i1}
+        \fmflabel{$\Pq_2$}{i2}
+        \fmflabel{$\Pq_1^\prime$}{o1}
+        \fmflabel{$\Pq_2^\prime$}{o6}
+        \fmflabel{\Plpp}{o2}
+        \fmflabel{\Plpm}{o3}
+        \fmflabel{\Plp}{o4}
+        \fmflabel{\Plp}{o5}
         \fmf{fermion}{i1,v1,o1}
-        \fmf{fermion}{i2,v4,o4}
-        \fmf{phantom}{v1,v5,v6,v4}
+        \fmf{zigzag}{v1,v2}
+        \fmf{dashes,label={\PH},label.side=left}{v2,v3}
+        \fmf{zigzag}{v3,v4}
+        \fmf{fermion}{i2,v4,o6}
         \fmf{phantom}{d1,v1}
         \fmf{phantom}{d2,v4}
         \fmffreeze % chktex 1
-        \fmf{zigzag}{v1,v2,o2}
-        \fmf{dashes,label={\PH},label.side=left}{v2,v3}
-        \fmf{zigzag}{v4,v3,o3}
+        \fmf{zigzag,label={\PZ}}{v2,v5}
+        \fmf{zigzag,label={\PZ}}{v3,v6}
+        \fmf{fermion}{o2,v5,o3}
+        \fmf{fermion}{o4,v6,o5}
       \end{fmfgraph*}
     \end{fmffile}
-    % \hspace{4em}
-    % \begin{fmffile}{vbsHs}
-    %   \begin{fmfgraph*}(0.3,0.25) % chktex 36
-    %     %\fmfstraight %chktex 1
-    %     \fmfleft{i1,d1,d2,i2}
-    %     \fmfright{o1,o2,o3,o4}
-    %     \fmflabel{\Pq}{i1}
-    %     \fmflabel{\Pq}{i2}
-    %     \fmflabel{\Pq}{o1}
-    %     \fmflabel{\Pq}{o4}
-    %     \fmflabel{\PZ}{o2}
-    %     \fmflabel{\PZ}{o3}
-    %     \fmf{fermion}{i1,v1,o1}
-    %     \fmf{zigzag,label=$\PWpm,,\PZ$,label.side=left}{v1,v2}
-    %     \fmf{zigzag,label=$\PWmp,,\PZ$,label.side=left}{v2,v4}
-    %     \fmf{dashes,label={\PH}}{v2,v3}
-    %     \fmf{zigzag}{o2,v3,o3}
-    %     \fmf{fermion}{i2,v4,o4}
-    %   \end{fmfgraph*}
-    % \end{fmffile}
     \vspace{1em}
     \caption[Vector boson scattering diagrams]{
       The primary {\ZZ} VBS diagrams at hadron colliders.
@@ -303,7 +349,30 @@ Useful variables to discriminate between EWK and QCD production therefore includ
 
 
 \subsection{Prior Measurements}
-The literature before I got here
+
+Doubly resonant {\ZZ} production was first observed in {\epem} collisions at LEP by the ALEPH, OPAL, L3, and DELPHI experiments, from {183\GeV}, just above the threshold center-of-mass energy, to the LEP maximum of {209\GeV}~\cite{Barate:1999jj,Abbiendi:2000kq, Achard:2003hg,Abdallah:2003dv}.
+Because the {\ZZ} cross section is very small, these measurements used all possible final states except those in which all {\PZ} decay products were neutrinos or taus.
+This was possible because {\epem} collisions do not suffer from the hadronization effect described above, so jets can be reliably matched to a hard scattering process, allowing identification of $\PZ \to \qqb$ decays.
+The measurements agreed with the SM, but were dominated by statistical uncertainties.
+
+Production in hadron collisions was first observed by the CDF and D0 experiments, in {1.96\TeV} {\ppb} events at Tevatron~\cite{Aaltonen:2008mv,Abazov:2008yf,Abazov:2008gya, Abazov:2011td,CDF:2011ab}.
+In contrast to the LEP measurements, {\ppb} colliders cause too many extraneous jets for the hadronic channels to be seen above the background, so only the $4\ell$ and $2\ell2\Pnu$ ($\ell = \Pe, \Pm$) final states were used.
+These fully leptonic decay modes have small branching fractions on top of the small {\ZZ} cross section of around {1.6\unit{pb}}~\cite{Campbell:1999ah}, but the total Tevatron dataset of roughly {6\fbinv} was large enough for CDF and D0 to find a few dozen events each.
+Results were again fully consistent with the SM but the statistical uncertainties were large.
+
+The first run of the LHC (see Section~\ref{sec:lhc}) produced large datasets of {\pp} collisions at $\sqrt{s} = 7$ and {8\TeV}, producing {\ZZ} events with a higher cross section than at Tevatron~\cite{Cascioli:2014yka} and with a greater integrated luminosity.
+The measurement channels were again the fully leptonic $4\ell$ and $2\ell2\Pnu$ decays, and the cross sections were measured at $\sqrt{s} = 7$ and {8\TeV} by both CMS~\cite{Chatrchyan:2012sga,CMS:2014xja,Khachatryan:2015pba, CMS-PAS-SMP-15-012} and ATLAS~\cite{Aad:2015zqe,Aad:2015rka,Aaboud:2016urj}.
+With a dataset of roughly {20\fbinv} and signal event counts in the hundreds even for the low-rate $4\ell$ channel, the {8\TeV} measurements had the statistical power to include differential cross sections as functions of kinematic observables for the {\ZZ} system and the associated jets.
+Statistical uncertainties were still larger than the systematic uncertainties, but they were at the level of 5--10\% for the total cross section, compared to 30--50\% at Tevatron and 15--150\% at LEP depending on the experiment and center-of-mass energy\footnote{Most LEP {\ZZ} cross section measurements had statistical uncertainties around 20--40\%; see references given in the text for details.}.
+The measured cross sections were again fully consistent with SM predictions.
+CMS found that the total {\ZZ} cross sections, defined as the cross sections of all events with two {\PZ} bosons in the mass range {60--120\GeV}, to be
+\begin{equation}
+  \begin{aligned}
+    \sigma_{\ZZ}(7\TeV) = & 6.24 ^{+0.86}_{-0.80}\stat ^{+0.41}_{-0.32}\syst \pm 0.14\lum \unit{pb}
+    \sigma_{\ZZ}(8\TeV) = & 7.7 \pm 0.5\stat ^{+0.5}_{-0.4}\syst \pm 0.4\thy \pm 0.2\lum \unit{pb}
+  \end{aligned}
+\end{equation}
+
 
 
 \section[Resonant
