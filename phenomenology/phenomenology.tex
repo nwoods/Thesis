@@ -266,7 +266,7 @@ Useful variables to discriminate between EWK and QCD production therefore includ
         \fmflabel{\Plpp}{o2}
         \fmflabel{\Plpm}{o3}
         \fmflabel{\Plp}{o4}
-        \fmflabel{\Plp}{o5}
+        \fmflabel{\Plm}{o5}
         \fmf{fermion}{i1,v1,o1}
         \fmf{zigzag}{v1,v2}
         \fmf{zigzag,label={\PWpm},label.side=left}{v2,v3}
@@ -294,7 +294,7 @@ Useful variables to discriminate between EWK and QCD production therefore includ
         \fmflabel{\Plpp}{o2}
         \fmflabel{\Plpm}{o3}
         \fmflabel{\Plp}{o4}
-        \fmflabel{\Plp}{o5}
+        \fmflabel{\Plm}{o5}
         \fmf{fermion}{i1,v1,o1}
         \fmf{phantom}{d1,v1}
         \fmf{phantom}{d2,v3}
@@ -323,7 +323,7 @@ Useful variables to discriminate between EWK and QCD production therefore includ
         \fmflabel{\Plpp}{o2}
         \fmflabel{\Plpm}{o3}
         \fmflabel{\Plp}{o4}
-        \fmflabel{\Plp}{o5}
+        \fmflabel{\Plm}{o5}
         \fmf{fermion}{i1,v1,o1}
         \fmf{zigzag}{v1,v2}
         \fmf{dashes,label={\PH},label.side=left}{v2,v3}
@@ -452,13 +452,162 @@ After correcting for phase space differences, the measurements are compatible wi
 
 \subsection{Higgs Boson Production}\label{sec:Hproduction}
 
-\subsubsection{Prior Measurements}\label{sec:Hresults}
-Discovery!
+The primary Higgs production mechanism in multi-{\TeVns} hadron collisions is gluon-gluon fusion through a quark loop, because of the gluon's high effective luminosity and the top quark's strong Yukawa coupling.
+Other mechanisms, in decreasing order by cross section, are vector boson fusion (VBF), vector boson associated production ({\VH} or ``Higgsstrahlung''), and top-antitop associated production ({\TTH}).
+Tree-level Feynman diagrams for all four are shown in Fig.~\ref{fig:Hprod}.
+The VBF process contributes to the unitarization of vector boson scattering along with the diagrams in Fig.~\ref{fig:vbs}.
+The SM cross sections for the various production mechanisms, and the Higgs branching fractions, are shown as functions of $m_\PH$ near the measured mass of {125\GeV} in Fig.~\ref{fig:HxsecBR}.
+Gluon-gluon fusion has roughly an order of magnitude higher rate than the others.
+Decays to {\ZZs} are heavily suppressed by the fact that, since $m_\PH < 2m_\PZ$, energy conservation requires one of the {\PZ} bosons to be far off its mass shell.
+Decays to four charged leptons are further suppressed by the small $\PZ \to \lplm$ branching fraction.
+However, the distinctive signature of four high-energy charged leptons in a single event is easy to detect with high efficiency and low fake rate, and the momentum of electrons and muons can in general be measured with high precision, allowing the Higgs resonance to be easily seen as a sharp peak over a small background, and $\PH \to 4\ell$ is one of the most attractive channels for Higgs discovery and measurement of its properties.
 
+\begin{figure}[htbp]
+  \vspace{1em}
+  \begin{center}
+    \begin{fmffile}{ggH}
+      \begin{fmfgraph*}(0.3,0.25) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{i1,d1,d2,i2}
+        \fmfright{o1,o2,o3,o4}
+        \fmflabel{\Pg}{i1}
+        \fmflabel{\Pg}{i2}
+        \fmflabel{\Plp}{o3}
+        \fmflabel{\Plm}{o4}
+        \fmflabel{\Plpp}{o1}
+        \fmflabel{\Plpm}{o2}
+        \fmf{fermion}{v1,v2,v3,v1}
+        \fmf{dashes,label={\PH},tension=1.8}{v3,v4}
+        \fmf{zigzag,label={\PZ},tension=1.4}{v4,v6}
+        \fmf{zigzag,label={$\PZ^\ast$},tension=1.4}{v4,v5}
+        \fmf{fermion}{o1,v5,o2}
+        \fmf{fermion}{o3,v6,o4}
+        \fmf{gluon,tension=1.8}{i1,v1}
+        \fmf{gluon,tension=1.8}{i2,v2}
+        % phantoms to make a phantom vertex to label
+        \fmf{phantom}{v1,v7}
+        \fmf{phantom}{v2,v7}
+        \fmf{phantom}{v3,v7}
+        \fmfv{label={\Pqt},l.d=0}{v7}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \hspace{4em}
+    \begin{fmffile}{vbfH}
+      \begin{fmfgraph*}(0.3,0.25) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{i1,d1,d2,i2}
+        \fmfright{o1,o2,o3,o4,o5,o6}
+        \fmflabel{$\Pq_1$}{i1}
+        \fmflabel{$\Pq_2$}{i2}
+        \fmflabel{$\Pq_1^\prime$}{o1}
+        \fmflabel{$\Pq_2^\prime$}{o6}
+        \fmflabel{\Plpp}{o2}
+        \fmflabel{\Plpm}{o3}
+        \fmflabel{\Plp}{o4}
+        \fmflabel{\Plm}{o5}
+        \fmf{fermion}{i1,v1,o1}
+        \fmf{phantom}{d1,v1}
+        \fmf{phantom}{d2,v3}
+        \fmf{phantom}{v1,v4,v5,v3}
+        \fmf{fermion}{i2,v3,o6}
+        \fmffreeze % chktex 1
+        \fmf{zigzag,label={\PWmp,,\PZ},tension=1.3,l.s=left}{v1,v2}
+        \fmf{zigzag,label={\PWpm,,\PZ},tension=1.3,l.s=left}{v2,v3}
+        \fmf{dashes,label={\PH}}{v2,v8}
+        \fmf{zigzag,label={$\PZ^\ast$},l.s=right}{v8,v6}
+        \fmf{zigzag,label={\PZ},l.s=left}{v8,v7}
+        \fmf{fermion}{o2,v6,o3}
+        \fmf{fermion}{o4,v7,o5}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \vspace{4em}
+
+    \begin{fmffile}{vH}
+      \begin{fmfgraph*}(0.3,0.25) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{d1,i1,i2,d2}
+        \fmfright{o1,d3,o2,o3,o4,o5}
+        \fmflabel{\Pq}{i1}
+        \fmflabel{\Paq}{i2}
+        \fmflabel{{$\PWpm,\PZ$}}{o1}
+        \fmflabel{\Plpp}{o2}
+        \fmflabel{\Plpm}{o3}
+        \fmflabel{\Plp}{o4}
+        \fmflabel{\Plm}{o5}
+        \fmf{fermion}{i1,v1,i2}
+        \fmf{zigzag}{v1,v2}
+        \fmf{phantom}{d1,v2,d2}
+        \fmf{phantom}{o1,v2,o5}
+        \fmffreeze % chktex 1
+        \fmf{zigzag}{v2,o1}
+        \fmf{dashes,label={\PH},label.side=left}{v2,v3}
+        \fmf{zigzag,label={\PZ},l.s=left}{v3,v4}
+        \fmf{zigzag,label={$\PZ^\ast$},l.s=right}{v3,v5}
+        \fmf{fermion}{o2,v5,o3}
+        \fmf{fermion}{o4,v4,o5}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \hspace{4em}
+    \begin{fmffile}{ttH}
+      \begin{fmfgraph*}(0.3,0.25) % chktex 36
+        \fmfstraight %chktex 1
+        \fmfleft{d1,i1,d2,d3,i2,d4}
+        \fmfright{o1,o2,o3,o4,o5,o6}
+        \fmflabel{\Pg}{i1}
+        \fmflabel{\Pg}{i2}
+        \fmflabel{\Paqt}{o1}
+        \fmflabel{\Pqt}{o6}
+        \fmflabel{\Plpp}{o2}
+        \fmflabel{\Plpm}{o3}
+        \fmflabel{\Plp}{o4}
+        \fmflabel{\Plm}{o5}
+        \fmf{fermion}{o1,v1,v2,v3,o6}
+        \fmf{gluon}{i1,v1}
+        \fmf{gluon}{i2,v3}
+        \fmf{dashes,label={\PH}}{v2,v4}
+        \fmf{zigzag,label={$\PZ^\ast$},l.s=right}{v4,v5}
+        \fmf{zigzag,label={\PZ},l.s=left}{v4,v6}
+        \fmf{fermion}{o2,v5,o3}
+        \fmf{fermion}{o4,v6,o5}
+        \fmf{phantom}{d1,v1,d2}
+        \fmf{phantom}{d3,v3,d4}
+      \end{fmfgraph*}
+    \end{fmffile}
+    \vspace{1em}
+    \caption[Higgs production mechanisms]{
+      Tree-level Higgs production diagrams for gluon-gluon fusion (top left), VBF (top right), {\VH} (bottom left), and {\TTH}, decaying to four leptons.
+      }\label{fig:Hprod}
+  \end{center}
+\end{figure}
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.48\textwidth]{phenomenology/plot_13tev_H_sqrt.pdf}
+    \includegraphics[width=0.48\textwidth]{phenomenology/SMHiggsBR_YR4-square.pdf}
+    \caption[Higgs boson SM cross section and branching ratio, as a function of $m_\PH$]{
+        The SM cross sections for each Higgs boson production mode (left) and the Higgs branching fraction to several important final states (right), as a function of Higgs mass near the measured mass of {125\GeV}.
+        Both plots are reproduced from Ref.~\cite{deFlorian:2016spz}.
+      }\label{fig:HxsecBR}
+  \end{center}
+\end{figure}
+
+\subsubsection{Prior Measurements}\label{sec:Hresults}
+
+Higgs boson searches at LEP were for {\PZ}-associated production, which has the highest cross section in {\epem} collisions.
+The maximum LEP center-of-mass energy, {209\GeV}, was just under the {\ZH} threshold around {216\GeV}.
+The LEP combined 95\% confidence level lower limit on $m_\PH$ was {114.4\GeV}~\cite{Barate:2003sz}, and a combination of LEP data and electroweak precision measurements set an upper limit of {193\GeV}~\cite{ALEPH:2002aa}.
+Searches at the CDF and D0 experiments at the Tevatron were combined to find a $3.0\sigma$ local excess consistent with $m_\PH = 125\GeV$~\cite{Aaltonen:2013ioz}, and results from all the Tevatron and LEP measurements and electroweak precision measurements were combined to place an upper mass limit of {158\GeV} at 95\% confidence level~\cite{ALEPH:2010aa}.
+The Higgs was finally discovered simultaneously by the CMS and ATLAS collaborations with a combination of 7~and~{8\TeV} data~\cite{Chatrchyan:2012xdj,Aad:2012tfa}.
+It's properties were subsequently investigated in detail at both experiments.
+The Higgs mass was found to be
+\begin{equation}
+  m_\PH = 125.09 \pm 0.21\stat \pm 0.11\syst \GeV
+\end{equation}
+based on a combination of data from the two experiments~\cite{Aad:2015zhl}, and SM predictions of its properties have been confirmed by a number of measurements~\cite{Khachatryan:2016vau}.
 
 
 \section{Anomalous Gauge Couplings}
-Triple and quartic
+Triple and quartic ones
 
 \subsection{Previous Limits}
 Pro tip: they aren't there
