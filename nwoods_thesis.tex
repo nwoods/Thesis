@@ -29,11 +29,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
-%%%%%%SETLINE NUMBERS
-%%\setpagewiselinenumbers
-%\modulolinenumbers[1]
-%\linenumbers
-%%%%%%%END SETLINE NUMBERS
 
 % length unit for Feynman diagrams
 \unitlength = \textwidth % chktex 1
@@ -83,7 +78,13 @@
 \mainmatter{}
 
 
-% include chapters here
+%%%%%%SETLINE NUMBERS
+%%\setpagewiselinenumbers
+\modulolinenumbers[1]
+\linenumbers % chktex 1
+%%%%%%%END SETLINE NUMBERS
+
+% Chapters
 
 \include{standardModel/standardModel}
 \include{phenomenology/phenomenology}
