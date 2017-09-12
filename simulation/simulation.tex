@@ -2,7 +2,19 @@
 
 \chapter{Simulation}\label{ch:simulation}
 
+Comparing data collected by CMS to theoretical predictions is a complex task.
+The theories described in Chapter~\ref{ch:SM} are understood in great detail, but using this knowledge to calculate observables is a nontrivial enterprise.
+Once calculated, observables must be compared to data from a detector with finite resolution and subject to a number of experimental effects that do not exist in the rarefied world of quantum field theory.
+The general strategy is to employ numerical simulations of individual collision events that involve a physics process of interest, and apply accurate simulations of the detector's response to these events to obtain samples that are directly comparable to data.
+The success of all steps in this process at a high-luminosity hadron collider is one of the triumphs of the LHC era, with many observables in interesting processes simulated accurately to the level of a few percent.
+
+
+
 \section{Monte Carlo Event Generation}
+
+Even in trivial cases, it would be impossible to integrate over the phase space of hard scattering outcomes determined from theory, convolved with matter interactions, detector effects, and other experimental effects to calculate observables analytically.
+Instead, particle spectra are modeled numerically with the Monte Carlo method, so named because, like a casino, it relies heavily on random or pseudorandom numbers. 
+
 
 
 \subsection{Matrix Element Generation}
