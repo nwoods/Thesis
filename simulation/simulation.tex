@@ -12,13 +12,23 @@ The success of all steps in this process at a high-luminosity hadron collider is
 
 \section{Monte Carlo Event Generation}
 
-Even in trivial cases, it would be impossible to integrate over the phase space of hard scattering outcomes determined from theory, convolved with matter interactions, detector effects, and other experimental effects to calculate observables analytically.
-Instead, particle spectra are modeled numerically with the Monte Carlo method, so named because, like a casino, it relies heavily on random or pseudorandom numbers. 
+Even in trivial cases, it would be impossible to integrate over the phase space of hard scattering outcomes determined from theory, convolved with matter interactions, detector effects, and other experimental factors, to calculate observables analytically.
+Particle interactions are well-understood on a microscopic scale, but it is extremely difficult to extrapolate from this first-principles understanding to a description of the macroscopic behavior of an ensemble of particles as needed to make predictions about fundamentally stochastic processes.
+Observable spectra are therefore modeled with the Monte Carlo (MC) method~\cite{Metropolis:10.2307.2280232,Olive:2016xmw}, a numerical integration technique so named because, like a casino, it relies heavily on random numbers\footnote{Pseudorandom numbers are actually used, but there is no difference in practice as long as a good pseudorandom number generator (PRNG) is chosen and seeded properly. The Mersenne Twister algorithm~\cite{Matsumoto:1998:MTE:272991.272995} is the modern standard among general-purpose PRNGs in physics and elsewhere.}.
+The scattering amplitudes for a process are calculated from theory at a chosen perturbative order, and for each simulated event a configuration of final state particles is selected at random from this phase space.
+The final state particles are propagated through decays, radiation, hadronization, and interaction with other matter---such as the detector---based on well-understood physics principles, and the outcome of any stochastic process is chosen at random from a realistic set or distribution of possibilities.
+In the limit of a large number of simulated events, the distributions from the simulated detector will converge to be directly comparable to aggregated data.
+Individual steps in this process are detailed in the following sections.
 
 
+\subsection{Matrix Element and Hard Process Generation}
 
-\subsection{Matrix Element Generation}
-
+Event generator programs start by calculating the scattering amplitudes for a process at a chosen order in perturbation theory.
+For example, the generator {\MGAMC}~\cite{Alwall:2014hca} generates all the relevant Feynman diagrams up to NLO and calculates the matrix elements for them.
+Others, like {\POWHEG}~\cite{Nason:2004rx,Frixione:2007vw,Alioli:2010xd}, {\SHERPA}~\cite{Gleisberg:2008ta} and {\MCFM}~\cite{Campbell:1999ah,Campbell:2011bn,Campbell:2015qma}, are not fully general but have a broad range of physics processes implemented at NLO\@; {\SHERPA} and {\MCFM} can do some calculations at NNLO~\cite{Boughezal:2016wmq}.
+Events are generated across the entire allowed phase space, either uniformly or with the specific distribution dictated by one of several ``importance sampling'' techniques~\cite{Lepage:1977sw,Olive:2016xmw} which ensure appropriate statistical coverage in regions where the distribution has a large slope or value.
+Each event is assigned a weight $w \in (0,1)$ based on the scattering amplitude in that region of phase space and the probability of having an appropriate initial state based on the PDFs discussed in Section~\ref{sec:pp}.
+The sample is then ``unweighted'' to a subset that is directly comparable to data by removing events with a probability proportional to $1 - w$.
 
 
 \subsection{Parton Shower, Hadronization, and Underlying Event}\label{sec:partonShower}
