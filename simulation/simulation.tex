@@ -33,6 +33,18 @@ The sample is then ``unweighted'' to a subset that is directly comparable to dat
 
 \subsection{Parton Shower, Hadronization, and Underlying Event}\label{sec:partonShower}
 
+Processes generated above leading order may have extra radiation, as in the real emission diagrams of Fig.~\ref{fig:zzNLO}.
+In the case of calculations at higher orders in QCD, the emissions are quarks and gluons which fragment, hadronize, decay, etc.
+This process is handled by a parton shower MC program such as {\PYTHIA}~8~\cite{Sjostrand:2014zea} (used for most simulations used in this analysis), \textsc{Herwig}~\cite{Bahr:2008pv,Bellm:2015jjp}, or {\SHERPA}~\cite{Gleisberg:2008ta}.
+In {\PYTHIA}, parton showering is simulated with the Lund string model~\cite{Andersson:1978vj,Andersson:1983jt,Andersson:2001yu}, which treats gluons as ropes connecting color charged particles whose tension increases as the quarks move apart.
+When a rope stretches too far, it breaks, producing a quark pair at the new rope ends.
+
+Parton shower (PS) MC programs also handle radiation of soft gluons from color charged particles and photons from electrically charged particles
+The emitter may be an incoming parton (initial state radiation, ISR), a virtual particle exchanged during the interaction, or an outgoing particle (final state radiation, FSR).
+The distinction between ``soft'' radiation that should be handled by the PSMC and ``hard'' emission present in the matrix element is not well defined, so it is important to avoid double-counting regions of phase space at the boundary between the processes.
+This is done with jet matching or merging~\cite{Alwall:2014hca,Olive:2016xmw}.
+At tree level, matching may be achieved by enforcing a jet energy cutoff: partons from the matrix element must have energy $E > E_\text{cut}$, and the PSMC is responsible for any softer radiation.
+At NLO, loop diagrams carry divergences that must be canceled by divergences of opposite sign in the infrared radiation regime, which the cutoff would prevent, so a more sophisticated merging scheme must be used.
 
 
 \subsection{Pileup Simulation}
