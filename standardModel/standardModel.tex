@@ -19,7 +19,7 @@ Everything that follows uses units such that $c = \hbar = 1$, where $c$ is the s
 
 
 
-\section{Matter and Force}
+\section{Matter and Forces}
 
 In the SM, matter is made of fermions (particles with half-integer spin; all SM fundamental fermions have spin $\frac{1}{2}$) which interact by exchanging gauge bosons (integer spin; spin 1 for the SM force carriers).
 Table~\ref{tab:sm} lists the fundamental particles and some of their properties.
@@ -109,16 +109,15 @@ The photon is a spin-1 gauge boson that is massless and electrically neutral its
 There are six types of quarks which fall into three ``generations:'' up and down ({\Pqu} and {\Pqd}, first generation); charm and strange ({\Pqc} and {\Pqs}, second generation); and top and bottom ({\Pqt} and {\Pqb}, third generation)\footnote{Top and bottom quarks are sometimes called truth and beauty.}.
 Quark masses increase with each successive generation.
 Up-type quarks ({\Pqu}, {\Pqc}, {\Pqt}) have electric charge $+2/3$ (in units of the positron charge $e$) while down-type quarks have $-1/3$.
-Quarks are the building blocks of hadron, including $\Pq\Paq'$ bound states called mesons and $\Pq\Pq'\Pq''/\Paq\Paq'\Paq''$ bound states called baryons, of which protons ($\Pqu\Pqu\Pqd$) and neutrons ($\Pqu\Pqd\Pqd$) are the most familiar.
+Quarks are the building blocks of hadrons, including $\Pq\Paq'$ bound states called mesons and $\Pq\Pq'\Pq''/\Paq\Paq'\Paq''$ bound states called baryons, of which protons ($\Pqu\Pqu\Pqd$) and neutrons ($\Pqu\Pqd\Pqd$) are the most familiar.
 Top quarks are too heavy to form bound states; the toponium ({\TTbar} meson) weak decay width is larger than the spacing between its energy levels and its mean lifetime is an order of magnitude shorter than its orbital period so no resonance may form~\cite{Donoghue:238727}.
 Hadrons are bound by the strong nuclear force, described by the theory of quantum chromodynamics (QCD).
 
 The mediator for the strong force is the gluon, which like the photon is a massless spin-1 gauge boson.
 The analog of electric charge is ``color'', a notion originally introduced~\cite{PhysRevLett.13.598} as an ad hoc explanation of how identical quarks could exist in the symmetric bound state of a hadron despite the Fermi exclusion principle and later found to be the charge underlying the strong force~\cite{Griffiths:111880,10.2307/24949915}.
 Unlike electric charge, there are three types of color charge, typically called red, green, and blue, though these names are arbitrary\footnote{Negative color charges, carried by antiquarks, are typically called antired, antigreen and antiblue.}.
-The analogy with visible color comes primarily from the heuristic that natural states must be ``colorless,'' i.e.\ a hadron may have equal parts color and corresponding anticolor as in a meson, but it may also be ``white,'' containing red, blue, and green in equal measures as in a baryon, but a color charged object cannot exist on its own.
-This property, known as confinement, is why a free quark has never been observed, and is not expected to be found, and why the strong interaction is short-range even though gluons are massless.
-It is also why, for example, $\Pq\Pq\Paq$ bound states are not seen in nature.
+The analogy with visible color comes primarily from the heuristic that natural states must be ``colorless,'' i.e.\ a hadron may have equal parts color and corresponding anticolor as in a meson, but it may also be ``white,'' containing red, blue, and green in equal measures as in a baryon.
+This implies that a color charged object cannot exist on its own, a property known as confinement.
 
 Confinement arises from the structure of QCD interactions and gluons themselves.
 Among fermions, only quarks interact through the strong force, but gluons also carry color charge and interact with each other.
@@ -127,6 +126,8 @@ The resulting soft gluon interactions around quarks lead to an anti-screening ef
 As quark separation gets larger, the potential energy of strong interactions rises rapidly, until it is energetically favorable for the gluon connecting them to split into a $\Pq\Paq$ pair that screens them and effectively breaks off the interaction.
 A single colored particle will thus cause more colored particles to be produced from vacuum until only colorless bound states remain, enforcing confinement.
 This process is known as hadronization, and causes single quarks or gluons leaving a hard scattering interaction to produce ``jets'' of many hadrons, each carrying a fraction of the original parton momentum, that enter the detector in a conical shower.
+This is why a free quark has never been observed, and is not expected to be found, and why the strong interaction is short-range even though gluons are massless.
+It is also why, for example, $\Pq\Pq\Paq$ bound states are not seen in nature.
 Conversely, close-range QCD is relatively feeble, leading to ``asymptotic freedom,'' the property of partons within hadrons that they may be considered independent in high-energy collisions, because their interactions are weak enough that bound state effects may be neglected (see Section~\ref{sec:pp}).
 % Example Feynman diagrams for LO $\Pq\Paq \to \Pq\Paq\Pg$ scattering are shown in Fig.~\ref{fig:threeJet}.
 %
@@ -196,7 +197,7 @@ Unlike the {\Pa}, the {\PZ} has mass---in fact, one of the largest known masses 
 Also unlike QED, weak interactions do not respect parity (P) symmetry.
 The {\PZ} boson couples more strongly to left-handed fermions (those with helicity opposite their direction of motion) and right-handed antifermions than to their opposite-spin counterparts.
 The degree of asymmetry varies by fermion type; notably, the {\PZ} does not couple at all to right-handed neutrinos.
-Neutral-current interactions are still symmetric under combined charge conjugation and parity (CP) transformations.
+Neutral-current interactions are still symmetric under combined charge conjugation (C) and parity (CP) transformations, because processes that are odd under P are also odd under C\@.
 
 Charged-current interaction proceed through exchange of an electrically charged boson, the {\PWpm}, which has a mass around {80\GeV}~\cite{Olive:2016xmw}.
 Leptons couple to {\PWm} bosons in $\ell^-, \Panl$ pairs ({\PWp} bosons likewise with their antiparticles), causing {\Pm} and {\Pt} decays.
@@ -204,7 +205,7 @@ Lepton flavor in conserved in the sense that charged leptons couple to the {\PW}
 Flavor conservation does not hold for quarks undergoing charged weak interactions.
 An up-type quark always couples to the {\PW} in conjunction with a down-type quark, as it must to obey conservation of electric and color charge.
 The pairings are in general described by a unitary $3 \times 3$ matrix known as the Cabibbo--Kobayashi--Maskawa (CKM) matrix which defines the inter-generational mixing~\cite{Cabibbo:1963yz,doi:10.1143/PTP.49.652}. % chktex 8
-This mixing allows heavy quarks to decay to lighter ones, and is thus responsible for the decay of hadrons that do not contain the $\Pq\Paq$ pair necessary for strong or electromagnetic decays.
+Flavor-changing currents allow heavy quarks to decay to lighter ones, and are thus responsible for the decay of hadrons that do not contain the $\Pq\Paq$ pair necessary for strong or electromagnetic decays.
 % The tree-level Feynman diagram for a leptonic top quark decay $\Pqt \to  \Pqb + \ell + \Panl$ is shown in Fig.~\ref{fig:topDecay}.
 %
 % \begin{figure}[htbp]
@@ -235,14 +236,14 @@ This mixing allows heavy quarks to decay to lighter ones, and is thus responsibl
 Charged-current interactions also do not respect parity symmetry, and in fact are maximally parity violating: the {\PW} couples only to left-handed fermions and right-handed antifermions.
 Because neutrinos interact only through the weak force\footnote{Aside from gravity, presumably, but this interaction is not experimentally accessible and is not covered by the standard model.}, and the {\PZ} also couples only to left-handed neutrinos, this implies that it is not clear if right-handed neutrinos even exist.
 If they do, they have no way to interact with other matter and they are not part of the SM\@.
-Unlike neutral-current interactions, charged-current interactions violate CP symmetry.
+Unlike neutral-current interactions, charged-current interactions violate CP symmetry at a small but measurable rate.
 CP violation was first observed in neutral kaon mixing before the theory of the weak force was fully worked out~\cite{PhysRevLett.13.138}.
 After flavor-changing charged currents were formalized it was realized that CP violation could arise from a complex phase in the CKM matrix, which arises in models with at least three generations of quarks\footnote{At the time, only the first two generations were known, so the observed CP asymmetry was taken as an early indication of the existence of top and bottom quarks.}~\cite{doi:10.1143/PTP.49.652}.
 CP violation was subsequently confirmed by observation in a number of meson decays~\cite{AlaviHarati:1999xp,Fanti:1999nm,Aubert:2001sp,Abe:2001xe,Aaij:2012kz,Aaij:2013iua}.
 
 The quantum number analogous to electric charge and color charge for the weak interaction is the three-component weak isospin $T^i$, which is typically defined such that the measured component is $T^3$.
 Left-handed fermions have $\lvert T \rvert = \frac{1}{2}$, the {\PWpm} has $\lvert T \rvert = \pm 1$, and all other particles have $\lvert T \rvert = 0$.
-Weak isospin is conserved in all electromagnetic, strong, and fermion-fermion weak interactions, but is not conserved in general.
+Weak isospin is conserved in all electromagnetic, strong, and fermion-fermion weak interactions, but is not conserved in general because the Higgs boson (see below) carries weak isospin.
 Electric charge is always conserved, and is related to the measured component of the weak isospin by the weak hypercharge $Y$, which is
 \begin{equation}
   Y = 2\left(Q - T^3\right),
@@ -256,9 +257,9 @@ The mechanism for this is called electroweak symmetry breaking.
 \section{Electroweak Symmetry Breaking and the Higgs Boson}
 
 The structures of the fundamental forces arise from symmetries in the underlying fields, specifically gauge invariance of the relevant terms in the SM Lagrangian.
-The full phenomenology of QCD, for example, arises from the {\SUthree} symmetry of invariance under local color phase transformations, and the fact the the symmetry is non-Abelian (i.e.\ the transformation operators do not commute).
+Much of the phenomenology of QCD, for example, arises from the {\SUthree} symmetry of invariance under local color phase transformations, and the fact that the symmetry is non-Abelian (i.e.\ the transformation operators do not commute).
 Charges are the generators of the relevant symmetry group, the conserved currents of Noether's first theorem~\cite{Noether:1918zz}.
-A full treatment of the SM's symmetry group structure and its connections to the theory's phenomenology is discussed in a number of books, including Refs.~\cite{Halzen:1984mc,Peskin:1995ev,Srednicki:1019751,Donoghue:238727}.
+A full treatment of the SM's symmetry group structure and its connections to the theory's phenomenology is given in a number of books, including Refs.~\cite{Halzen:1984mc,Peskin:1995ev,Srednicki:1019751,Donoghue:238727}.
 The relevant point here is that the weak force arises from an {\SUtwo} symmetry generated by the weak isospin $T$, and the electromagnetic force from a {\Uone} symmetry generated by the electric charge $Q$, so a unified electroweak force should obey an $\SUtwoL \times \Uone$ symmetry, where the $L$ indicates that only left-handed fermions transform under the {\SUtwo} symmetry.
 The resulting unified electroweak theory is known as the Glashow--Weinberg--Salam (GWS) model~\cite{Glashow:1961tr,Weinberg:1967tq,Salam:1968rm}. % chktex 8
 
@@ -304,7 +305,11 @@ where $\theta_W$ is the Weinberg electroweak mixing angle
 \begin{equation}
   \tan{\theta_W} = \frac{g'}{g}.
 \end{equation}
-The newly defined fields are the gauge fields for the weak and electromagnetic forces, with boson masses
+The newly defined fields are the gauge fields for the weak and electromagnetic forces, and in this basis, the Lagrangian has terms
+\begin{equation}
+  \mathcal{L}_{m_\PV} = -\frac{v^2g^2}{4} W_\mu^+ W^{-\mu} -\frac{v^2(g^2 + g^{\prime2})}{8} Z_\mu Z^\mu,
+\end{equation}
+which imply boson masses
 \begin{equation}
   \begin{aligned}
     & m_\PW &       & =  \frac{1}{2}vg                   \\
@@ -312,7 +317,7 @@ The newly defined fields are the gauge fields for the weak and electromagnetic f
     & m_A = & m_\Pa & =  0,
   \end{aligned}
 \end{equation}
-which implies
+and
 \begin{equation}
   \cos{\theta_W} = \frac{m_\PW}{m_\PZ}.
 \end{equation}
