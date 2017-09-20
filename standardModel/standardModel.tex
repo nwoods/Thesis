@@ -7,9 +7,9 @@
 \section{Introduction}
 
 The standard model (SM) is a set of several related theories that together describe matter and its interactions at a fundamental level.
-The SM is a remarkable theory, making detailed predictions on a wide range of topics that have matched data within the precision of essentially every experiment over roughly four decades.
+The SM is a remarkable theory, making detailed predictions for a wide range of measurements that have matched data within the precision of essentially every experiment over roughly four decades.
 It is arguably the best-confirmed theory in the history of science despite making some of the boldest, broadest, and most precise predictions.
-There are a few known phenomena that the SM does not cover, but it is generally believed to be self-consistent; future advances will likely add to it, explain its free parameters, or find some deeper underlying structure, not contradict it.
+There are a few known phenomena that the SM does not cover, and some of its features seem for now to be surprising coincidences (see Section~\ref{sec:bsm}), but it is generally believed to be self-consistent; future advances will likely add to it, explain its free parameters, or find some deeper underlying structure, not contradict it.
 
 The following sections give a general overview of the SM and related topics that serve as background material for the four-lepton processes described in more detail in subsequent chapters.
 This includes discussions of the particle content of the SM and the gauge structure that leads to particle interactions, the spontaneous symmetry breaking mechanism that leads to the specific structure of the electroweak sector of the SM, diboson processes, and the SM's limitations and how they might be addressed.
@@ -25,7 +25,7 @@ In the SM, matter is made of fermions (particles with half-integer spin; all SM 
 Table~\ref{tab:sm} lists the fundamental particles and some of their properties.
 With the exception of the neutral bosons, all particles have a corresponding antiparticle which is the same except that all its quantum numbers have opposite sign.
 The fermions come in two categories, leptons and quarks.
-All the quarks and half the lepton types carry electric charge and are therefore subject to interactions through the electromagnetic force, described by quantum electrodynamics (QED).
+All the quarks and half the lepton types carry electric charge and are therefore subject to interactions through the electromagnetic force, described by quantum electrodynamics (QED)~\cite{Halzen:1984mc}.
 In a QED interaction, two charged particles exchange a photon, which carries the momentum transferred from one to the other.
 The photon is a spin-1 gauge boson that is massless and electrically neutral itself, explaining why electromagnetic forces are long-range.
 % Because it is so simple, QED was the first theory of fundamental force to be worked out in detail, and it served as the template for the theories of the other forces.
@@ -62,7 +62,7 @@ The photon is a spin-1 gauge boson that is massless and electrically neutral its
       The particles of the standard model, and some of their properties.
       All fermions have a corresponding antiparticle with opposite sign for all quantum numbers.
       Quarks and leptons are grouped by generation.
-      Note that the listed $T^3$ applies only to left-handed fermions; right-handed fermions have $T^3=0$ and do not couple to the {\PWpm} (right-handed neutrinos, if they exist, do not couple to the {\PZ} either).
+      Note that the listed $T^3$ (the measured component of the weak isospin, described below) applies only to left-handed fermions; right-handed fermions have $T^3=0$ and do not couple to the {\PWpm} (right-handed neutrinos, if they exist, do not couple to the {\PZ} either).
     }\label{tab:sm}
     \begin{tabular}{ccccc}
       \toprule % chktex 1
@@ -106,17 +106,17 @@ The photon is a spin-1 gauge boson that is massless and electrically neutral its
   \end{center}
 \end{table}
 
-There are six types of quarks which fall into three ``generations:'' up and down ({\Pqu} and {\Pqd}, first generation); charm and strange ({\Pqc} and {\Pqs}, second generation); and top and bottom ({\Pqt} and {\Pqb})\footnote{Top and bottom quarks are sometimes called truth and beauty by more romantic particle physicists.}.
+There are six types of quarks which fall into three ``generations:'' up and down ({\Pqu} and {\Pqd}, first generation); charm and strange ({\Pqc} and {\Pqs}, second generation); and top and bottom ({\Pqt} and {\Pqb}, third generation)\footnote{Top and bottom quarks are sometimes called truth and beauty.}.
 Quark masses increase with each successive generation.
 Up-type quarks ({\Pqu}, {\Pqc}, {\Pqt}) have electric charge $+2/3$ (in units of the positron charge $e$) while down-type quarks have $-1/3$.
 Quarks are the building blocks of hadron, including $\Pq\Paq'$ bound states called mesons and $\Pq\Pq'\Pq''/\Paq\Paq'\Paq''$ bound states called baryons, of which protons ($\Pqu\Pqu\Pqd$) and neutrons ($\Pqu\Pqd\Pqd$) are the most familiar.
-Top quarks are too heavy to form bound states; they decay too quickly.
+Top quarks are too heavy to form bound states; the toponium ({\TTbar} meson) weak decay width is larger than the spacing between its energy levels and its mean lifetime is an order of magnitude shorter than its orbital period so no resonance may form~\cite{Donoghue:238727}.
 Hadrons are bound by the strong nuclear force, described by the theory of quantum chromodynamics (QCD).
 
 The mediator for the strong force is the gluon, which like the photon is a massless spin-1 gauge boson.
-The analog of electric charge is color charge, a notion originally introduced to explain how identical quarks could exist in the symmetric bound state of a hadron despite the Fermi exclusion principle~\cite{Griffiths:111880}.
-Unlike electric charge, there are three types of color charge, typically called red, green, and blue, though these names are arbitrary\footnote{Negative color charges are typically called antired, antigreen and antiblue, but sometimes cyan, magenta, and yellow, to continue the analogy with visible colors.}.
-The analogy with color comes primarily from the heuristic that natural states must be ``colorless,'' i.e.\ a hadron may have equal parts color and corresponding anticolor as in a meson, but it may also be ``white,'' containing red, blue, and green in equal measures as in a baryon.
+The analog of electric charge is ``color'', a notion originally introduced~\cite{PhysRevLett.13.598} as an ad hoc explanation of how identical quarks could exist in the symmetric bound state of a hadron despite the Fermi exclusion principle and later found to be the charge underlying the strong force~\cite{Griffiths:111880,10.2307/24949915}.
+Unlike electric charge, there are three types of color charge, typically called red, green, and blue, though these names are arbitrary\footnote{Negative color charges, carried by antiquarks, are typically called antired, antigreen and antiblue.}.
+The analogy with visible color comes primarily from the heuristic that natural states must be ``colorless,'' i.e.\ a hadron may have equal parts color and corresponding anticolor as in a meson, but it may also be ``white,'' containing red, blue, and green in equal measures as in a baryon, but a color charged object cannot exist on its own.
 This property, known as confinement, is why a free quark has never been observed, and is not expected to be found, and why the strong interaction is short-range even though gluons are massless.
 It is also why, for example, $\Pq\Pq\Paq$ bound states are not seen in nature.
 
@@ -188,22 +188,22 @@ Taus decay quickly, with a mean lifetime of $2.9 \times 10^{-13}\unit{s}$ in the
 Neutrinos are known to have mass~\cite{Fukuda:1998mi,Ahmad:2001an,Ahmad:2002jz}, and the masses are known to be small but they have not been measured.
 All leptons and quarks interact via the weak nuclear force, which is best known for causing the nuclear beta decay reaction $\Pn \to \Pp + \Pe^- + \Pane$.
 Neutrinos are notable for coupling to the rest of the SM only through weak interactions, making them difficult to detect in practice.
-Detectors at particle colliders make no attempt to detect neutrinos, and their involvement in the process is inferred only through the apparent momentum imbalance resulting from their absence.
+Detectors at particle colliders make no attempt to detect neutrinos, and their involvement in the process is inferred only through the apparent momentum imbalance resulting from the fact that they are missed.
 
 The weak force operates through two mechanisms, charged-current and neutral-current interactions.
 Neutral-current interactions proceed through exchange of a {\PZ} boson, an electrically neutral spin-1 mediator, and are analogous to electromagnetic interactions except for two important differences.
-Unlike the {\Pa}, the {\PZ} has mass---in fact, one of the largest known masses at 91\GeV---giving it longitudinal polarization modes and limiting the range of the force because it decays with a halflife on the order of $10^{-25}\unit{s}$.
+Unlike the {\Pa}, the {\PZ} has mass---in fact, one of the largest known masses at 91\GeV~\cite{Olive:2016xmw}---giving it longitudinal polarization modes~\cite{Halzen:1984mc} and limiting the range of the force because it decays with a halflife on the order of $10^{-25}\unit{s}$~\cite{Olive:2016xmw}.
 Also unlike QED, weak interactions do not respect parity (P) symmetry.
 The {\PZ} boson couples more strongly to left-handed fermions (those with helicity opposite their direction of motion) and right-handed antifermions than to their opposite-spin counterparts.
 The degree of asymmetry varies by fermion type; notably, the {\PZ} does not couple at all to right-handed neutrinos.
 Neutral-current interactions are still symmetric under combined charge conjugation and parity (CP) transformations.
 
-Charged-current interaction proceed through exchange of an electrically charged boson, the {\PWpm}, which has a mass around {80\GeV}.
+Charged-current interaction proceed through exchange of an electrically charged boson, the {\PWpm}, which has a mass around {80\GeV}~\cite{Olive:2016xmw}.
 Leptons couple to {\PWm} bosons in $\ell^-, \Panl$ pairs ({\PWp} bosons likewise with their antiparticles), causing {\Pm} and {\Pt} decays.
 Lepton flavor in conserved in the sense that charged leptons couple to the {\PW} only in conjunction with the (anti-)neutrino from the same generation, so the total lepton number $N_\ell = n_{\ell^-} - n_{\ell^+} + n_{\Pnl} - n_{\Panl}$, where $n_\PX$ is the number of {\PX} particles in existence, is conserved separately for $\ell \in \left(\Pe, \Pm, \Pt \right)$. % chktex 36
 Flavor conservation does not hold for quarks undergoing charged weak interactions.
 An up-type quark always couples to the {\PW} in conjunction with a down-type quark, as it must to obey conservation of electric and color charge.
-The pairings are in general described by a unitary $3 \times 3$ matrix known as the Cabibbo--Kobayashi--Maskawa (CKM) matrix which defines the inter-generational mixing. % chktex 8
+The pairings are in general described by a unitary $3 \times 3$ matrix known as the Cabibbo--Kobayashi--Maskawa (CKM) matrix which defines the inter-generational mixing~\cite{Cabibbo:1963yz,doi:10.1143/PTP.49.652}. % chktex 8
 This mixing allows heavy quarks to decay to lighter ones, and is thus responsible for the decay of hadrons that do not contain the $\Pq\Paq$ pair necessary for strong or electromagnetic decays.
 % The tree-level Feynman diagram for a leptonic top quark decay $\Pqt \to  \Pqb + \ell + \Panl$ is shown in Fig.~\ref{fig:topDecay}.
 %
@@ -258,8 +258,7 @@ The mechanism for this is called electroweak symmetry breaking.
 The structures of the fundamental forces arise from symmetries in the underlying fields, specifically gauge invariance of the relevant terms in the SM Lagrangian.
 The full phenomenology of QCD, for example, arises from the {\SUthree} symmetry of invariance under local color phase transformations, and the fact the the symmetry is non-Abelian (i.e.\ the transformation operators do not commute).
 Charges are the generators of the relevant symmetry group, the conserved currents of Noether's first theorem~\cite{Noether:1918zz}.
-A full treatment of the SM's symmetry group structure and its connections to the theory's phenomenology is aesthetically pleasing but beyond the scope of an experimentalist's thesis.
-It is discussed in a number of books, including Refs.~\cite{Halzen:1984mc,Peskin:1995ev,Srednicki:1019751,Donoghue:238727}.
+A full treatment of the SM's symmetry group structure and its connections to the theory's phenomenology is discussed in a number of books, including Refs.~\cite{Halzen:1984mc,Peskin:1995ev,Srednicki:1019751,Donoghue:238727}.
 The relevant point here is that the weak force arises from an {\SUtwo} symmetry generated by the weak isospin $T$, and the electromagnetic force from a {\Uone} symmetry generated by the electric charge $Q$, so a unified electroweak force should obey an $\SUtwoL \times \Uone$ symmetry, where the $L$ indicates that only left-handed fermions transform under the {\SUtwo} symmetry.
 The resulting unified electroweak theory is known as the Glashow--Weinberg--Salam (GWS) model~\cite{Glashow:1961tr,Weinberg:1967tq,Salam:1968rm}. % chktex 8
 
@@ -310,10 +309,10 @@ The newly defined fields are the gauge fields for the weak and electromagnetic f
   \begin{aligned}
     & m_\PW &       & =  \frac{1}{2}vg                   \\
     & m_\PZ &       & =  \frac{1}{2}v\sqrt{g^2 + {g'^2}} \\
-    & m_A = & m_\Pa & =  0.
+    & m_A = & m_\Pa & =  0,
   \end{aligned}
 \end{equation}
-It is now clear that
+which implies
 \begin{equation}
   \cos{\theta_W} = \frac{m_\PW}{m_\PZ}.
 \end{equation}
@@ -566,7 +565,7 @@ The structure of the interactions shown in Figs.~\ref{fig:wwv}--\ref{fig:hh} dep
 One can confirm the basic validity of the Higgs mechanism by observation of a Higgs boson, and its interactions with the massive gauge bosons can be probed in decays to {\ZZs} and $\PW^\pm{\PW^\mp}^\ast$, which were in fact used in its discovery (see Section~\ref{sec:Hresults}).
 The SM makes a number of other testable predictions about the behavior of the electroweak bosons, the most easily testable of which are the multiboson production cross sections, i.e.\ the rates at which particle collisions result in final states with two or more electroweak gauge bosons.
 The tree-level diagrams for general diboson production in fermion-antifermion collisions ($\Pf\Paf \to \PV\PV$) are shown in Fig.~\ref{fig:ffVV}.
-The cross section for such a process will be strongly dependent on the gauge bosons' couplings to fermions, in the first diagram in Fig.~\ref{fig:ffVV}, and their couplings to other gauge bosons in the second (which does not contribute at all for neutral gauge bosons in the SM).
+The cross section for such a process will be strongly dependent on the gauge bosons' couplings to fermions, in the first diagram in Fig.~\ref{fig:ffVV}, and their couplings to other gauge bosons in the second diagram (which does not contribute at all for neutral gauge bosons in the SM).
 Diboson production in $\Pg\Pg$ collisions does not occur at tree level but may proceed through a quark loop as in the so-called box diagram of Fig.~\ref{fig:vvBox}.
 
 \begin{figure}[htbp]
@@ -657,24 +656,26 @@ The VBS cross section is therefore sensitive to both the four-point gauge boson 
 
 
 
-\section{Limitations and Possible Extensions}
+\section{Limitations and Possible Extensions}\label{sec:bsm}
 
 As noted above, the SM is believed to be fully self-consistent, but it has several notable omissions.
-It makes no mention of gravity, which is too weak to be probed at the level of individual particles at energies available in today's collider experiments---or any collider experiment in the foreseeable future.
+It makes no mention of gravity, which is too weak to be probed at the level of individual particles at energies available in collider experiments.
 Neutrinos in the SM are massless, but they are found experimentally to oscillate between the three flavors in flight, which implies that the flavor eigenstates are not mass eigenstates, and thus that they have mass.
-Dark matter is also not described.
+Dark matter, the unidentified substance that makes up roughly 80\% of the universe's gravitationally interacting material~\cite{1983SciAm248f96R,Garrett:2010hd,Ellis:2011jb,Olive:2016xmw}, is also not described.
 Some consider the SM to be ``ad hoc'' in the sense that the fermion masses, and a number of other parameters---19 in all---are completely unconstrained, and a more aesthetically satisfying theory would make predictions for all of them.
+A nicer theory would also offer thorough explanations for what seem now like remarkable coincidences.
+For example, the so-called hierarchy problem: it is intuitively surprising that the strengths of the fundamental forces vary by many orders of magnitude, and do so in such a way that large quantum corrections to the effective Higgs potential cancel almost exactly, causing the Higgs boson mass to be nonzero but much smaller than the scale of the corrections ($\mathcal{O}(10^{19}\GeV)$)~\cite{Georgi:1974yf,Gildener:1976ai,Buras:1977yy}.
 
-A number of theories have been proposed which modify or extend the SM, adding new symmetry groups, unifying the existing ones further, adding new particles, etc.
-A fourth generation of fermions would be a simple extension, but the fourth neutrino would have to have a mass more than half the {\PZ} boson mass to have escaped detection so far, which would be surprising given the small masses of the first three.
-Supersymmetric models, for example, posit a symmetry between bosons and fermions, such that each particle would have a ``superpartner'' with the opposite spin statistics.
-Despite extensive searches, no evidence of such models has been found.
-Another simple extension would be a new force, with mediator gauge bosons analogous to the {\PW} and {\PZ} above the masses accessible at existing colliders.
-This, and several other possible extensions to the SM, would appear in practice as small deviations from the expected couplings of the gauge bosons.
+A number of theories have been proposed which modify or extend the SM~\cite{Ellis:2011jb,Olive:2016xmw}, adding new symmetry groups, unifying the existing ones further, adding new particles, etc.
+A fourth generation of fermions would be a simple extension, but the fourth neutrino would have to have a mass more than half the {\PZ} boson mass to have escaped detection so far, which would be surprising given the small masses of the first three~\cite{Olive:2016xmw,Mele:2015etc}.
+Supersymmetric models, for example, posit a symmetry between bosons and fermions, such that each particle would have a ``superpartner'' with the opposite spin statistics which would provide an opposite correction to the effective Higgs potential and thus a clean solution to the hierarchy problem~\cite{Olive:2016xmw,doi:101142/9789814307505_0001}.
+Despite extensive searches, no evidence of such models has been found~\cite{Autermann:2016les}.
 
 
 \subsection{Anomalous Gauge Couplings}
 
+Another simple extension to the SM would be a new force, with mediator gauge bosons analogous to the {\PW} and {\PZ} above the masses accessible at existing colliders.
+This, and several other possible extensions to the SM, would appear in practice as small deviations from the expected couplings of the gauge bosons.
 Such deviations from standard model interactions are called anomalous gauge couplings (aGC), and may involve anomalous trilinear (aTGC) or quartic (aQGC) vertices.
 Of particular interest here are the anomalous neutral couplings, which correspond to the vertices shown in Fig.~\ref{fig:aGCVertices}.
 These interactions are forbidden in the SM\@.
@@ -725,8 +726,8 @@ In this parameterization, a $\PZ\PZ\PV$ coupling (where {\PV} may be {\PZ} or {\
 \end{equation}
 where $\hat{s}$ is the center of mass energy squared, $g^{\mu\nu}$ is the Minkowski metric and $\varepsilon^{\alpha\beta\gamma\delta}$ is the fully antisymmetric tensor with $\varepsilon^{0123}=1$.
 Neutral aTGCs are then described by two parameters $f_4^{\Pa,\PZ}$ associated to CP-odd terms and two parameters $f_5^{\Pa,\PZ}$ associated to CP-even terms.\footnote{There are, of course, analogous terms for all anomalous {\VVV} couplings, where {\PV} may be any of the electroweak bosons, but only the {\ZZZ} and $\ZZ\Pa$ terms are relevant to this work.}
-The effective Lagrangians in use here are taken to be low-energy approximations invalid had high energy, and are not unitary at high $\sqrt{\hat{s}}$.
-In some previous literature, unitarity is enforced with a generalized dipole for factor~\cite{Baur:1992cd,Baur:2000ae}, such that the vertex factor takes an energy dependence,
+The effective Lagrangians in use here are taken to be low-energy approximations invalid at high energy, and are not unitary at high $\sqrt{\hat{s}}$.
+In some previous literature (see Section~\ref{sec:aTGCLit}), unitarity is enforced with a generalized dipole for factor~\cite{Baur:1992cd,Baur:2000ae}, such that the vertex factor takes an energy dependence,
 \begin{equation}
   f_i^\PV\left(\hat{s}\right) = \frac{f_{i,0}^\PV}{(1 + \hat{s} / \Lambda^2)^n},
 \end{equation}
@@ -784,10 +785,10 @@ The proton constituents, quarks and gluons, are collectively called partons.
 The gluons carry roughly half the total proton momentum~\cite{Halzen:1984mc}.
 Because the number of gluons is not conserved, and they self-interact, the gluon structure of the proton is constantly evolving, and gluons produce virtual $\Pq\Paq$ ``sea quark'' pairs which annihilate again on time scales of order $t_\textit{virt} \sim 1 / \Delta E$~\cite{barger1997collider}.
 A sufficiently energetic color-charged particle colliding with a proton may therefore interact with any kind of quark or with a gluon, and interesting physics in a {\pp} collision may be initiated by $\Pq\Pq, \Pq\Paq, \Pq\Pg$, or $\Pg\Pg$ scattering.
-A particle that scatters with a proton of energy $P$ has a probability of interacting with a parton of a given type with momentum $xP$ given by the parton distribution function (PDF) $f(x,Q^2)$, where $Q$ is the momentum transfer of the interaction.
+A particle that scatters with a proton of energy $P$ has a probability of interacting with a parton of a given type with momentum $xP$ given by the parton distribution function (PDF) $f(x,Q^2)$, where $Q$ is the momentum transfer of the interaction~\cite{barger1997collider}.
 Heuristically, the PDF is a function of $Q$ because it sets the wavelength of the mediating gauge boson and thus the scale on which the interaction can resolve constituent partons.
 PDFs are nonperturbative and cannot be calculated from theory, and are built from fits to experimental data from fixed-target and symmetric $\Pe^\pm\Pp$ deep inelastic scattering (DIS) data, and from hadron collider data~\cite{Ball:2017nwa}.
-The most recent PDFs from the NNPDF collaboration are shown in Fig~\ref{fig:nnpdf}.
+The most recent PDFs from the NNPDF collaboration~\cite{Ball:2017nwa} are shown in Fig~\ref{fig:nnpdf}.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -818,15 +819,16 @@ This factorization into perturbative hard process physics and the nonperturbativ
 \section{Topics Covered In This Thesis}
 
 This thesis presents several studies of diboson events with $\lplmlplm$ ($\ell, \ell' \in \Pe, \Pm$) final states designed to probe the electroweak sector of the SM\@.
-In particular, {\ZZ} production processes are sensitive to the details of the couplings between the gauge bosons and can therefore be used to investigate the GWS model and the Higgs model and spontaneous symmetry breaking.
-As discussed in Chapter~\ref{ch:pheno}, measurements of {\ZZ} production have been made before, but measurements in a new energy regime and with a very large dataset allow stringent new tests of the SM and allow the potential observation of previously unseen phenomena within and beyond it.
+In particular, as one can deduce from Eqs.~\eqref{eq:Lwwv}--\eqref{eq:Lhv}, {\ZZ} production processes are sensitive to the details of the couplings between the gauge bosons and can therefore be used to investigate the GWS model and the Higgs model and spontaneous symmetry breaking.
+Measurements of {\ZZ} production have been made before, but measurements in a new energy regime and with a very large dataset allow stringent new tests of the SM and allow the potential observation of previously unseen phenomena within and beyond it.
+The phenomenological basis for these statements, and a review of previous literature on the topic, comprise Chapter~\ref{ch:pheno}.
 CERN's LHC, a proton-proton collider in tunnels running beneath the Swiss-French border near Geneva, provides collision at record-breaking energies and rates, which can be used by the CMS detector to study diboson processes in unprecedented detail.
 These apparatus are described in Chapter~\ref{ch:experiment}.
 Accurate simulations of physics and particles' interactions with the detector are vital to obtaining valid results; this process is described in Chapter~\ref{ch:simulation}.
 Chapter~\ref{ch:reco} describes how physics objects are built from the detector signals, and how those appropriate for analysis are selected.
 The strategy for performing the {\ZZ} measurements in question is given in Chapter~\ref{ch:methods}.
-New studies of four-lepton events in a new sample of proton-proton collision are presented in Chapter~\ref{ch:results}.
-These results substantially expand our understanding of {\ZZ} production, with inclusive and differential cross section measurements at the record-breaking center-of-mass energy of {13\TeV}, a measurement of the {\Zfourl} branching fraction, and searches for vector boson scattering and anomalous neutral gauge couplings.
+New studies of four-lepton events in a sample of proton-proton collision are presented in Chapter~\ref{ch:results}.
+These results substantially expand our understanding of {\ZZ} production, with inclusive and differential cross section measurements at the record-breaking center-of-mass energy of {13\TeV}, the most precise measurement of the {\Zfourl} branching fraction to date, and searches for vector boson scattering and anomalous neutral gauge couplings.
 
 
 % chktex 17
