@@ -4,9 +4,30 @@
 
 \chapter{The Standard Model}\label{ch:SM}
 
+The mission of fundamental particle physics is an audacious one.
+An exercise in reductionism taken to its logical extreme, the goal of the field is to find the minimal set of mathematical precepts that underlie all interactions of matter and energy and from which everything else in the universe is, in principle, an emergent property.
+Despite the loftiness of its goals, the program has been extraordinarily successful, yielding the standard model (SM), which is elegant in its mathematical formulation yet expansive and powerful in its predictions, most of which have been verified in exquisite detail.
+And yet work remains.
+One area of particular interest is the physics of the electroweak interaction, which was the last piece to fall into place.
+Its final major component, the existence of the Higgs boson, was definitively confirmed only as recently as 2012 and some details remain hazy or unverified, from an experimental perspective.
+These statements will be explained and made more precise here in Chapter~\ref{ch:SM}, which gives an overview of the SM with a focus on its electroweak sector, and describes some of the shortcomings that motivate continued searches for new physics even now that it is complete.
+Chapter~\ref{ch:SM} also describes diboson and multiboson processes, interactions involving multiple instances of the particles underlying electroweak physics, which are valuable tools for understanding how the bosons interact with each other.
+This thesis presents several studies of the {\ZZ} diboson process, intended to illuminate the behavior of the neutral part of electroweak interactions.
+Details of {\ZZ} physics are described in Chapter~\ref{ch:pheno}, along with a review of previous literature.
+
+High-energy particle collisions in a laboratory provide a way to investigate fundamental interactions in a controlled setting.
+CERN's LHC, a proton-proton collider in tunnels running beneath the Swiss-French border near Geneva, provides collision at record-breaking energies and rates, which can be used by the CMS detector to study diboson processes in unprecedented detail.
+These apparatus are described in Chapter~\ref{ch:experiment}.
+Accurate simulations of physics and particles' interactions with the detector are vital to obtaining valid results; this process is described in Chapter~\ref{ch:simulation}.
+Chapter~\ref{ch:reco} describes how physics objects are built from the detector signals, and how those appropriate for analysis are selected.
+The strategy for performing the {\ZZ} measurements in question is given in Chapter~\ref{ch:methods}.
+New studies of four-lepton events in a sample of proton-proton collision are presented in Chapter~\ref{ch:results}.
+
+
+
 \section{Introduction}
 
-The standard model (SM) is a set of several related theories that together describe matter and its interactions at a fundamental level.
+The standard model is a set of several related theories that together describe matter and its interactions at a fundamental level.
 The SM is a remarkable theory, making detailed predictions for a wide range of measurements that have matched data within the precision of essentially every experiment over roughly four decades.
 It is arguably the best-confirmed theory in the history of science despite making some of the boldest, broadest, and most precise predictions.
 There are a few known phenomena that the SM does not cover, and some of its features seem for now to be surprising coincidences (see Section~\ref{sec:bsm}), but it is generally believed to be self-consistent; future advances will likely add to it, explain its free parameters, or find some deeper underlying structure, not contradict it.
@@ -645,7 +666,7 @@ Diboson production in $\Pg\Pg$ collisions does not occur at tree level but may p
 
 Quasielastic vector boson scattering (VBS) interactions ($\PV\PV \to \PV\PV$) are sensitive to a number of features of the SM electroweak sector.
 If only the vector bosons are considered, the scattering amplitude for the process grows quadratically with the center-of-mass energy, violating unitarity~\cite{Alboteanu:2008my}.
-The addition of diagrams involving the Higgs boson enter with opposite sign and restore unitarity, as shown in Fig.~\ref{fig:vbsUnitarity}.
+Interference from diagrams involving the Higgs boson restores unitarity, as shown in Fig.~\ref{fig:vbsUnitarity}.
 The VBS cross section is therefore sensitive to both the four-point gauge boson couplings of Fig.~\ref{fig:wwvv} and the structure of the Higgs field, and can be used to distinguish the SM from models without a Higgs boson and models with multiple particles that play its role.
 
 \begin{figure}[htbp]
@@ -680,6 +701,7 @@ Despite extensive searches, no evidence of such models has been found~\cite{Aute
 \subsection{Anomalous Gauge Couplings}
 
 Another simple extension to the SM would be a new force, with mediator gauge bosons analogous to the {\PW} and {\PZ} above the masses accessible at existing colliders.
+Such a force would originate from a previously undiscovered symmetry, which in many models could result from a higher symmetry which unifies all the fundamental forces at high energy but is broken and effectively reduces to the SM in the low-energy limit~\cite{Olive:2016xmw,Georgi:1974sy, Georgi:1974yf,Buras:1977yy}.
 This, and several other possible extensions to the SM, would appear in practice as small deviations from the expected couplings of the gauge bosons.
 Such deviations from standard model interactions are called anomalous gauge couplings (aGC), and may involve anomalous trilinear (aTGC) or quartic (aQGC) vertices.
 Of particular interest here are the anomalous neutral couplings, which correspond to the vertices shown in Fig.~\ref{fig:aGCVertices}.
@@ -790,9 +812,9 @@ The proton constituents, quarks and gluons, are collectively called partons.
 The gluons carry roughly half the total proton momentum~\cite{Halzen:1984mc}.
 Because the number of gluons is not conserved, and they self-interact, the gluon structure of the proton is constantly evolving, and gluons produce virtual $\Pq\Paq$ ``sea quark'' pairs which annihilate again on time scales of order $t_\textit{virt} \sim 1 / \Delta E$~\cite{barger1997collider}.
 A sufficiently energetic color-charged particle colliding with a proton may therefore interact with any kind of quark or with a gluon, and interesting physics in a {\pp} collision may be initiated by $\Pq\Pq, \Pq\Paq, \Pq\Pg$, or $\Pg\Pg$ scattering.
-A particle that scatters with a proton of energy $P$ has a probability of interacting with a parton of a given type with momentum $xP$ given by the parton distribution function (PDF) $f(x,Q^2)$, where $Q$ is the momentum transfer of the interaction~\cite{barger1997collider}.
+A particle that scatters with a proton of energy $P$ has a probability of interacting with a parton of a given type with momentum $xP$ given by the parton distribution function (PDF) $f(x,Q^2)$, where $x$ is the fraction of the proton momentum carried by the parton and $Q$ is the momentum transfer of the interaction~\cite{barger1997collider}.
 Heuristically, the PDF is a function of $Q$ because it sets the wavelength of the mediating gauge boson and thus the scale on which the interaction can resolve constituent partons.
-PDFs are nonperturbative and cannot be calculated from theory, and are built from fits to experimental data from fixed-target and symmetric $\Pe^\pm\Pp$ deep inelastic scattering (DIS) data, and from hadron collider data~\cite{Ball:2017nwa}.
+PDFs are nonperturbative and have not been calculated from theory, so they are built from fits to experimental data from fixed-target and symmetric $\Pe^\pm\Pp$ deep inelastic scattering (DIS) data, and from hadron collider data~\cite{Ball:2017nwa}.
 The most recent PDFs from the NNPDF collaboration~\cite{Ball:2017nwa} are shown in Fig~\ref{fig:nnpdf}.
 
 \begin{figure}[htbp]
@@ -821,19 +843,14 @@ This factorization into perturbative hard process physics and the nonperturbativ
 
 
 
-\section{Topics Covered In This Thesis}
+\section{ZZ Measurements in Context}
 
-This thesis presents several studies of diboson events with $\lplmlplm$ ($\ell, \ell' \in \Pe, \Pm$) final states designed to probe the electroweak sector of the SM\@.
+This is the context for the work described in the following chapters: the SM is incomplete, but it has been tested extensively and no discrepancies have been found (a partial review of studies that did not exclude the SM can be found in Chapter~\ref{ch:pheno}).
+Because the electroweak sector was the last to be confirmed experimentally and is generally best explored at high energies, a number of aspects await detailed confirmation and remain a potential area where new physics might be found.
+This thesis presents several studies of diboson events with $\lplmlplm$ ($\ell, \ell' \in \Pe, \Pm$) final states designed to probe the interactions of the neutral electroweak bosons.
 In particular, as one can deduce from Eqs.~\eqref{eq:Lwwv}--\eqref{eq:Lhv}, {\ZZ} production processes are sensitive to the details of the couplings between the gauge bosons and can therefore be used to investigate the GWS model and the Higgs model and spontaneous symmetry breaking.
 Measurements of {\ZZ} production have been made before, but measurements in a new energy regime and with a very large dataset allow stringent new tests of the SM and allow the potential observation of previously unseen phenomena within and beyond it.
-The phenomenological basis for these statements, and a review of previous literature on the topic, comprise Chapter~\ref{ch:pheno}.
-CERN's LHC, a proton-proton collider in tunnels running beneath the Swiss-French border near Geneva, provides collision at record-breaking energies and rates, which can be used by the CMS detector to study diboson processes in unprecedented detail.
-These apparatus are described in Chapter~\ref{ch:experiment}.
-Accurate simulations of physics and particles' interactions with the detector are vital to obtaining valid results; this process is described in Chapter~\ref{ch:simulation}.
-Chapter~\ref{ch:reco} describes how physics objects are built from the detector signals, and how those appropriate for analysis are selected.
-The strategy for performing the {\ZZ} measurements in question is given in Chapter~\ref{ch:methods}.
-New studies of four-lepton events in a sample of proton-proton collision are presented in Chapter~\ref{ch:results}.
-These results substantially expand our understanding of {\ZZ} production, with inclusive and differential cross section measurements at the record-breaking center-of-mass energy of {13\TeV}, the most precise measurement of the {\Zfourl} branching fraction to date, and searches for vector boson scattering and anomalous neutral gauge couplings.
+The results presented here substantially expand our understanding of {\ZZ} production, with inclusive and differential cross section measurements at the record-breaking center-of-mass energy of {13\TeV}, the most precise measurement of the {\Zfourl} branching fraction to date, and searches for vector boson scattering and anomalous neutral gauge couplings.
 
 
 % chktex 17
