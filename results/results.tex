@@ -6,10 +6,10 @@ A number of measurements and analyses fall under the umbrella of four-lepton phy
 The first CMS measurement of the {\ZZ} inclusive cross section at {13\TeV} used roughly half the 2015 dataset ({1.34\fbinv}) and was made public in Ref.~\cite{CMS:2015fnj} in December 2015 as one of the first measurements done on {13\TeV} collision data.
 That analysis was expanded to use the whole {2.6\fbinv} collected in 2015, and to include the {\Zfourl} branching fraction measurement, as reported in Ref.~\cite{Khachatryan:2016txa}, submitted in July 2016 and published the following December.
 With the full 2016 dataset, the {\ZZ} cross section and {\Zfourl} branching ratio were measured again to greater precision in Ref.~\cite{CMS:2017ruh}, which also included differential cross section measurements and aTGC limits, made public in March 2017.
-An upcoming paper including these measurements will also include a combination of the 2015 and 2016 inclusive cross section measurements.
-Differential cross sections with respect to jet-related observables, and searches for EWK {\ZZ} production and aTGCs, were reported in May 2017 in Ref.~\cite{CMS:2017dyw}, which will be split into two papers---one for the cross section measurements, one for the searches---for final journal publication.
+A new paper including these measurements~[OUR PAPER] also includes a combination of the 2015 and 2016 inclusive cross section measurements. % FIXME
+Differential cross sections with respect to jet-related observables, and searches for EWK {\ZZ} production and aTGCs, were reported in May 2017 in Ref.~\cite{CMS:2017dyw}, with a paper on only the VBS and aQGC searches following~\cite{Sirunyan:2017fvv}.
 The Higgs boson was studied in the four-lepton final state in Refs.~\cite{CMS:2016rqf,CMS:2016ilx,Sirunyan:2017exp}.
-In the following, results for each topic are only shown for 2016 data, which are taken to supersede 2015 data.
+In the following, results for each topic are only shown for 2016 data, which significantly exceed the accuracy of the results from 2015 data.
 
 
 
@@ -126,6 +126,7 @@ Table~\ref{tab:results_hzz} shows the observed and expected yields in the mass r
 Here, SM continuum production---considered signal in all other parts of this analysis---is considered background.
 Figures~\ref{fig:z1Mass_hzz}--\ref{fig:mZ2VsmZ1_hzz} show the $\PZ_1$ mass, the $\PZ_2$ mass, and the scatter plot of $m_{\PZ_2}$ against $m_{\PZ_1}$, for events in the same four-lepton mass region around the Higgs resonance.
 Agreement between predictions and data is again good.
+Measurements of Higgs boson properties, couplings, and production rates are beyond the scope of this thesis, but were reported in Ref.~\cite{Sirunyan:2017exp}.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -306,7 +307,7 @@ Agreement is, again, overall good.
 
 \section{ZZ Fiducial and Total Cross Section}
 
-The yields shown in Table~\ref{tab:results_zz} and the systematic uncertainties of Table~\ref{tab:systematics} are used as inputs to the maximum likelihood method described in Section~\ref{sec:signalStrength} to obtain the on-shell {\ZZ} signal strength across all channels,
+The yields shown in Table~\ref{tab:results_zz} and the systematic uncertainties of Table~\ref{tab:systematics} are used as inputs to the maximum likelihood method described in Section~\ref{sec:signalStrength} to obtain the on-shell {\ZZ} signal strength across all four-lepton final states,
 \begin{equation}
   \mu = 1.040 _{-0.032}^{+0.033} \stat _{-0.035}^{+0.037} \syst \pm 0.026 \lum,
 \end{equation}
@@ -324,7 +325,7 @@ This measurement, on 2016 data, agrees with the result of the 2015 measurement~\
 \begin{equation}
   \sigma(\pp \to \ZZ) = 14.6 ^{+1.9}_{-1.8} \stat _{-0.5}^{+0.3} \syst \pm 0.2 \thy \pm 0.4 \lum \unit{pb}.
 \end{equation}
-One may combine the measurements by doing a six-bin simultaneous fit with the bins representing the same channel in 2015 and 2016 considered separate.
+One may combine the measurements by doing a six-bin simultaneous fit with the bins representing the same final state in 2015 and 2016 considered separately.
 The degree of correlation between the systematic uncertainties in the 2015 and 2016 runs is not known, but the 2015 contribution is small enough that the systematic uncertainties are dominated by those in the 2016 dataset, and the degree of correlation will have only a small effect on the measurement.
 We therefore do the fit twice, once treating the experimental uncertainties as fully correlated between the datasets, and again treating them as fully uncorrelated.
 The small difference in the central value obtained is added linearly to the systematic error of the result.
@@ -332,12 +333,12 @@ After the full combination, the ``$2015 + 2016$'' total cross section is found t
 \begin{equation}
   \sigma(\pp \to \ZZ) = 17.2 \pm 0.5 \stat \pm 0.7 \syst \pm 0.4 \thy \pm 0.4 \lum \unit{pb}.
 \end{equation}
-These results can be compared to the {\MATRIX} prediction of $16.2^{+0.6}_{-0.4}\unit{pb}$, computed at NNLO in QCD, or the {\MCFM} prediction of $15.0^{+0.7}_{-0.6} \pm 0.2\unit{pb}$, calculated at NLO in QCD with LO $\Pg\Pg \to \ZZ$ diagrams included.
+These results can be compared to the {\MATRIX}~v1.0.0\_beta4 prediction of $16.2^{+0.6}_{-0.4}\unit{pb}$, computed at NNLO in QCD, or the {\MCFM}~v7.0 prediction of $15.0^{+0.7}_{-0.6} \pm 0.2\unit{pb}$, calculated at NLO in QCD with LO $\Pg\Pg \to \ZZ$ diagrams included.
 Both predictions use the NNPDF3.0 PDF sets and fixed scales $\mu_\text{F} = \mu_\text{R} = m_\PZ$.
 
 The total cross section is shown as a function of $\sqrt{s}$ in Fig.~\ref{fig:xsec_vs_sqrts}.
 Measurements from CMS~\cite{Chatrchyan:2012sga,CMS:2014xja,Khachatryan:2015pba,Khachatryan:2016txa} and ATLAS~\cite{Aad:2012awa,Aad:2015rka,Aad:2015zqe} are compared to NLO predictions made with {\MCFM} (with contributions from leading order gluon-gluon fusion diagrams), and NNLO predictions made with {\MATRIX}.
-Results from both experiments agree with the predictions.
+Results from both experiments agree with the predictions, verifying this aspect of the SM to within the measurements' uncertainties.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -363,7 +364,7 @@ yielding a fiducial cross section
 \begin{equation}
   \sigma_\text{fid}\left(\pp \to \PZ \to 4\ell\right) = 31.2 _{-1.4}^{+1.5} \stat _{-1.9}^{+2.1} \syst \pm 0.8 \lum \unit{fb}.
 \end{equation}
-This is scaled by an acceptance correction factor $\mathcal{A} = 0.125 \pm 0.002$, estimated with {\POWHEG}, to the total {\Zfourl} cross section times branching ratio,
+This is scaled by an acceptance correction factor $\mathcal{A} = 0.125 \pm 0.002$, estimated with {\POWHEG}~v2.0, to the total {\Zfourl} cross section times branching ratio,
 \begin{equation}
   \sigma(\pp \to \PZ) \times \mathcal{B}(\PZ \to 4\ell) = 249 \pm 8 \stat ^{+9}_{-8} \syst \pm 4 \thy \pm 6 \lum \unit{fb}.
 \end{equation}
@@ -371,13 +372,13 @@ This is scaled by an acceptance correction factor $\mathcal{A} = 0.125 \pm 0.002
 Equation~(\ref{eq:brCalc}) is used to calculate the branching fraction.
 The {\PZ} cross section times dilepton branching ratio is calculated with {\FEWZ}~v2.0~\cite{Gavin:2010az} at NNLO in QCD to be $\sigma(\PZ \to 2\ell) = 1870 ^{+50}_{-40}\unit{pb}$.
 The {\PZ} mass window correction factor is calculated with {\POWHEG} and found to be $\mathcal{C}^{\text{60--120}}_{\text{80--100}} = 0.926 \pm 0.001$.
-Its uncertainty includes scale and PDF variations.
+Its uncertainty includes scale and PDF variations~\cite{Butterworth:2015oua}.
 The nominal {\PZ} to dilepton branching fraction is $\mathcal{B}\left( \PZ \to 2\ell \right) = 0.03366$~\cite{Olive:2016xmw}.
 The four-lepton branching fraction is measured to be
 \begin{equation}
   \mathcal{B}\left(\Zfourl\right) = 4.8 \pm 0.2 \stat \pm 0.2 \syst \pm 0.1 \thy \pm 0.1 \lum \times 10^{-6}.
 \end{equation}
-This value is consistent with the theoretical value of $4.6 \times 10^{-6}$, calculated with {\MGAMC}, and with previous measurements from CMS and ATLAS~\cite{CMS:2012bw,Khachatryan:2016txa,Aad:2014wra}.
+This value is consistent with the theoretical value of $4.6 \times 10^{-6}$, calculated with {\MGAMC}~v2.3.3, and with previous measurements from CMS and ATLAS~\cite{CMS:2012bw,Khachatryan:2016txa,Aad:2014wra}, which had uncertainties 2--4 times larger.
 
 
 
@@ -387,10 +388,10 @@ Detector-level distributions are unfolded to calculate differential cross sectio
 Figures~\ref{fig:unfold_mass}--\ref{fig:unfold_massFull} show measured differential cross sections and corresponding theory predictions, as functions of different observables.
 All distributions are normalized to the inclusive fiducial cross section, such that the integral of each is unity, including overflow bins (not shown).
 The observables in Figs.~\ref{fig:unfold_mass}--\ref{fig:unfold_deltaPhiZZ} consider only the four-lepton system.
-For the calculation of these distributions, as well as the differential cross section as a function of $N_\text{jets}$ (Fig.~\ref{fig:unfold_njets}), all events passing the on-shell selection are used.
+For the calculation of these distributions, as well as the differential cross section as a function of $N_\text{jets}$ (Fig.~\ref{fig:unfold_njets}), all events passing the on-shell selection of Table~\ref{tab:fiducialDefs} are used.
 Figures~\ref{fig:unfold_mjj} and~\ref{fig:unfold_deltaEtajj} show $m_{\Pj\Pj}$ and $\lvert \Delta \eta_{\Pj\Pj} \rvert$ for all {\ZZ} events with at least two jets, while Figs~\ref{fig:unfold_jPt} and~\ref{fig:unfold_jEta} show {\pt} and $\eta$, respectively, for the leading jet in events with $N_\text{jets} \geq 1$ on the left and the subleading jet in events with $N_\text{jets} \geq 2$ on the right.
-In Fig.~\ref{fig:unfold_massFull}, the phase space is expanded to the full spectrum selection at both detector and true level, to show the four-lepton differential cross section through all production modes as a function of $m_{4\ell}$.
-Measured cross sections overall agree with the theoretical predictions within their uncertainties, which are dominated by statistical uncertainties.
+In Fig.~\ref{fig:unfold_massFull}, the phase space is expanded to the full spectrum selection of Table~\ref{tab:fiducialDefs} at both detector and true level, to show the four-lepton differential cross section through all production modes as a function of $m_{4\ell}$.
+Measured cross sections overall agree with the theoretical predictions within their uncertainties, which are dominated by statistical uncertainties in all bins.
 
 
 \begin{figure}[htbp]
@@ -544,7 +545,7 @@ Measured cross sections overall agree with the theoretical predictions within th
 \section{Vector Boson Scattering}
 
 Figure~\ref{fig:vbsBDT} shows the output of the GBDT discussed in Section~\ref{sec:vbsSearch} for events in the dijet selection.
-The search procedure finds a modest excess of VBS signal, at the level of 2.7 standard deviations over the null hypothesis of the SM without VBS {\ZZ} production.
+The search procedure finds a modest excess of events compatible with VBS {\ZZjj} signal, at the level of 2.7 standard deviations over the null hypothesis of the SM without VBS {\ZZ} production.
 The expected significance is 1.6 standard deviations.
 This corresponds to a VBS fiducial cross section of
 \begin{equation}
@@ -568,7 +569,7 @@ which is consistent with the SM prediction of $0.29^{+0.02}_{-0.03} \unit{fb}$.
 
 \section{Anomalous Coupling Limits}
 
-The {\ZZ} invariant mass is shown in Fig.~\ref{fig:aTGC} for all events in the on-shell selection, with example distributions shown for potential scenarios with nonzero aTGCs.
+The {\ZZ} invariant mass is shown in Fig.~\ref{fig:aTGC} for all events in the on-shell selection, with two example distributions shown for potential scenarios with nonzero aTGCs, one of which sets $f_5^\Pa = 0.0019$ and $f_5^\PZ = 0.0015$, and the other $f_4^\Pa = 0.0019$ and $f_4^\PZ = 0.0015$.
 The limit setting procedure described in Section~\ref{sec:aGCSearch} is applied to each aTGC parameter, with all other couplings fixed to their SM values, to yield one-dimensional 95\% CL limits,
 \begin{equation}\label{eq:aTGC1D}
   \begin{aligned}
@@ -576,7 +577,8 @@ The limit setting procedure described in Section~\ref{sec:aGCSearch} is applied 
   & -0.0012 < f_4^\Pa < 0.0013   ,  & -0.0012 < f_5^\Pa < 0.0013 .
   \end{aligned}
 \end{equation}
-These results improve the previous CMS limits by factors of 3--4~\cite{CMS:2014xja} are the most stringent limits to date on the parameters in question.
+These results improve the previous CMS limits, which were the most stringent set previously, by factors of 2--3~\cite{Khachatryan:2015pba} and are the most stringent limits to date on the parameters in question.
+Recent preliminary limits from ATLAS using {13\TeV} data are 50--80\% looser~\cite{ATLAS:2017eyk}.
 Two-dimensional limits are set in the $f_4^\Pa$-$f_4^\PZ$ and $f_5^\Pa$-$f_5^\PZ$ planes, holding all other parameters to the SM values in each calculation.
 One- and two-dimensional 95\% CL limits are shown in Fig.~\ref{fig:aTGC2D}.
 
@@ -610,8 +612,9 @@ One- and two-dimensional 95\% CL limits are shown in Fig.~\ref{fig:aTGC2D}.
 \end{figure}
 
 
-No unitarizing form factor is applied when calculating the limits of Eq.~(\ref{eq:aTGC1D}).
-One way to enforce unitarity would be to restrict the maximum {\ZZ} invariant mass used to set limits, which would then depend on the cutoff chosen.
+No unitarizing form factor (c.f.\ Section~\ref{sec:aTGCTheory}) is applied when calculating the limits of Eq.~(\ref{eq:aTGC1D}).
+One way to enforce unitarity without a form factor would be to restrict the maximum {\ZZ} invariant mass used, and set the limits considering only events with $m_{\ZZ}$ below some cutoff.
+The limits would then depend on the cutoff chosen, converging to the nonunitary limits when the cutoff is larger than the energies accessible in the experiment.
 The limit computations are repeated with multiple cutoff values, and the resulting expected and observed limits are shown in Fig.~\ref{fig:aTGCCutoff} as a function of the maximum $m_{\ZZ}$ used.
 
 
@@ -629,10 +632,10 @@ The limit computations are repeated with multiple cutoff values, and the resulti
 \end{figure}
 
 The aQGC search proceeds the same way, but using events in the dijet selection.
-The observable used for limit setting is again $m_{\ZZ}$, which is shown for these events along with example distributions for scenarios with nonzero aQGCs, in Fig.~\ref{fig:aQGC}.
+The observable used for limit setting is again $m_{\ZZ}$, which is shown for these events in Fig.~\ref{fig:aQGC} along with two example distributions for scenarios with nonzero aQGCs, one with $f_\text{T8}/\Lambda^4 = 1\TeVns^{-4}$, the other with $f_\text{T9}/\Lambda^4 = 2\TeVns^{-4}$.
 In the aQGC search, a unitarity bound is imposed, chosen with \textsc{vbfnlo}~\cite{Arnold:2008rz} to be the value of $m_{\ZZ}$ at which the scattering amplitude would violate unitarity if the aQGC parameter in question were set to its 95\% CL limit value.
 While limits are set for each parameter, all other parameters and their unitarity bounds are set to zero.
-The observed 95\% CL limits are
+The observed 95\% CL limits on the coefficients of the effective field theory operators coverning {\ZZjj} production are
 \begin{equation}\label{eq:aQGC1D}
   \begin{aligned}
     &-0.46  &<& \quad  f_\text{T0} / \Lambda^4  &<&  \quad  0.44  & \TeV^{-4}, \\
@@ -642,7 +645,8 @@ The observed 95\% CL limits are
     &-1.8   &<& \quad  f_\text{T9} / \Lambda^4  &<&  \quad  1.8   & \TeV^{-4}.
   \end{aligned}
 \end{equation}
-These are the most stringent constraints to date on all five parameters.
+These are the most stringent constraints to date on all five parameters, improving on the previous best by factors of 2--8 (see Section~\ref{sec:aTGCLit}).
+This is the first time any of them have been measured in the {\ZZjj} channel.
 
 
 \begin{figure}[htbp]

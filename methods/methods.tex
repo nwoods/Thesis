@@ -32,7 +32,6 @@ Figure~\ref{fig:fakerates} shows the misidentification rates for electrons and m
 
 To estimate the total reducible background yield, the misidentification rates are applied to two $\PZ+\PX$ enriched control samples, each containing a {\PZ}~boson candidate passing all signal region requirements plus two more lepton candidates which pass the relaxed identification criteria and would make a second {\PZ} boson candidate according to Section~\ref{sec:zSelection} except that one or both fail the full identification or isolation criteria.
 The sample with one failing lepton, called the ``3P1F'' sample for ``3 prompt 1 fake,'' covers the contribution from {\WZ} events, while the sample with both leptons in the second {\PZ} boson failing (``2P2F'') covers $\PZ+\text{jets}$ and {\TTbar} events.
-%Both have the contribution from {\ZZ} events in which one or two prompt leptons fail identification or isolation criteria removed based on simulated samples.
 The fake object transfer factor
 \begin{equation}
   F_\ell\left(\pt^\ell,\eta^\ell\right) = \frac{f_\ell\left(\pt^\ell, \eta^\ell\right)}{1 - f_\ell\left(\pt^\ell, \eta^\ell\right)}
@@ -71,7 +70,7 @@ The total uncertainty on the background yield varies by channel but is below 1\%
 
 Uncertainties due to the effect of QCD scale on the $\ZZ \to 4\ell$ acceptance are evaluated with {\POWHEG} and {\MCFM}, by varying the QCD scales up and down by a factor of two with respect to the default $\mu_R = \mu_F = m_{\ZZ}$.
 Parametric  uncertainties (PDF$+ \alpha_s$) are evaluated according to the \textsc{pdf4lhc} prescription in the acceptance calculation~\cite{Butterworth:2015oua}, and with \textsc{nnpdf3.0} in the cross section calculations.
-An additional theoretical uncertainty arises from scaling the $\Pq\Paq \to \ZZ$ and $\Pg\Pg \to \ZZ$ simulated samples to their NNLO and NLO predicted cross sections, respectively, as described in Chapter~\ref{ch:simulation}.
+An additional theoretical uncertainty arises from scaling the $\Pq\Paq \to \ZZ$ and $\Pg\Pg \to \ZZ$ simulated samples to their NNLO and NLO predicted cross sections, respectively, with the $K$~factors described in Section~\ref{sec:samples}.
 The corresponding change in the acceptance, 1.1\%, is added to the previous theoretical errors in quadrature.
 
 Systematic uncertainties on expected signal yield are summarized in Table~\ref{tab:systematics}.
@@ -256,7 +255,7 @@ Systematic uncertainties are negligible compared to statistical uncertainties in
 The VBS signal search considers events passing the selections described in Section~\ref{sec:vbsSelection}.
 The electroweak yield is insufficient to have sensitivity at 35.9\fbinv, even with further cut optimization, so a gradient-boosted decision tree (GBDT), implemented with the \textsc{Scikit-learn} package~\cite{scikit-learn}, is used to extract the signal.
 Hyperparameters of the GBDT are optimized with a grid search.
-Each Monte Carlo sample used in the VBS search (c.f.\ Chapter~\ref{ch:simulation}) is split into a ``training'' subsample, used to train the GBDT, and a ``test'' subsample used to evaluate its performance and make templates for use in the statistical analysis.
+Each Monte Carlo sample used in the VBS search (see Section~\ref{sec:samples}) is split into a ``training'' subsample, used to train the GBDT, and a ``test'' subsample used to evaluate its performance and make templates for use in the statistical analysis.
 The GBDT performance is nearly the same for the test and training samples, a sign that the algorithm is not overtrained.
 
 A number of observables have been proposed to discriminate VBS events from background~\cite{Zeppenfeld:54.6680}, of which $m_{\Pj\Pj}$ and $\Delta\eta_{\Pj\Pj}$ are the most powerful.

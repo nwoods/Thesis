@@ -40,21 +40,21 @@ where $z^V_i$ is the $z$ position of vertex $i$, $z^t_j$ is the $z$ position of 
 The track-vertex association matrix $p_{ij}$ maps tracks to their associated vertices, i.e.\ $p_{ij} = 1$ if vertex $i$ and track $j$ are associated, $p_{ij} = 0$ if they are not.
 Rather than minimize Eq.~(\ref{eq:vtxChi2}) directly with an unknown number of vertices, the CMS clustering algorithm~\cite{Speer:2006mh,Chatrchyan:2014fea} uses a technique known as deterministic annealing~\cite{Rose:726788}, which treats the system as a statistical ensemble of associations between the tracks and an unknown number of vertices.
 The association matrix $p_{ij}$ is then the probability that vertex $i$ and track $j$ are associated.
-If every possible set of assignments, for every possible number and arrangement of vertices, is considered equally probably, this is analogous to a thermodynamic system at high temperature, with $\chi^2$ playing the role of energy.
+If every possible set of assignments, for every possible number and arrangement of vertices, is considered equally probable, this is analogous to a thermodynamic system at high temperature, with $\chi^2$ playing the role of energy.
 The system is simulated at high ``temperature'' and the analog of free energy is minimized to determine $p_{ij}$.
 The temperature is then lowered in steps, with track-vertex associations deterministic in the limit of zero temperature.
 
 Among the interaction vertices in an event, the one whose associated charged particles have the highest sum of $\pt^2$ is labeled the primary vertex (PV).
-A PV must be less than 24\unit{cm} from the nominal beam spot in the $z$ direction and less than 2\unit{cm} from the beamline.
+A PV must be less than 24\unit{cm} from the nominal beam spot in the $z$ direction and less than 2\unit{cm} from it in the $x$-$y$ plane.
 Many commonly-used analysis observables are strongly dependent on the number of secondary proton-proton interaction vertices in the event, colloquially called the pileup.
-The pileup distribution used in Monte Carlo samples are not the same as the distribution in data, biasing sensitive quantities.
+The pileup distributions used in Monte Carlo samples are not the same as the distribution in data, biasing sensitive quantities.
 Monte Carlo events are therefore reweighted based on the number of simulated pileup vertices such that the overall $N_\textit{vtx}$ (number of proton-proton interaction vertices) distributions match.
 
 
 
 \section{Particle Flow Reconstruction}
 
-The simplest conceivable algorithm would reconstruct each type of particle mostly with information from single subsystems: muons with the outer muon system, electrons and photons with ECAL, jets with the calorimeters aided by inner tracker information to handle $\Pqb$ jet vertexing, etc.
+The simplest conceivable algorithm would reconstruct each type of particle mostly with information from single subsystems: muons with the outer muon system, electrons and photons with ECAL (using HCAL to differentiate them from hadrons), jets with the calorimeters aided by inner tracker information to handle $\Pqb$ jet vertexing, etc.
 This approach is sufficient for many analyses and sophisticated versions of the general principle have performed admirably at a number of experiments, but it is suboptimal.
 It fails to exploit the full detector information for many objects---for example, not using the inner tracker's precise measurements of low-energy charged hadrons in jets made by clustering calorimeter deposits---and misses significant correlations between detector systems.
 The CMS collaboration takes a different approach, using a particle flow (PF) algorithm combining subdetector signals for optimal particle reconstruction and identification~\cite{CMS:2009nxa,CMS:2010byl,Sirunyan:2017ulk}.
@@ -72,28 +72,28 @@ Within the topological clusters, the final calorimeter clusters are built by fit
 
 The first step of the PF algorithm is to link tracks and clusters across subdetectors.
 Tracks are linked to calorimeter clusters by extrapolating from the track to the calorimeter cells the particle would be expected to hit.
-To account for bremsstrahlung photons from electron interactions with tracker material, GSF tracks are linked with ECAL clusters compatible with a tangent to the track where it hit the tracker.
+To account for bremsstrahlung photons from electron interactions with tracker material, GSF tracks are linked with ECAL clusters compatible ($\Delta\eta < 0.05$) with a tangent to the track where it hit the tracker.
 Overlapping ECAL and HCAL clusters are linked outside the inner tracker acceptance.
-Inner tracks are linked to muon system tracks if they are compatible with each other within the resolution of the muon system.
+Inner tracks are linked to muon system tracks if their hits can be propagated onto a common surface and merged into a single track within the resolution of the muon system (see Section~3.3 of Ref.~\cite{Sirunyan:2017ulk}).
 The groups of linked objects, called ``PF blocks'', usually originate from one or a few particles and are the basic unit of PF reconstruction.
 
 \subsubsection{Muons}
 
 Muon candidates in CMS~\cite{Chatrchyan:2012xi} come in three flavors: ``standalone'', ``tracker'', and ``global'' muons.
 Standalone muons use only the track from the muon spectrometer (the ``standalone track''), built with a fit to track segments made of clusters of hits in the DTs, CSCs, and RPCs.
-Tracker muons use only the inner track, identified as a muon because the track is compatible with one or more track segments in the muon system.
+Tracker muons use only the inner track, identified as a muon because the track is compatible with one or more track segments in the muon system within {3\unit{cm}} transverse to the track direction, or four standard deviations of the track's angular position uncertainty.
 Global muons use a combined ``global track'' made by fitting the hits in an inner track and a compatible standalone track to a common muon trajectory through the whole detector.
 By construction, global muons have corresponding standalone and tracker muons.
-The inner track typically dominates the global track fit, so the corresponding tracker muon is merged with the global muon.
+Tracker muons are merged into their corresponding global muons, which use the inner track momentum for muons with $\pt < 200\GeV$ and the momentum of the track with the best normalized $\chi^2$ otherwise.
 When a muon candidate is reconstructed, its constituent tracks are removed from the PF block and are therefore not used in further reconstruction.
 
 \subsubsection{Electrons and Prompt Photons}
 
 Electron reconstruction uses GSF tracks linked with ECAL clusters~\cite{Baffioni:2006cd,Adam:2005bya}.
-The cluster associated to a track and the bremsstrahlung candidate clusters on tangents to the track are collectively called the ``supercluster''.
+The cluster associated with a track and the bremsstrahlung candidate clusters on tangents to the track are collectively called the ``supercluster''.
 Prompt photons are reconstructed from superclusters without associated tracks except displaced track pairs consistent with photon-initiated electron-positron pair production in the tracker material~\cite{Khachatryan:2015iwa}.
 In both cases, the HCAL energy near the supercluster cannot be more than 10\% of the supercluster energy.
-Non-isolated photons, i.e.\ those with substantial nearby tracks or calorimeter deposits or a ratio of ECAL and HCAL energy incompatible with a photon, as assumed to be from $\pi^0$ decays and are described with neutral hadrons in the next section.
+Non-isolated photons, i.e.\ those with substantial nearby tracks or calorimeter deposits or a high ratio of HCAL energy to ECAL energy, are assumed to be from $\pi^0$ decays and are described with neutral hadrons in the next section.
 Tracks and clusters used to reconstruct electrons and photons are removed from the PF block and are not used in hadron reconstruction.
 
 
@@ -109,7 +109,7 @@ If the track {\pt} is much less than the calorimeter-measured {\pt}, the pair is
 
 \subsection{Jets}
 
-Effective clustering of hadrons, non-prompt photons, and non-prompt leptons into jets is critically important for many physics analyses, including the $\ZZ + \text{jets}$ differential cross section measurements and the {\ZZ} VBS search.
+Effective clustering of hadrons, non-prompt photons, and non-prompt leptons into jets is critically important for many physics analyses, including the $\ZZ + \text{jets}$ differential cross section measurements and the {\ZZ} VBS search (see Sections~\ref{sec:vbsSearch} and~\ref{sec:vbsSelection}).
 Clustering must be efficient, to ensure the tagging jets in VBS events are found, but the clustering algorithm should not tag spurious jets, as the number of jets in an event is sensitive to higher-order QCD corrections and therefore an interesting quantity to compare to theoretical predictions.
 Similarly, the algorithm should not erroneously cluster particles from the same initial parton into multiple jets or merge jets from multiple original partons, because the kinematics of the original quarks and gluons are also of theoretical interest and the detector-level jet kinematics should accurately reflect them.
 A clustering algorithm is said to be ``infrared safe'' if the presence of low-energy hadrons from soft gluon radiation does not change the number of jets or have a qualitatively significant effect on jet shapes and kinematics.
@@ -118,7 +118,7 @@ An algorithm is said to be ``collinear safe'' if the jets are not changed substa
 This also fits with physical intuition in that jets deposit energy over an area significantly larger than the spatial resolution of the detector, so increasing the detector granularity enough to resolve two very close particles (without changing their total four-momentum) should have little or no effect on the jet.
 
 Infrared and collinear (IRC) safety are critically important for comparing data to theoretical predictions~\cite{Salam:2009jx}.
-Collinear splittings and soft gluon radiation during jet fragmentation should not affect the dynamics of the {\TeVns}-scale hard scattering processes we wish to probe, but they are nonperturbative and difficult to model, and experimental analysis can only probe the underlying hard interaction if it is insensitive to this kind of mismodeling.
+Collinear splittings and soft gluon radiation during jet fragmentation should not affect the dynamics of the {\TeVns}-scale hard scattering processes we wish to probe, but they are nonperturbative and difficult to model (see Section~\ref{sec:partonShower}), and experimental analysis can only probe the underlying hard interaction if it is insensitive to this kind of mismodeling.
 Experimental detectors' finite resolution and inability to measure arbitrarily soft particles enforces some level of IRC safety on any algorithm, but the results of an analysis methods that uses an IRC unsafe clustering will depend on the complex, detector-dependent details of this partial IRC regularization.
 In any case, the most meaningful comparisons between data and theory should use the same definition of a jet in the experimental analysis and the perturbative calculation, and perturbative calculations require IRC safe observables to preserve unitarity.
 
@@ -138,7 +138,7 @@ If the minimum single-particle $\pt^{-2}$ is smaller than the minimum $d_{ij}$, 
 Iteration proceeds until all particles are part of a jet.
 In this analysis, the size parameter used is $R = 0.4$.
 
-Charged hadrons from pileup interactions are not included in jet clustering~\cite{CMS:2014ata}.
+Charged hadrons whose tracks originate in pileup interactions are not included in jet clustering~\cite{CMS:2014ata}.
 The contribution of neutral hadrons from pileup is estimated with a jet area technique~\cite{Khachatryan:2016kdb,Cacciari:2008gn,Cacciari:2007fd} in which the energy density of neutral hadrons from pileup is calculated event-by-event and multiplied by the area of the jet to estimate the neutral pileup contribution, which is subtracted from the jet energy.
 Jets in Monte Carlo samples have their energy shifted and stochastically smeared such that the overall energy scale and resolution match that of jets in data~\cite{Chatrchyan:2011ds,Khachatryan:2016kdb}.
 
@@ -154,7 +154,7 @@ The missing transverse momentum is thus
 where the sum runs over the transverse momenta of all PF candidates in the event.
 The missing transverse energy, {\MET}, is its magnitude.
 The {\MET} is calibrated by propagating the jet energy scale corrections to the {\MET} calculation~\cite{Chatrchyan:2011tn,Khachatryan:2014gga,CMS-PAS-JME-16-004}.
-PF candidates originating from pileup interactions are included in the sum in Eq.~(\ref{eq:MET}) because these soft collisions are very unlikely to produce neutrinos, so including them biases the measurement less than trying to determine which neutral particles should be considered pileup and which should not.
+All PF candidates are included in the sum in Eq.~(\ref{eq:MET}), including those originating from pileup interactions, because these soft collisions are very unlikely to produce neutrinos, so including them biases the measurement less than trying to determine which neutral particles should be considered pileup and which should not.
 
 
 
@@ -208,6 +208,7 @@ The resulting sample is enriched with $\PZ \to \Pe^+\Pe^-$ events, so the track 
 Unlike all background processes, $\PZ \to \Pe^+\Pe^-$ production forms a distinct resonance peak in the $m_{\ell\ell}$ distribution, so shape fits can be used to find the overall purity of the sample, and thus the number of prompt electrons among the probes.
 The selection efficiency is then the number of passing probes divided by the total number of prompt probes.
 This procedure is performed in bins of {\pt} and $\eta$ for data and Monte Carlo events, and residual differences in efficiency in Monte Carlo samples are corrected to match data by weighting events by the ratio of data and Monte Carlo efficiency for each electron candidate.
+Overall electron efficiency varies between roughly 85\% in the inner endcap ($\abseta > 2.0$) to around 95\% in the central barrel ($\abseta < 0.8$).
 
 
 \subsection{Muons}
@@ -223,7 +224,7 @@ Isolation is defined as in Eq.~(\ref{eq:iso}), the same as for electrons except 
 \end{equation}
 where the sum runs over the charged particles from all pileup vertices.
 As for electrons, the radius of the isolation cone is 0.3 in the $\eta$-$\phi$ plane and the selection criterion is $R_\text{iso} < 0.35$.
-Muon efficiencies are measured and corrected with the same tag-and-probe technique as used for electrons.
+Muon efficiencies are measured and corrected with the same tag-and-probe technique as used for electrons, and found to be around 97\%.
 
 
 \subsection{Final State Photon Radiation}
@@ -232,6 +233,7 @@ Final-state radiation (FSR) photons emitted by muons are not included in the PF 
 Photons are considered FSR candidates if they have $\pt > 2\GeV$, $\abseta < 2.4$, relative isolation $R_\text{iso} < 1.8$ as defined in Eq.~(\ref{eq:iso}) (with no neutral pileup correction), and $\Delta R \left(\ell, \gamma \right) < 0.5$ with respect to the nearest lepton.
 To avoid double counting, photons in electron superclusters are not considered.
 Because FSR has a higher energy spectrum than photons from pileup and is expected to be quasi-collinear with the emitting leptons, a photon is accepted as FSR and included in the {\ZZ} final state if $\Delta R \left( \ell, \gamma \right) / {\et}_\gamma^2 < 0.012$.
+The performance of this algorithm is tuned and evaluated with comparisons to generator-level information in MC samples, and is found to have efficiency around 60\% for a purity around 80\%.
 FSR photons are omitted from the isolation determination for emitting leptons.
 In the rest of this thesis, the momentum of any FSR photons found is included in {\Zgs} and {\ZZ} four-momenta unless otherwise stated.
 
@@ -250,7 +252,7 @@ Loose lepton candidates pass the {\pt} and $\eta$ cuts and vertex compatibility 
 The electron BDT discriminator is not applied to loose electrons.
 Loose muons must still be tracker or global muons, but the PF ID is not applied.
 Isolation requirements are not applied to loose candidates.
-Depending on their use, loose candidates may have no further requirements applied, or may be required to fail the tight ID and/or isolation requirements, as detailed in Section~\ref{sec:bkg}.
+Depending on their use, loose candidates may have no further requirements applied, or may be required to fail the tight ID and/or isolation requirements, as detailed in Section~\ref{sec:bkg}, where the fake rates for electrons and muons are shown in Fig.~\ref{fig:fakerates}.
 Aside from the ID and isolation criteria, loose leptons are treated the same as their tight cousins, with FSR recovery performed with the same algorithm.
 Jets near loose leptons are only removed if the loose lepton is taken to be one of the four in the {\ZZ} candidate in the final event interpretation.
 
@@ -265,7 +267,7 @@ Exact HLT parameters changed over the course of datataking as instantaneous lumi
   \item Single muon {\pt} thresholds were between 20 and {24\GeV} for isolated muons.
   Nonisolated single muons were required to have $\pt > 50\GeV$ or $\pt > 45\GeV$ and $\abseta < 2.1$.
   Single electron {\pt} thresholds were 25 or {27\GeV} depending on ID criteria applied.
-  \item Leading lepton {\pt} threasholds in double lepton paths were 17 or {23\GeV}.
+  \item Leading lepton {\pt} thresholds in double lepton paths were 17 or {23\GeV}.
   Trailing lepton thresholds were {12\GeV} and {8\GeV} for electrons and muons, respectively.
   Isolation requirements and requirements on the $z$-axis distance between lepton track origins were added part way through datataking.
   \item The {\pt} requirements in triple lepton paths varied between 5 and {16\GeV}, with no isolation or vertex requirements.
@@ -312,6 +314,10 @@ In the rare case of further ambiguity, which may arise in events with five or mo
 This best candidate selection is done after the full selection is applied, and the other analysis selections are applied to the disambiguated events in the full spectrum phase space.
 Like the mass cut on all opposite-sign lepton pairs, this prevents events with one on-shell {\PZ} and one lower-mass $\Pa^\ast$ from passing the on-shell {\PZ} mass cuts with an erroneous lepton pairing.
 
+The total efficiency of all selections is estimated by finding the fraction of events in the {\POWHEG} and {\MCFM} {\ZZ} samples which pass both the fiducial cuts at generator level and the full analysis selection after detector simulation and reconstruction.
+For the doubly on-shell selection ($60 < m_{\ell\ell} < 120\GeV$), the efficiency is 54\% for $4\Pe$ events, 65\% for $2\Pe2\Pm$ events, and 78\% for $4\Pm$ events.
+For {\Zfourl} events, the efficiencies for the $4\Pe$, $2\Pe2\Pm$, and $4\Pm$ channels are, respectively, 24\%, 36\%, and 73\%.
+
 
 \subsection{Dijet and VBS Signal Selection}\label{sec:vbsSelection}
 
@@ -319,3 +325,4 @@ The dijet selection, used for the VBS and aQGC searches, requires the event to c
 The two highest-{\pt} jets are called the ``tagging jets.''
 The tagging dijet system must have $m_{\Pj\Pj} > 100\GeV$.
 This criterion is not intended to preferentially select the EWK signal, which is concentrated at much higher dijet masses, but rather to provide a minimal selection for the sample on which to perform the multivariate VBS analysis described in Section~\ref{sec:vbsSearch} and the shape-based aQGC analysis described in Section~\ref{sec:aGCSearch}.
+No further selections are applied, and the VBS signal efficiency is therefore close to 100\%.
