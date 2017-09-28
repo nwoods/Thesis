@@ -4,18 +4,44 @@
 
 \chapter{The Standard Model}\label{ch:SM}
 
+% The mission of fundamental particle physics is an audacious one.
+% An exercise in reductionism taken to its logical extreme, the goal of the field is to find the minimal set of mathematical precepts that underlie all interactions of matter and energy and from which everything else in the universe is, in principle, an emergent property.
+% Despite the loftiness of its goals, the program has been extraordinarily successful, yielding the standard model (SM), which is elegant in its mathematical formulation yet expansive and powerful in its predictions, most of which have been verified in exquisite detail.
+% And yet work remains.
+% One area of particular interest is the physics of the electroweak interaction, which was the last piece to fall into place.
+% Its final major component, the existence of the Higgs boson, was definitively confirmed only as recently as 2012 and some details remain hazy or unverified, from an experimental perspective.
+% These statements will be explained and made more precise here in Chapter~\ref{ch:SM}, which gives an overview of the SM with a focus on its electroweak sector, and describes some of the shortcomings that motivate continued searches for new physics even now that it is complete.
+% Chapter~\ref{ch:SM} also describes diboson and multiboson processes, interactions involving multiple instances of the particles underlying electroweak physics, which are valuable tools for understanding how the bosons interact with each other.
+% This thesis presents several studies of the {\ZZ} diboson process, intended to illuminate the behavior of the neutral part of electroweak interactions.
+% Details of {\ZZ} physics are described in Chapter~\ref{ch:pheno}, along with a review of previous literature.
+%
+% High-energy particle collisions in a laboratory provide a way to investigate fundamental interactions in a controlled setting.
+% CERN's Large Hadron Collider (LHC), a proton-proton collider in tunnels running beneath the Swiss-French border near Geneva, provides collision at record-breaking energies and rates, which can be used by the Compact Muon Solenoid (CMS) detector to study diboson processes in unprecedented detail.
+% These apparatus are described in Chapter~\ref{ch:experiment}.
+% Accurate simulations of physics and particles' interactions with the detector are vital to obtaining valid results; this process is described in Chapter~\ref{ch:simulation}.
+% Chapter~\ref{ch:reco} describes how physics objects are built from the detector signals, and how those appropriate for analysis are selected.
+% The strategy for performing the {\ZZ} measurements in question is given in Chapter~\ref{ch:methods}.
+% New studies of four-lepton events in a sample of proton-proton collision are presented in Chapter~\ref{ch:results}.
+
 The mission of fundamental particle physics is an audacious one.
 An exercise in reductionism taken to its logical extreme, the goal of the field is to find the minimal set of mathematical precepts that underlie all interactions of matter and energy and from which everything else in the universe is, in principle, an emergent property.
-Despite the loftiness of its goals, the program has been extraordinarily successful, yielding the standard model (SM), which is elegant in its mathematical formulation yet expansive and powerful in its predictions, most of which have been verified in exquisite detail.
+Despite the loftiness of its goals, the program has been extraordinarily successful, yielding the standard model (SM), a remarkable theory which is elegant in its mathematical formulation yet expansive and powerful in its predictions, most of which have been verified in exquisite detail.
+Calculations done in the framework of the SM have matched data within the precision of essentially every experiment over roughly four decades, making it arguably the best-confirmed theory in the history of science.
+It is generally believed to be self-consistent; future advances will likely add to it, explain its free parameters, or find some deeper underlying structure, not contradict it.
+
 And yet work remains.
+There are a few known phenomena that the SM does not cover, and some of its features seem for now to be surprising coincidences (see Section~\ref{sec:bsm}).
 One area of particular interest is the physics of the electroweak interaction, which was the last piece to fall into place.
 Its final major component, the existence of the Higgs boson, was definitively confirmed only as recently as 2012 and some details remain hazy or unverified, from an experimental perspective.
 These statements will be explained and made more precise here in Chapter~\ref{ch:SM}, which gives an overview of the SM with a focus on its electroweak sector, and describes some of the shortcomings that motivate continued searches for new physics even now that it is complete.
 Chapter~\ref{ch:SM} also describes diboson and multiboson processes, interactions involving multiple instances of the particles underlying electroweak physics, which are valuable tools for understanding how the bosons interact with each other.
 This thesis presents several studies of the {\ZZ} diboson process, intended to illuminate the behavior of the neutral part of electroweak interactions.
+In particular, the focus of this work is the case in which two {\PZ} bosons each decay to a pair of charged leptons.
+Such events are rare but experimentally appealing.
+Two of the three charged leptons, electrons ({\Pe}) and muons ({\Pm}) can be reconstructed with high precision, and few physics processes aside from {\ZZ} result in four-lepton final states, so they provide an unmistakable experimental signature that can be easily identified over small backgrounds.
 Details of {\ZZ} physics are described in Chapter~\ref{ch:pheno}, along with a review of previous literature.
 
-High-energy particle collisions in a laboratory provide a way to investigate fundamental interactions in a controlled setting.
+High-energy particle collisions in a laboratory provide a way to investigate {\ZZ} production and other fundamental interactions in a controlled setting.
 CERN's Large Hadron Collider (LHC), a proton-proton collider in tunnels running beneath the Swiss-French border near Geneva, provides collision at record-breaking energies and rates, which can be used by the Compact Muon Solenoid (CMS) detector to study diboson processes in unprecedented detail.
 These apparatus are described in Chapter~\ref{ch:experiment}.
 Accurate simulations of physics and particles' interactions with the detector are vital to obtaining valid results; this process is described in Chapter~\ref{ch:simulation}.
@@ -28,13 +54,9 @@ New studies of four-lepton events in a sample of proton-proton collision are pre
 \section{Introduction}
 
 The standard model is a set of several related theories that together describe matter and its interactions at a fundamental level.
-The SM is a remarkable theory, making detailed predictions for a wide range of measurements that have matched data within the precision of essentially every experiment over roughly four decades.
-It is arguably the best-confirmed theory in the history of science despite making some of the boldest, broadest, and most precise predictions.
-There are a few known phenomena that the SM does not cover, and some of its features seem for now to be surprising coincidences (see Section~\ref{sec:bsm}), but it is generally believed to be self-consistent; future advances will likely add to it, explain its free parameters, or find some deeper underlying structure, not contradict it.
-
 The following sections give a general overview of the SM and related topics that serve as background material for the four-lepton processes described in more detail in subsequent chapters.
 This includes discussions of the particle content of the SM and the gauge structure that leads to particle interactions, the spontaneous symmetry breaking mechanism that leads to the specific structure of the electroweak sector of the SM, diboson processes, and the SM's limitations and how they might be addressed.
-Some details are also given about the proton-proton interactions used to probe particle interactions at high energies.
+Some details are also given about the proton-proton collisions used to probe particle interactions at high energies.
 More complete information may be found in a number of texts, including Refs.~\cite{Griffiths:111880,Halzen:1984mc,barger1997collider,Peskin:1995ev,Donoghue:238727}.
 Everything that follows uses units such that $c = \hbar = 1$, where $c$ is the speed of light and $\hbar$ is the reduced Planck's constant $\hbar = h / 2\pi$.
 
@@ -49,33 +71,6 @@ The fermions come in two categories, leptons and quarks.
 All the quarks and half the lepton types carry electric charge and are therefore subject to interactions through the electromagnetic force, described by quantum electrodynamics (QED)~\cite{Halzen:1984mc}.
 In a QED interaction, two charged particles exchange a photon, which carries the momentum transferred from one to the other.
 The photon is a spin-1 gauge boson that is massless and electrically neutral itself, explaining why electromagnetic forces are long-range.
-% Because it is so simple, QED was the first theory of fundamental force to be worked out in detail, and it served as the template for the theories of the other forces.
-% The Feynman diagram at leading order (LO) in perturbation theory for a simple QED interaction, the so-called Drell--Yan process, in which a fermion-antifermion pair ($\Pf\Paf$, where {\Pf} can be any charged fermion) annihilates and produces a different pair ($\Pf'\Paf'$) is shown in in Fig.~\ref{fig:drellYanDiagram}.
-%
-% \begin{figure}[htbp]
-%   \vspace{1em}
-%   \begin{center}
-%     \begin{fmffile}{drellYanDiagram}
-%       \begin{fmfgraph*}(0.6,0.3) % chktex 36
-%         \fmfleft{i1,i2}
-%         \fmfright{o1,o2}
-%         \fmflabel{$\Pf$}{i1}
-%         \fmflabel{$\Paf$}{i2}
-%         \fmflabel{$\Paf'$}{o1}
-%         \fmflabel{$\Pf'$}{o2}
-%         \fmf{fermion}{i1,v1,i2}
-%         \fmf{fermion}{o1,v2,o2}
-%         \fmf{photon,label=$\Pa$}{v1,v2}
-%       \end{fmfgraph*}
-%     \end{fmffile}
-%     \vspace{1em}
-%     \caption[Feynman diagram of an electromagnetic Drell--Yan interaction]{
-%         Feynman diagram of fermion-antifermion scattering through an electromagnetic interaction, resulting in another fermion-antifermion pair.
-%         This is also known as a Drell--Yan process.
-%         At center-of-mass energies near and above the {\PZ} boson mass, {\PZ}-{\Pa} interference becomes nonnegligible.
-%       }\label{fig:drellYanDiagram}
-%   \end{center}
-% \end{figure}
 
 \begin{table}[htbp]
   \begin{center}
@@ -150,59 +145,6 @@ This process is known as hadronization, and causes single quarks or gluons leavi
 This is why a free quark has never been observed, and is not expected to be found, and why the strong interaction is short-range even though gluons are massless.
 It is also why, for example, $\Pq\Pq\Paq$ bound states are not seen in nature.
 Conversely, close-range QCD is relatively feeble, leading to ``asymptotic freedom,'' the property of partons within hadrons that they may be considered independent in high-energy collisions, because their interactions are weak enough that bound state effects may be neglected (see Section~\ref{sec:pp}).
-% Example Feynman diagrams for LO $\Pq\Paq \to \Pq\Paq\Pg$ scattering are shown in Fig.~\ref{fig:threeJet}.
-%
-% \begin{figure}[htbp]
-%   \vspace{1em}
-%   \begin{center}
-%     \begin{fmffile}{threeJetS}
-%       \begin{fmfgraph*}(0.4,0.3) % chktex 36
-%         \fmfleft{d1,i1,i2,d2}
-%         \fmfright{d3,o2,o3,o1}
-%         \fmflabel{$\Pq$}{i1}
-%         \fmflabel{$\Paq$}{i2}
-%         \fmflabel{$\Pg$}{o1}
-%         \fmflabel{$\Paq$}{o2}
-%         \fmflabel{$\Pq$}{o3}
-%         \fmf{fermion}{i1,v1,i2}
-%         \fmf{gluon}{v1,v2}
-%         \fmf{phantom}{o2,v2,o3}
-%         \fmffreeze %chktex 1
-%         \fmf{fermion}{o2,v2,v3,o3}
-%         \fmffreeze %chktex 1
-%         \fmf{gluon,tension=0}{v3,o1}
-%       \end{fmfgraph*}
-%     \end{fmffile}
-%     \hspace{4em}
-%     \begin{fmffile}{threeJetT}
-%       \begin{fmfgraph*}(0.3,0.225) % chktex 36
-%         \fmfstraight %chktex 1
-%         \fmfleft{d0,i1,d1,i2}
-%         \fmfright{d2,o1,o2,o3}
-%         \fmflabel{$\Pq$}{i1}
-%         \fmflabel{$\Paq$}{i2}
-%         \fmflabel{$\Pg$}{o2}
-%         \fmflabel{$\Paq$}{o3}
-%         \fmflabel{$\Pq$}{o1}
-%         \fmf{fermion}{i1,v1,o1}
-%         \fmf{gluon}{v1,v2}
-%         \fmf{phantom}{o3,v2,i2}
-%         \fmffreeze %chktex 1
-%         \fmf{fermion}{o3,v3,v2,i2}
-%         \fmffreeze %chktex 1
-%         \fmf{gluon,tension=0}{v3,o2}
-%       \end{fmfgraph*}
-%     \end{fmffile}
-%     \vspace{1em}
-%     \caption[A three-jet Feynman diagram]{
-%         Example Feynman diagrams for tree-level $\Pq\Paq \to \Pq\Paq\Pg$ scattering.
-%         Several more diagrams also contribute to the process at LO\@; the final state gluon could be radiated by any of the four fermion lines, or the virtual gluon.
-%         Both outgoing quarks and the outgoing gluon carry color charge and each will therefore hadronize and enter the detector as a jet of many particles.
-%         In the cases shown, where the gluon is radiated by a final state quark, it is in general ambiguous whether it should be considered a final state particle which subsequently undergoes showering and hadronization, or whether it should be considered part of the quark's shower.
-%         This presents a significant challenge to theorists, as discussed in Section~\ref{sec:partonShower}.
-%       }\label{fig:threeJet}
-%   \end{center}
-% \end{figure}
 
 Leptons may be electrically charged or neutral, and come in three generations, each containing one lepton of each type, a charged lepton and a corresponding neutrino.
 In order of charged lepton mass, the generations are the electron and its neutrino ({\Pe} and {\Pne}), muon and its neutrino ({\Pm} and {\Pnm}), and tau and its neutrino ({\Pt} and {\Pnt}).
@@ -227,32 +169,6 @@ Flavor conservation does not hold for quarks undergoing charged weak interaction
 An up-type quark always couples to the {\PW} in conjunction with a down-type quark, as it must to obey conservation of electric and color charge.
 The pairings are in general described by a unitary $3 \times 3$ matrix known as the Cabibbo--Kobayashi--Maskawa (CKM) matrix which defines the inter-generational mixing~\cite{Cabibbo:1963yz,doi:10.1143/PTP.49.652}. % chktex 8
 Flavor-changing currents allow heavy quarks to decay to lighter ones, and are thus responsible for the decay of hadrons that do not contain the $\Pq\Paq$ pair necessary for strong or electromagnetic decays.
-% The tree-level Feynman diagram for a leptonic top quark decay $\Pqt \to  \Pqb + \ell + \Panl$ is shown in Fig.~\ref{fig:topDecay}.
-%
-% \begin{figure}[htbp]
-%   \vspace{1em}
-%   \begin{center}
-%     \begin{fmffile}{topDecay}
-%       \begin{fmfgraph*}(0.6,0.3) % chktex 36
-%         \fmfstraight %chktex 1
-%         \fmfleft{d1,i1,d2,d3}
-%         \fmfright{o1,d4,o2,o3}
-%         \fmflabel{$\Pqt$}{i1}
-%         \fmflabel{$\Pqb$}{o1}
-%         \fmflabel{$\Panl$}{o2}
-%         \fmflabel{$\ell$}{o3}
-%         \fmf{fermion}{i1,v1,o1}
-%         \fmf{zigzag,label={\PWp}}{v1,v2}
-%         \fmf{phantom}{d3,v2}
-%         \fmf{fermion}{o2,v2,o3}
-%       \end{fmfgraph*}
-%     \end{fmffile}
-%     \vspace{1em}
-%     \caption[Feynman diagram of a top quark decay]{
-%         Leading order Feynman diagram of a leptonic top quark decay $\Pqt \to \Pqb + \ell + \Panl$, which occurs via the charged-current weak interaction.
-%       }\label{fig:topDecay}
-%   \end{center}
-% \end{figure}
 
 Charged-current interactions also do not respect parity symmetry, and in fact are maximally parity violating: the {\PW} couples only to left-handed fermions and right-handed antifermions.
 Because neutrinos interact only through the weak force\footnote{Aside from gravity, presumably, but this interaction is not experimentally accessible and is not covered by the standard model.}, and the {\PZ} also couples only to left-handed neutrinos, this implies that it is not clear if right-handed neutrinos even exist.
