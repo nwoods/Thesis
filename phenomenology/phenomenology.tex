@@ -2,11 +2,12 @@
 
 \chapter{ZZ Phenomenology and Previous Results}\label{ch:pheno}
 
-Four-lepton final states originate primarily from three physics processes: nonresonant diboson production, resonant Higgs boson production, and resonant single-{\PZ} production.
+Four-lepton final states originate primarily from three physics processes: nonresonant diboson production, resonant Higgs boson production which decays to {\ZZs}, and resonant single-{\PZ} production.
 Multi-{\PZ} triboson production ({\WZZ} and {\ZZZ}) occurs at negligible rates~\cite{Lazopoulos:2007ix,Binoth:2008kt}.
 Single-{\PZ} triboson production ({\WWZ})~\cite{Hankele:2007sb,Binoth:2008kt} and {\TTZ} production result in final states with four prompt leptons, but are considered background (see Section~\ref{sec:bkgPheno}).
-The three signal processes can be distinguished by kinematics, but all involve the {\PZ} boson.
+The three signal processes can be distinguished by kinematics, such as the four-lepton invariant mass distribution.
 
+The signal processes all involve on- or off-shell {\PZ} bosons.
 The {\PZ} was first indirectly observed in 1973 when the Gargamelle bubble chamber experiment at CERN recorded an elastic muon antineutrino-electron ($\Panm + \Pe^- \to \Panm + \Pe^-$) scattering event~\cite{Hasert:1973cr}.
 Direct observation in leptonic decays came roughly a decade later, from the UA1 experiment, also at CERN~\cite{Arnison:1983mk}.
 Clean {\epem} collisions at LEP and SLAC, where the center-of-mass energy could be adjusted to produce {\PZ} bosons copiously, allowed its properties---and a number of other parameters of the electroweak theory---to be measured with per-mille precision or better~\cite{ALEPH:2005ab}.
@@ -33,7 +34,8 @@ and it decays to a pair of charged leptons 3.3658\% of the time for each lepton 
 Leading-order {\ZZ} production is {\qqb}-initiated and proceeds through $t$-channel quark exchange, as shown in Fig.~\ref{fig:zzLO}.
 At next-to-leading order (NLO\@; several representative diagrams are shown in Fig.~\ref{fig:zzNLO}), production may have a gluon in the initial state and may have a quark or gluon in the final state which hadronizes and appears experimentally as a jet~\cite{Campbell:1999ah,Campbell:2011bn,Melia:2011tj}.
 Next-to-next-to-leading order (NNLO) adds gluon-gluon fusion box diagrams (Fig.~\ref{fig:zzBox}), as well as {\qqb}-initiated production with two loops, one loop and a final state jet, and two jets~\cite{Cascioli:2014yka,Caola:2015psa}.
-The NNLO corrections are generally large, outside the scale uncertainties of the NLO calculation, because the gluon-fusion diagrams contribute only positively to the cross section due to their distinct initial state, and have a large amplitude---roughly 60\% of the total NNLO correction---due to the high effective gluon luminosity in multi-{\TeVns} proton collisions~\cite{Cascioli:2014yka}.
+The NLO and NNLO corrections are generally large, outside the scale uncertainties of the calculations at previous orders, because diagrams with new initial states contribute only positively to the cross section.
+Quark-gluon scattering diagrams introduced at NLO and gluon-gluon fusion diagrams introduced at NNLO have large amplitudes---the $\Pgg \to \ZZ$ process accounts for roughly 60\% of the total NNLO correction, for example---due to the high effective gluon luminosity in multi-{\TeVns} proton collisions~\cite{Cascioli:2014yka}.
 Because of the box diagrams' large contribution, ``$\text{NLO} + \Pgg$'' simulations are often used, in which NLO $\qqb/\Pq\Pg/\Paq\Pg \to \ZZ$ and LO $\Pgg \to \ZZ$ samples are summed even though they formally contribute at different orders in {\alphaS}.
 
 \begin{figure}[htbp]
@@ -195,8 +197,9 @@ Because of the box diagrams' large contribution, ``$\text{NLO} + \Pgg$'' simulat
     \end{fmffile}
     \vspace{1em}
     \caption[Next-to-leading order {\ZZfourl} production]{
-      Three representative NLO Feynman diagrams for {\ZZfourl} production in {\pp} collisions.
-      Clockwise from the top right, the NLO diagrams are examples of one-loop diagrams, real antiquark and quark emission, and real gluon emission.
+      Four representative Feynman diagrams that contribute to {\ZZfourl} production in {\pp} collisions at NLO\@.
+      Clockwise from the top right, the diagrams are examples of one-loop diagrams, real antiquark and quark emission, and real gluon emission.
+      The loop diagram (top right) is formally NNLO, but contributes at NLO through interference with NLO $\qqb \to \ZZ$ diagrams.
       }\label{fig:zzNLO}
   \end{center}
 \end{figure}
@@ -231,7 +234,8 @@ Because of the box diagrams' large contribution, ``$\text{NLO} + \Pgg$'' simulat
     \vspace{1em}
     \caption[Gluon-gluon fusion box diagram for {\ZZfourl} production]{
       A LO box diagram for {\ZZfourl} production through a quark loop in a gluon-gluon fusion event.
-      This is formally an NNLO diagram for {\ZZ} production overall, but is often included in NLO calculations because it accounts for a large fraction of the NNLO correction, due to the high effective gluon luminosity in proton collisions at high $Q^2$.
+      This is formally an NNLO diagram for {\ZZ} production overall, but is often included in NLO calculations because it accounts for a large fraction of the NNLO correction and its contribution to the {\ZZ} cross section has a similar magnitude to that from the NLO corrections.
+      The {$\Pgg \to \ZZ$} amplitude is so large due to the high effective luminosity of gluons with enough energy to produce a {\PZ} boson pair in proton collisions at high $Q^2$,
       }\label{fig:zzBox}
   \end{center}
 \end{figure}
@@ -246,8 +250,8 @@ Nonresonant $\PZ\Pa^\ast$ production is generally flat as a function of invarian
 
 Vector boson scattering proceeds at hadron colliders through the diagrams shown in Fig~\ref{fig:vbs}, resulting in a {\ZZjj} final state.
 This fully electroweak (EWK) production must be distinguished from the background of QCD-initiated $\ZZ + \text{jets}$ events (see Section~\ref{sec:bkgPheno}).
-The hallmark of the EWK process is a pair of high energy, high rapidity jets from the quarks, which retain a high boost along the $z$-axis even after {\PWpm} or {\PZ} emission and are thus deflected through a small angle in the lab frame.
-At the same time, the {\ZZ} system is produced with high invariant mass and low boost compared to QCD-initiated {\ZZjj} events, in which the {\ZZ} system recoils against the jets~\cite{Zeppenfeld:54.6680}.
+The hallmark of the EWK process is a pair of high energy, high rapidity jets from the quarks, which retain a high boost along the $z$-axis even after electroweak boson emission and are thus deflected through a small angle in the lab frame.
+At the same time, the {\ZZ} system is produced with low transverse boost compared to QCD-initiated {\ZZjj} events, in which the {\ZZ} system recoils against the jets, and somewhat higher invariant mass on average~\cite{Zeppenfeld:54.6680}.
 Because the hard scattering interaction involves no color exchange or reconnection~\cite{Zeppenfeld:54.6680,Sjostrand:2014zea,Bierlich:2015rha}, VBS events are much less likely to have less energetic jets between the two high-energy quark jets.
 Useful variables to discriminate between EWK and QCD production therefore include the angle between the jets, the jet energies, the dijet invariant mass, the {\ZZ} invariant mass and rapidity, and the number of central jets (see Section~\ref{sec:vbsSearch} for a full list and definitions).
 
@@ -384,10 +388,11 @@ Results were again fully consistent with the SM but the statistical uncertaintie
 \end{figure}
 
 The first run of the LHC (see Section~\ref{sec:lhc}) produced large datasets of {\pp} collisions at $\sqrt{s} = 7$ and {8\TeV}, producing {\ZZ} events with a higher cross section than at Tevatron~\cite{Cascioli:2014yka} and with a greater integrated luminosity.
-The measurement channels were again the fully leptonic $4\ell$ and $2\ell2\Pnu$ decays, and the cross sections were measured at $\sqrt{s} = 7$ and {8\TeV} by both CMS~\cite{Chatrchyan:2012sga,CMS:2014xja,Khachatryan:2015pba, CMS-PAS-SMP-15-012} and ATLAS~\cite{Aad:2012awa,Aad:2015rka,Aaboud:2016urj}.
+The primary measurement channels were again the fully leptonic $4\ell$ and $2\ell2\Pnu$ decays, and the cross sections were measured at $\sqrt{s} = 7$ and {8\TeV} by both CMS~\cite{Chatrchyan:2012sga,CMS:2014xja,Khachatryan:2015pba, CMS-PAS-SMP-15-012} and ATLAS~\cite{Aad:2012awa,Aad:2015rka,Aaboud:2016urj}.
 With a dataset of roughly {20\fbinv} and signal event counts in the hundreds even for the low-rate $4\ell$ channel, the {8\TeV} measurements had the statistical power to include differential cross sections as functions of kinematic observables for the {\ZZ} system and the associated jets.
 Statistical uncertainties were still larger than the systematic uncertainties, but they were at the level of 5--10\% for the total cross section, compared to 30--50\% at Tevatron and 15--150\% at LEP depending on the experiment and center-of-mass energy\footnote{Most LEP {\ZZ} cross section measurements had statistical uncertainties around 20--40\%; see references given in the text for details.}.
 The four-lepton mass spectra from the CMS and ATLAS {\ZZ} cross section measurements at {8\TeV} are shown in Figs.~\ref{fig:cms8TeVm4l} and~\ref{fig:atlas8TeVm4l}, respectively~\cite{CMS:2014xja,Aad:2015rka}.
+A measurement was also performed on CMS data in the $\ZZ \to \lplm\Pqb\Paqb$ and $\ZZ \to \Pnu\Panu\Pqb\Paqb$ channels~\cite{Chatrchyan:2014aqa}.
 
 \begin{figure}[htbp]
   \begin{center}
@@ -449,8 +454,8 @@ No searches for Electroweak {\ZZ} production had been performed prior to the ana
 
 \section[Resonant
          \texorpdfstring{$\mathrm{ZZ}^\ast$/$\mathrm{Z\gamma}^\ast$}
-         {ZZ*/Zgamma*}
-         Production]{Resonant $\mathbf{ZZ}^\ast$/$\mathbf{Z\gamma}^\ast$ Production}
+         {ZZ*/gamma*gamma*}
+         Production]{Resonant $\mathbf{ZZ}^\ast$/$\gamma^\ast\gamma^\ast$ Production}
 
 Resonant production appears as a sharp peak in the four-lepton invariant mass distribution over the broad spectrum from nonresonant production.
 There are two known four-lepton resonances: single-{\PZ} decays to four leptons around {91\GeV}, and Higgs decays to {\ZZs} around {125\GeV}.
@@ -641,8 +646,10 @@ However, the distinctive signature of four high-energy charged leptons in a sing
 Higgs boson searches at LEP were for {\PZ}-associated production, which has the highest cross section in {\epem} collisions.
 The maximum LEP center-of-mass energy, {209\GeV}, was just under the {\ZH} threshold around {216\GeV}.
 The LEP combined 95\% confidence level (CL) lower limit on $m_\PH$ was {114.4\GeV}~\cite{Barate:2003sz}, and a combination of LEP data and electroweak precision measurements set an upper limit of {193\GeV}~\cite{Alcaraz:2006mx}.
-Searches at the CDF and D0 experiments at the Tevatron were combined to find a $3.0\sigma$ local excess consistent with $m_\PH = 125\GeV$~\cite{Aaltonen:2013ioz}, and results from all the Tevatron and LEP measurements and electroweak precision measurements were combined to place an upper mass limit of {158\GeV} at 95\% CL~\cite{ALEPH:2010aa}.
+Searches at the CDF and D0 experiments at the Tevatron were combined to find a $3.0\sigma$ local excess ($2.8\sigma$ global) consistent with $m_\PH = 125\GeV$~\cite{Aaltonen:2013ioz}, with the $\PH \to \Pqb\Paqb$ search alone finding a local excess of $3.3\sigma$ ($3.1\sigma$ local)~\cite{Aaltonen:2012qt}.
+Results from all the Tevatron and LEP measurements and electroweak precision measurements were combined to place an upper mass limit of {158\GeV} at 95\% CL~\cite{ALEPH:2010aa}.
 The Higgs was finally discovered simultaneously by the CMS and ATLAS collaborations with a combination of 7~and~{8\TeV} data~\cite{Chatrchyan:2012xdj,Aad:2012tfa}.
+The four-lepton channel was, as anticipated, one of the most important~\cite{Chatrchyan:2012dg,Chatrchyan:2012xdj}.
 Its properties were subsequently investigated in detail at both experiments.
 The Higgs mass was found to be
 \begin{equation}
