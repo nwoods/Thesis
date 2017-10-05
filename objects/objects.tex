@@ -281,7 +281,7 @@ The sets of selections will be listed here with brief descriptions of their uses
   \item The \emph{singly resonant} ({\Zfourl}) \emph{selection} picks events with four-lepton mass around the {\PZ} boson resonance.
   \item The \emph{Higgs selection} is that used for the Higgs boson discovery and properties measurements.
   It is similar to the full spectrum selection but with slightly tighter requirements on the second {\Zgs} candidate, because {\Zfourl} events are of less interest and some backgrounds may be reduced by excluding events with an on-shell {\PZ} boson and a low mass lepton pair that could be a decay of an {$\Upsilon$} or similar meson.
-  \item The \emph{on-shell} or \emph{doubly resonant} selection requires both {\PZ} candidates to be compatible with a resonant {\PZ} boson.
+  \item The \emph{on-shell} or \emph{doubly resonant selection} requires both {\PZ} candidates to be compatible with a resonant {\PZ} boson.
   It is used for the {\ZZ} and $\ZZ + \text{jets}$ cross section measurements and the aTGC search.
   \item The \emph{dijet} ({\ZZjj}) \emph{selection} uses the on-shell selection for the four-lepton system, and additionally requires at least two jets.
   It is used for the VBS and aQGC searches.
@@ -297,6 +297,36 @@ The full spectrum, {\Zfourl}, and Higgs selections require $m_{\PZ_1} > 40\GeV$.
 The Higgs selection additionally requires $m_{\PZ_2} > 12\GeV$.
 The on-shell and dijet selections require both $\PZ_1$ and $\PZ_2$ to have $m_{\PZ_i} > 60\GeV$.
 The mass range thus allowed, $60 < m_{\PZ_{1,2}} < 120\GeV$, serves as the definition of an on-shell {\PZ} boson for purposes of this analysis.
+
+\begin{table}[htbp]
+  \begin{center}
+    \caption[Four-lepton event yields in data at several points in the analysis flow.]{
+      The number of events in data reconstructed as having two pairs of opposite-sign, same-flavor leptons, at several points in the analysis flow.
+      Best candidate selection is done only with the full spectrum selection, and an event may have candidates in multiple channels, so channel yields do not sum to the total yield in early steps.
+    }\label{tab:cut_flow}
+    \begin{tabular}{ccccc}
+      \toprule
+      Selection         &  $4\Pe$  &  $2\Pe2\Pm$  &  $4\Pm$  &  Total    \\
+      \midrule
+      \midrule
+      Trigger           &  580633  &  645640      &  399212  &  1598705  \\
+      Lepton ID         &  2195    &  6760        &  11614   &  20563    \\
+      Lepton Isolation  &  597     &  1189        &  1548    &  3334     \\
+      \midrule
+      Full Spectrum     &  440     &  1111        &  838     &  2389     \\
+      \midrule
+      \midrule
+      {\Zfourl}         &  78      &  206         &  225     &  509      \\
+      \midrule
+      \midrule
+      {\Hfourl}         &  19      &  41          &  34      &  94       \\
+      \midrule
+      \midrule
+      {\ZZfourl}        &  220     &  543         &  335     &  1098     \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+\end{table}
 
 
 \subsection{ZZ Candidate Selection}
@@ -314,7 +344,10 @@ In the rare case of further ambiguity, which may arise in events with five or mo
 This best candidate selection is done after the full selection is applied, and the other analysis selections are applied to the disambiguated events in the full spectrum phase space.
 Like the mass cut on all opposite-sign lepton pairs, this prevents events with one on-shell {\PZ} and one lower-mass $\Pa^\ast$ from passing the on-shell {\PZ} mass cuts with an erroneous lepton pairing.
 
-The total efficiency of all selections is estimated by finding the fraction of events in the {\POWHEG} and {\MCFM} {\ZZ} samples which pass both the fiducial cuts at generator level and the full analysis selection after detector simulation and reconstruction.
+The number of events found in data after several analysis steps is shown in Table~x.
+Specifically, the numbers in Table~x include events with four objects reconstructed as two opposite-sign, same-flavor lepton pairs.
+Early in the analysis flow, most of these objects are fakes later removed by lepton ID and isolation requirements.
+The total signal efficiency of all selections is estimated by finding the fraction of events in the {\POWHEG} and {\MCFM} {\ZZ} samples which pass both the fiducial cuts at generator level and the full analysis selection after detector simulation and reconstruction.
 For the doubly on-shell selection ($60 < m_{\ell\ell} < 120\GeV$), the efficiency is 54\% for $4\Pe$ events, 65\% for $2\Pe2\Pm$ events, and 78\% for $4\Pm$ events.
 For {\Zfourl} events, the efficiencies for the $4\Pe$, $2\Pe2\Pm$, and $4\Pm$ channels are, respectively, 24\%, 36\%, and 73\%.
 
