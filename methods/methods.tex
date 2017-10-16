@@ -247,7 +247,21 @@ This procedure does not account for the bias introduced by regularization, but t
 
 Most systematic uncertainties are propagated through unfolding by recomputing the response matrix with the training sample shifted or reweighted to reflect a $1\sigma$ shift in the quantity in question.
 The uncertainty related to that quantity is taken to be the resulting shape difference in the final unfolded distribution.
-Systematic uncertainties are negligible compared to statistical uncertainties in most bins.
+Systematic uncertainties are negligible compared to statistical uncertainties in most bins, as seen in Fig.~\ref{fig:unfold_unc}, which shows the sources of shape uncertainties on the normalized differential cross section as a function of four-lepton invariant mass.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.45\textwidth]{methods/errUp_mass_eeee.png}
+    \includegraphics[width=0.45\textwidth]{methods/errUp_mass_mmmm.png}
+    \caption[Differential cross section shape uncertainty sources]{
+      Sources of positive shape uncertainties for the normalized differential cross section as a function of four-lepton mass, for $4\Pe$ events (left) and $4\Pm$ events (right).
+      The grey histogram represents statistical errors, propagated through the unfolding procedure, and the histograms stacked on top of it represent various sources of systematic uncertainty.
+      The thick black line represents the sum of all the uncertainties in quadrature.
+      The systematic uncertainties are generally negligible compared to the statistical uncertainty.
+      }\label{fig:unfold_unc}
+  \end{center}
+\end{figure}
+
 
 
 \section{VBS Signal Extraction}\label{sec:vbsSearch}

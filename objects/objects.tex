@@ -175,7 +175,19 @@ Each electron's 3-dimensional impact parameter (IP) $d_\text{3D}$ must satisfy a
 \end{equation}
 where $\sigma_{d_\text{3D}}$ is the uncertainty on the IP\@.
 The $\text{SIP}_\text{3D}$ requirement is $\text{SIP}_\text{3D} < 10$ for the {\ZZ} and {\Zfourl} cross section measurements and the aTGC search, and $\text{SIP}_\text{3D} < 4$ for the Higgs boson measurement and the VBS and aQGC searches.
+Distributions of $\text{SIP}_\text{3D}$ are shown for electrons and muons in Fig.~\ref{fig:lepton_sip}.
 To remove fake electrons arising from muon tracks being associated to photons or other incidental ECAL energy clusters, electrons within $\Delta R < 0.05$ of a muon are vetoed.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.45\textwidth]{objects/eSIP3D.png}
+    \includegraphics[width=0.45\textwidth]{objects/mSIP3D.png}
+    \caption[Lepton vertex compatibility]{
+      Vertex compatibility in the form of the $\text{SIP}_\text{3D}$ distribution for electrons (left) and muons (right) in a single-{\PZ} sample.
+      The distribution extends only to 4 because these events were used for Higgs boson measurements.
+      }\label{fig:lepton_sip}
+  \end{center}
+\end{figure}
 
 To further reduce photon and jet fragment backgrounds while maintaining high prompt electron efficiency, a further selection is applied using a multivariate discriminator made with a boosted decision tree (BDT)~\cite{CMS:2010bta,Khachatryan:2015hwa}.
 The BDT uses 21 input variables, which fall into three broad categories:
@@ -201,6 +213,17 @@ The estimated neutral contribution to isolation from pileup, $\pt^\text{PU}\left
 where the average transverse-momentum flow density $\rho$ is calculated in each event using the jet area method described above.
 The effective area $A_\text{eff}$ is the geometric area of the isolation cone times an $\eta$-dependent correction factor that accounts for the residual dependence of the isolation on pileup.
 Electrons are considered isolated if their relative isolations satisfy $R_\text{iso} <0.35$.
+Relative isolation distributions are shown for electrons and muons in Fig.~\ref{fig:lepton_iso}.
+
+\begin{figure}[htbp]
+  \begin{center}
+    \includegraphics[width=0.45\textwidth]{objects/eIso.png}
+    \includegraphics[width=0.45\textwidth]{objects/mIso.png}
+    \caption[Lepton isolation distributions]{
+      Relative isolation for electrons (left) and muons (right) in single-{\PZ} events.
+      }\label{fig:lepton_iso}
+  \end{center}
+\end{figure}
 
 Efficiencies for GSF track reconstruction, electron reconstruction and identification, and electron isolation criteria, are found with a ``tag-and-probe'' method~\cite{CMS:2011aa}.
 In this technique, events are selected which contain at least one high-{\pt} ``tag'' electron passing strict ID and isolation requirements, and a ``probe'' track with the opposite sign that combines with the electron to have an invariant mass close to the {\PZ} boson mass.
