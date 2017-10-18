@@ -2,7 +2,16 @@
 
 \chapter{Analysis Strategy}\label{ch:methods}
 
+Four-lepton signal processes are generally well modeled, and backgrounds are small, so most analyses can use simple ``cut and count'' comparisons between data and Monte Carlo samples' yields after applying the selections described in Chapter~\ref{ch:reco}.
+The comparisons include the contribution from reducible backgrounds, which is estimated with a data-driven technique.
+Inclusive and differential cross sections are extracted from the observed yields with maximum likelihood estimation techniques.
+The search for vector boson scattering extracts the signal yield with a multivariate discriminator, and the searches for anomalous couplings use a profile likelihood method to extract limits from the bin-by-bin yields in the $m_{4\ell}$ distribution.
+These techniques are all described in this chapter, as are the relevant systematic uncertainties, which are taken into account by varying the input parameters to the yields and observing the resulting changes in yield and spectrum shape.
+
+
+
 \section{Background Estimation}\label{sec:bkg}
+
 Reducible backgrounds for four-lepton events typically have two or three prompt leptons and two or one other objects---typically jet fragments, sometimes photons---which are misidentified as prompt leptons.
 The largest source of background contamination is from events in which a {\PZ} boson is produced in association with a photon and a jet, a leptonically-decaying $\PW$ boson and a jet, or two jets.
 There is also a contribution from {\TTbar} events in which both top quarks decay to a lepton, a neutrino, and a {\Pqb}~quark jet.
@@ -31,7 +40,7 @@ Figure~\ref{fig:fakerates} shows the misidentification rates for electrons and m
 \end{figure}
 
 To estimate the total reducible background yield, the misidentification rates are applied to two $\PZ+\PX$ enriched control samples, each containing a {\PZ}~boson candidate passing all signal region requirements plus two more lepton candidates which pass the relaxed identification criteria and would make a second {\PZ} boson candidate according to Section~\ref{sec:zSelection} except that one or both fail the full identification or isolation criteria.
-The sample with one failing lepton, called the ``3P1F'' sample for ``3 prompt 1 fake,'' covers the contribution from {\WZ} events, while the sample with both leptons in the second {\PZ} boson failing (``2P2F'') covers $\PZ+\text{jets}$ and {\TTbar} events.
+The sample with one failing lepton, called the ``3P1F'' sample for ``3 prompt 1 fake,'' covers the contribution from {\WZ} events, while the sample with both leptons in the second {\PZ} boson failing (``2P2F'') covers $\PZ+\text{jets}$, $\PZ\Pa+\text{jets}$, and {\TTbar} events.
 The fake object transfer factor
 \begin{equation}
   F_\ell\left(\pt^\ell,\eta^\ell\right) = \frac{f_\ell\left(\pt^\ell, \eta^\ell\right)}{1 - f_\ell\left(\pt^\ell, \eta^\ell\right)}
@@ -74,7 +83,7 @@ An additional theoretical uncertainty arises from scaling the $\Pq\Paq \to \ZZ$ 
 The corresponding change in the acceptance, 1.1\%, is added to the previous theoretical errors in quadrature.
 
 Systematic uncertainties on expected signal yield are summarized in Table~\ref{tab:systematics}.
-To obtain uncertainties in the inclusive cross sections, each uncertainty source is treated as a nuisance parameter in the fits described in Section~\ref{sec:signalStrength}.
+To obtain uncertainties in the inclusive fiducial and total cross sections, each uncertainty source is treated as a nuisance parameter in the fits described in Section~\ref{sec:signalStrength}.
 For differential cross section and other shape uncertainties, the calculation  is fully redone for each uncertainty source, with the inputs shifted by one standard deviation in each direction.
 Variations across bins are taken to be fully correlated for each uncertainty source.
 Lepton and jet momentum scale and resolution uncertainties are taken to be trivial for the overall yield, but they are considered among the shape uncertainties.
