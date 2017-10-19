@@ -7,7 +7,6 @@
 %%%% http://www.ctan.org/tex-archive/macros/latex/contrib/memoir/
 
 
-%\RequirePackage{lineno}
 \documentclass[oneside, letterpaper, 12pt, oldfontcommands]{memoir}
 
 
@@ -37,9 +36,6 @@
 %% Tell the memoir class to set up lowercase roman for pagination, etc.
 \frontmatter
 
-%%%% Uncomment this to create a UMI abstract page.
-%%%% If you are submitting electronically, however, this page is unnecessary.
-% \theumiabstract
 
 % The title page
 \thetitlepage{}
@@ -63,7 +59,7 @@
 \clearpage
 
 % Table of contents
-\tableofcontents % add * if you don't want an entry for the TOC itself
+\tableofcontents*
 % \clearpage
 
 \makeatletter
@@ -95,10 +91,6 @@
 \include{results/results}
 \include{conclusions/conclusions}
 
-
-% \appendix
-% \include{appendix_yields}
-% \include{appendix_acceff}
 
 
 \SingleSpace{}
