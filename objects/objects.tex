@@ -24,7 +24,7 @@ The first iterations of the track finding algorithm searches for high-$\pt$ trac
 When a track is found, its constituent hits are removed from consideration in future iterations, reducing the computational complexity of finding the more difficult tracks from lower-$\pt$ particles and products of $\Pqb$~hadron decays which happen away from the beam line.
 
 Because the Kalman filter obtains the final track parameters only at the outermost tracker layer, each track is refit and smoothed with further Kalman filters, improving track quality and reducing fake rate.
-Spurious tracks are rejected from the final collection with requirements on the number of layers hit, the $\chi^2$ of the fit, and compatibility with a primary vertex.LHC
+Spurious tracks are rejected from the final collection with requirements on the number of layers hit, the $\chi^2$ of the fit, and compatibility with a primary vertex.
 The efficiency for reconstructing tracks of all prompt charged particles with $\pt > 900\MeV$ is around 94\% in the barrel and 85\% in the endcap; for isolated muons, it is virtually 100\% in the whole tracker acceptance~\cite{Chatrchyan:2014fea}.
 
 Electrons lose substantially more energy to interactions with the tracker material than other charged particles, often breaking the assumption of Gaussian energy loss inherent to the Kalman filter.
